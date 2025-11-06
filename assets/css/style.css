@@ -1,0 +1,486 @@
+:root {
+  --playfair: 'Playfair Display', serif;
+  --poppins: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: var(--playfair);
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #ffffff;
+}
+
+  header {
+    background-color: #ffffff;
+    padding: 0px 30px 20px;
+    color: white;
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  /* Logo */
+  .logo {
+      width: 20px;         
+      object-fit: cover;    
+      border-radius: 50%;   
+    }
+    
+  /* Search box */
+  .search-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin: 0 20px;
+    max-width: 600px;
+  }
+  
+  .search-box i {
+    color: black;
+    margin-right: 10px;
+  }
+  
+  .search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    flex: 1;
+    font-family: var(--playfair);
+  }
+/* MENU*/
+/* VÙNG MENU CHÍNH */
+/* VÙNG MENU CHÍNH - Cập nhật để có hiệu ứng Morphing Gradient */
+.right-menu {
+  width: 80%;
+  margin: 0 auto;
+  /* background: rgba(255, 255, 255, 0.08); Bỏ dòng này đi */
+
+  /* Thay thế bằng gradient morphing */
+  background: linear-gradient(45deg,
+    rgba(128, 0, 32, 0.2),  /* #800020 (Đỏ Burgundy sâu) - Trong suốt */
+    rgba(184, 134, 11, 0.2), /* #B8860B (Vàng Đồng đậm) - Trong suốt */
+    rgba(218, 165, 32, 0.2), /* #DAA520 (Vàng Đồng nhạt) - Trong suốt */
+    rgba(92, 64, 51, 0.2)   /* #5C4033 (Nâu Đất Trầm) - Trong suốt */
+);
+  background-size: 400% 400%; /* Cần thiết cho animation gradient */
+  animation: gradient 8s ease infinite; /* Áp dụng animation gradient */
+
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+ 
+/* Các đoạn CSS khác giữ nguyên */
+
+/* Ẩn nút toggle cho mobile (dùng sau) */
+#toggle {
+  display: none;
+  font-family: var(--playfair);
+}
+
+/* MENU CHÍNH */
+.header-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* ITEM CHÍNH */
+.menu-item {
+  position: relative;
+}
+
+/* LINK CHÍNH */
+.menu-item > a {
+  font-family: var(--playfair);
+  text-decoration: none;
+  color: #5c3a1d; /* chữ nâu */
+  font-weight: 500;
+  font-size: 16px;
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* HIỆU ỨNG GẠCH CHÂN */
+.menu-item > a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #a12928;
+  bottom: 0;
+  left: 50%;
+  transition: all 0.3s ease;
+}
+
+/* HOVER */
+.menu-item > a:hover {
+  color: #a12928; /* đổi đỏ khi hover */
+}
+
+.menu-item > a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* MENU CON CẤP 1 */
+.sub-menu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  display: none;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* HOVER HIỆN MENU CON */
+.menu-item:hover > .sub-menu {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* LINK TRONG MENU CON */
+.sub-menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: #5c3a1d;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  white-space: nowrap;
+  font-family: var(--playfair);
+}
+
+/* HOVER MENU CON */
+.sub-menu li a:hover {
+  background: #a12928;
+  color: #fff;
+}
+
+/* MENU CON CẤP 2 */
+.sub-menu2 {
+  list-style: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  display: none;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* HOVER HIỆN MENU CẤP 2 */
+/* Lưu ý: .menu-home không có trong CSS bạn cung cấp, hãy đảm bảo selector này khớp với HTML của bạn */
+.menu-home:hover > .sub-menu2 {
+  display: flex;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* XÓA CHẤM TRÒN */
+ul li {
+  list-style-type: none;
+}
+
+/* KEYFRAMES CHO GRADIENT MORPHING - Đảm bảo bạn có đoạn này trong CSS của mình */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Bạn có thể thêm animation 'morph' nếu muốn, nhưng với menu thì animation 'gradient' là đủ để tạo hiệu ứng chuyển màu */
+/*
+@keyframes morph {
+  0%,
+  100% {
+    transform: perspective(500px) rotateY(0deg) scale(1);
+  }
+  50% {
+    transform: perspective(500px) rotateY(5deg) scale(1.02);
+  }
+}
+*/
+/* XÓA CHẤM TRÒN */
+ul li {
+  list-style-type: none;
+}
+
+
+
+/* --- Video nền --- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+/* --- Chữ ở giữa video --- */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+/* --- Hiển thị chữ --- */
+.hero-text ul {
+  margin: 0;
+  padding: 0;
+  display: flex; /* các chữ xếp hàng ngang */
+}
+
+.hero-text ul li {
+  list-style: none;
+  color: #fffacd;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: bold;
+  letter-spacing: 10px;
+  transition: 2s;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+/* --- Khi di chuột vào toàn bộ chữ --- */
+.hero-text ul:hover li {
+  transform: rotate(45deg) translateY(-200px);
+  opacity: 0;
+  filter: blur(20px);
+}
+
+/* --- Hiệu ứng trễ cho từng chữ (staggered) --- */
+.hero-text ul li:nth-child(1) { transition-delay: 0s; }
+.hero-text ul li:nth-child(2) { transition-delay: 0.2s; }
+.hero-text ul li:nth-child(3) { transition-delay: 0.4s; }
+.hero-text ul li:nth-child(4) { transition-delay: 0.6s; }
+.hero-text ul li:nth-child(5) { transition-delay: 0.8s; }
+.hero-text ul li:nth-child(6) { transition-delay: 1s; }
+.hero-text ul li:nth-child(7) { transition-delay: 1.2s; }
+
+
+  /* HERO SECTION: Full responsive video background */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* VIDEO chiếu toàn khung, tự co giãn theo tỷ lệ màn hình */
+.video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Giúp video phủ kín khung mà vẫn giữ tỷ lệ */
+    object-position: center center; /* Canh giữa video */
+    z-index: 1;
+}
+    
+  /* Account + Cart */
+ #login-link {
+    color: #5c3a1d;
+    font-family: var(--playfair);
+  }
+  .account-cart {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  
+  .account {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .cart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .image-container {
+            display: flex;
+            /* Enable 3D transformations */
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            /* Slightly overlap the items */
+            gap: 0; 
+            padding: 20px;
+            background-color: #1f2937; /* Dark background for contrast */
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-item {
+            position: relative;
+            flex-shrink: 0;
+            /* Base width and height (collapsed state) */
+            width: 80px;
+            height: 250px;
+            
+            border: none;
+            outline: none;
+            /* Transition for smooth animation */
+            transition: width 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1), 
+                        transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1),
+                        z-index 0s;
+            cursor: pointer;
+            background: none;
+            margin: 0 -10px; /* Create overlapping effect */
+            border-radius: 0.75rem; /* Rounded corners */
+            overflow: hidden; /* Hide content overflow */
+        }
+
+        /* The actual image container (::after pseudo-element) */
+        .image-item::after {
+            position: absolute;
+            content: "";
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            /* Use the image URL variable */
+            background-image: var(--image-url);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 0.75rem;
+            /* Slight inner shadow for depth */
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); 
+            pointer-events: none;
+            transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            transform: scale(1); /* Ensure initial scale is 1 */
+        }
+
+        /* Hover effect on the focused item */
+        .image-item:hover {
+            /* Expanded width on hover */
+            width: 250px; 
+            /* Slight vertical scale for a 3D pop effect */
+            transform: scale(1.05); 
+            z-index: 99999;
+            box-shadow: 0 0 40px rgba(147, 197, 253, 0.3); /* Subtle blue glow */
+        }
+
+        /* Magnetic Effect: Items immediately following the hovered item */
+        .image-item:hover + .image-item {
+            width: 150px; /* Moderately expanded width */
+            transform: scale(1.02);
+            z-index: 9999;
+        }
+
+        /* Magnetic Effect: Items two steps following the hovered item */
+        .image-item:hover + .image-item + .image-item {
+            width: 100px;
+            transform: scale(1.01);
+            z-index: 999;
+        }
+
+        /* Magnetic Effect: Items immediately preceding the hovered item (using :has) */
+        .image-item:has(+ .image-item:hover) {
+            width: 150px; /* Moderately expanded width */
+            transform: scale(1.02);
+            z-index: 9999;
+        }
+
+        /* Magnetic Effect: Items two steps preceding the hovered item (using :has) */
+        .image-item:has(+ .image-item + .image-item:hover) {
+            width: 100px;
+            transform: scale(1.01);
+            z-index: 999;
+        }
+
+        /* Responsive adjustments for mobile/smaller screens */
+        @media (max-width: 768px) {
+            .image-item {
+                width: 40px;
+                height: 150px;
+                margin: 0 -5px;
+            }
+            .image-item:hover {
+                width: 180px;
+            }
+            .image-item:hover + .image-item,
+            .image-item:has(+ .image-item:hover) {
+                width: 80px;
+            }
+            .image-item:hover + .image-item + .image-item,
+            .image-item:has(+ .image-item + .image-item:hover) {
+                width: 50px;
+            }
+        }
+  

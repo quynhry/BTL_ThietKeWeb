@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yên Hoa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo.png">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" sizes="180x180">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+    
+  
+</head>
+<body>
+    <header>
+        <div class="header-container">
+        <img src = "assets/img/logo.png" alt ="Logo" style = "width: 80px; height: 80px"> 
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+            <i class="fa-solid fa-magnifying-glass" id="searchIcon" style="cursor: pointer;"></i>
+       </div>
+        <div class="account-cart">
+            <div class="account">
+                <i class="fa-regular fa-user"></i>
+                <div id="accountSection">
+                    <a href="pages/login.html" id="login-link">Đăng nhập / Đăng ký</a>
+                    <span id="usernameDisplay" style="display: none;"></span>
+                    <button id="logoutBtn" style="display: none;">Đăng xuất</button>
+                </div>
+            </div>
+        </div>
+<!-- Nút Giỏ Hàng -->
+<button id="cart" style="position: relative; cursor: pointer;">
+    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+    Giỏ Hàng
+    <span class="badge" style="
+        position: absolute;
+        top: -6px;
+        right: -8px;
+        background-color: #ef4444; /* Màu đỏ nhẹ */
+        color: white;
+        border-radius: 9999px;
+        padding: 2px 8px;
+        font-size: 12px;
+        font-weight: 700;
+        min-width: 20px;
+        text-align: center;
+        display: none; /* Mặc định ẩn */
+    ">0</span>
+</button>
+        </div>
+
+   <!--Menu-->
+ <div class="right-menu">
+  <button id="toggle">☰</button>
+  <ul class="header-menu">
+    <li class="menu-item"><a href="/gioi_thieu.html">Giới thiệu</a></li>
+
+    <li class="menu-item">
+      <a href="/san_pham.html">Sản phẩm</a>
+      <ul class="sub-menu">
+
+        <li class="menu-home">
+          <a href="/ao_dai_tet.html">Áo Dài Tết</a>
+          <ul class="sub-menu2">
+            <li><a href="/xuan_y_bich_hoa.html">Xuân Ý Bích Họa</a></li>
+            <li><a href="/hoa_cam.html">Họa Cầm</a></li>
+          </ul>
+        </li>
+
+        <li class="menu-home">
+          <a href="/ao_dai_me.html">Áo Dài Mẹ</a>
+          <ul class="sub-menu2">
+            <li><a href="/phuong_vu.html">Phượng Vũ</a></li>
+            <li><a href="/tu_van.html">Từ Vân</a></li>
+          </ul>
+        </li>
+
+        <li class="menu-home">
+          <a href="/ao_dai_truyen_thong.html">Áo Dài Truyền Thống</a>
+          <ul class="sub-menu2">
+            <li><a href="/duyen.html">Duyên</a></li>
+            <li><a href="/diem.html">Diễm</a></li>
+            <li><a href="/ha_thu.html">Hạ Thu</a></li>
+            <li><a href="/truc_giao.html">Trúc Giao</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li class="menu-item">
+      <a href="/bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a>
+      <ul class="sub-menu">
+        <li><a href="/duyen_uoc.html">Duyên Ước</a></li>
+        <li><a href="/giao_duyen.html">Giao Duyên</a></li>
+        <li><a href="/nhan_duyen.html">Nhân Duyên</a></li>
+        <li><a href="/tam_duyen.html">Tầm Duyên</a></li>
+      </ul>
+    </li>
+
+    <li class="menu-item"><a href="/khach_hang.html">Khách Hàng</a></li>
+
+    <li class="menu-item">
+      <a href="/">Đối Tác</a>
+      <ul class="sub-menu">
+        <li><a href="/phong_su_cuoi.html">Phóng sự cưới</a></li>
+        <li><a href="/makeup.html">Makeup</a></li>
+        <li><a href="/planner.html">Planner</a></li>
+        <li><a href="/suit.html">Suit</a></li>
+        <li><a href="/vay_cuoi.html">Váy Cưới</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </header>
+
+<!-- Nội dung trang -->
+
+
+<script>
+  document.querySelectorAll('.menu-item > i, .menu-home > i').forEach(icon => {
+    icon.addEventListener('click', () => {
+      icon.parentElement.classList.toggle('active');
+    });
+  });
+</script>
+ 
+
+<!-- Video nền -->
+<section class="hero">
+    <video autoplay muted loop playsinline" class="video">
+      <source src="https://res.cloudinary.com/ddtn4zjge/video/upload/v1762400426/Video_ch%C6%B0a_c%C3%B3_ti%C3%AAu_%C4%91%E1%BB%81_%C4%90%C6%B0%E1%BB%A3c_t%E1%BA%A1o_b%E1%BA%B1ng_Clipchamp_1_p5bsxl.mp4" type="video/mp4">
+
+    </video>
+     <!-- Lớp phủ tối -->
+  <div class="overlay"></div>
+
+  <!-- Chữ xuất hiện từng chữ -->
+  <div class="hero-text">
+    <ul>
+      <li>Y</li>
+      <li>ê</li>
+      <li>n</li>
+      <li> </li>
+      <li>H</li>
+      <li>o</li>
+      <li>a</li>
+    </ul>
+  </div>
+
+</section>
+<!---->
+<div class="flex flex-col items-center justify-center min-h-screen p-4 space-y-6">
+        <h1 class="text-3xl font-bold tracking-tight text-blue-300">Image Gallery Carousel</h1>
+        <p class="text-gray-400">Hover over an image to see the 3D expansion effect.</p>
+
+        <!-- Image Carousel Container -->
+        <div class="image-container" style="background-image: url('./assets/img/anhnen.jpg'); 
+             background-size: cover; 
+             background-attachment: fixed; 
+             background-position: center;">
+            
+            <div class="image-item" 
+                 style="--image-url: url('https://placehold.co/400x500/1e40af/ffffff?text=City+1');">
+            </div>
+            
+            <div class="image-item" 
+                 style="--image-url: url('https://placehold.co/400x500/047857/ffffff?text=Nature+2');">
+            </div>
+            
+            <div class="image-item" 
+                 style="--image-url: url('https://placehold.co/400x500/9d174d/ffffff?text=Abstract+3');">
+            </div>
+            
+            <div class="image-item" 
+                 style="--image-url: url('https://placehold.co/400x500/ca8a04/000000?text=Food+4');">
+            </div>
+            
+            <div class="image-item" 
+                 style="--image-url: url('https://placehold.co/400x500/7c3aed/ffffff?text=Technology+5');">
+            </div>
+            
+            <div class="image-item" 
+                 style="--image-url: url('https://placehold.co/400x500/22c55e/ffffff?text=Travel+6');">
+            </div>
+            
+        </div>
+    </div>
+<script src="./assets/js/search.js"></script>
+</body>
+</html>
