@@ -4,528 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yên Hoa</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo.png">
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/style.css"> 
 
-    <style>
-        /* --- Khai báo biến --- */
-        :root {
-            --playfair: 'Playfair Display', serif;
-            --quicksand: 'Quicksand', sans-serif;
-            --red: #a12928;
-            --soft-bg: #fffaf5;
-            --accent: #d6b887;
-            --text: #3a2d20;
-        }
-
-        /* --- Thiết lập cơ bản --- */
-        body {
-            font-family: var(--quicksand);
-            text-decoration: none;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            background-color: var(--soft-bg);
-            color: var(--text);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            padding-top: 0;
-        }
-
-        a { text-decoration: none; color: var(--text); }
-        a:hover { color: var(--red); }
-
-        /* Bỏ ẩn thanh top bar mặc định */
-        .header-top-bar { display: flex; } 
-
-
-        /* --- CẤU TRÚC HEADER ẨN VÀ HIỆN KHI CUỘN --- */
-        header {
-            position: fixed; /* Cố định trên đầu trang */
-            top: 0;
-            left: 0;
-            right: 0;
-            height: auto; 
-            display: block; 
-            background: var(--soft-bg); 
-            padding: 0;
-            z-index: 1200;
-            
-            /* ẨN MẶC ĐỊNH & HIỆU ỨNG TRƯỢT */
-            transform: translateY(-122px); /* Ẩn toàn bộ header lên trên (72px + 50px) */
-            opacity: 0;
-            pointer-events: none;
-            transition: transform 320ms ease, opacity 320ms ease;
-        }
-
-        /* KHI CUỘN, DÙNG CLASS 'visible' TRÊN <HEADER> ĐỂ HIỆN RA */
-        header.visible {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); /* Thêm box-shadow khi hiện */
-        }
-
-        /* PHẦN 1: TOP BAR (Logo & Icons) */
-        .header-top-bar {
-            width: 100%;
-            height: 72px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: none; /* Bỏ border-bottom cũ */
-        }
-
-        .top-logo-text { /* Logo Yên Hoa ở Top Bar (chứa logo mặc định) */
-            font-family: var(--playfair);
-            color: var(--red);
-            font-size: 20px;
-            letter-spacing: 1px;
-            font-weight: 700;
-            transition: opacity 0.3s ease;
-        }
-
-        .fade-away {
-            opacity: 0 !important;
-            transform: translateY(8px) !important;
-            pointer-events: none;
-            transition: all 420ms ease;
-        }
-
-        /* PHẦN 2: THANH MENU CHÍNH */
-        .header-nav-main {
-            width: 100%;
-            height: 50px; /* Chiều cao menu */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--soft-bg);
-            position: static; /* Đặt lại thành static */
-            border-top: 1px solid rgba(230, 210, 170, 0.6); /* Đặt đường viền cho thanh menu */
-        }
-
-        /* BỎ HIỆU ỨNG DÍNH CŨ TRÊN NAV */
-        .header-nav-main.visible {
-            position: static;
-            box-shadow: none;
-            backdrop-filter: none;
-            background: var(--soft-bg);
-            border-bottom: none;
-        }
-
-        /* Logo Header Dính (Hiện ra khi cuộn, thay thế logo Top Bar) */
-        .header-logo-text {
-            display: none; /* Mặc định ẩn */
-            font-family: var(--playfair);
-            color: var(--red);
-            font-size: 20px;
-            letter-spacing: 1px;
-            font-weight: 700;
-            position: fixed; /* Cố định vị trí */
-            left: 40px; 
-            top: 15px; /* Vị trí logo khi header trượt xuống */
-            z-index: 1251; /* Cao hơn header */
-            opacity: 0;
-            transition: opacity 320ms ease;
-        }
-        .header-logo-text.visible { 
-            opacity: 1; 
-            display: block; /* Hiển thị logo khi cần */
-        }
-
-        /* Căn chỉnh các khối trong Header */
-        .right-menu {
-            width: 92%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0;
-            display: flex;
-            justify-content: space-between; 
-            align-items: center;
-            position: static;
-            z-index: 1;
-        }
-
-        /* Căn chỉnh các icon */
-        .nav-left-icons {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            padding-left: 0; 
-            order: 1;
-        }
-        .nav-right-icons {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            padding-right: 0; 
-            order: 3;
-        }
-        .header-menu { 
-            order: 2; 
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-        }
-
-        /* MENU CHÍNH (Chi tiết) */
-        .menu-item { position: relative; }
-        .menu-item > a {
-            font-family: var(--quicksand);
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 600;
-            font-size: 16px;
-            padding: 6px 0;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .menu-item > a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--red);
-            bottom: 0;
-            left: 50%;
-            transition: all 0.3s ease;
-        }
-        .menu-item > a:hover { color: var(--red); }
-        .menu-item > a:hover::after { width: 100%; left: 0; }
-
-        /* MENU CON CẤP 1 & 2 (Giữ nguyên) */
-        .sub-menu, .sub-menu2 {
-            list-style: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            min-width: 200px;
-            display: none;
-            flex-direction: column;
-            padding: 0.5rem 0;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        .menu-item:hover > .sub-menu { display: flex; opacity: 1; transform: translateY(0); }
-        .sub-menu li a {
-            display: block;
-            padding: 10px 20px;
-            color: var(--text);
-            transition: all 0.3s ease;
-            font-size: 15px;
-            white-space: nowrap;
-            font-family: var(--quicksand);
-        }
-        .sub-menu li a:hover { background: var(--red); color: #fff; }
-
-        .sub-menu2 { top: 0; left: 100%; transform: translateX(10px); }
-        .menu-home:hover > .sub-menu2 { display: flex; opacity: 1; transform: translateX(0); }
-
-        /* --- HERO SECTION (Đã chuyển sang dùng ảnh) --- */
-        .hero {
-            /* THAY THẾ VIDEO BẰNG ẢNH NỀN */
-            background-image: url('assets/img/anhnen.jpg'); /* ĐƯỜNG DẪN ẢNH CỦA BẠN */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            /* END: THAY THẾ VIDEO */
-
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            min-height: 600px;
-        }
-        
-        /* ẨN KHỐI WRAP CHỨA VIDEO (vì giờ là ảnh nền) */
-        .bg-wrap { display: none; }
-        
-        .overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(161, 41, 40, 0.26), rgba(0, 0, 0, 0.35));
-            mix-blend-mode: multiply;
-            z-index: 1;
-        }
-        .hero-center {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 14px;
-            width: 100%;
-            padding: 0 20px;
-        }
-
-        /* Cấu trúc mới cho logo YÊN HOA trên hero */
-        .big-logo-text { /* DIV cha chứa UL */
-            font-family: var(--playfair); 
-            letter-spacing: 8px; 
-            text-transform: uppercase;
-            transform-origin: center;
-            text-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-            -webkit-font-smoothing: antialiased;
-            z-index: 2;
-        }
-
-        #bigLogoList { /* UL chứa các LI chữ cái */
-            margin: 0;
-            padding: 0;
-            display: flex; 
-            justify-content: center;
-            align-items: center;
-            font-size: clamp(3rem, 10vw, 6rem); /* Kích thước tổng thể của logo */
-            line-height: 0.9;
-        }
-
-        #bigLogoList li {
-            list-style: none;
-            color: #fffacd;
-            font-family: var(--playfair);
-            font-size: 1em; /* Kích thước dựa trên UL cha */
-            font-weight: 700;
-            transition: all 1s ease-out; /* Thời gian transition cho hiệu ứng tan biến */
-            cursor: pointer;
-            margin: 0 5px; 
-            position: relative;
-            text-shadow: inherit; 
-            line-height: 1;
-        }
-
-        /* --- KÍCH HOẠT HIỆU ỨNG TRÊN LOGO CHÍNH (KHÔNG ẢNH HƯỞNG SUB/CTA) --- */
-        #bigLogoList:hover li {
-            transform: translateX(-150px) translateY(-50px) rotate(-15deg); 
-            opacity: 0;
-            filter: blur(10px); 
-        }
-
-        /* --- Hiệu ứng trễ cho từng chữ (staggered) --- */
-        #bigLogoList li:nth-child(1) { transition-delay: 0s; }
-        #bigLogoList li:nth-child(2) { transition-delay: 0.05s; }
-        #bigLogoList li:nth-child(3) { transition-delay: 0.1s; }
-        #bigLogoList li:nth-child(4) { transition-delay: 0.15s; } /* Cho khoảng trắng */
-        #bigLogoList li:nth-child(5) { transition-delay: 0.2s; }
-        #bigLogoList li:nth-child(6) { transition-delay: 0.25s; }
-        #bigLogoList li:nth-child(7) { transition-delay: 0.3s; }
-
-        /* Subtitle và CTA */
-        .hero-sub {
-            font-size: 20px;
-            color: rgba(255, 235, 220, 0.95);
-            letter-spacing: 1px;
-            margin-top: 10px;
-            transition: all 420ms ease;
-        }
-        .cta {
-            margin-top: 18px;
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            transition: all 420ms ease;
-        }
-
-        /* HIỆU ỨNG CUỘN (SCROLL EFFECT) */
-        .big-logo-text.to-header {
-            position: fixed;
-            top: 18px;
-            left: 40px; 
-            transform: scale(1);
-            font-size: 20px; 
-            color: var(--red); 
-            letter-spacing: 1px;
-            z-index: 1300;
-            text-shadow: none;
-            opacity: 0; 
-            transition: all 420ms cubic-bezier(.2,.9,.2,1);
-            pointer-events: none; 
-        }
-        
-        .big-logo-text.to-header #bigLogoList li {
-            opacity: 0 !important;
-            transform: none !important;
-            filter: none !important;
-            transition: none !important; 
-        }
-
-        /* HIỆU ỨNG CUỘN CHO SUB/CTA */
-        .hero-sub.fade-away {
-            opacity: 0 !important;
-            transform: translateY(8px) !important;
-            pointer-events: none;
-            transition: all 420ms ease;
-        }
-        .cta.fade-away {
-            opacity: 0 !important;
-            transform: translateY(8px) !important;
-            pointer-events: none;
-            transition: all 420ms ease;
-        }
-
-
-        /* Button style */
-        .btn {
-            background: var(--accent);
-            padding: 12px 24px;
-            border-radius: 28px;
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 700;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-            transition: all 220ms;
-            font-family: var(--quicksand);
-        }
-        .btn:hover { background: var(--red); color: #fff }
-
-        /* --- CONTENT VÀ CAROUSEL GALLERY (Giữ nguyên) --- */
-        .content {
-            padding: 120px 8% 180px;
-            background: var(--soft-bg);
-            color: var(--text);
-            text-align: center;
-        }
-        .content h2 { font-family: var(--playfair); color: var(--red); margin-bottom: 18px; font-size: 30px; }
-        .content p { max-width: 760px; margin: 0 auto; line-height: 1.8; font-size: 16px; color: rgba(0, 0, 0, 0.75) }
-
-        /* Carousel CSS (Giữ nguyên) */
-        .image-container {
-            display: flex;
-            transform-style: preserve-3d;
-            transform: perspective(1000px);
-            gap: 0;
-            padding: 20px;
-            background-color: #1f2937;
-            border-radius: 1rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .image-item {
-            position: relative;
-            flex-shrink: 0;
-            width: 80px;
-            height: 250px;
-            border: none;
-            outline: none;
-            transition: width 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1),
-                        transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1),
-                        z-index 0s;
-            cursor: pointer;
-            background: none;
-            margin: 0 -10px;
-            border-radius: 0.75rem;
-            overflow: hidden;
-        }
-
-        .image-item::after {
-            position: absolute;
-            content: "";
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            background-image: var(--image-url);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 0.75rem;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-            pointer-events: none;
-            transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
-            transform: scale(1);
-        }
-
-        .image-item:hover {
-            width: 250px;
-            transform: scale(1.05);
-            z-index: 99999;
-            box-shadow: 0 0 40px rgba(147, 197, 253, 0.3);
-        }
-
-        .image-item:hover + .image-item {
-            width: 150px;
-            transform: scale(1.02);
-            z-index: 9999;
-        }
-
-        .image-item:hover + .image-item + .image-item {
-            width: 100px;
-            transform: scale(1.01);
-            z-index: 999;
-        }
-
-        .image-item:has(+ .image-item:hover) {
-            width: 150px;
-            transform: scale(1.02);
-            z-index: 9999;
-        }
-
-        .image-item:has(+ .image-item + .image-item:hover) {
-            width: 100px;
-            transform: scale(1.01);
-            z-index: 999;
-        }
-
-        /* --- Responsive (Giữ nguyên) --- */
-        @media (max-width: 992px) {
-            .right-menu { justify-content: space-around; }
-            .header-menu { gap: 1.5rem; }
-            #bigLogoList { font-size: clamp(3rem, 8vw, 6rem); } /* Điều chỉnh lại font size cho ul */
-            #bigLogoList li { margin: 0 3px; }
-        }
-
-        @media (max-width: 768px) {
-            .header-top-bar { height: 60px; }
-            .header-nav-main { display: none; } /* Ẩn menu chính trên mobile */
-            .top-logo-text { font-size: 18px; }
-            
-            /* Điều chỉnh vị trí logo dính trên mobile */
-            .header-logo-text {
-                top: 10px; 
-                left: 35px;
-                font-size: 18px;
-            }
-            
-            #bigLogoList { font-size: clamp(2.5rem, 8vw, 5rem); } /* Điều chỉnh font size trên mobile */
-            
-            /* Điều chỉnh vị trí logo lớn khi thu nhỏ trên mobile */
-            .big-logo-text.to-header { 
-                top: 10px; 
-                font-size: 18px;
-                left: 35px; 
-                transform: none;
-            }
-            
-            .hero-sub { font-size: 16px; }
-            .nav-left-icons, .nav-right-icons { gap: 15px; } 
-
-            .image-item {
-                width: 40px;
-                height: 150px;
-                margin: 0 -5px;
-            }
-            .image-item:hover { width: 180px; }
-            .image-item:hover + .image-item,
-            .image-item:has(+ .image-item:hover) { width: 80px; }
-            .image-item:hover + .image-item + .image-item,
-            .image-item:has(+ .image-item + .image-item:hover) { width: 50px; }
-        }
-    </style>
 </head>
 <body>
 
@@ -538,7 +26,8 @@
                 
                 <div class="nav-right-icons">
                     <i class="fa-solid fa-magnifying-glass" id="searchIcon" style="cursor: pointer;"></i>
-                    <i class="fa-regular fa-user"></i> <button id="cart" style="background: none; border: none; padding: 0;">
+                    <i class="fa-regular fa-user"></i> 
+                    <button id="cart" style="background: none; border: none; padding: 0;">
                         <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -603,11 +92,11 @@
 
     </header>
 
-    <section class="hero" id="hero">
+    <section class="hero" id="hero" style="background-image: url('assets/img/anhnen.jpg');">
         <div class="overlay"></div>
-
         <div class="hero-center" id="heroCenter">
             <div id="bigLogo" class="big-logo-text">
+              
                 <ul id="bigLogoList">
                     <li>Y</li>
                     <li>Ê</li>
@@ -632,114 +121,37 @@
         <p class="text-gray-400">Di chuột qua ảnh để xem hiệu ứng mở rộng 3D.</p>
 
         <div class="image-container" style="background-image: url('./assets/img/anhnen.jpg');
-                     background-size: cover;
-                     background-attachment: fixed;
-                     background-position: center;">
+                             background-size: cover;
+                             background-attachment: fixed;
+                             background-position: center;">
 
             <div class="image-item"
-                     style="--image-url: url('https://placehold.co/400x500/1e40af/ffffff?text=City+1');">
+                    style="--image-url: url('https://placehold.co/400x500/1e40af/ffffff?text=City+1');">
             </div>
 
             <div class="image-item"
-                     style="--image-url: url('https://placehold.co/400x500/047857/ffffff?text=Nature+2');">
+                    style="--image-url: url('https://placehold.co/400x500/047857/ffffff?text=Nature+2');">
             </div>
 
             <div class="image-item"
-                     style="--image-url: url('https://placehold.co/400x500/9d174d/ffffff?text=Abstract+3');">
+                    style="--image-url: url('https://placehold.co/400x500/9d174d/ffffff?text=Abstract+3');">
             </div>
 
             <div class="image-item"
-                     style="--image-url: url('https://placehold.co/400x500/ca8a04/000000?text=Food+4');">
+                    style="--image-url: url('https://placehold.co/400x500/ca8a04/000000?text=Food+4');">
             </div>
 
             <div class="image-item"
-                     style="--image-url: url('https://placehold.co/400x500/7c3aed/ffffff?text=Technology+5');">
+                    style="--image-url: url('https://placehold.co/400x500/7c3aed/ffffff?text=Technology+5');">
             </div>
 
             <div class="image-item"
-                     style="--image-url: url('https://placehold.co/400x500/22c55e/ffffff?text=Travel+6');">
+                    style="--image-url: url('https://placehold.co/400x500/22c55e/ffffff?text=Travel+6');">
             </div>
         </div>
     </div>
 
 
-    <script>
-        // Lấy các phần tử cần thiết
-        const headerTopBar = document.getElementById('headerTopBar'); // Top bar (chứa logo mặc định)
-        const headerNavMain = document.getElementById('headerNavMain'); // Menu chính
-        const bigLogo = document.getElementById('bigLogo'); // DIV cha chứa UL các chữ cái
-        const heroSub = document.getElementById('heroSub'); 
-        const heroCta = document.getElementById('heroCta');
-        const headerLogoText = document.getElementById('headerLogoText'); // Logo cố định khi cuộn
-        const topLogo = document.getElementById('topLogo'); // Logo ở Top Bar
-
-        let headerAndLogoShrunk = false; 
-        const LOGO_MOVE_SCROLL = 60; // Ngưỡng cuộn để header trượt xuống
-
-        // Hàm tiện ích: thêm/xóa class
-        function add(el, cls) { 
-            if (!el.classList.contains(cls)) el.classList.add(cls) 
-        }
-        function remove(el, cls) { 
-            if (el.classList.contains(cls)) el.classList.remove(cls) 
-        }
-
-        // Hàm xử lý cuộn chính
-        function onScroll() {
-            const y = window.scrollY || window.pageYOffset;
-
-            // LOGIC CHO HIỆU ỨNG HEADER TRƯỢT XUỐNG
-            if (y > LOGO_MOVE_SCROLL) {
-                if (!headerAndLogoShrunk) {
-                    
-                    // 1. Kích hoạt Header tổng trượt xuống (hiện)
-                    add(document.querySelector('header'), 'visible'); 
-                    
-                    // 2. HIỆN LOGO NHỎ CỐ ĐỊNH
-                    add(headerLogoText, 'visible'); 
-
-                    // 3. Ẩn Logo Top Bar (để tránh đè chữ)
-                    add(topLogo, 'fade-away');
-
-                    // 4. Kích hoạt hiệu ứng di chuyển logo lớn
-                    add(bigLogo, 'to-header');
-                    
-                    // 5. Ẩn subtitle và CTAs
-                    add(heroSub, 'fade-away');
-                    add(heroCta, 'fade-away');
-
-                    headerAndLogoShrunk = true;
-                }
-            } else {
-                // ĐẢO NGƯỢC HIỆU ỨNG KHI CUỘN VỀ ĐẦU TRANG
-                if (headerAndLogoShrunk) {
-                    
-                    // 1. Ẩn Header tổng
-                    remove(document.querySelector('header'), 'visible');
-                    
-                    // 2. ẨN LOGO NHỎ CỐ ĐỊNH
-                    remove(headerLogoText, 'visible'); 
-
-                    // 3. Hiện Logo Top Bar lại
-                    remove(topLogo, 'fade-away');
-
-                    // 4. Khôi phục logo lớn về vị trí ban đầu
-                    remove(bigLogo, 'to-header');
-                    
-                    // 5. Khôi phục subtitle và CTAs
-                    remove(heroSub, 'fade-away');
-                    remove(heroCta, 'fade-away');
-                    
-                    headerAndLogoShrunk = false;
-                }
-            }
-        }
-
-        // Gắn sự kiện CUỘN trang
-        window.addEventListener('scroll', onScroll, { passive: true });
-
-        // Khởi tạo ban đầu để đảm bảo trạng thái đúng khi tải trang
-        onScroll();
-    </script>
+    <script src="assets/js/menu.js"></script> 
 </body>
 </html>
