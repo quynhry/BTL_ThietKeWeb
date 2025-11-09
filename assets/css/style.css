@@ -378,7 +378,7 @@ header.visible {
 
 /* --- CONTENT VÀ CAROUSEL GALLERY (Giữ nguyên) --- */
 .content {
-    padding: 120px 8% 180px;
+    padding: 60px 8% 120px; /* Giảm padding-top từ 120px xuống 60px và padding-bottom từ 180px xuống 120px */
     background: var(--soft-bg);
     color: var(--text);
     text-align: center;
@@ -507,3 +507,83 @@ header.visible {
     .image-item:hover + .image-item + .image-item,
     .image-item:has(+ .image-item + .image-item:hover) { width: 50px; }
 }
+/*1. Yên Hoa */
+
+/* 1. Bộ sưu tập cưới */
+ /* 2. Khung chứa chính */
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 0;
+        }
+
+        /* 3. Khung sản phẩm (Hiệu ứng kính) */
+        .container .glass {
+            position: relative;
+            width: 180px;
+            height: 200px;
+            
+            /* Hiệu ứng Glassmorphism */
+background: linear-gradient(to top right, rgba(214, 184, 135, 0.3), rgba(214, 184, 135, 0.1));
+border: 1px solid rgba(161, 41, 40, 0.2);
+box-shadow: 0 10px 30px rgba(161, 41, 40, 0.2); 
+backdrop-filter: blur(10px);
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s ease-in-out;
+            border-radius: 10px;
+            
+            /* Hiệu ứng xoay ban đầu */
+            margin: 0 -45px;
+            transform: rotate(calc(var(--r) * 1deg));
+            cursor: pointer; 
+            overflow: hidden; 
+        }
+
+        /* 4. Hiệu ứng khi di chuột qua Container */
+        .container:hover .glass {
+            transform: rotate(0deg); /* Dừng xoay */
+            margin: 0 15px; /* Tách đều ra */
+        }
+
+        /* 5. Hiệu ứng khi di chuột vào từng sản phẩm */
+        .container .glass:hover {
+            transform: scale(1.1) !important; /* Phóng to */
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            z-index: 10;
+        }
+
+        /* 6. Vùng hiển thị tên sản phẩm (data-text) */
+        .container .glass::before {
+            content: attr(data-text);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.08); /* Nền cho tên */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #a12928; /* Màu đỏ yêu cầu */
+            font-family: 'Playfair Display', serif; /* Thêm font Playfair Display */
+            font-weight: bold; 
+            letter-spacing: 1px;
+            font-size: 0.9em;
+            text-shadow: 1px 1px 3px rgba(58, 45, 32, 0.3); /* Chuyển sang màu #3a2d20 với độ trong suốt 0.3 */
+        }
+
+        /* 7. CSS cho hình ảnh sản phẩm */
+        .container .glass img {
+            width: 100%; 
+            /* Chiều cao 160px vì 40px dành cho phần data-text */
+            height: 160px; 
+            object-fit: cover; /* Đảm bảo ảnh được cắt đẹp trong khung */
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 10px 10px 0 0; /* Bo góc trên */
+        }
