@@ -508,7 +508,151 @@ header.visible {
     .image-item:has(+ .image-item + .image-item:hover) { width: 50px; }
 }
 /*1. Yên Hoa */
+/* KHUNG CHỨA NGOÀI: Xếp TIÊU ĐỀ trên CARD */
+.gallery-wrapper {
+    display: flex;
+    flex-direction: column; /* Giữ tiêu đề trên, card dưới */
+    align-items: center;
+    padding: 60px 0; 
+    max-width: 1300px; 
+    width: 90%; 
+    margin: 0 auto; 
+}
 
+/* TIÊU ĐỀ/MÔ TẢ */
+.gallery-header {
+    text-align: center;
+    margin-bottom: 50px; 
+    color: var(--text);
+    padding: 0 20px;
+}
+
+.gallery-header h2 {
+    font-family: var(--playfair);
+    font-size: 38px; 
+    font-weight: 700;
+    color: var(--red);
+    margin: 0 0 10px 0;
+    letter-spacing: 2px;
+}
+
+.gallery-header p.motto {
+    font-family: var(--quicksand); 
+    font-size: 18px;
+    color: var(--text);
+    max-width: 800px;
+    margin: auto;
+    opacity: 0.85; 
+}
+
+/* KHUNG CARD CHỨA CÁC CỘT: BUỘC XẾP NGANG */
+.card {
+    width: 100%; 
+    height: 380px; /* Chiều cao cố định */
+    border-radius: 10px; 
+    
+    display: flex; /* <-- Bắt buộc phải là FLEX */
+    flex-direction: row; /* <-- Bắt buộc phải là ROW để xếp NGANG */
+    gap: 5px; 
+    padding: .4em;
+    
+    /* GLASSMORPHISM */
+    background: rgba(242, 216, 173, 0.5); 
+    border: 1px solid rgba(214, 184, 135, 0.4); 
+    backdrop-filter: blur(8px); 
+    box-shadow: 0 10px 30px rgba(161, 41, 40, 0.25); 
+}
+
+/* TỪNG CỘT SẢN PHẨM */
+.card p {
+    height: 100%;
+    flex: 1; /* Chia đều ra 8 cột */
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px; 
+    transition: all .5s ease-in-out; 
+    background-color: #000; 
+    border: none; 
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card p:hover {
+    flex: 3.5; /* Cột mở rộng khi hover */
+}
+
+/* Lớp phủ tối */
+.card p::before { 
+    content: '';
+    position: absolute; inset: 0; background-color: rgba(0, 0, 0, 0.75); transition: background-color 0.5s; z-index: 1; 
+}
+.card p:hover::before {
+    background-color: rgba(0, 0, 0, 0); 
+}
+
+/* Lớp phủ gradient */
+.card p::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 0; 
+    background: linear-gradient(to top, var(--red), transparent); opacity: 0; 
+    transition: all 0.5s ease-in-out; z-index: 1; 
+}
+.card p:hover::after {
+    height: 50%; opacity: 0.6; 
+}
+
+
+/* TÊN SẢN PHẨM (<span>) */
+.card p span {
+    padding: .5em 1em; text-align: center; min-width: 15em; 
+    transform-origin: center center; transition: all .5s ease-in-out; text-transform: uppercase; 
+    color: var(--soft-bg); font-family: var(--playfair); font-weight: 700; font-size: 1.2em; 
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1); letter-spacing: .2em; position: absolute; z-index: 3; white-space: nowrap; 
+    top: 50%; left: 50%;
+    
+    /* TRẠNG THÁI MẶC ĐỊNH: XOAY DỌC (-90deg) */
+    transform: translate(-50%, -50%) rotate(-90deg); 
+    opacity: 1; 
+}
+
+.card p:hover span {
+    /* TRẠNG THÁI HOVER: XOAY NGANG (0deg) */
+    top: unset; bottom: 15px; left: 50%;
+    transform: rotate(0deg) translateX(-50%); 
+    
+    width: auto; min-width: unset; border-radius: 0;
+    color: #fff; text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+}
+
+/* ------------------------------------------- */
+/* --- MEDIA QUERIES (RESPONSIVE) --- */
+/* ------------------------------------------- */
+
+/* Điều chỉnh cho mobile/tablet (Vẫn giữ xếp ngang) */
+@media (max-width: 768px) {
+    
+    .card {
+        height: 300px; /* Chiều cao nhỏ hơn trên mobile */
+        gap: 3px;
+        padding: .2em;
+        /* KHÔNG CÓ flex-direction: column; Ở ĐÂY */
+    }
+
+    .card p span {
+        font-size: 0.9em;
+        letter-spacing: 0.15em;
+    }
+
+    .card p:hover {
+        flex: 5; /* Tăng tỷ lệ mở rộng trên mobile */
+    }
+}
 /* 1. Bộ sưu tập cưới */
  /* 2. Khung chứa chính */
         .container {
