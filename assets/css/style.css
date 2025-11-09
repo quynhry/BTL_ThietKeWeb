@@ -378,7 +378,7 @@ header.visible {
 
 /* --- CONTENT VÀ CAROUSEL GALLERY (Giữ nguyên) --- */
 .content {
-    padding: 60px 8% 120px; /* Giảm padding-top từ 120px xuống 60px và padding-bottom từ 180px xuống 120px */
+    padding: 30px 8% 120px; 
     background: var(--soft-bg);
     color: var(--text);
     text-align: center;
@@ -513,10 +513,10 @@ header.visible {
     display: flex;
     flex-direction: column; /* Giữ tiêu đề trên, card dưới */
     align-items: center;
-    padding: 60px 0; 
+    padding: 40px 0; 
     max-width: 1300px; 
     width: 90%; 
-    margin: 0 auto; 
+    margin: 0 auto 40px; /* Thêm margin-bottom 40px */ 
 }
 
 /* TIÊU ĐỀ/MÔ TẢ */
