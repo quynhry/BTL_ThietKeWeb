@@ -737,3 +737,29 @@ backdrop-filter: blur(10px);
         flex: 5; /* Tăng tỷ lệ mở rộng trên mobile */
     }
 }
+/* --- SCROLL REVEAL EFFECT (Hiện Dần Khi Cuộn) --- */
+
+/* Trạng thái mặc định: Ẩn và trượt nhẹ lên 15px */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(15px); 
+    /* Hiệu ứng chuyển động mượt */
+    transition: opacity 800ms ease-out, transform 800ms ease-out; 
+}
+
+/* Trạng thái được kích hoạt bằng JS: Hiện ra và về vị trí 0 */
+.reveal-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Ví dụ: Các cột trong Gallery (dùng .card p) */
+.card p.reveal-item.active:nth-child(1) { transition-delay: 0.1s; }
+.card p.reveal-item.active:nth-child(2) { transition-delay: 0.2s; }
+.card p.reveal-item.active:nth-child(3) { transition-delay: 0.3s; }
+.card p.reveal-item.active:nth-child(4) { transition-delay: 0.4s; }
+.card p.reveal-item.active:nth-child(5) { transition-delay: 0.5s; }
+.card p.reveal-item.active:nth-child(6) { transition-delay: 0.6s; }
+.card p.reveal-item.active:nth-child(7) { transition-delay: 0.7s; }
+.card p.reveal-item.active:nth-child(8) { transition-delay: 0.8s; }
