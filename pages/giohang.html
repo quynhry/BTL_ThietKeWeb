@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kết hợp Phối 1 + Phối 2 – Yên Hoa</title>
@@ -157,10 +158,75 @@ body {
     }
 }
 </style>
+=======
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BST Áo Dài Sắp Ra Mắt</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdf6f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .coming-soon {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .coming-soon h4 {
+      color: #999;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .coming-soon h1 {
+      margin: 0 0 40px;
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      perspective: 1000px;
+      width: 200px;
+    }
+
+    .card img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.2s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .card {
+        width: 45vw;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        width: 80vw;
+      }
+    }
+  </style>
+>>>>>>> 92489dff47fb6074624764998a4d8869a231b0bf
 </head>
 
 <body>
 
+<<<<<<< HEAD
 <!-- ------------------ PHỐI 1 ------------------- -->
 <section class="layout1">
     <img src="../assets/img/anh6.jpg">
@@ -193,6 +259,48 @@ Hà Cúc tin rằng Duyên Ước sẽ là nơi chốn dịu dàng để mỗi c
         </p>
     </div>
 </section>
+=======
+  <section class="coming-soon">
+    <h4>Coming soon</h4>
+    <h1>BST ÁO DÀI SẮP RA MẮT</h1>
+    <div class="gallery">
+      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 1"></div>
+      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 2"></div>
+      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 3"></div>
+      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 4"></div>
+      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 5"></div>
+      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 6"></div>
+      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 7"></div>
+      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 8"></div>
+    </div>
+  </section>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      const img = card.querySelector('img');
+
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; // vị trí chuột theo card
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * 10; // độ nghiêng X
+        const rotateY = ((x - centerX) / centerX) * 10; // độ nghiêng Y
+
+        img.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        img.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+      });
+    });
+  </script>
+>>>>>>> 92489dff47fb6074624764998a4d8869a231b0bf
 
 </body>
 </html>

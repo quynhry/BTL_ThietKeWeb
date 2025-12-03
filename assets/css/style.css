@@ -770,6 +770,7 @@ backdrop-filter: blur(10px);
 .card a.reveal-item.active:nth-child(5) { transition-delay: 0.5s; }
 .card a.reveal-item.active:nth-child(6) { transition-delay: 0.6s; }
 .card a.reveal-item.active:nth-child(7) { transition-delay: 0.7s; }
+<<<<<<< HEAD
 .card a.reveal-item.active:nth-child(8) { transition-delay: 0.8s; }
 
 /* DUYÊN ƯỚC */
@@ -962,3 +963,6 @@ backdrop-filter: blur(10px);
     color: #000000;
 }
 
+=======
+.card a.reveal-item.active:nth-child(8) { transition-delay: 0.8s; }
+>>>>>>> 92489dff47fb6074624764998a4d8869a231b0bf
