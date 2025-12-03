@@ -60,7 +60,7 @@ header.visible {
 /* PHẦN 1: TOP BAR (Logo & Icons) */
 .header-top-bar {
     width: 100%;
-    height: 72px; 
+    height: 42px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,7 +70,7 @@ header.visible {
 .top-logo-text { /* Logo Yên Hoa ở Top Bar (chứa logo mặc định) */
     font-family: var(--playfair);
     color: var(--red);
-    font-size: 20px;
+    font-size: 100px;
     letter-spacing: 1px;
     font-weight: 700;
     transition: opacity 0.3s ease;
@@ -86,14 +86,22 @@ header.visible {
 /* PHẦN 2: THANH MENU CHÍNH */
 .header-nav-main {
     width: 100%;
-    height: 50px; /* Chiều cao menu */
+    height: 35px; /* Chiều cao menu */
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--soft-bg);
     position: static; /* Đặt lại thành static */
     border-top: 1px solid rgba(230, 210, 170, 0.6); /* Đặt đường viền cho thanh menu */
+    position: relative;
+    z-index: 9999;
+
 }
+#headerLogoText {
+    z-index: 500; /* Trước đây là 1251 → quá cao */
+    pointer-events: none; /* Để logo không chắn menu */
+}
+
 
 /* BỎ HIỆU ỨNG DÍNH CŨ TRÊN NAV */
 .header-nav-main.visible {
@@ -568,7 +576,7 @@ backdrop-filter: blur(10px);
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #a12928; /* Màu đỏ yêu cầu */
+            color: #a12928; 
             font-family: 'Playfair Display', serif; /* Thêm font Playfair Display */
             font-weight: bold; 
             letter-spacing: 1px;
@@ -644,7 +652,7 @@ backdrop-filter: blur(10px);
 }
 
 /* TỪNG CỘT SẢN PHẨM */
-.card p {
+.card a {
     height: 100%;
     flex: 1; /* Chia đều ra 8 cột */
     overflow: hidden;
@@ -664,20 +672,20 @@ backdrop-filter: blur(10px);
     align-items: center;
 }
 
-.card p:hover {
+.card a:hover {
     flex: 3.5; /* Cột mở rộng khi hover */
 }
 
 /* Lớp phủ tối */
-.card p::before { 
+.card a::before { 
     content: '';
     position: absolute; inset: 0; background-color: rgba(0, 0, 0, 0.6);  transition: background-color 0.5s; z-index: 1; 
 }
-.card p:hover::before {
+.card a:hover::before {
     background-color: rgba(0, 0, 0, 0); 
 }
 /* Lớp phủ gradient */
-.card p::after {
+.card a::after {
     content: ''; 
     position: absolute; bottom: 0; left: 0; right: 0; height: 0; 
     /* Dùng var(--red) cho hiệu ứng nổi bật theo ngữ cảnh thiết kế */
@@ -686,14 +694,14 @@ backdrop-filter: blur(10px);
     transition: all 0.5s ease-in-out; 
     z-index: 1; 
 }
-.card p:hover::after {
+.card a:hover::after {
     height: 50%; 
     opacity: 1; 
 }
 
 
 /* TÊN SẢN PHẨM (<span>) */
-.card p span {
+.card a span {
     padding: .5em 1em; text-align: center; min-width: 15em; 
     transform-origin: center center; transition: all .5s ease-in-out; text-transform: uppercase; 
     color: var(--accent); font-family: var(--playfair); font-weight: 700; font-size: 1.2em; 
@@ -705,7 +713,7 @@ backdrop-filter: blur(10px);
     opacity: 1; 
 }
 
-.card p:hover span {
+.card a:hover span {
     /* TRẠNG THÁI HOVER: XOAY NGANG (0deg) */
     top: unset; bottom: 15px; left: 50%;
     transform: rotate(0deg) translateX(-50%); 
@@ -728,12 +736,12 @@ backdrop-filter: blur(10px);
         /* KHÔNG CÓ flex-direction: column; Ở ĐÂY */
     }
 
-    .card p span {
+    .card a span {
         font-size: 0.9em;
         letter-spacing: 0.15em;
     }
 
-    .card p:hover {
+    .card a:hover {
         flex: 5; /* Tăng tỷ lệ mở rộng trên mobile */
     }
 }
@@ -755,11 +763,202 @@ backdrop-filter: blur(10px);
 
 
 /* Ví dụ: Các cột trong Gallery (dùng .card p) */
-.card p.reveal-item.active:nth-child(1) { transition-delay: 0.1s; }
-.card p.reveal-item.active:nth-child(2) { transition-delay: 0.2s; }
-.card p.reveal-item.active:nth-child(3) { transition-delay: 0.3s; }
-.card p.reveal-item.active:nth-child(4) { transition-delay: 0.4s; }
-.card p.reveal-item.active:nth-child(5) { transition-delay: 0.5s; }
-.card p.reveal-item.active:nth-child(6) { transition-delay: 0.6s; }
-.card p.reveal-item.active:nth-child(7) { transition-delay: 0.7s; }
-.card p.reveal-item.active:nth-child(8) { transition-delay: 0.8s; }
+.card a.reveal-item.active:nth-child(1) { transition-delay: 0.1s; }
+.card a.reveal-item.active:nth-child(2) { transition-delay: 0.2s; }
+.card a.reveal-item.active:nth-child(3) { transition-delay: 0.3s; }
+.card a.reveal-item.active:nth-child(4) { transition-delay: 0.4s; }
+.card a.reveal-item.active:nth-child(5) { transition-delay: 0.5s; }
+.card a.reveal-item.active:nth-child(6) { transition-delay: 0.6s; }
+.card a.reveal-item.active:nth-child(7) { transition-delay: 0.7s; }
+.card a.reveal-item.active:nth-child(8) { transition-delay: 0.8s; }
+
+/* DUYÊN ƯỚC */
+.layout1 {
+    display: flex;
+    gap: 60px;
+    padding: 110px 7% 90px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-top: -50px;
+    margin-bottom: 20px;
+}
+
+.layout1 .image-container {
+    width: 40%;
+    height: 470px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+
+    border: 1px solid #8a3b3b; /* viền mảnh */
+    background-color: transparent;
+    box-sizing: border-box;
+
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+/* Zoom nhẹ khi hover */
+.layout1 .image-container:hover {
+    transform: scale(1.03);
+    border-color: #8a3b3b;
+}
+
+/* Ảnh default và hover đều phủ toàn bộ container */
+.layout1 .image-container img,
+.layout1 .image-container .img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Ảnh hover ban đầu ẩn */
+.layout1 .image-container .img-hover {
+    opacity: 0;
+}
+
+/* Hover: fade ảnh */
+.layout1 .image-container:hover .img-hover {
+    opacity: 1;
+}
+
+.layout1 .image-container:hover .img-default {
+    opacity: 0;
+}
+
+/*mô tả*/
+.text-block {
+    width: 45%;
+    padding-right: 20px;
+}
+
+.text-block h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    line-height: 1.22;
+    color: #7d1c1c;
+    font-weight: 600;
+}
+
+.text-block .quote {
+    font-size: 16px;
+    margin: 18px 0 22px;
+    font-style: italic;
+    color: #8a3b3b;
+}
+
+.text-block p {
+    line-height: 1.8;
+    font-size: 15px;
+    color: #000000;
+}
+/*nút xem thêm*/
+.btn-yenhoa-outline {
+    padding: 13px 38px;
+    background: transparent;
+    border: 2px solid #b44f58;
+    outline: 2px solid #f4d7d9;
+    outline-offset: -6px;
+    color: #6e1f22;
+    font-size: 18px;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+.btn-yenhoa-outline:hover {
+    background: #f4d7d9;
+    outline-offset: -2px;
+}
+/* Giao duyên */
+.layout2 {
+    display: flex;
+    gap: 60px;
+    padding: 110px 7% 90px;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    margin-top: 40px;
+    margin-bottom: 90px;
+    flex-direction: row-reverse;
+}
+
+.layout2 .image-container {
+    width: 40%;
+    height: 470px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+
+    border: 1px solid #8a3b3b; /* viền mảnh */
+    background-color: transparent;
+    box-sizing: border-box;
+
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+/* Zoom nhẹ khi hover */
+.layout2 .image-container:hover {
+    transform: scale(1.03);
+    border-color: #8a3b3b;
+}
+
+/* Ảnh default và hover đều phủ toàn bộ container */
+.layout2 .image-container img,
+.layout2 .image-container .img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Ảnh hover ban đầu ẩn */
+.layout2 .image-container .img-hover {
+    opacity: 0;
+}
+
+/* Hover: fade ảnh */
+.layout2 .image-container:hover .img-hover {
+    opacity: 1;
+}
+
+.layout2 .image-container:hover .img-default {
+    opacity: 0;
+}
+
+
+.text-block {
+    width: 45%;
+    padding-right: 20px;
+}
+
+.text-block h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    line-height: 1.22;
+    color: #7d1c1c;
+    font-weight: 600;
+}
+
+.text-block .quote {
+    font-size: 16px;
+    margin: 18px 0 22px;
+    font-style: italic;
+    color: #8a3b3b;
+}
+
+.text-block p {
+    line-height: 1.8;
+    font-size: 15px;
+    color: #000000;
+}
+

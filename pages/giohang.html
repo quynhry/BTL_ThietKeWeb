@@ -1,273 +1,198 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bộ Sưu Tập Áo Dài - Bố cục Cân đối</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kết hợp Phối 1 + Phối 2 – Yên Hoa</title>
+
+<style>
+body {
+    margin: 0;
+    background: #faf7f4;
+    font-family: "Poppins", sans-serif;
+    color: #4a3f35;
+}
+
+
+
+/* -----------------------------------
+   PHỐI 1 – ẢNH TRÁI + TEXT SANG TRỌNG
+------------------------------------*/
+/* ----------------------------------- PHỐI 1 – ẢNH TRÁI + TEXT SANG TRỌNG (Ảnh nhỏ – Chữ nhiều hơn) ------------------------------------*/
+
+.layout1 {
+    display: flex;
+    flex-direction: row-reverse;    /* Ảnh phải – Text trái */
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    margin-top: -40px;
+}
+
+.layout1 img {
+    width: 40%;
+    height: 470px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.18);
+    filter: brightness(0.92);
+}
+
+.text-block {
+    width: 45%;
+    padding-right: 20px;
+}
+
+.text-block h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    line-height: 1.22;
+    color: #7d1c1c;
+    font-weight: 600;
+}
+
+.text-block .quote {
+    font-size: 16px;
+    margin: 18px 0 22px;
+    font-style: italic;
+    color: #8a3b3b;
+}
+
+.text-block p {
+    line-height: 1.8;
+    font-size: 15px;
+    color: #000000;
+}
+
+/* MOBILE */
+@media(max-width: 850px) {
+    .layout1 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .layout1 img {
+        width: 100%;
+        height: auto;
+    }
+
+    .text-block {
+        width: 100%;
+    }
+
+    .text-block h1 {
+        font-size: 40px;
+    }
+}
+
+/* -----------------------------------
+   PHỐI 2 – ẢNH FULL + HỘP CHỮ FLOAT
+------------------------------------*/
+.layout2 {
+    position: relative;
+}
+
+.full-bg {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    filter: brightness(0.70);
+}
+
+/* Hộp chữ đẹp hơn – cân đối hơn */
+.center-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     
-    <style>
-        /* --- 1. KHAI BÁO BIẾN & THIẾT LẬP CƠ BẢN --- */
-        :root {
-            --playfair: 'Playfair Display', serif;
-            --quicksand: 'Quicksand', sans-serif;
-            --red: #a12928; 
-            --soft-bg: #fffaf5; 
-            --accent: #d6b887; 
-            --text: #3a2d20;
-            --black: #000000;
-        }
+    width: 58%;
+    padding: 45px 65px;
 
-        body {
-            font-family: var(--quicksand);
-            background-color: var(--soft-bg);
-            color: var(--text);
-            padding: 0;
-            margin: 0;
-            text-align: center;
-        }
-        h2 {
-            font-family: var(--playfair);
-            color: var(--red);
-            font-size: 38px; 
-            margin: 40px 0 20px 0;
-        }
+    background: rgba(255,255,255,0.68);
+    border-radius: 18px;
+    backdrop-filter: blur(14px);
 
-        /* --- 2. CSS CHO BỐ CỤC 4x4 VÀ HIỆU ỨNG 3D ĐÃ CÂN ĐỐI (THẨM MỸ HƠN) --- */
+    text-align: center;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.28);
+}
 
-        /* CONTAINER: Tạo khoảng đệm lớn hơn và căn giữa 4 cột */
-        .product-grid-container {
-            display: flex;
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 40px; /* TĂNG KHOẢNG CÁCH */
-            padding: 60px 40px; 
-            
-            /* CHIỀU RỘNG MỚI: 4 * 200px + 3 * 40px = 920px */
-            max-width: 920px; 
-            width: 100%; 
-            margin: 0 auto; 
-        }
+.center-box h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 48px;
+    color: #7d1c1c;
+    margin-bottom: 18px;
+}
 
-        /* SẢN PHẨM RIÊNG LẺ: Tăng kích thước và làm mềm bóng đổ */
-        .book {
-            position: relative;
-            border-radius: 12px; 
-            width: 200px; /* TĂNG CHIỀU RỘNG */
-            height: 280px; /* TĂNG CHIỀU CAO */
-            background-color: var(--soft-bg); 
-            
-            /* Bóng đổ mềm mại */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
-            
-            transform-style: preserve-3d;
-            perspective: 800px; /* Góc nhìn sâu hơn */
-            
-            display: flex; 
-            align-items: center;
-            justify-content: center;
-            color: var(--text);
-            transition-duration: 0.5s;
-        }
+.center-box p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #4a3f35;
+}
 
-        .cover,
-        .inner {
-            top: 0;
-            position: absolute;
-            background-color: var(--accent); 
-            width: 100%;
-            height: 100%;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.5s;
-            transform-origin: 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Bóng đổ nhẹ nhàng */
-            
-            display: flex; 
-            align-items: center;
-            justify-content: center;
-            overflow: hidden; 
-        }
+/* MOBILE */
+@media(max-width: 850px) {
+    .layout1 {
+        flex-direction: column;
+        text-align: center;
+    }
 
-        /* Định dạng nội dung (Hình ảnh và Tiêu đề) */
-        .product-image {
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            border-radius: 12px; 
-        }
+    .layout1 img {
+        width: 100%;
+        height: auto;
+    }
 
-        /* Tiêu đề trên bìa: Dùng font Playfair Display để nhấn mạnh */
-        .product-title-on-cover {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 10px 8px; 
-            background: rgba(58, 45, 32, 0.7); /* Dùng màu text tối hơn (var(--text)) */
-            color: var(--soft-bg); 
-            font-family: var(--playfair); 
-            font-size: 16px; 
-            font-weight: 600;
-            text-align: center;
-            margin: 0;
-            z-index: 10;
-        }
+    .text-block {
+        width: 100%;
+    }
 
+    .center-box {
+        width: 85%;
+        padding: 30px 25px;
+    }
 
-        /* Hiệu ứng HOVER (Đã điều chỉnh độ xoay) */
-        .book:hover .cover {
-            transition: all 0.5s;
-            transform: rotatey(-75deg); /* Xoay mạnh hơn một chút (75 độ) */
-        }
-
-        .inner {
-            transform-origin: 100%;
-        }
-
-        .book:hover .inner {
-            transition: all 0.5s;
-            /* Điều chỉnh dịch chuyển cho kích thước mới */
-            transform: rotateZ(20deg) rotateX(-20deg) rotateY(-10deg) translateX(180px); 
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .book:hover {
-            transform: rotateZ(-5deg); /* Giảm nhẹ độ nghiêng tổng thể */
-        }
-
-        /* --- 3. RESPONSIVE --- */
-        
-        /* Màn hình tablet/laptop nhỏ (3 cột) */
-        @media (max-width: 950px) {
-            .product-grid-container {
-                max-width: 680px; /* 3 * 200px + 2 * 40px = 680px */
-            }
-        }
-        
-        /* Màn hình điện thoại ngang/tablet nhỏ (2 cột) */
-        @media (max-width: 700px) {
-             .product-grid-container {
-                max-width: 440px; /* 2 * 200px + 1 * 40px = 440px */
-            }
-        }
-        
-        /* Màn hình điện thoại dọc (1 cột) */
-        @media (max-width: 480px) {
-            .product-grid-container {
-                max-width: 100%;
-                padding: 20px 10px;
-                gap: 20px;
-            }
-            .book {
-                width: 85%; 
-                max-width: 300px;
-                height: 380px;
-            }
-             .book:hover .inner {
-                /* Điều chỉnh dịch chuyển cho màn hình nhỏ */
-                transform: rotateZ(20deg) rotateX(-20deg) rotateY(-10deg) translateX(250px);
-            }
-            .product-title-on-cover {
-                font-size: 16px;
-            }
-        }
-    </style>
+    .center-box h1 {
+        font-size: 38px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <h2>👗 Bộ Sưu Tập Áo Dài Truyền Thống 🌸</h2>
-    
-    <div class="product-grid-container">
-        
-        <div class="book">
-            <img class="product-image" src="URL_HINH_ANH_AO_DAI_1_NEN" alt="Áo dài 1 Nền">
-            <div class="inner">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_1_CHI_TIET" alt="Áo dài 1 Chi tiết">
-            </div>
-            <div class="cover">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_1_CHINH" alt="Áo dài 1 Chính">
-                <p class="product-title-on-cover">Áo Dài Lụa Gấm Tuyết</p>
-            </div>
-        </div>
+<!-- ------------------ PHỐI 1 ------------------- -->
+<section class="layout1">
+    <img src="../assets/img/anh6.jpg">
 
-        <div class="book">
-            <img class="product-image" src="URL_HINH_ANH_AO_DAI_2_NEN" alt="Áo dài 2 Nền">
-            <div class="inner">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_2_CHI_TIET" alt="Áo dài 2 Chi tiết">
-            </div>
-            <div class="cover">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_2_CHINH" alt="Áo dài 2 Chính">
-                <p class="product-title-on-cover">Áo Dài Sen Thêu Tay</p>
-            </div>
-        </div>
-        
-        <div class="book">
-            <img class="product-image" src="URL_HINH_ANH_AO_DAI_3_NEN" alt="Áo dài 3 Nền">
-            <div class="inner">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_3_CHI_TIET" alt="Áo dài 3 Chi tiết">
-            </div>
-            <div class="cover">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_3_CHINH" alt="Áo dài 3 Chính">
-                <p class="product-title-on-cover">Áo Dài Tứ Thân Cải Biên</p>
-            </div>
-        </div>
-        
-        <div class="book">
-            <img class="product-image" src="URL_HINH_ANH_AO_DAI_4_NEN" alt="Áo dài 4 Nền">
-            <div class="inner">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_4_CHI_TIET" alt="Áo dài 4 Chi tiết">
-            </div>
-            <div class="cover">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_4_CHINH" alt="Áo dài 4 Chính">
-                <p class="product-title-on-cover">Áo Dài Cưới Trắng</p>
-            </div>
-        </div>
-        
-        <div class="book">
-            <img class="product-image" src="URL_HINH_ANH_AO_DAI_5_NEN" alt="Áo dài 5 Nền">
-            <div class="inner">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_5_CHI_TIET" alt="Áo dài 5 Chi tiết">
-            </div>
-            <div class="cover">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_5_CHINH" alt="Áo dài 5 Chính">
-                <p class="product-title-on-cover">Áo Dài Trắng Học Sinh</p>
-            </div>
-        </div>
-        
-        <div class="book">
-            <img class="product-image" src="URL_HINH_ANH_AO_DAI_6_NEN" alt="Áo dài 6 Nền">
-            <div class="inner">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_6_CHI_TIET" alt="Áo dài 6 Chi tiết">
-            </div>
-            <div class="cover">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_6_CHINH" alt="Áo dài 6 Chính">
-                <p class="product-title-on-cover">Áo Dài Đính Đá Cao Cấp</p>
-            </div>
-        </div>
-        
-        <div class="book">
-            <img class="product-image" src="URL_HINH_ANH_AO_DAI_7_NEN" alt="Áo dài 7 Nền">
-            <div class="inner">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_7_CHI_TIET" alt="Áo dài 7 Chi tiết">
-            </div>
-            <div class="cover">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_7_CHINH" alt="Áo dài 7 Chính">
-                <p class="product-title-on-cover">Áo Dài Lụa Tím</p>
-            </div>
-        </div>
-
-        <div class="book">
-            <img class="product-image" src="URL_HINH_ANH_AO_DAI_8_NEN" alt="Áo dài 8 Nền">
-            <div class="inner">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_8_CHI_TIET" alt="Áo dài 8 Chi tiết">
-            </div>
-            <div class="cover">
-                <img class="product-image" src="URL_HINH_ANH_AO_DAI_8_CHINH" alt="Áo dài 8 Chính">
-                <p class="product-title-on-cover">Áo Dài Đỏ Tết</p>
-            </div>
-        </div>
-
+    <div class="text-block">
+        <h1>Duyên Ước | BST Áo Dài Cưới</h1>
+        <div class="quote">"Một lời hẹn cho tháng năm dài phía trước."</div>
+        <p>
+            Duyên Ước là bản tình ca bằng lụa, được dệt nên từ sự thấu hiểu và cảm xúc chân thành của những người yêu nhau. BST là hiện thân cho tình yêu khi đã đủ chín, đủ sâu — lặng lẽ, điềm nhiên mà bền vững như gốc rễ lâu năm của một mối duyên lành. Duyên Ước là lời nguyện ước thành hình, là hồi ức của khoảnh khắc mà cả hai biết: đây chính là người sẽ cùng nắm tay đi đến trọn đời.
+BST được ấp ủ và hoàn thiện bởi chính nhà thiết kế Hà Cúc – người đã dẫn dắt thương hiệu suốt hơn 12 năm qua với tình yêu dành cho Áo Dài truyền thống – cùng những người nghệ nhân thêu đính gắn bó bền bỉ phía sau. Mỗi mũi thêu, mỗi chi tiết đính kết đều là kết tinh của tay nghề lâu năm và sự thấu hiểu cảm xúc trong ngày cưới, ngày mà cô dâu chú rể không chỉ cần một bộ trang phục đẹp, mà cần một thiết kế thực sự nói thay điều họ đang mong ước.
+Hà Cúc tin rằng Duyên Ước sẽ là nơi chốn dịu dàng để mỗi cặp đôi tìm thấy chính mình – trong tình yêu, trong ký ức, và trong vẻ đẹp của một di sản đang sống.
     </div>
-    
+</section>
+
+<!-- ----------- CHUYỂN CẢNH ------------- -->
+<div class="section-divider">
+    <div class="wavy-line"></div>
+</div>
+
+
+<!-- ------------------ PHỐI 2 ------------------- -->
+<section class="layout2">
+    <img src="../assets/img/anh6.jpg" class="full-bg">
+
+    <div class="center-box">
+        <h1>Duyên Ước – Sắc Đỏ Thiêng Liêng</h1>
+        <p>
+            Sắc đỏ là biểu tượng của hạnh phúc – lời chúc phúc thiêng liêng dành cho cô dâu.
+            Kết hợp hơi thở hiện đại, thiết kế mang lại cảm xúc vừa trang trọng, vừa tinh tế.
+        </p>
+    </div>
+</section>
+
 </body>
 </html>
