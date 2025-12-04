@@ -860,6 +860,9 @@ backdrop-filter: blur(10px);
 }
 /*nút xem thêm*/
 .btn-yenhoa-outline {
+    display: block;        
+    width: fit-content;    
+    margin: 0 auto;        
     padding: 13px 38px;
     background: transparent;
     border: 2px solid #b44f58;
@@ -961,4 +964,33 @@ backdrop-filter: blur(10px);
     font-size: 15px;
     color: #000000;
 }
+/* COMMING SOON
+.comming {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 ảnh mỗi hàng */
+    gap: 20px; /* khoảng cách giữa các ảnh */
+    max-width: 1200px; 
+    margin: 0 auto; /* căn giữa toàn bộ khung */
+}
+
+.comming .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+.card {
+    transform: perspective(1000px) rotateX() rotateY();
+    transition: transform 0.2s;
+    
+
+}
+
+/* .card:hover {
+    transform: perspective(1000px);
+    transform-style: preserve-3d;
+    /* transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1); */
+    /* transform: rotateX(18deg) rotateY(36deg); */
+
+ */
 
