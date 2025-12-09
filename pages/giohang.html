@@ -1,306 +1,129 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-<<<<<<< HEAD
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kết hợp Phối 1 + Phối 2 – Yên Hoa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Footer</title>
 
-<style>
-body {
-    margin: 0;
-    background: #faf7f4;
-    font-family: "Poppins", sans-serif;
-    color: #4a3f35;
-}
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+    <style>
+        /* styles.css */
 
+        body {
+            margin: 0;
+            background: #0e121c;
+            color: #dddfed;
+            height: 100vh;
+        }
 
-/* -----------------------------------
-   PHỐI 1 – ẢNH TRÁI + TEXT SANG TRỌNG
-------------------------------------*/
-/* ----------------------------------- PHỐI 1 – ẢNH TRÁI + TEXT SANG TRỌNG (Ảnh nhỏ – Chữ nhiều hơn) ------------------------------------*/
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            display: flex;
+            width: 100%;
+            padding-bottom: 100px;
+        }
 
-.layout1 {
-    display: flex;
-    flex-direction: row-reverse;    /* Ảnh phải – Text trái */
-    gap: 60px;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-    margin-top: -40px;
-}
+        .background {
+            position: absolute;
+            overflow: hidden;
+            z-index: -1;
+            left: 50%;
+            right: 0;
+            bottom: -69px;
+            translate: -50% 0;
+            width: 150vw;
+            height: 480px;
+        }
 
-.layout1 img {
-    width: 40%;
-    height: 470px;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 25px 45px rgba(0,0,0,0.18);
-    filter: brightness(0.92);
-}
+        ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-.text-block {
-    width: 45%;
-    padding-right: 20px;
-}
+        .socials {
+            gap: 10px;
+        }
 
-.text-block h1 {
-    font-family: "Playfair Display", serif;
-    font-size: 30px;
-    line-height: 1.22;
-    color: #7d1c1c;
-    font-weight: 600;
-}
+        .socials a {
+            font-size: 24px;
+            background: rgb(255 255 255 / 6%);
+            backdrop-filter: blur(10px);
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
 
-.text-block .quote {
-    font-size: 16px;
-    margin: 18px 0 22px;
-    font-style: italic;
-    color: #8a3b3b;
-}
+        .links {
+            gap: 14px;
+        }
 
-.text-block p {
-    line-height: 1.8;
-    font-size: 15px;
-    color: #000000;
-}
+        .legal {
+            font-size: 12px;
+            color: #a2b6e1;
+        }
 
-/* MOBILE */
-@media(max-width: 850px) {
-    .layout1 {
-        flex-direction: column;
-        text-align: center;
-    }
+        section {
+            position: absolute;
+            bottom: 0;
+            max-height: 520px;
+            min-height: 400px;
+            transform: scaleY(3) scaleX(2.25);
+            transform-origin: bottom;
+            pointer-events: none;
 
-    .layout1 img {
-        width: 100%;
-        height: auto;
-    }
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
 
-    .text-block {
-        width: 100%;
-    }
-
-    .text-block h1 {
-        font-size: 40px;
-    }
-}
-
-/* -----------------------------------
-   PHỐI 2 – ẢNH FULL + HỘP CHỮ FLOAT
-------------------------------------*/
-.layout2 {
-    position: relative;
-}
-
-.full-bg {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-    filter: brightness(0.70);
-}
-
-/* Hộp chữ đẹp hơn – cân đối hơn */
-.center-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    width: 58%;
-    padding: 45px 65px;
-
-    background: rgba(255,255,255,0.68);
-    border-radius: 18px;
-    backdrop-filter: blur(14px);
-
-    text-align: center;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.28);
-}
-
-.center-box h1 {
-    font-family: "Playfair Display", serif;
-    font-size: 48px;
-    color: #7d1c1c;
-    margin-bottom: 18px;
-}
-
-.center-box p {
-    font-size: 18px;
-    line-height: 1.7;
-    color: #4a3f35;
-}
-
-/* MOBILE */
-@media(max-width: 850px) {
-    .layout1 {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .layout1 img {
-        width: 100%;
-        height: auto;
-    }
-
-    .text-block {
-        width: 100%;
-    }
-
-    .center-box {
-        width: 85%;
-        padding: 30px 25px;
-    }
-
-    .center-box h1 {
-        font-size: 38px;
-    }
-}
-</style>
-=======
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BST Áo Dài Sắp Ra Mắt</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fdf6f0;
-      margin: 0;
-      padding: 0;
-    }
-
-    .coming-soon {
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    .coming-soon h4 {
-      color: #999;
-      font-weight: 400;
-      margin-bottom: 10px;
-    }
-
-    .coming-soon h1 {
-      margin: 0 0 40px;
-      font-size: 2.5rem;
-      color: #333;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .card {
-      perspective: 1000px;
-      width: 200px;
-    }
-
-    .card img {
-      display: block;
-      width: 100%;
-      border-radius: 10px;
-      transition: transform 0.2s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transform: rotateX(0deg) rotateY(0deg);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .card {
-        width: 45vw;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .card {
-        width: 80vw;
-      }
-    }
-  </style>
->>>>>>> 92489dff47fb6074624764998a4d8869a231b0bf
+        section * {
+            transform: scale(0.33, 0.45);
+            pointer-events: auto;
+        }
+    </style>
 </head>
 
 <body>
 
-<<<<<<< HEAD
-<!-- ------------------ PHỐI 1 ------------------- -->
-<section class="layout1">
-    <img src="../assets/img/anh6.jpg">
+<footer>
 
-    <div class="text-block">
-        <h1>Duyên Ước | BST Áo Dài Cưới</h1>
-        <div class="quote">"Một lời hẹn cho tháng năm dài phía trước."</div>
-        <p>
-            Duyên Ước là bản tình ca bằng lụa, được dệt nên từ sự thấu hiểu và cảm xúc chân thành của những người yêu nhau. BST là hiện thân cho tình yêu khi đã đủ chín, đủ sâu — lặng lẽ, điềm nhiên mà bền vững như gốc rễ lâu năm của một mối duyên lành. Duyên Ước là lời nguyện ước thành hình, là hồi ức của khoảnh khắc mà cả hai biết: đây chính là người sẽ cùng nắm tay đi đến trọn đời.
-BST được ấp ủ và hoàn thiện bởi chính nhà thiết kế Hà Cúc – người đã dẫn dắt thương hiệu suốt hơn 12 năm qua với tình yêu dành cho Áo Dài truyền thống – cùng những người nghệ nhân thêu đính gắn bó bền bỉ phía sau. Mỗi mũi thêu, mỗi chi tiết đính kết đều là kết tinh của tay nghề lâu năm và sự thấu hiểu cảm xúc trong ngày cưới, ngày mà cô dâu chú rể không chỉ cần một bộ trang phục đẹp, mà cần một thiết kế thực sự nói thay điều họ đang mong ước.
-Hà Cúc tin rằng Duyên Ước sẽ là nơi chốn dịu dàng để mỗi cặp đôi tìm thấy chính mình – trong tình yêu, trong ký ức, và trong vẻ đẹp của một di sản đang sống.
+    <div class="background">
+        <svg>
+            <!-- full svg code on GitHub -->
+        </svg>
     </div>
-</section>
 
-<!-- ----------- CHUYỂN CẢNH ------------- -->
-<div class="section-divider">
-    <div class="wavy-line"></div>
-</div>
+    <section>
 
+        <ul class="socials">
+            <li><a class="fa-brands fa-github"></a></li>
+            <li><a class="fa-brands fa-codepen"></a></li>
+            <li><a class="fa-brands fa-dribbble"></a></li>
+            <li><a class="fa-brands fa-instagram"></a></li>
+        </ul>
 
-<!-- ------------------ PHỐI 2 ------------------- -->
-<section class="layout2">
-    <img src="../assets/img/anh6.jpg" class="full-bg">
+        <ul class="links">
+            <li><a>Home</a></li>
+            <li><a>About</a></li>
+            <li><a>Portfolio</a></li>
+            <li><a>Skills</a></li>
+            <li><a>Contact</a></li>
+        </ul>
 
-    <div class="center-box">
-        <h1>Duyên Ước – Sắc Đỏ Thiêng Liêng</h1>
-        <p>
-            Sắc đỏ là biểu tượng của hạnh phúc – lời chúc phúc thiêng liêng dành cho cô dâu.
-            Kết hợp hơi thở hiện đại, thiết kế mang lại cảm xúc vừa trang trọng, vừa tinh tế.
-        </p>
-    </div>
-</section>
-=======
-  <section class="coming-soon">
-    <h4>Coming soon</h4>
-    <h1>BST ÁO DÀI SẮP RA MẮT</h1>
-    <div class="gallery">
-      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 1"></div>
-      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 2"></div>
-      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 3"></div>
-      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 4"></div>
-      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 5"></div>
-      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 6"></div>
-      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 7"></div>
-      <div class="card"><img src="../assets/img/anh1.jpg" alt="Áo dài mẫu 8"></div>
-    </div>
-  </section>
+        <p class="legal">© 2025 All rights reserved</p>
 
-  <script>
-    const cards = document.querySelectorAll('.card');
+    </section>
 
-    cards.forEach(card => {
-      const img = card.querySelector('img');
-
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left; // vị trí chuột theo card
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / centerY) * 10; // độ nghiêng X
-        const rotateY = ((x - centerX) / centerX) * 10; // độ nghiêng Y
-
-        img.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        img.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-      });
-    });
-  </script>
->>>>>>> 92489dff47fb6074624764998a4d8869a231b0bf
+</footer>
 
 </body>
 </html>
