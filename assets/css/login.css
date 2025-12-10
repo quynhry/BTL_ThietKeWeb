@@ -215,7 +215,7 @@ input{
     transform: translate(-100%);
 }
 .overlay {
-    background-image: url(img/nen1.jpg);
+    background-image: url(../img/);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
