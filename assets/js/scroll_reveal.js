@@ -8,10 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Nếu phần tử lọt vào màn hình
+                // Nếu phần tử lọt vào màn hình → HIỆN
                 entry.target.classList.add('active');
-                // Ngừng quan sát để hiệu ứng không chạy lại
-                observer.unobserve(entry.target);
+            } else {
+                // Nếu phần tử rời khỏi màn hình → ẨN
+                entry.target.classList.remove('active');
             }
         });
     };
@@ -20,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const observerOptions = {
         root: null, // Quan sát so với viewport
         rootMargin: '0px',
-        // Kích hoạt khi 10% phần tử lọt vào màn hình (0.1)
-        threshold: 0.1 
+        // Kích hoạt khi 15% phần tử lọt vào màn hình
+        threshold: 0.15 
     };
 
     // 4. Tạo Intersection Observer và bắt đầu quan sát
