@@ -1,4 +1,3 @@
-/* --- Khai báo biến --- */
 :root {
     --playfair: 'Playfair Display', serif;
     --quicksand: 'Quicksand', sans-serif;
@@ -9,181 +8,96 @@
     --black: #000000; 
 }
 
-/* --- Thiết lập cơ bản --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: var(--quicksand);
-    text-decoration: none;
-    list-style: none;
-    padding: 0;
-    margin: 0;
     background-color: var(--soft-bg);
     color: var(--text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding-top: 0;
 }
 
-a { text-decoration: none; color: var(--text); }
-a:hover { color: var(--red); }
+a {
+    text-decoration: none;
+    color: var(--text);
+}
 
-/* Bỏ ẩn thanh top bar mặc định */
-.header-top-bar { display: flex; } 
+a:hover {
+    color: var(--red);
+}
 
-
-/* --- CẤU TRÚC HEADER ẨN VÀ HIỆN KHI CUỘN --- */
 header {
-    position: fixed; /* Cố định trên đầu trang */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: auto; 
-    display: block; 
-    background: var(--soft-bg); 
-    padding: 0;
+    background: var(--soft-bg);
     z-index: 1200;
-    
-    /* ẨN MẶC ĐỊNH & HIỆU ỨNG TRƯỢT */
-    transform: translateY(-122px); /* Ẩn toàn bộ header lên trên (72px + 50px) */
+    padding: 8px 45px;
+    transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
     transition: transform 320ms ease, opacity 320ms ease;
 }
 
-/* KHI CUỘN, DÙNG CLASS 'visible' TRÊN <HEADER> ĐỂ HIỆN RA */
+/* Hiện header khi cuộn */
 header.visible {
     transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); /* Thêm box-shadow khi hiện */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-/* PHẦN 1: TOP BAR (Logo & Icons) */
-.header-top-bar {
-    width: 100%;
-    height: 42px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: none; /* Bỏ border-bottom cũ */
-}
-
-.top-logo-text { /* Logo Yên Hoa ở Top Bar (chứa logo mặc định) */
-    font-family: var(--playfair);
-    color: var(--red);
-    font-size: 100px;
-    letter-spacing: 1px;
-    font-weight: 700;
-    transition: opacity 0.3s ease;
-}
-
-.fade-away {
-    opacity: 0 !important;
-    transform: translateY(8px) !important;
-    pointer-events: none;
-    transition: all 420ms ease;
-}
-
-/* PHẦN 2: THANH MENU CHÍNH */
-.header-nav-main {
-    width: 100%;
-    height: 35px; /* Chiều cao menu */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--soft-bg);
-    position: static; /* Đặt lại thành static */
-    border-top: 1px solid rgba(230, 210, 170, 0.6); /* Đặt đường viền cho thanh menu */
-    position: relative;
-    z-index: 9999;
-
-}
-#headerLogoText {
-    z-index: 500; /* Trước đây là 1251 → quá cao */
-    pointer-events: none; /* Để logo không chắn menu */
-}
-
-
-/* BỎ HIỆU ỨNG DÍNH CŨ TRÊN NAV */
-.header-nav-main.visible {
-    position: static;
-    box-shadow: none;
-    backdrop-filter: none;
-    background: var(--soft-bg);
-    border-bottom: none;
-}
-
-/* Logo Header Dính (Hiện ra khi cuộn, thay thế logo Top Bar) */
-.header-logo-text {
-    display: none; /* Mặc định ẩn */
-    font-family: var(--playfair);
-    color: var(--red);
-    font-size: 20px;
-    letter-spacing: 1px;
-    font-weight: 700;
-    position: fixed; /* Cố định vị trí */
-    left: 40px; 
-    top: 15px; /* Vị trí logo khi header trượt xuống */
-    z-index: 1251; /* Cao hơn header */
-    opacity: 0;
-    transition: opacity 320ms ease;
-}
-.header-logo-text.visible { 
-    opacity: 1; 
-    display: block; /* Hiển thị logo khi cần */
-}
-
-/* Căn chỉnh các khối trong Header */
-.right-menu {
-    width: 92%;
-    max-width: 1200px;
+.header-container {
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0;
     display: flex;
-    justify-content: space-between; 
     align-items: center;
-    position: static;
-    z-index: 1;
+    justify-content: space-between;
+    gap: 40px;
 }
 
-/* Căn chỉnh các icon */
-.nav-left-icons {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    padding-left: 0; 
-    order: 1;
+.header-logo {
+    font-family: var(--playfair);
+    color: var(--red);
+    font-size: 24px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
-.nav-right-icons {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    padding-right: 0; 
-    order: 3;
-}
-.header-menu { 
-    order: 2; 
+
+.header-menu {
     list-style: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 3rem;
     margin: 0;
     padding: 0;
-    width: 100%;
+    flex: 1;
+    justify-content: center;
 }
 
-/* MENU CHÍNH (Chi tiết) */
-.menu-item { position: relative; }
+.menu-item {
+    position: relative;
+}
+
 .menu-item > a {
     font-family: var(--quicksand);
-    text-decoration: none;
     color: var(--text);
     font-weight: 600;
     font-size: 16px;
     padding: 6px 0;
     position: relative;
     transition: color 0.3s ease;
+    white-space: nowrap;
+    display: block;
 }
+
 .menu-item > a::after {
     content: '';
     position: absolute;
@@ -194,11 +108,17 @@ header.visible {
     left: 50%;
     transition: all 0.3s ease;
 }
-.menu-item > a:hover { color: var(--red); }
-.menu-item > a:hover::after { width: 100%; left: 0; }
 
-/* MENU CON CẤP 1 & 2 (Giữ nguyên) */
-.sub-menu, .sub-menu2 {
+.menu-item > a:hover {
+    color: var(--red);
+}
+
+.menu-item > a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.sub-menu {
     list-style: none;
     position: absolute;
     top: 100%;
@@ -213,8 +133,19 @@ header.visible {
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
 }
-.menu-item:hover > .sub-menu { display: flex; opacity: 1; transform: translateY(0); }
+
+.menu-item:hover > .sub-menu {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sub-menu li {
+    position: relative;
+}
+
 .sub-menu li a {
     display: block;
     padding: 10px 20px;
@@ -224,12 +155,54 @@ header.visible {
     white-space: nowrap;
     font-family: var(--quicksand);
 }
-.sub-menu li a:hover { background: var(--red); color: #fff; }
 
-.sub-menu2 { top: 0; left: 100%; transform: translateX(10px); }
-.menu-home:hover > .sub-menu2 { display: flex; opacity: 1; transform: translateX(0); }
+.sub-menu li a:hover {
+    background: var(--red);
+    color: #fff;
+}
 
-/* --- HERO SECTION (Đã chuyển sang dùng ảnh) --- */
+.sub-menu2 {
+    top: 0;
+    left: 100%;
+    transform: translateX(10px);
+}
+
+.menu-home:hover > .sub-menu2 {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-shrink: 0;
+}
+
+.header-icons i {
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.header-icons i:hover {
+    color: var(--red);
+}
+
+.header-icons button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.header-icons button i {
+    font-size: 18px;
+}
+
+
 .hero {
     background-size: cover;
     background-position: center;
@@ -245,9 +218,6 @@ header.visible {
     min-height: 600px;
 }
 
-/* ẨN KHỐI WRAP*/
-.bg-wrap { display: none; }
-
 .overlay {
     position: absolute;
     inset: 0;
@@ -255,6 +225,7 @@ header.visible {
     mix-blend-mode: multiply;
     z-index: 1;
 }
+
 .hero-center {
     position: relative;
     z-index: 2;
@@ -266,8 +237,8 @@ header.visible {
     padding: 0 20px;
 }
 
-/* Cấu trúc mới cho logo YÊN HOA trên hero */
-.big-logo-text { /* DIV cha chứa UL */
+
+.big-logo-text {
     font-family: var(--playfair); 
     letter-spacing: 8px; 
     text-transform: uppercase;
@@ -277,13 +248,13 @@ header.visible {
     z-index: 2;
 }
 
-#bigLogoList { /* UL chứa các LI chữ cái */
+#bigLogoList {
     margin: 0;
     padding: 0;
     display: flex; 
     justify-content: center;
     align-items: center;
-    font-size: clamp(3rem, 10vw, 6rem); /* Kích thước tổng thể của logo */
+    font-size: clamp(3rem, 10vw, 6rem);
     line-height: 0.9;
 }
 
@@ -291,9 +262,9 @@ header.visible {
     list-style: none;
     color: #fffacd;
     font-family: var(--playfair);
-    font-size: 1em; /* Kích thước dựa trên UL cha */
+    font-size: 1em;
     font-weight: 700;
-    transition: all 1s ease-out; /* Thời gian transition cho hiệu ứng tan biến */
+    transition: all 1s ease-out;
     cursor: pointer;
     margin: 0 5px; 
     position: relative;
@@ -301,18 +272,18 @@ header.visible {
     line-height: 1;
 }
 
-/* --- KÍCH HOẠT HIỆU ỨNG TRÊN LOGO CHÍNH (KHÔNG ẢNH HƯỞNG SUB/CTA) --- */
+/* Hiệu ứng hover trên logo */
 #bigLogoList:hover li {
     transform: translateX(-150px) translateY(-50px) rotate(-15deg); 
     opacity: 0;
     filter: blur(10px); 
 }
 
-/* --- Hiệu ứng trễ cho từng chữ (staggered) --- */
+/* Hiệu ứng trễ cho từng chữ */
 #bigLogoList li:nth-child(1) { transition-delay: 0s; }
 #bigLogoList li:nth-child(2) { transition-delay: 0.05s; }
 #bigLogoList li:nth-child(3) { transition-delay: 0.1s; }
-#bigLogoList li:nth-child(4) { transition-delay: 0.15s; } /* Cho khoảng trắng */
+#bigLogoList li:nth-child(4) { transition-delay: 0.15s; }
 #bigLogoList li:nth-child(5) { transition-delay: 0.2s; }
 #bigLogoList li:nth-child(6) { transition-delay: 0.25s; }
 #bigLogoList li:nth-child(7) { transition-delay: 0.3s; }
@@ -325,6 +296,7 @@ header.visible {
     margin-top: 10px;
     transition: all 420ms ease;
 }
+
 .cta {
     margin-top: 18px;
     display: flex;
@@ -332,44 +304,6 @@ header.visible {
     justify-content: center;
     transition: all 420ms ease;
 }
-
-/* HIỆU ỨNG CUỘN (SCROLL EFFECT) */
-.big-logo-text.to-header {
-    position: fixed;
-    top: 18px;
-    left: 40px; 
-    transform: scale(1);
-    font-size: 20px; 
-    color: var(--red); 
-    letter-spacing: 1px;
-    z-index: 1300;
-    text-shadow: none;
-    opacity: 0; 
-    transition: all 420ms cubic-bezier(.2,.9,.2,1);
-    pointer-events: none; 
-}
-
-.big-logo-text.to-header #bigLogoList li {
-    opacity: 0 !important;
-    transform: none !important;
-    filter: none !important;
-    transition: none !important; 
-}
-
-/* HIỆU ỨNG CUỘN CHO SUB/CTA */
-.hero-sub.fade-away {
-    opacity: 0 !important;
-    transform: translateY(8px) !important;
-    pointer-events: none;
-    transition: all 420ms ease;
-}
-.cta.fade-away {
-    opacity: 0 !important;
-    transform: translateY(8px) !important;
-    pointer-events: none;
-    transition: all 420ms ease;
-}
-
 
 /* Button style */
 .btn {
@@ -383,231 +317,24 @@ header.visible {
     transition: all 220ms;
     font-family: var(--quicksand);
 }
-.btn:hover { background: var(--red); color: #fff }
 
-/* --- CONTENT VÀ CAROUSEL GALLERY (Giữ nguyên) --- */
-.content {
-    padding: 1px 8% 120px; 
-    background: var(--soft-bg);
-    color: var(--text);
-    text-align: center;
-}
-.content h2 { font-family: var(--playfair); color: var(--red); margin-bottom: 18px; font-size: 30px; }
-.content p { max-width: 760px; margin: 0 auto; line-height: 1.8; font-size: 16px; color: rgba(0, 0, 0, 0.75) }
-
-/* Carousel CSS (Giữ nguyên) */
-.image-container {
-    display: flex;
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-    gap: 0;
-    padding: 20px;
-    background-color: #1f2937;
-    border-radius: 1rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+.btn:hover {
+    background: var(--red);
+    color: #fff;
 }
 
-.image-item {
-    position: relative;
-    flex-shrink: 0;
-    width: 80px;
-    height: 250px;
-    border: none;
-    outline: none;
-    transition: width 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1),
-                transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1),
-                z-index 0s;
-    cursor: pointer;
-    background: none;
-    margin: 0 -10px;
-    border-radius: 0.75rem;
-    overflow: hidden;
-}
 
-.image-item::after {
-    position: absolute;
-    content: "";
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background-image: var(--image-url);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 0.75rem;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-    pointer-events: none;
-    transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
-    transform: scale(1);
-}
 
-.image-item:hover {
-    width: 250px;
-    transform: scale(1.05);
-    z-index: 99999;
-    box-shadow: 0 0 40px rgba(147, 197, 253, 0.3);
-}
-
-.image-item:hover + .image-item {
-    width: 150px;
-    transform: scale(1.02);
-    z-index: 9999;
-}
-
-.image-item:hover + .image-item + .image-item {
-    width: 100px;
-    transform: scale(1.01);
-    z-index: 999;
-}
-
-.image-item:has(+ .image-item:hover) {
-    width: 150px;
-    transform: scale(1.02);
-    z-index: 9999;
-}
-
-.image-item:has(+ .image-item + .image-item:hover) {
-    width: 100px;
-    transform: scale(1.01);
-    z-index: 999;
-}
-
-/* --- Responsive (Giữ nguyên) --- */
-@media (max-width: 992px) {
-    .right-menu { justify-content: space-around; }
-    .header-menu { gap: 1.5rem; }
-    #bigLogoList { font-size: clamp(3rem, 8vw, 6rem); } /* Điều chỉnh lại font size cho ul */
-    #bigLogoList li { margin: 0 3px; }
-}
-
-@media (max-width: 768px) {
-    .header-top-bar { height: 60px; }
-    .header-nav-main { display: none; } /* Ẩn menu chính trên mobile */
-    .top-logo-text { font-size: 18px; }
-    
-    /* Điều chỉnh vị trí logo dính trên mobile */
-    .header-logo-text {
-        top: 10px; 
-        left: 35px;
-        font-size: 18px;
-    }
-    
-    #bigLogoList { font-size: clamp(2.5rem, 8vw, 5rem); } /* Điều chỉnh font size trên mobile */
-    
-    /* Điều chỉnh vị trí logo lớn khi thu nhỏ trên mobile */
-    .big-logo-text.to-header { 
-        top: 10px; 
-        font-size: 18px;
-        left: 35px; 
-        transform: none;
-    }
-    
-    .hero-sub { font-size: 16px; }
-    .nav-left-icons, .nav-right-icons { gap: 15px; } 
-
-    .image-item {
-        width: 40px;
-        height: 150px;
-        margin: 0 -5px;
-    }
-    .image-item:hover { width: 180px; }
-    .image-item:hover + .image-item,
-    .image-item:has(+ .image-item:hover) { width: 80px; }
-    .image-item:hover + .image-item + .image-item,
-    .image-item:has(+ .image-item + .image-item:hover) { width: 50px; }
-}
-
-/* 1. Bộ sưu tập cưới */
- /* 2. Khung chứa chính */
-        .container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 50px 0;
-        }
-
-        /* 3. Khung sản phẩm (Hiệu ứng kính) */
-        .container .glass {
-            position: relative;
-            width: 180px;
-            height: 200px;
-            
-            /* Hiệu ứng Glassmorphism */
-background: linear-gradient(to top right, rgba(214, 184, 135, 0.3), rgba(214, 184, 135, 0.1));
-border: 1px solid rgba(161, 41, 40, 0.2);
-box-shadow: 0 10px 30px rgba(161, 41, 40, 0.2); 
-backdrop-filter: blur(10px);
-            
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: 0.5s ease-in-out;
-            border-radius: 10px;
-            
-            /* Hiệu ứng xoay ban đầu */
-            margin: 0 -45px;
-            transform: rotate(calc(var(--r) * 1deg));
-            cursor: pointer; 
-            overflow: hidden; 
-        }
-
-        /* 4. Hiệu ứng khi di chuột qua Container */
-        .container:hover .glass {
-            transform: rotate(0deg); /* Dừng xoay */
-            margin: 0 15px; /* Tách đều ra */
-        }
-
-        /* 5. Hiệu ứng khi di chuột vào từng sản phẩm */
-        .container .glass:hover {
-            transform: scale(1.1) !important; /* Phóng to */
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
-            z-index: 10;
-        }
-
-        /* 6. Vùng hiển thị tên sản phẩm (data-text) */
-        .container .glass::before {
-            content: attr(data-text);
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.08); /* Nền cho tên */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #a12928; 
-            font-family: 'Playfair Display', serif; /* Thêm font Playfair Display */
-            font-weight: bold; 
-            letter-spacing: 1px;
-            font-size: 0.9em;
-            text-shadow: 1px 1px 3px rgba(58, 45, 32, 0.3); /* Chuyển sang màu #3a2d20 với độ trong suốt 0.3 */
-        }
-
-        /* 7. CSS cho hình ảnh sản phẩm */
-        .container .glass img {
-            width: 100%; 
-            /* Chiều cao 160px vì 40px dành cho phần data-text */
-            height: 160px; 
-            object-fit: cover; /* Đảm bảo ảnh được cắt đẹp trong khung */
-            position: absolute;
-            top: 0;
-            left: 0;
-            border-radius: 10px 10px 0 0; /* Bo góc trên */
-        }
-/*1. Yên Hoa */
-/* KHUNG CHỨA NGOÀI: Xếp TIÊU ĐỀ trên CARD */
 .gallery-wrapper {
     display: flex;
-    flex-direction: column; /* Giữ tiêu đề trên, card dưới */
+    flex-direction: column;
     align-items: center;
     padding: 40px 0; 
     max-width: 1300px; 
     width: 90%; 
-    margin: 0 auto 40px; /* Thêm margin-bottom 40px */ 
+    margin: 0 auto 40px;
 }
 
-/* TIÊU ĐỀ/MÔ TẢ */
 .gallery-header {
     text-align: center;
     margin-bottom: 50px; 
@@ -624,7 +351,7 @@ backdrop-filter: blur(10px);
     letter-spacing: 2px;
 }
 
-.gallery-header p.motto {
+.gallery-header p {
     font-family: var(--quicksand); 
     font-size: 18px;
     color: var(--text);
@@ -633,28 +360,27 @@ backdrop-filter: blur(10px);
     opacity: 0.85; 
 }
 
-/* KHUNG CARD CHỨA CÁC CỘT: BUỘC XẾP NGANG */
+/* Card chứa các cột sản phẩm */
 .card {
     width: 100%; 
-    height: 380px; /* Chiều cao cố định */
+    height: 380px;
     border-radius: 10px; 
     
-    display: flex; /* <-- Bắt buộc phải là FLEX */
-    flex-direction: row; /* <-- Bắt buộc phải là ROW để xếp NGANG */
+    display: flex;
+    flex-direction: row;
     gap: 5px; 
     padding: .4em;
     
-    /* GLASSMORPHISM */
     background: rgba(242, 216, 173, 0.5); 
     border: 1px solid rgba(214, 184, 135, 0.4); 
     backdrop-filter: blur(8px); 
     box-shadow: 0 10px 30px rgba(161, 41, 40, 0.25); 
 }
 
-/* TỪNG CỘT SẢN PHẨM */
+/* Từng cột sản phẩm */
 .card a {
     height: 100%;
-    flex: 1; /* Chia đều ra 8 cột */
+    flex: 1;
     overflow: hidden;
     cursor: pointer;
     border-radius: 8px; 
@@ -673,140 +399,208 @@ backdrop-filter: blur(10px);
 }
 
 .card a:hover {
-    flex: 3.5; /* Cột mở rộng khi hover */
+    flex: 3.5;
 }
 
 /* Lớp phủ tối */
 .card a::before { 
     content: '';
-    position: absolute; inset: 0; background-color: rgba(0, 0, 0, 0.6);  transition: background-color 0.5s; z-index: 1; 
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: background-color 0.5s;
+    z-index: 1; 
 }
+
 .card a:hover::before {
     background-color: rgba(0, 0, 0, 0); 
 }
+
 /* Lớp phủ gradient */
 .card a::after {
     content: ''; 
-    position: absolute; bottom: 0; left: 0; right: 0; height: 0; 
-    /* Dùng var(--red) cho hiệu ứng nổi bật theo ngữ cảnh thiết kế */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0; 
     background: linear-gradient(to top, var(--black), transparent); 
     opacity: 0; 
     transition: all 0.5s ease-in-out; 
     z-index: 1; 
 }
+
 .card a:hover::after {
     height: 50%; 
     opacity: 1; 
 }
 
-
-/* TÊN SẢN PHẨM (<span>) */
+/* Tên sản phẩm */
 .card a span {
-    padding: .5em 1em; text-align: center; min-width: 15em; 
-    transform-origin: center center; transition: all .5s ease-in-out; text-transform: uppercase; 
-    color: var(--accent); font-family: var(--playfair); font-weight: 700; font-size: 1.2em; 
-    text-shadow: 0 0 10px rgb(6, 4, 4); letter-spacing: .2em; position: absolute; z-index: 3; white-space: nowrap; 
-    top: 50%; left: 50%;
+    padding: .5em 1em;
+    text-align: center;
+    min-width: 15em; 
+    transform-origin: center center;
+    transition: all .5s ease-in-out;
+    text-transform: uppercase; 
+    color: var(--accent);
+    font-family: var(--playfair);
+    font-weight: 700;
+    font-size: 1.2em; 
+    text-shadow: 0 0 10px rgb(6, 4, 4);
+    letter-spacing: .2em;
+    position: absolute;
+    z-index: 3;
+    white-space: nowrap; 
+    top: 50%;
+    left: 50%;
     
-    /* TRẠNG THÁI MẶC ĐỊNH: XOAY DỌC (-90deg) */
     transform: translate(-50%, -50%) rotate(-90deg); 
     opacity: 1; 
 }
 
 .card a:hover span {
-    /* TRẠNG THÁI HOVER: XOAY NGANG (0deg) */
-    top: unset; bottom: 15px; left: 50%;
+    top: unset;
+    bottom: 15px;
+    left: 50%;
     transform: rotate(0deg) translateX(-50%); 
     
-    width: auto; min-width: unset; border-radius: 0;
-    color: var(--accent); text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+    width: auto;
+    min-width: unset;
+    border-radius: 0;
+    color: var(--accent);
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
-/* ------------------------------------------- */
-/* --- MEDIA QUERIES (RESPONSIVE) --- */
-/* ------------------------------------------- */
+.content {
+    padding: 1px 8% 50px; 
+    background: var(--soft-bg);
+    color: var(--text);
+    text-align: center;
+}
 
-/* Điều chỉnh cho mobile/tablet (Vẫn giữ xếp ngang) */
-@media (max-width: 768px) {
+.content h2 {
+    font-family: var(--playfair);
+    color: var(--red);
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+
+.content p {
+    max-width: 760px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+/* Container cho glass cards */
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    flex-wrap: wrap;
+}
+
+/* Glass effect cards */
+.container .glass {
+    position: relative;
+    width: 180px;
+    height: 200px;
     
-    .card {
-        height: 300px; /* Chiều cao nhỏ hơn trên mobile */
-        gap: 3px;
-        padding: .2em;
-        /* KHÔNG CÓ flex-direction: column; Ở ĐÂY */
-    }
-
-    .card a span {
-        font-size: 0.9em;
-        letter-spacing: 0.15em;
-    }
-
-    .card a:hover {
-        flex: 5; /* Tăng tỷ lệ mở rộng trên mobile */
-    }
-}
-/* --- SCROLL REVEAL EFFECT (Hiện Dần Khi Cuộn) --- */
-
-/* Trạng thái mặc định: Ẩn và trượt nhẹ lên 15px */
-.reveal-item {
-    opacity: 0;
-    transform: translateY(15px); 
-    /* Hiệu ứng chuyển động mượt */
-    transition: opacity 800ms ease-out, transform 800ms ease-out; 
+    background: linear-gradient(to top right, rgba(214, 184, 135, 0.3), rgba(214, 184, 135, 0.1));
+    border: 1px solid rgba(161, 41, 40, 0.2);
+    box-shadow: 0 10px 30px rgba(161, 41, 40, 0.2); 
+    backdrop-filter: blur(10px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease-in-out;
+    border-radius: 10px;
+    
+    margin: 0 -45px;
+    transform: rotate(calc(var(--r) * 1deg));
+    cursor: pointer; 
+    overflow: hidden; 
 }
 
-/* Trạng thái được kích hoạt bằng JS: Hiện ra và về vị trí 0 */
-.reveal-item.active {
-    opacity: 1;
-    transform: translateY(0);
+.container:hover .glass {
+    transform: rotate(0deg);
+    margin: 0 15px;
+}
+
+.container .glass:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.container .glass::before {
+    content: attr(data-text);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a12928; 
+    font-family: var(--playfair);
+    font-weight: bold; 
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    text-shadow: 1px 1px 3px rgba(58, 45, 32, 0.3);
+}
+
+.container .glass img {
+    width: 100%; 
+    height: 160px; 
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
 }
 
 
-/* Ví dụ: Các cột trong Gallery (dùng .card p) */
-.card a.reveal-item.active:nth-child(1) { transition-delay: 0.1s; }
-.card a.reveal-item.active:nth-child(2) { transition-delay: 0.2s; }
-.card a.reveal-item.active:nth-child(3) { transition-delay: 0.3s; }
-.card a.reveal-item.active:nth-child(4) { transition-delay: 0.4s; }
-.card a.reveal-item.active:nth-child(5) { transition-delay: 0.5s; }
-.card a.reveal-item.active:nth-child(6) { transition-delay: 0.6s; }
-.card a.reveal-item.active:nth-child(7) { transition-delay: 0.7s; }
-.card a.reveal-item.active:nth-child(8) { transition-delay: 0.8s; }
 
-/* DUYÊN ƯỚC */
-.layout1 {
+.layout1, .layout2 {
     display: flex;
     gap: 60px;
-    padding: 110px 7% 90px;
+    padding: 20px 7% 50px;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    margin-top: -50px;
-    margin-bottom: 20px;
 }
 
-.layout1 .image-container {
+.layout2 {
+    flex-direction: row-reverse;
+}
+
+.layout1 .image-container,
+.layout2 .image-container {
     width: 40%;
     height: 470px;
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-
-    border: 1px solid #8a3b3b; /* viền mảnh */
+    border: 1px solid #8a3b3b;
     background-color: transparent;
     box-sizing: border-box;
-
     transition: transform 0.4s ease, border-color 0.4s ease;
 }
 
-/* Zoom nhẹ khi hover */
-.layout1 .image-container:hover {
+.layout1 .image-container:hover,
+.layout2 .image-container:hover {
     transform: scale(1.03);
     border-color: #8a3b3b;
 }
 
-/* Ảnh default và hover đều phủ toàn bộ container */
 .layout1 .image-container img,
-.layout1 .image-container .img-hover {
+.layout2 .image-container img {
     position: absolute;
     top: 0;
     left: 0;
@@ -818,28 +612,29 @@ backdrop-filter: blur(10px);
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-/* Ảnh hover ban đầu ẩn */
-.layout1 .image-container .img-hover {
+.layout1 .image-container .img-hover,
+.layout2 .image-container .img-hover {
     opacity: 0;
 }
 
-/* Hover: fade ảnh */
-.layout1 .image-container:hover .img-hover {
+.layout1 .image-container:hover .img-hover,
+.layout2 .image-container:hover .img-hover {
     opacity: 1;
 }
 
-.layout1 .image-container:hover .img-default {
+.layout1 .image-container:hover .img-default,
+.layout2 .image-container:hover .img-default {
     opacity: 0;
 }
 
-/*mô tả*/
+/* Text block */
 .text-block {
     width: 45%;
     padding-right: 20px;
 }
 
 .text-block h1 {
-    font-family: "Playfair Display", serif;
+    font-family: var(--playfair);
     font-size: 30px;
     line-height: 1.22;
     color: #7d1c1c;
@@ -858,11 +653,12 @@ backdrop-filter: blur(10px);
     font-size: 15px;
     color: #000000;
 }
-/*nút xem thêm*/
+
+/* Button xem thêm */
 .btn-yenhoa-outline {
     display: block;        
     width: fit-content;    
-    margin: 0 auto;        
+    margin: 20px auto 0;        
     padding: 13px 38px;
     background: transparent;
     border: 2px solid #b44f58;
@@ -873,124 +669,116 @@ backdrop-filter: blur(10px);
     border-radius: 6px;
     transition: 0.3s ease;
 }
+
 .btn-yenhoa-outline:hover {
     background: #f4d7d9;
     outline-offset: -2px;
 }
-/* Giao duyên */
-.layout2 {
-    display: flex;
-    gap: 60px;
-    padding: 110px 7% 90px;
-    align-items: center;
-    justify-content: center;
-    padding: 50px;
-    margin-top: 40px;
-    margin-bottom: 90px;
-    flex-direction: row-reverse;
-}
 
-.layout2 .image-container {
-    width: 40%;
-    height: 470px;
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
 
-    border: 1px solid #8a3b3b; /* viền mảnh */
-    background-color: transparent;
-    box-sizing: border-box;
 
-    transition: transform 0.4s ease, border-color 0.4s ease;
-}
-
-/* Zoom nhẹ khi hover */
-.layout2 .image-container:hover {
-    transform: scale(1.03);
-    border-color: #8a3b3b;
-}
-
-/* Ảnh default và hover đều phủ toàn bộ container */
-.layout2 .image-container img,
-.layout2 .image-container .img-hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    display: block;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-
-/* Ảnh hover ban đầu ẩn */
-.layout2 .image-container .img-hover {
+.reveal-item {
     opacity: 0;
+    transform: translateY(15px); 
+    transition: opacity 800ms ease-out, transform 800ms ease-out; 
 }
 
-/* Hover: fade ảnh */
-.layout2 .image-container:hover .img-hover {
+.reveal-item.active {
     opacity: 1;
+    transform: translateY(0);
 }
 
-.layout2 .image-container:hover .img-default {
-    opacity: 0;
-}
+.card a.reveal-item.active:nth-child(1) { transition-delay: 0.1s; }
+.card a.reveal-item.active:nth-child(2) { transition-delay: 0.2s; }
+.card a.reveal-item.active:nth-child(3) { transition-delay: 0.3s; }
+.card a.reveal-item.active:nth-child(4) { transition-delay: 0.4s; }
+.card a.reveal-item.active:nth-child(5) { transition-delay: 0.5s; }
+.card a.reveal-item.active:nth-child(6) { transition-delay: 0.6s; }
+.card a.reveal-item.active:nth-child(7) { transition-delay: 0.7s; }
+.card a.reveal-item.active:nth-child(8) { transition-delay: 0.8s; }
 
 
-.text-block {
-    width: 45%;
-    padding-right: 20px;
-}
 
-.text-block h1 {
-    font-family: "Playfair Display", serif;
-    font-size: 30px;
-    line-height: 1.22;
-    color: #7d1c1c;
-    font-weight: 600;
-}
-
-.text-block .quote {
-    font-size: 16px;
-    margin: 18px 0 22px;
-    font-style: italic;
-    color: #8a3b3b;
-}
-
-.text-block p {
-    line-height: 1.8;
-    font-size: 15px;
-    color: #000000;
-}
-/* COMMING SOON
-.comming {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 ảnh mỗi hàng */
-    gap: 20px; /* khoảng cách giữa các ảnh */
-    max-width: 1200px; 
-    margin: 0 auto; /* căn giữa toàn bộ khung */
-}
-
-.comming .card img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-}
-.card {
-    transform: perspective(1000px) rotateX() rotateY();
-    transition: transform 0.2s;
+@media (max-width: 992px) {
+    .header-container {
+        padding: 0 20px;
+    }
     
-
+    .header-menu {
+        gap: 2rem;
+    }
+    
+    .menu-item > a {
+        font-size: 14px;
+    }
+    
+    #bigLogoList {
+        font-size: clamp(3rem, 8vw, 6rem);
+    }
+    
+    #bigLogoList li {
+        margin: 0 3px;
+    }
 }
 
-/* .card:hover {
-    transform: perspective(1000px);
-    transform-style: preserve-3d;
-    /* transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1); */
-    /* transform: rotateX(18deg) rotateY(36deg); */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
 
- */
+    .header-logo {
+        font-size: 20px;
+    }
 
+    .header-menu {
+        display: none;
+    }
+
+    .header-icons {
+        gap: 20px;
+    }
+
+    .header-icons i {
+        font-size: 16px;
+    }
+    
+    #bigLogoList {
+        font-size: clamp(2.5rem, 8vw, 5rem);
+    }
+    
+    .hero-sub {
+        font-size: 16px;
+    }
+    
+    .card {
+        height: 300px;
+        gap: 3px;
+        padding: .2em;
+    }
+
+    .card a span {
+        font-size: 0.9em;
+        letter-spacing: 0.15em;
+    }
+
+    .card a:hover {
+        flex: 5;
+    }
+    
+    .layout1, .layout2 {
+        flex-direction: column;
+        padding: 60px 5%;
+    }
+    
+    .layout1 .image-container,
+    .layout2 .image-container,
+    .text-block {
+        width: 100%;
+    }
+}
+
+.header-logo a {
+    color: var(--red);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
