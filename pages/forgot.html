@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quên mật khẩu - Yên Hoa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet"/>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Playfair Display", serif;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("../img/nendo.jpg") center/cover fixed no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    }
+
+    /* Khung chính */
+        .forgot-container {
+    position: fixed;             
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+    z-index: 10; 
+    }
+
+
+    h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 28px;
+    }
+
+    p {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    }
+
+    /* Ô nhập */
+    input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus {
+    border-color: #bc7d73;
+    box-shadow: 0 0 5px rgba(188, 125, 115, 0.4);
+    }
+
+    /* Captcha */
+    .captcha-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    }
+
+    .captcha-img {
+    background: #eef7ff;
+    font-family: monospace;
+    font-size: 20px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    letter-spacing: 3px;
+    user-select: none;
+    color: #334;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Nút bấm */
+    button{
+    position:relative;
+    border-radius: 20px;
+    border: 1px solid #a12928;
+    background-color: #a12928;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 10px;
+    padding: 12px 80px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+    font-size: 11px;
+    }
+    button:hover{
+        letter-spacing: 2px;
+    }
+    button:active{
+        transform: scale(0.95);
+    }
+    button:focus{
+        outline:none;
+    }
+    /* Nút quay lại */
+    .back {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #666;
+    letter-spacing: 0;
+    font-size: 14px;
+    transition: color 0.3s;
+    }
+
+    .back:hover {
+    color: #f8d17a;
+    letter-spacing: 2px;
+    }
+
+    /* Hiệu ứng mượt */
+    @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+    .forgot-container {
+        width: 90%;
+        padding: 30px 20px;
+    }
+    h2 { font-size: 22px; }
+    }
+
+</style>
+</head>
+<body>
+  <div class="forgot-container">
+    <h2>Đặt lại mật khẩu</h2>
+    <p>Nhập email đã đăng ký, chúng tôi sẽ gửi liên kết đặt lại mật khẩu cho bạn.</p>
+
+    <form id="forgotForm">
+      <input type="email" id="email" placeholder="example@email.com" required />
+
+      <div class="captcha-box">
+        <span class="captcha-img" id="captchaText"></span>
+        <a href="#" id="refreshCaptcha" title="Làm mới mã"><i class="lni lni-reload"></i></a>
+      </div>
+      <input type="text" id="captchaInput" placeholder="Nhập mã hiển thị ở trên" required />
+
+      <button type="submit">Gửi yêu cầu</button>
+    </form>
+
+    <a href="login.html" class="back"><i class="lni lni-arrow-left"></i> Quay lại đăng nhập</a>
+  </div>
+
+  <script>
+    // Lấy danh sách user từ localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Tạo captcha ngẫu nhiên
+    function generateCaptcha() {
+      const code = Math.floor(1000 + Math.random() * 9000); // 4 chữ số
+      document.getElementById("captchaText").textContent = code;
+      return code;
+    }
+
+    let currentCaptcha = generateCaptcha();
+
+    document.getElementById("refreshCaptcha").addEventListener("click", (e) => {
+      e.preventDefault();
+      currentCaptcha = generateCaptcha();
+    });
+
+    // Xử lý khi người dùng gửi form
+    document.getElementById("forgotForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const captcha = document.getElementById("captchaInput").value.trim();
+
+      if (captcha !== currentCaptcha.toString()) {
+        alert("❌ Mã xác thực không đúng!");
+        currentCaptcha = generateCaptcha();
+        return;
+      }
+
+      const foundUser = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+      if (foundUser) {
+        alert(`Liên kết đặt lại mật khẩu đã được gửi đến: ${email}`);
+      } else {
+        alert("Không tìm thấy tài khoản với email này!");
+      }
+    });
+  </script>
+</body>
+</html>
