@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <title>YênHoa - Đăng nhập / Đăng ký</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+   integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class= "container" id="container">
+
+    <div class= "form-container register-container">
+      <form action="#">
+        <h1>Đăng ký</h1>
+        <input type="text" required placeholder="Nhập họ và tên">
+        <input type="email" required placeholder ="example@email.com">
+       <div class="input-group"> 
+          <input type="password" id="register-password" required placeholder="Tạo mật khẩu">
+          <i class="fas fa-eye toggle-password"></i>
+        </div>
+        <button type="button"> Đăng ký</button>
+        <span> hoặc sử dụng tài khoản của bạn </span>
+        <div class="social-container">
+          <a href="https://www.facebook.com/tenfanpagecuaban" target="_blank"class="social"><i class="lni lni-facebook-fill"></i></a>
+          <a href="https://accounts.google.com"target="_blank" class="social"><i class="lni lni-google"></i></a>
+        </div>
+      </form>
+    </div>
+
+    <div class="form-container login-container">
+      <form action="#">
+        <h1>Đăng nhập</h1>
+        <input type="email" required placeholder ="example@email.com">  
+        <div class="input-group">
+          <input type="password" id="login-password" required placeholder="Nhập mật khẩu">
+          <i class="fas fa-eye toggle-password"></i>
+        </div>
+        <div class="content">
+            <div class="checkbox">
+              <input type="checkbox" name="checkbox" id="checkbox">
+              <label for="checkbox">Lưu mật khẩu</label>
+            </div>
+            <div class="pass-link">
+              <a href="forgotpw.html">Quên mật khẩu?</a>
+            </div>
+        </div>
+        <button type="button">Đăng nhập</button>
+        <span> hoặc sử dụng tài khoản của bạn </span>
+        <div class="social-container">
+          <a href="https://www.facebook.com/tenfanpagecuaban"target="_blank" class="social"><i class="lni lni-facebook-fill"></i></a>
+          <a href="https://accounts.google.com"target="_blank" class="social"><i class="lni lni-google"></i></a>
+        </div>
+      </form>
+    </div>
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1 class="title"> Chào Mừng Đến Với <br> Yên Hoa</h1>
+          <p> Bạn đã có tài khoản, đăng nhập tại đây</p>
+          <button class="ghost" id="login"> Đăng nhập
+            <i class="lni lni-arrow-left login"></i>
+          </button>    
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1 class="title"> Bắt Đầu Cùng Yên Hoa</h1>
+          <p>Nếu bạn chưa có tài khoản<br> đăng ký ngay nào</p>
+          <button class="ghost" id="register">Đăng ký
+            <i class="lni lni-arrow-right register"></i>
+          </button>
+        </div>
+      </div>         
+    </div>
+  </div>
+  <script src="login.js" >
+  </script>
+</body>
+</html>    
