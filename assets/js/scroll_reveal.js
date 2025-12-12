@@ -1,7 +1,7 @@
 // Đặt code này sau khi DOM đã được tải hoàn toàn
 document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. Lấy tất cả các phần tử có class 'reveal-item'
+    // 1. Lấy tất cả các phần tử 
     const revealItems = document.querySelectorAll('.reveal-item');
     
     // 2. Định nghĩa hàm xử lý khi phần tử được nhìn thấy
