@@ -783,7 +783,6 @@ header.visible {
     text-decoration: none;
     transition: color 0.3s ease;
 }
-<<<<<<< HEAD
 /* --- ICON GIỎ HÀNG (gắn theo header) --- */
 .cart-icon {
     position: relative;          /* QUAN TRỌNG: bỏ fixed, chuyển sang relative */
@@ -835,7 +834,6 @@ header.visible {
 
     box-shadow: 0 0 0 2px #fff;
 }
-=======
 /*COMMING SOON*/
 .comming {
     display: grid;
@@ -888,7 +886,29 @@ header.visible {
     transform: translateZ(45px);
     transition: transform 0.15s ease-out;
 }
+/*khách hàng*/
+.video-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 0;
+}
 
+.video-box {
+    width: 30%;
+    text-align: center;
+}
 
+.video-box video {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+}
 
->>>>>>> c7e556bd72a638c9ea447f991a057651de7ab205
+.video-box h3 {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
