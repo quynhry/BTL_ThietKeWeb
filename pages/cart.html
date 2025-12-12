@@ -23,13 +23,8 @@
             <li class="menu-item"><a href="../khach_hang.html">Cửa hàng</a></li>
             <li class="menu-item"><a href="#">Đối Tác</a></li>
         </ul>
-        <div class="header-icons">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <a href="login.html"><i class="fa-regular fa-user"></i></a>
-            <div class="cart-icon" onclick="location.href='cart.html'">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span id="cartIconCount">0</span>
-            </div>
+        <div class="header-icons" id="headerUser">
+            <!-- auth.js sẽ render login / logout ở đây -->
         </div>
     </div>
 </header>
@@ -61,9 +56,9 @@
     </div>
 </div>
 
-
-
+<script src="../assets/js/auth.js"></script>
 <script>
+// ======================= GIỎ HÀNG MẪU =======================
 const cartItems = [
     {id:1, title:'Áo dài Yên Hoa', price:1200000, quantity:1, image:'../assets/img/sample1.jpg'},
     {id:2, title:'Áo dài Truyền Thống', price:900000, quantity:2, image:'../assets/img/sample2.jpg'}
@@ -73,11 +68,7 @@ function renderCart() {
     const cartLeft = document.getElementById('cartLeft');
     cartLeft.innerHTML = '';
 
-    let subtotal = 0;
-
     cartItems.forEach((item, index) => {
-        subtotal += item.price * item.quantity;
-
         const div = document.createElement('div');
         div.className = 'cart-item';
         div.innerHTML = `
@@ -93,10 +84,8 @@ function renderCart() {
             </div>
             <button class="delete-btn"><i class="fa-solid fa-xmark"></i></button>
         `;
-
         cartLeft.appendChild(div);
 
-        // Event buttons
         const minus = div.querySelector('.btn-minus');
         const plus = div.querySelector('.btn-plus');
         const deleteBtn = div.querySelector('.delete-btn');
@@ -131,12 +120,33 @@ function updateTotals() {
     document.getElementById('subtotal').textContent = subtotal.toLocaleString() + 'đ';
     document.getElementById('shipping').textContent = shipping.toLocaleString() + 'đ';
     document.getElementById('total').textContent = total.toLocaleString() + 'đ';
-
     document.getElementById('cartIconCount').textContent = cartItems.length;
 }
 
-document.addEventListener('DOMContentLoaded', renderCart);
-</script>
+// ================== KIỂM TRA ĐĂNG NHẬP ==================
+document.addEventListener("DOMContentLoaded", () => {
+    const currentUser = getCurrentUser(); // dùng auth.js
+    renderHeaderUser(); // render header
 
+    if (!currentUser) {
+        alert("Bạn cần đăng nhập để xem giỏ hàng!");
+        localStorage.setItem("redirectAfterLogin", "cart.html");
+        window.location.href = "login.html";
+        return;
+    }
+
+    renderCart(); // render cart nếu đã login
+});
+</script>
+<script>// Nút thanh toán
+const checkoutBtn = document.querySelector('.checkout-btn');
+checkoutBtn.addEventListener('click', () => {
+    // Lưu giỏ hàng vào localStorage trước khi sang trang thanh toán
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+
+    // Chuyển hướng sang trang thanh toán
+    window.location.href = "checkout.html";
+});
+</script>
 </body>
 </html>
