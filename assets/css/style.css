@@ -591,6 +591,7 @@ header.visible {
     background-color: transparent;
     box-sizing: border-box;
     transition: transform 0.4s ease, border-color 0.4s ease;
+    box-shadow: 0 10px 30px rgba(217, 160, 160, 0.75);
 }
 
 .layout1 .image-container:hover,
