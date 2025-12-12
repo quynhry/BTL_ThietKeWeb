@@ -653,6 +653,7 @@ header.visible {
     line-height: 1.8;
     font-size: 15px;
     color: #000000;
+    text-align: justify;
 }
 
 /* Button xem thêm */
@@ -890,8 +891,7 @@ header.visible {
 .video-section {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 40px 0;
+    padding: 100px 0 20px;
 }
 
 .video-box {
@@ -900,7 +900,7 @@ header.visible {
 }
 
 .video-box video {
-    width: 100%;
+    width: 70%;
     height: auto;
     border-radius: 6px;
     object-fit: cover;
