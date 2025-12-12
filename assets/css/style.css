@@ -835,6 +835,29 @@ header.visible {
     transform: translateZ(45px);
     transition: transform 0.15s ease-out;
 }
+/*khách hàng*/
+.video-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 0;
+}
 
+.video-box {
+    width: 30%;
+    text-align: center;
+}
 
+.video-box video {
+    width: 80%;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+}
 
+.video-box h3 {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
