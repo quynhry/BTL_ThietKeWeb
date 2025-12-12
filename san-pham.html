@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/popupcart.css">
 </head>
 <body>
   <!-- HEADER -->
@@ -858,6 +859,23 @@
         </div>
       </div>
     </div>
+<div id="cartPopup" class="cart-popup">
+  <div class="cart-popup-box">
+    
+    <div class="cart-popup-header">
+      <span id="cartPopupMessage">Bạn đã thêm sản phẩm vào giỏ hàng</span>
+      <span class="cart-close">&times;</span>
+    </div>
+
+    <div id="cartList" class="cart-items"></div>
+
+    <div class="cart-total">
+      Tổng tiền: <span id="cartTotalPrice">0₫</span>
+    </div>
+
+    <button class="checkout-btn">Thanh toán</button>
+  </div>
+</div>
 
 
   
@@ -984,6 +1002,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-
+<script src="assets/js/popupcart.js"></script> 
   </body>
 </html>
