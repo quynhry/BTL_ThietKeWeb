@@ -1,112 +1,158 @@
-/* ============================= CART STORAGE ============================= */
+// =========================
+// GIỎ HÀNG LOCALSTORAGE
+// =========================
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function getCart() {
-    return JSON.parse(localStorage.getItem("cart")) || [];
-}
-
-function saveCart(cart) {
-    localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function formatMoney(num) {
-    return num.toLocaleString("vi-VN") + "đ";
-}
-
-/* ============================= POPUP CONTROL ============================= */
-
+// Các phần tử
 const cartPopup = document.getElementById("cartPopup");
 const cartList = document.getElementById("cartList");
-const cartTotal = document.getElementById("cartTotalPrice");
+const cartClose = document.querySelector(".cart-close");
+const cartTotalPrice = document.getElementById("cartTotalPrice");
+const cartCount = document.getElementById("cartCount");
 
-function openCartPopup(message) {
-    document.getElementById("cartPopupMessage").innerText = message;
-    renderCart();
-    cartPopup.classList.add("show");
-}
-
-document.querySelector(".cart-close").onclick = () => {
-    cartPopup.classList.remove("show");
-};
-
-/* ============================= RENDER CART ============================= */
-
-function renderCart() {
-    const cart = getCart();
-    cartList.innerHTML = "";
-    let total = 0;
-
-    cart.forEach((item, index) => {
-        const price = parseInt(item.price.replace(/[^0-9]/g, ""));
-        const subtotal = price * item.quantity;
-        total += subtotal;
-
-        cartList.innerHTML += `
-            <div class="cart-item">
-                <img src="${item.image}">
-                
-                <div>
-                  <div class="cart-name">${item.name}</div>
-                  <div class="remove-btn" onclick="removeItem(${index})">Xóa</div>
-                </div>
-
-                <div class="cart-price">${item.price}</div>
-
-                <div class="qty-box">
-                    <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
-                    <input class="qty-input" value="${item.quantity}" readonly>
-                    <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
-                </div>
-
-                <div class="cart-subtotal">${formatMoney(subtotal)}</div>
-            </div>
-        `;
-    });
-
-    cartTotal.innerText = formatMoney(total);
-}
-
-/* ============================= QUANTITY ============================= */
-
-function changeQty(index, change) {
-    const cart = getCart();
-
-    cart[index].quantity += change;
-    if (cart[index].quantity < 1) cart[index].quantity = 1;
-
-    saveCart(cart);
-    renderCart();
-}
-
-/* ============================= REMOVE ITEM ============================= */
-
-function removeItem(index) {
-    const cart = getCart();
-    cart.splice(index, 1);
-    saveCart(cart);
-    renderCart();
-}
-
-/* ============================= ADD TO CART ============================= */
-
+// =========================
+// MỞ POPUP KHI NHẤN ICON BAG
+// =========================
 document.querySelectorAll(".bag-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        const card = btn.closest(".product-card");
+    btn.addEventListener("click", function () {
+        const card = this.closest(".product-card");
 
         const name = card.querySelector(".product-name").innerText;
-        const price = card.querySelector(".price").innerText;
+        const priceText = card.querySelector(".price").innerText;
+        const price = parseInt(priceText.replace(/[^0-9]/g, ""));
         const image = card.querySelector(".main-img").src;
 
-        let cart = getCart();
-
-        cart.push({
+        // Thêm vào giỏ
+        addToCart({
             name,
             price,
             image,
-            quantity: 1
+            qty: 1
         });
 
-        saveCart(cart);
-
-        openCartPopup(`Bạn đã thêm [${name}] vào giỏ hàng`);
+        openPopup();
     });
 });
+
+// =========================
+// THÊM VÀO GIỎ
+// =========================
+function addToCart(product) {
+
+    const found = cart.find(p => p.name === product.name);
+
+    if (found) {
+        found.qty += 1;
+    } else {
+        cart.push(product);
+    }
+
+    saveCart();
+    renderCart();
+    updateCartIcon();
+}
+
+// =========================
+// LƯU CART
+// =========================
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// =========================
+// RENDER GIỎ HÀNG
+// =========================
+function renderCart() {
+    cartList.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+
+        cartList.innerHTML += `
+            <tr>
+                <td>
+                    <div class="cart-item-box">
+                        <img src="${item.image}">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-remove" onclick="removeItem(${index})">Xóa</div>
+                        </div>
+                    </div>
+                </td>
+
+                <td class="cart-price">${item.price.toLocaleString("vi-VN")}₫</td>
+
+                <td>
+                    <div class="quantity-box">
+                        <button onclick="changeQty(${index}, -1)">-</button>
+                        <input type="text" value="${item.qty}" readonly>
+                        <button onclick="changeQty(${index}, 1)">+</button>
+                    </div>
+                </td>
+
+                <td class="cart-total-price">${itemTotal.toLocaleString("vi-VN")}₫</td>
+            </tr>
+        `;
+    });
+
+    cartTotalPrice.innerHTML = total.toLocaleString("vi-VN") + "₫";
+    cartCount.innerText = cart.length;
+
+    updateCartIcon();
+}
+
+// =========================
+// THAY ĐỔI SỐ LƯỢNG
+// =========================
+function changeQty(index, amount) {
+    cart[index].qty += amount;
+
+    if (cart[index].qty < 1) cart[index].qty = 1;
+
+    saveCart();
+    renderCart();
+    updateCartIcon();
+}
+
+// =========================
+// XÓA SẢN PHẨM
+// =========================
+function removeItem(index) {
+    cart.splice(index, 1);
+    saveCart();
+    renderCart();
+    updateCartIcon();
+}
+
+// =========================
+// MỞ POPUP
+// =========================
+function openPopup() {
+    cartPopup.classList.add("show");
+}
+
+// =========================
+// ĐÓNG POPUP (nhấn X)
+// =========================
+cartClose.addEventListener("click", () => {
+    cartPopup.classList.remove("show");
+});
+
+// =========================
+// CẬP NHẬT ICON GIỎ HÀNG GÓC TRÊN
+// =========================
+function updateCartIcon() {
+    let count = cart.reduce((t, i) => t + i.qty, 0);
+    let icon = document.getElementById("cartIconCount");
+
+    if (icon) {
+        icon.textContent = count;
+    }
+}
+
+// KHỞI ĐỘNG
+renderCart();
+updateCartIcon();
