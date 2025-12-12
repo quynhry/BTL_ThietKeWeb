@@ -906,133 +906,206 @@ header.visible {
     font-weight: 600;
     letter-spacing: 1px;
 }
+/* FOOTER */
+/* ==================================== */
+/* 1. FOOTER BASE STYLES */
+/* ==================================== */
 .footer {
-  background-color: #5a3e2b;
-  border-top: 1px solid #ccc;
-  padding-top: 60px;
-  padding-bottom: 30px;
+    /* Màu nền nâu ấm */
+    background-color: var(--soft-bg);
+    /* Dùng màu be sáng cho viền để đồng bộ với tông màu */
+    border-top: 1px solid #dfc3ae; 
+    padding-top: 60px;
+    padding-bottom: 30px;
 }
 
 .footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Padding ngang mặc định cho màn hình lớn, sẽ thay đổi trong media query */
+    padding: 0 20px; 
 }
 
-
-
+/* ==================================== */
+/* 2. FOOTER TOP SECTION (Logo & Columns) */
+/* ==================================== */
 .footer-top {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    /* Tăng khoảng cách giữa các phần tử để thoáng hơn */
+    gap: 60px; 
+    /* Viền dưới dùng màu be sáng đồng bộ */
+    border-bottom: 2px solid #c9b79b;
+    padding-bottom: 50px;
 }
 
+/* --- Logo Section --- */
 .footer-logo-section {
-  flex: 1;
-  max-width: 400px;
+    /* Cho section này chiếm 1 phần */
+    flex: 1; 
+    /* Giới hạn chiều rộng để cột bên cạnh có nhiều không gian hơn */
+    max-width: 350px; 
 }
 
 .footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Tăng nhẹ gap */
+    margin-bottom: 20px;
 }
 
 .footer-logo img {
-  width: 48px;
-  height: 48px;
+    width: 48px;
+    height: 48px;
 }
 
 .footer-logo h1 {
-  font-size: 24px;
-  font-weight: bold;
-  color: #f7f3eb;
+    font-size: 26px; /* Tăng nhẹ font size */
+    font-weight: 700;
+    color: #f7f3eb;
 }
 
 .footer-description {
-  font-size: 16px;
-  margin-bottom: 20px;
-  color:#f7f3eb
+    font-size: 16px;
+    line-height: 1.6; /* Thêm line height để dễ đọc */
+    margin-bottom: 20px;
+    color: #f7f3eb;
 }
 
+/* --- Members (Avatar) --- */
 .footer-members {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color:#f7f3eb
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #f7f3eb;
 }
 
 .footer-members img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  margin-left: -10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* Viền ảnh nên dùng màu chính của nền */
+    border: 2px solid #5a3e2b; 
+    margin-left: -10px;
 }
 
+/* --- Columns Section --- */
 .footer-columns {
-  color:#f7f3eb;
-  flex: 2;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
+    color: #f7f3eb;
+    /* Cho 2 phần */
+    flex: 2; 
+    display: flex;
+    flex-wrap: wrap;
+    /* Giảm gap giữa các cột để có nhiều cột hơn */
+    gap: 30px; 
+    justify-content: space-between; /* Đẩy các cột ra hai bên */
 }
 
 .footer-column {
-  min-width: 160px;
+    min-width: 150px;
 }
 
 .footer-column h6 {
-  font-size: 18px;
-  margin-bottom: 20px;
-  color: #f7f3eb;
+    font-size: 18px;
+    font-weight: 600; /* Thêm font weight để nổi bật */
+    margin-bottom: 20px;
+    color: #f7f3eb;
 }
 
-
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
 
 .footer-column li {
-  margin-bottom: 10px;
+    margin-bottom: 12px; /* Tăng margin bottom cho các li */
 }
 
 .footer-column a {
-  color: #f7f3eb;
-  text-decoration: none;
-  transition: color 0.3s;
+    color: #f7f3eb;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out; /* Làm mượt transition */
 }
 
 .footer-column a:hover {
-  color: #c9b79b;
+    color: #dfc3ae; /* Đổi màu hover sang màu sáng hơn */
 }
 
+/* ==================================== */
+/* 3. FOOTER BOTTOM (Copyright & Social) */
+/* ==================================== */
 .footer-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    gap: 20px; /* Thêm gap */
 }
 
 .footer-bottom p, .footer-bottom a {
-  font-size: 14px;
-  color: #dfc3ae;
-}
-
-.footer-bottom ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  color: #dfc3ae;
+    font-size: 14px;
+    color: #dfc3ae; /* Màu be nhạt cho chữ bản quyền */
 }
 
 .footer-bottom a:hover {
-  color: #4f46e5;
+    color: #f7f3eb; /* Đổi màu hover về màu chữ chính để nổi bật */
 }
 
+.footer-bottom ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==================================== */
+/* 4. RESPONSIVE (Cho màn hình nhỏ hơn 768px) */
+/* ==================================== */
+@media (max-width: 768px) {
+    .footer {
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+
+    .footer-container {
+        padding: 0 15px; /* Giảm padding ngang trên mobile */
+    }
+
+    .footer-top {
+        gap: 40px;
+        padding-bottom: 30px;
+        /* Buộc các phần tử xếp chồng lên nhau */
+        flex-direction: column; 
+    }
+
+    .footer-logo-section {
+        /* Cho phép logo chiếm toàn bộ chiều rộng */
+        max-width: 100%; 
+    }
+
+    .footer-columns {
+        gap: 30px;
+        /* Chuyển các cột sang chế độ xếp chồng nếu muốn gọn hơn */
+        /* flex-direction: column; */ 
+    }
+
+    .footer-column {
+        min-width: 45%; /* Chia 2 cột trên mobile */
+    }
+
+    .footer-bottom {
+        /* Xếp chồng nội dung dưới cùng trên mobile */
+        flex-direction: column; 
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-bottom ul {
+        justify-content: center;
+    }
+}
 @media (min-width: 300px) {
   .footer .row {
     display: flex;            
