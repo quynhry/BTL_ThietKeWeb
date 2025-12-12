@@ -30,7 +30,7 @@ a {
 a:hover {
     color: var(--red);
 }
-
+/*menu*/
 header {
     position: fixed;
     top: 0;
@@ -202,7 +202,7 @@ header.visible {
     font-size: 18px;
 }
 
-
+/*hết*/
 .hero {
     background-size: cover;
     background-position: center;
