@@ -784,22 +784,19 @@ header.visible {
     text-decoration: none;
     transition: color 0.3s ease;
 }
-/* --- ICON GIỎ HÀNG (gắn theo header) --- */
+/* --- ICON GIỎ HÀNG --- */
 .cart-icon {
-    position: relative;          /* QUAN TRỌNG: bỏ fixed, chuyển sang relative */
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 38px;
     height: 38px;
-
-    background: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
-
+    background: none;       /* bỏ nền trắng */
+    border-radius: 0;       /* không bo tròn */
+    box-shadow: none;       /* bỏ shadow */
     cursor: pointer;
-    transition: 0.25s ease;
+    transition: transform 0.25s ease;
 }
 
 .cart-icon:hover {
@@ -811,29 +808,24 @@ header.visible {
     color: #7a3a0b;
 }
 
-/* Badge số lượng */
+/* --- BADGE SỐ LƯỢNG --- */
 #cartIconCount {
     position: absolute;
-    top: -6px;
-    right: -6px;
-
+    top: -6px;       /* căn lên trên icon */
+    right: -6px;     /* căn sát phải icon */
     min-width: 16px;
     height: 16px;
-
     background: #c80000;
     color: #fff;
-
     font-size: 10px;
     font-weight: 700;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border-radius: 50%;
+    border-radius: 50%;  /* vẫn là hình tròn nhỏ cho số lượng */
+    line-height: 16px;
     padding: 0 4px;
-
-    box-shadow: 0 0 0 2px #fff;
+    box-shadow: none;    /* bỏ viền */
 }
 /*COMMING SOON*/
 .comming {
