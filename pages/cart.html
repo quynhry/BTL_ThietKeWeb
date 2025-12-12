@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giỏ hàng | Yên Hoa</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/cart.css">
+</head>
+<body>
+
+<header id="header" class="visible">
+    <div class="header-container">
+        <div class="header-logo"><a href="../index.html">YÊN HOA</a></div>
+        <ul class="header-menu">
+            <li class="menu-item"><a href="../gioi_thieu.html">Giới thiệu</a></li>
+            <li class="menu-item"><a href="../san_pham.html">Sản phẩm</a></li>
+            <li class="menu-item"><a href="../bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a></li>
+            <li class="menu-item"><a href="../khach_hang.html">Cửa hàng</a></li>
+            <li class="menu-item"><a href="#">Đối Tác</a></li>
+        </ul>
+        <div class="header-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <a href="login.html"><i class="fa-regular fa-user"></i></a>
+            <div class="cart-icon" onclick="location.href='cart.html'">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartIconCount">0</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="cart-page">
+    <h1 class="cart-title">Giỏ hàng của bạn</h1>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="../index.html">Trang chủ</a>
+        <span>›</span>
+        <span>Giỏ hàng</span>
+    </div>
+
+    <div class="cart-content">
+        <!-- LEFT -->
+        <div class="cart-left" id="cartLeft"></div>
+
+        <!-- RIGHT -->
+        <div class="cart-right">
+            <h3>Tổng đơn hàng</h3>
+            <div class="cart-summary">
+                <p>Tạm tính <span id="subtotal">0đ</span></p>
+                <p>Phí ship <span id="shipping">30.000đ</span></p>
+            </div>
+            <div class="cart-total">Tổng: <span id="total">0đ</span></div>
+            <button class="checkout-btn">Thanh toán</button>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+const cartItems = [
+    {id:1, title:'Áo dài Yên Hoa', price:1200000, quantity:1, image:'../assets/img/sample1.jpg'},
+    {id:2, title:'Áo dài Truyền Thống', price:900000, quantity:2, image:'../assets/img/sample2.jpg'}
+];
+
+function renderCart() {
+    const cartLeft = document.getElementById('cartLeft');
+    cartLeft.innerHTML = '';
+
+    let subtotal = 0;
+
+    cartItems.forEach((item, index) => {
+        subtotal += item.price * item.quantity;
+
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+            <img src="${item.image}" class="cart-img">
+            <div class="cart-info">
+                <h4>${item.title}</h4>
+                <p>${item.price.toLocaleString()}đ</p>
+                <div class="quantity-controls">
+                    <button class="btn-minus">-</button>
+                    <span>${item.quantity}</span>
+                    <button class="btn-plus">+</button>
+                </div>
+            </div>
+            <button class="delete-btn"><i class="fa-solid fa-xmark"></i></button>
+        `;
+
+        cartLeft.appendChild(div);
+
+        // Event buttons
+        const minus = div.querySelector('.btn-minus');
+        const plus = div.querySelector('.btn-plus');
+        const deleteBtn = div.querySelector('.delete-btn');
+        const qtySpan = div.querySelector('.quantity-controls span');
+
+        minus.addEventListener('click', () => {
+            if(item.quantity > 1) item.quantity--;
+            qtySpan.textContent = item.quantity;
+            updateTotals();
+        });
+
+        plus.addEventListener('click', () => {
+            item.quantity++;
+            qtySpan.textContent = item.quantity;
+            updateTotals();
+        });
+
+        deleteBtn.addEventListener('click', () => {
+            cartItems.splice(index,1);
+            renderCart();
+        });
+    });
+
+    updateTotals();
+}
+
+function updateTotals() {
+    const subtotal = cartItems.reduce((sum,item)=>sum+item.price*item.quantity,0);
+    const shipping = cartItems.length>0 ? 30000 : 0;
+    const total = subtotal + shipping;
+
+    document.getElementById('subtotal').textContent = subtotal.toLocaleString() + 'đ';
+    document.getElementById('shipping').textContent = shipping.toLocaleString() + 'đ';
+    document.getElementById('total').textContent = total.toLocaleString() + 'đ';
+
+    document.getElementById('cartIconCount').textContent = cartItems.length;
+}
+
+document.addEventListener('DOMContentLoaded', renderCart);
+</script>
+
+</body>
+</html>
