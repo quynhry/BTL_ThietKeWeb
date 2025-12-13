@@ -500,7 +500,7 @@ header.visible {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 0;
+    padding: 20px 0;
     flex-wrap: wrap;
 }
 
@@ -906,6 +906,74 @@ header.visible {
     font-weight: 600;
     letter-spacing: 1px;
 }
+/*banner cuối*/
+/* Card overlay tổng thể */
+.overlay-card {
+    max-width: 820px;
+    margin: 80px auto;
+    padding: 36px 44px;
+    background: #fff9f3; /* nền kem rất nhạt */
+    border-radius: 28px;
+    box-shadow: 0 10px 30px rgba(217, 160, 160, 0.5);
+    text-align: center;
+}
+
+/* Tiêu đề */
+.overlay-card h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    font-weight: 600;
+
+    color: #a12928; /* đỏ trầm thiêng liêng */
+    letter-spacing: 0.5px;
+
+    margin-bottom: 30px;
+}
+
+/* Đoạn mô tả */
+.overlay-card p {
+    max-width: 820px;
+    margin: 0 auto;
+
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+
+    color: #4a3a2a; /* nâu ấm – dễ đọc */
+}
+
+/* Responsive cho tablet */
+@media (max-width: 1024px) {
+    .overlay-card {
+        padding: 60px 50px;
+    }
+
+    .overlay-card h1 {
+        font-size: 46px;
+    }
+
+    .overlay-card p {
+        font-size: 18px;
+    }
+}
+
+/* Responsive cho mobile */
+@media (max-width: 600px) {
+    .overlay-card {
+        padding: 45px 25px;
+        margin: 50px 16px;
+        border-radius: 22px;
+    }
+
+    .overlay-card h1 {
+        font-size: 34px;
+    }
+
+    .overlay-card p {
+        font-size: 16px;
+    }
+}
+
 /* FOOTER */
 /* ==================================== */
 /* 1. FOOTER BASE STYLES */
@@ -963,14 +1031,14 @@ header.visible {
 .footer-logo h1 {
     font-size: 26px; /* Tăng nhẹ font size */
     font-weight: 700;
-    color: #f7f3eb;
+    color: var(--text);
 }
 
 .footer-description {
     font-size: 16px;
     line-height: 1.6; /* Thêm line height để dễ đọc */
     margin-bottom: 20px;
-    color: #f7f3eb;
+    color: var(--text);
 }
 
 /* --- Members (Avatar) --- */
@@ -978,7 +1046,7 @@ header.visible {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #f7f3eb;
+    color: var(--text);
 }
 
 .footer-members img {
@@ -992,7 +1060,7 @@ header.visible {
 
 /* --- Columns Section --- */
 .footer-columns {
-    color: #f7f3eb;
+    color: var(--text);
     /* Cho 2 phần */
     flex: 2; 
     display: flex;
@@ -1010,7 +1078,7 @@ header.visible {
     font-size: 18px;
     font-weight: 600; /* Thêm font weight để nổi bật */
     margin-bottom: 20px;
-    color: #f7f3eb;
+    color: var(--text);
 }
 
 .footer-column ul {
@@ -1023,13 +1091,13 @@ header.visible {
 }
 
 .footer-column a {
-    color: #f7f3eb;
+    color: var(--text);
     text-decoration: none;
     transition: color 0.3s ease-in-out; /* Làm mượt transition */
 }
 
 .footer-column a:hover {
-    color: #dfc3ae; /* Đổi màu hover sang màu sáng hơn */
+    color: var(--red); /* Đổi màu hover sang màu sáng hơn */
 }
 
 /* ==================================== */
@@ -1046,11 +1114,11 @@ header.visible {
 
 .footer-bottom p, .footer-bottom a {
     font-size: 14px;
-    color: #dfc3ae; /* Màu be nhạt cho chữ bản quyền */
+    color: #000000; /* Màu  cho chữ bản quyền */
 }
 
 .footer-bottom a:hover {
-    color: #f7f3eb; /* Đổi màu hover về màu chữ chính để nổi bật */
+    color: var(--red); /* Đổi màu hover về màu chữ chính để nổi bật */
 }
 
 .footer-bottom ul {
@@ -1142,10 +1210,7 @@ header.visible {
   .footer .d-flex.gap-3 {
     justify-content: center;
   }
-}
-
-
-   
+}   
 
 /* Nút cuộn lên đầu trang */
 footer .btn.rounded-circle {
