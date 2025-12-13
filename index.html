@@ -82,13 +82,13 @@
             <!-- Icons bên phải -->
             <div class="header-icons">
                 <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
-                <div id="headerUser"></div>
-
-               <div class="cart-icon" onclick="location.href='pages/cart.html'">
-             <i class="fa-solid fa-cart-shopping"></i>
+                <a href="pages/login.html">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <div class="cart-icon" onclick="location.href='cart.html'">
+                     <i class="fa-solid fa-cart-shopping"></i>
                 <span id="cartIconCount">0</span>
                 </div>
-
 
             </div>
         </div>
@@ -305,6 +305,7 @@ Mỗi bộ hoạ tiết trong BST là một câu chuyện được phóng tác t
         <img src="https://dingdangvietnam.com/cdn/shop/files/DINGDANG_03092595858_copy_4.jpg?v=1757391177&width=493" alt="ảnh8">
     </div>
 </div> 
+</div> 
 <div style="padding: 50px 0px 30px;">
         <h2 class="reveal-item">"Khoảnh khắc đẹp bắt đầu từ đây"</h2>
         <div class="quote"><em>Tinh hoa áo cưới Việt</em></div><br>
@@ -399,53 +400,5 @@ Mỗi bộ hoạ tiết trong BST là một câu chuyện được phóng tác t
     <script src="assets/js/menu.js"></script> 
     <script src="assets/js/scroll_reveal.js"></script> 
     <script src="assets/js/comming.js"></script>
-
-<style>
-.user-menu {
-    display: inline-block;
-    color: #fff;
-}
-
-/* Nút logout luôn hiện */
-.user-menu button {
-    border: none;
-    background: none;
-    color: #3a2d20;
-    cursor: pointer;
-    margin-left: 8px;
-}
-</style>
-
-<script>
-function renderHeaderUser() {
-    const headerUser = document.getElementById("headerUser");
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
-    if (currentUser) {
-        headerUser.innerHTML = `
-            <span>Xin chào, ${currentUser.name}</span>
-            <button id="logoutBtn">
-               <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            </button>
-        `;
-
-        document.getElementById("logoutBtn").addEventListener("click", () => {
-            localStorage.removeItem("currentUser"); // xóa user hiện tại
-            renderHeaderUser(); // cập nhật lại header
-        });
-    } else {
-        headerUser.innerHTML = `
-            <a href="pages/login.html">
-                <i class="fa-regular fa-user"></i>
-            </a>
-        `;
-    }
-}
-
-// Render lần đầu
-renderHeaderUser();
-</script>
-<script src="assets/js/auth.js"></script>
-
 </body>
 </html>

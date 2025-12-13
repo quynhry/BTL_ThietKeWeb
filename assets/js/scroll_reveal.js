@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         root: null, // Quan sát so với viewport
         rootMargin: '0px',
         // Kích hoạt khi 15% phần tử lọt vào màn hình
-        threshold: 0.15 
+        threshold: 0.3
     };
 
     // 4. Tạo Intersection Observer và bắt đầu quan sát
