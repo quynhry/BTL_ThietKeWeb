@@ -79,18 +79,22 @@
                 </li>
             </ul>
             
-            <!-- Icons bên phải -->
-            <div class="header-icons">
-                <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
-                <a href="pages/login.html">
-                    <i class="fa-regular fa-user"></i>
-                </a>
-                <div class="cart-icon" onclick="location.href='cart.html'">
-                     <i class="fa-solid fa-cart-shopping"></i>
-                <span id="cartIconCount">0</span>
-                </div>
+           <!-- Icons bên phải -->
+<div class="header-icons">
+    
+    <!-- Search -->
+    <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
 
-            </div>
+    <!-- USER (JS render ở đây) -->
+    <div class="user-menu" id="headerUser"></div>
+
+    <!-- CART -->
+    <div class="cart-icon" onclick="location.href='pages/cart.html'">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cartIconCount">0</span>
+    </div>
+
+</div>
         </div>
     </header>
 
@@ -404,5 +408,29 @@ những rung động hoài niệm cùng bản thể tự do bất quy tắc giao
     <script src="assets/js/menu.js"></script> 
     <script src="assets/js/scroll_reveal.js"></script> 
     <script src="assets/js/comming.js"></script>
+    <script src="assets/js/auth.js"></script>
+<style>
+.user-menu {
+    display: inline-block;
+    color: #fff;
+}
+
+/* Nút logout luôn hiện */
+.user-menu button {
+    border: none;
+    background: none;
+    color: #3a2d20;
+    cursor: pointer;
+    margin-left: 8px;
+}
+.user-name {
+    color: #3a2d20;
+    font-size: 14px;
+    margin-right: 6px;
+    white-space: nowrap;
+}
+</style>
+
+
 </body>
 </html>
