@@ -500,7 +500,7 @@ header.visible {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
+    padding: 60px 0 30px;
     flex-wrap: wrap;
 }
 
@@ -906,6 +906,51 @@ header.visible {
     font-weight: 600;
     letter-spacing: 1px;
 }
+/* TABLET (≤ 1024px) */
+@media (max-width: 1024px) {
+    .video-section {
+        padding: 80px 20px 30px;
+    }
+
+    .video-box {
+        max-width: 320px;
+    }
+
+    .video-box h3 {
+        font-size: 17px;
+    }
+}
+
+/* MOBILE (≤ 768px) */
+@media (max-width: 768px) {
+    .video-section {
+        padding: 60px 15px 30px;
+    }
+
+    .video-box {
+        max-width: 100%;
+    }
+
+    .video-box video {
+        border-radius: 6px;
+    }
+
+    .video-box h3 {
+        font-size: 16px;
+    }
+}
+
+/* MOBILE NHỎ (≤ 480px) */
+@media (max-width: 480px) {
+    .video-section {
+        padding: 50px 10px 20px;
+    }
+
+    .video-box h3 {
+        font-size: 15px;
+        letter-spacing: 0.5px;
+    }
+}
 /*banner cuối*/
 /* Card overlay tổng thể */
 .overlay-card {
@@ -994,10 +1039,8 @@ header.visible {
     /* Padding ngang mặc định cho màn hình lớn, sẽ thay đổi trong media query */
     padding: 0 20px; 
 }
-
-/* ==================================== */
 /* 2. FOOTER TOP SECTION (Logo & Columns) */
-/* ==================================== */
+
 .footer-top {
     display: flex;
     flex-wrap: wrap;
@@ -1100,9 +1143,8 @@ header.visible {
     color: var(--red); /* Đổi màu hover sang màu sáng hơn */
 }
 
-/* ==================================== */
 /* 3. FOOTER BOTTOM (Copyright & Social) */
-/* ==================================== */
+
 .footer-bottom {
     display: flex;
     flex-wrap: wrap;
@@ -1129,9 +1171,7 @@ header.visible {
     padding: 0;
 }
 
-/* ==================================== */
 /* 4. RESPONSIVE (Cho màn hình nhỏ hơn 768px) */
-/* ==================================== */
 @media (max-width: 768px) {
     .footer {
         padding-top: 40px;
