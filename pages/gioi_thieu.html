@@ -11,6 +11,23 @@
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/style.css"> 
     <style>
+        /*banner đầu*/
+        .about-hero {
+            background: linear-gradient(180deg, rgba(108, 32, 32, 0.26), rgba(0, 0, 0, 0.35)), url('../assets/img/anhnen.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fffacd;
+            padding: 150px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .about-hero h1 {
+            font-size: 3.5rem;
+            font-family: var(--playfair);
+            margin-bottom: 20px;
+            font-weight: bold;
+            
+        }
         .page-breadcrumbs {
             text-align: center;
             margin-bottom: 70px;
@@ -56,26 +73,16 @@
                 padding: 0 10px;
             }
         }
-        .about-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/img/kpt.tranhtrangguong1.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        .about-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: bold;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--quicksand);
+            font-weight: 700;
         }
         .about-card {
-            background: linear-gradient(to bottom right, #fff, #f7f3eb);
+            background: linear-gradient(to bottom right, #fff, #fcf5ed);
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(139, 94, 60, 0.1);
+            box-shadow: 0 10px 30px rgba(217, 160, 160, 0.5);
             transition: transform 0.3s ease;
         }
         .about-card:hover {
@@ -84,9 +91,9 @@
         .stats-card {
             text-align: center;
             padding: 30px;
-            background: white;
+            background: linear-gradient(to bottom right, #fff, #fcf5ed);
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(139, 94, 60, 0.1);
+            box-shadow: 0 5px 15px rgba(217, 160, 160, 0.5);
             transition: all 0.3s ease;
         }
         .stats-card:hover {
@@ -94,12 +101,13 @@
         }
         .stats-card i {
             font-size: 2.5rem;
-            color: #8b5e3c;
+            color: var(--red);
             margin-bottom: 20px;
         }
         .stats-card h3 {
-            color: #b77f54;
+            color: var(--text);
             font-size: 2.5rem;
+            font-family: var(--quicksand);
             font-weight: bold;
             margin-bottom: 10px;
         }
@@ -184,16 +192,13 @@
         </div>
     </header>
 
-<div class="page-breadcrumbs">
-    <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
-        <p>
-            <a href="../index.html">Yên Hoa</a>
-            <span class="separator"> - </span>
-            <span class=" last">Giới thiệu</span>
-        </p>
-    </nav>
-</div>
-
+    <div class="about-hero">
+            <div class="container1">
+                <h1 data-aos="fade-down">Chào Mừng Đến Với Yên Hoa</h1>
+                <p id="heroSub" class="hero-sub">Hồn Việt trong từng tà áo dài</p>
+            </div>
+    </div>
+    
 <div class="container">
             <div class="row mb-5">
                 <div class="col-md-6" data-aos="fade-right">
@@ -218,7 +223,7 @@
 
             <div class="row mb-5">
                 <div class="col-12 text-center mb-4">
-                    <h2 data-aos="fade-up" style="color: white;">Thành Tựu Của Chúng Tôi</h2>
+                    <h2 data-aos="fade-up" style="font-family: var(--playfair);font-size: 34px;font-weight: 700;color: var(--red);">Thành Tựu Của Chúng Tôi</h2>
                 </div>
                 <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
                     <div class="stats-card">
@@ -438,9 +443,9 @@
             new Chart(document.getElementById('categoryDistribution'), {
                 type: 'polarArea',
                 data: {
-                    labels: ['Áo Dài Tết', 'Áo Dài Truyền Thống', 'Áo Dài Mẹ', 'Bộ Sưu Tập Cưới', 'Duyên'],
+                    labels: ['Áo Dài Tết', 'Áo Dài Truyền Thống', 'Áo Dài Mẹ', 'Bộ Sưu Tập Cưới'],
                     datasets: [{
-                        data: [4000, 3500, 3000, 3200, 2500],
+                        data: [4000, 3500, 3000, 3200],
                         backgroundColor: [
                             'rgba(161, 41, 40, 0.85)',
                             'rgba(161, 41, 40, 0.7)',
