@@ -1072,9 +1072,10 @@ header.visible {
 }
 
 .footer-logo h1 {
-    font-size: 26px; /* Tăng nhẹ font size */
+    font-size: 30px; 
     font-weight: 700;
-    color: var(--text);
+    color: var(--red);
+    font-family: var(--playfair);
 }
 
 .footer-description {
