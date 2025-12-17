@@ -1,35 +1,4 @@
-:root {
-    --playfair: 'Playfair Display', serif;
-    --quicksand: 'Quicksand', sans-serif;
-    --red: #a12928;
-    --soft-bg: #fffaf5;
-    --accent: #d6b887;
-    --text: #3a2d20;
-    --black: #000000; 
-}
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--quicksand);
-    background-color: var(--soft-bg);
-    color: var(--text);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-    text-decoration: none;
-    color: var(--text);
-}
-
-a:hover {
-    color: var(--red);
-}
 
 /* ===== FILTER SECTION ===== */
 /* FILTER SECTION */

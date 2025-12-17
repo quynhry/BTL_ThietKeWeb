@@ -3,77 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yên Hoa</title>
+    <title>Giới thiệu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> 
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/style.css"> 
-    
+    <style>
+        /*banner đầu*/
+        .about-hero {
+            background: linear-gradient(180deg, rgba(108, 32, 32, 0.26), rgba(0, 0, 0, 0.35)), url('../assets/img/anhnen.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fffacd;
+            padding: 150px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .about-hero h1 {
+            font-size: 3.5rem;
+            font-family: var(--playfair);
+            margin-bottom: 20px;
+            font-weight: bold;
+            
+        }
+        /* ===== LAYOUT LEFT ===== */
+.layout-left .media-wrapper {
+    width: 65%;
+    max-width: 65%;
+    float: left;
+}
+
+.layout-left .content-card {
+    left: auto;
+    right: 100px;
+}
+
+/* ===== LAYOUT RIGHT ===== */
+.layout-right .media-wrapper {
+    width: 65%;
+    float: right;
+    z-index: 1;
+}
+
+.layout-right .content-card {
+    left: 100px;
+    right: auto;
+}
+
+/* ===== IMAGE ===== */
+.media-wrapper {
+    height: 100%;
+}
+.media-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== CONTENT BOX (GIỐNG content-box-fixed) ===== */
+.content-card {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+
+    width: 45%;
+    max-width: 500px;
+    z-index: 10;
+
+    padding: 60px 30px;
+    box-sizing: border-box;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    background-color: #f7f7f7;
+}
+
+/* ===== TEXT ===== */
+.content-card p {
+    text-align: justify;
+    padding: 0 10px;
+}
+
+.content-card h2 {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* ===== LIGHT THEME (GIỐNG light-background) ===== */
+.light-background {
+    background-color: #f7f7f7;
+    border-color: #ccc;
+    color: #333;
+}
+
+.light-background h2,
+.light-background p {
+    color: #333;
+}
+
+/* ===== SECTION CHA  ===== */
+.production-section {
+    position: relative;
+    width: 100%;
+    max-width: 70%;
+    margin: 20px auto 0 auto;
+    overflow: hidden;
+    height: auto;
+}
+
+
+        .page-breadcrumbs {
+            text-align: center;
+            margin-bottom: 70px;
+            font-size: 80%;
+            line-height: 13px;
+            color: #635859;
+            margin-top: 15px;
+            padding: 0 20px;
+        }
+        .chart-card {
+            background: linear-gradient(to bottom right, #ffffff, var(--soft-bg));
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(217, 160, 160, 0.5);
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        .chart-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 300px;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .chart-card {
+                margin-bottom: 20px;
+            }
+            .chart-container {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .chart-container {
+                height: 200px;
+            }
+            .col-md-4 {
+                padding: 0 10px;
+            }
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--quicksand);
+            font-weight: 700;
+        }
+        .about-card {
+            background: linear-gradient(to bottom right, #fff, #fcf5ed);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(217, 160, 160, 0.5);
+            transition: transform 0.3s ease;
+        }
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+        .stats-card {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(to bottom right, #fff, #fcf5ed);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(217, 160, 160, 0.5);
+            transition: all 0.3s ease;
+        }
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        .stats-card i {
+            font-size: 2.5rem;
+            color: var(--red);
+            margin-bottom: 20px;
+        }
+        .stats-card h3 {
+            color: var(--text);
+            font-size: 2.5rem;
+            font-family: var(--quicksand);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 
     <header id="header">
         <div class="header-container">
+            <button class="menu-toggle" id="menuToggle" aria-label="Mở menu"><i class="fa fa-bars"></i></button>
+
             <!-- Logo bên trái -->
-            <div class="header-logo"><a href="index.html">YÊN HOA</a></div>
+            <div class="header-logo"><a href="../index.html">YÊN HOA</a></div>
             
             <!-- Menu ở giữa -->
             <ul class="header-menu">
-                <li class="menu-item"><a href="/gioi_thieu.html">Giới thiệu</a></li>
+                <li class="menu-item"><a href="gioi_thieu.html">Giới thiệu</a></li>
 
                 <li class="menu-item">
-                    <a href="/san_pham.html">Sản phẩm</a>
+                    <a href="san_pham.html">Sản phẩm</a>
                     <ul class="sub-menu">
                         <li class="menu-home">
-                            <a href="/ao_dai_tet.html">Áo Dài Tết</a>
+                            <a href="ao_dai_tet.html">Áo Dài Tết</a>
                             <ul class="sub-menu sub-menu2">
-                                <li><a href="/xuan_y_bich_hoa.html">Xuân Ý Bích Họa</a></li>
-                                <li><a href="/hoa_cam.html">Họa Cầm</a></li>
+                                <li><a href="xuan_y_bich_hoa.html">Xuân Ý Bích Họa</a></li>
+                                <li><a href="hoa_cam.html">Họa Cầm</a></li>
                             </ul>
                         </li>
                         <li class="menu-home">
-                            <a href="/ao_dai_me.html">Áo Dài Mẹ</a>
+                            <a href="ao_dai_me.html">Áo Dài Mẹ</a>
                             <ul class="sub-menu sub-menu2">
-                                <li><a href="/phuong_vu.html">Phượng Vũ</a></li>
-                                <li><a href="/tu_van.html">Từ Vân</a></li>
+                                <li><a href="phuong_vu.html">Phượng Vũ</a></li>
+                                <li><a href="tu_van.html">Từ Vân</a></li>
                             </ul>
                         </li>
                         <li class="menu-home">
-                            <a href="/ao_dai_truyen_thong.html">Áo Dài Truyền Thống</a>
+                            <a href="ao_dai_truyen_thong.html">Áo Dài Truyền Thống</a>
                             <ul class="sub-menu sub-menu2">
-                                <li><a href="/duyen.html">Duyên</a></li>
-                                <li><a href="/diem.html">Diễm</a></li>
-                                <li><a href="/ha_thu.html">Hạ Thu</a></li>
-                                <li><a href="/truc_giao.html">Trúc Giao</a></li>
+                                <li><a href="duyen.html">Duyên</a></li>
+                                <li><a href="diem.html">Diễm</a></li>
+                                <li><a href="ha_thu.html">Hạ Thu</a></li>
+                                <li><a href="truc_giao.html">Trúc Giao</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
 
                 <li class="menu-item">
-                    <a href="/bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a>
+                    <a href="bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a>
                     <ul class="sub-menu">
-                        <li><a href="pages/duyen_uoc.html">Duyên Ước</a></li>
-                        <li><a href="/giao_duyen.html">Giao Duyên</a></li>
-                        <li><a href="/nhan_duyen.html">Nhân Duyên</a></li>
-                        <li><a href="/tam_duyen.html">Tầm Duyên</a></li>
+                        <li><a href="duyen_uoc.html">Duyên Ước</a></li>
+                        <li><a href="giao_duyen.html">Giao Duyên</a></li>
+                        <li><a href="nhan_duyen.html">Nhân Duyên</a></li>
+                        <li><a href="tam_duyen.html">Tầm Duyên</a></li>
                     </ul>
                 </li>
 
-                <li class="menu-item"><a href="/khach_hang.html">Cửa hàng</a></li>
+                <li class="menu-item"><a href="cuahang.html">Cửa hàng</a></li>
+                <li class="menu-item"><a href="khach_hang.html">Khách hàng</a></li>
 
-                <li class="menu-item">
-                    <a href="/">Đối Tác</a>
-                    <ul class="sub-menu">
-                        <li><a href="/phong_su_cuoi.html">Phóng sự cưới</a></li>
-                        <li><a href="/makeup.html">Makeup</a></li>
-                        <li><a href="/planner.html">Planner</a></li>
-                        <li><a href="/suit.html">Suit</a></li>
-                        <li><a href="/vay_cuoi.html">Váy Cưới</a></li>
-                    </ul>
-                </li>
             </ul>
             
             <!-- Icons bên phải -->
@@ -90,3 +276,304 @@
             </div>
         </div>
     </header>
+
+    <div class="about-hero">
+            <div class="container1">
+                <h1 data-aos="fade-down">Chào Mừng Đến Với Yên Hoa</h1>
+                <p id="heroSub" class="hero-sub">Hồn Việt trong từng tà áo dài</p>
+            </div>
+    </div>
+<div class="gallery-header" style="margin-bottom: 0px;">
+        <h2>YÊN HOA</h2>
+        <div class="quote"><em>"Thanh khiết - Tinh tế - Trọn vẹn bản sắc Việt"</em></div>
+</div>
+
+<div class="container">
+            <div class="row mb-5">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="about-card">
+                        <h2 class="mb-4" style="color: var(--red);text-align: center;">Câu Chuyện Của Chúng Tôi</h2>
+                        <p>Tên gọi <b>“Yên Hoa”</b> được lấy cảm hứng từ hình ảnh <b><em>“yên bình” và “hoa nở”</em></b>, tượng trưng cho vẻ đẹp thanh dịu, mềm mại và thuần khiết của người phụ nữ Việt. </p>
+                        <p><b>Yên Hoa</b> được khai sinh từ một gia đình có <b>truyền thống</b> may mặc lâu đời, nơi từng <b>đường kim mũi chỉ</b> không chỉ là kỹ thuật, mà là gia tài tinh thần được truyền lại qua nhiều thế hệ. Mỗi người trong gia đình đều lớn lên bên <b><em>tiếng xoẹt kéo, mùi vải mới và ánh mắt</em></b> chăm chú của những bàn tay thạo nghề. Ở đó, may mặc không chỉ là kế sinh nhai — mà là một cách để <b>giữ gìn nếp nhà, gìn giữ cái đẹp Việt.</b></p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="about-card">
+                        <h2 class="mb-4" style="color: var(--red);text-align: center;">Hành trình của Yên Hoa</h2>
+                        <p>Khởi đầu từ một xưởng may nhỏ tại Hà Nội, <b>Yên Hoa</b> đã trải qua hơn một thập kỷ phát triển, từ những bộ áo dài truyền thống giản dị đến những thiết kế hiện đại, sáng tạo. Chúng tôi tự hào khi được đồng hành cùng hàng ngàn khách hàng trong những dịp quan trọng của cuộc đời họ.</p>
+                        <p>Hành trình của <b>Yên Hoa</b> không chỉ là câu chuyện về sự phát triển của một thương hiệu thời trang, mà còn là hành trình <b>giữ gìn và phát huy giá trị văn hóa Việt Nam</b> thông qua từng thiết kế áo dài. Chúng tôi tin rằng, mỗi chiếc áo dài không chỉ là trang phục — mà còn là biểu tượng của <b>vẻ đẹp, sự duyên dáng và bản sắc Việt.</b></p>
+                    </div>
+                </div>
+            </div>
+</div>
+<section class="production-section layout-left">
+    <div class="media-wrapper">
+        <img src="../assets/img/anhnen.jpg" alt="">
+    </div>
+
+    <div class="content-card light-background">
+        <h2>SẢN XUẤT</h2>
+        <p>
+            Với phương châm <strong>“Tôn vinh vẻ đẹp vĩnh cửu của nàng dâu hiện đại”</strong>,
+            Fleur không chỉ tạo ra chiếc váy cưới hoàn hảo, mà còn mang đến một hành trình
+            chạm đến cảm xúc, sự tự tin và phong thái thanh lịch của mỗi cô gái.
+        </p>
+    </div>
+</section>
+
+
+    <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center mb-4">
+                    <h2 data-aos="fade-up" style="font-family: var(--playfair);font-size: 34px;font-weight: 700;color: var(--red);">Thành Tựu Của Chúng Tôi</h2>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stats-card">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3 id="products-sold">16,000+</h3>
+                        <p>Sản phẩm đã bán</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stats-card">
+                        <i class="fas fa-users"></i>
+                        <h3 id="customers">10,000+</h3>
+                        <p>Khách hàng tin tưởng</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stats-card">
+                        <i class="fas fa-store"></i>
+                        <h3 id="dealers">500+</h3>
+                        <p>Đại lý phân phối</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stats-card">
+                        <i class="fas fa-star"></i>
+                        <h3 id="rating">4.9/5</h3>
+                        <p>Đánh giá từ khách hàng</p>
+                    </div>
+                </div>
+
+                <!-- Phần biểu đồ thống kê -->
+                <div class="row mt-5 mx-0">
+                    <div class="col-12 text-center mb-4">
+                        <h3 style="font-family: var(--playfair);font-size: 34px;font-weight: 700;color: var(--red);">Thống Kê Chi Tiết</h3>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="chart-card">
+                            <div class="card-body">
+                                <canvas id="customerDistribution"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="chart-card">
+                            <div class="card-body">
+                                <canvas id="monthlySales"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="chart-card">
+                            <div class="card-body">
+                                <canvas id="categoryDistribution"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        gsap.to("#products-sold", {
+                            duration: 5,
+                            scrambleText: {
+                                text: "16,000+",
+                                chars: "0123456789,",
+                                revealDelay: 0.5
+                            },
+                            ease: "power1.inOut"
+                        });
+                        gsap.to("#customers", {
+                            duration: 5,
+                            scrambleText: {
+                                text: "10,000+",
+                                chars: "0123456789,",
+                                revealDelay: 0.5
+                            },
+                            ease: "power1.inOut"
+                        });
+                        gsap.to("#dealers", {
+                            duration: 5,
+                            scrambleText: {
+                                text: "500+",
+                                chars: "0123456789+",
+                                revealDelay: 0.5
+                            },
+                            ease: "power1.inOut"
+                        });
+                        gsap.to("#rating", {
+                            duration: 5,
+                            scrambleText: {
+                                text: "4.9/5",
+                                chars: "0123456789./",
+                                revealDelay: 0.5
+                            },
+                            ease: "power1.inOut"
+                        });
+                    });
+                </script>
+                </div>
+            </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../assets/js/menu_chung.js"></script> 
+    <script src="assets/js/scroll_reveal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Khởi tạo GSAP ScrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Xóa hiệu ứng AOS để tránh xung đột
+            const elementsWithAOS = document.querySelectorAll('[data-aos]');
+            elementsWithAOS.forEach(element => {
+                element.removeAttribute('data-aos');
+                element.removeAttribute('data-aos-delay');
+            });
+
+            // Hiệu ứng đếm số liệu thống kê
+            const numbers = {
+                products: 0,
+                customers: 0,
+                dealers: 0,
+                rating: 0
+            };
+
+            gsap.to(numbers, {
+                scrollTrigger: {
+                    trigger: ".stats-card",
+                    start: "top center+=100"
+                },
+                duration: 2,
+                products: 16000,
+                customers: 10000,
+                dealers: 500,
+                rating: 4.9,
+                roundProps: ["products", "customers", "dealers"],
+                onUpdate: () => {
+                    document.getElementById("products-sold").textContent = Math.round(numbers.products) + "+";
+                    document.getElementById("customers").textContent = Math.round(numbers.customers) + "+";
+                    document.getElementById("dealers").textContent = Math.round(numbers.dealers) + "+";
+                    document.getElementById("rating").textContent = numbers.rating.toFixed(1) + "/5";
+                },
+                ease: "power1.out"
+            });
+
+            // Biểu đồ phân bố khách hàng theo vùng miền
+            new Chart(document.getElementById('customerDistribution'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Miền Bắc', 'Miền Trung', 'Miền Nam'],
+                    datasets: [{
+                        data: [4500, 2500, 3000],
+                        backgroundColor: [
+                            'rgba(161, 41, 40, 0.9)', // đỏ đậm
+                            'rgba(161, 41, 40, 0.7)', // đỏ vừa
+                            'rgba(161, 41, 40, 0.5)'  // đỏ nhạt
+                        ],
+                        borderColor: '#fffaf5',   // soft-bg
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Phân Bố Khách Hàng',
+                            font: { family: 'Quicksand', size: 20, weight: 'bold' },
+                            color: '#3a2d20'
+                        }
+                    }
+                }
+                
+            });
+
+            // Biểu đồ doanh số bán hàng theo tháng
+            
+            new Chart(document.getElementById('monthlySales'), {
+                type: 'bar',
+                data: {
+                    labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'],
+                    datasets: [{
+                        label: 'Doanh số 2024',
+                        data: [800, 1200, 1500, 1300, 1800, 2000, 1900, 2200, 2400, 2600, 2800, 3000],
+                        backgroundColor: 'rgba(161, 41, 40, 0.75)',
+                        borderColor: 'rgba(161, 41, 40, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Doanh Số Theo Tháng',
+                            font: { family: 'Quicksand', size: 20, weight: 'bold' },
+                            color: '#3a2d20'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                font: { family: 'Quicksand',size: 10},
+                                color: '#3a2d20'
+                            },
+                            grid: { color: 'rgba(161, 41, 40, 0.1)' }
+                        }
+                    }
+                }
+            });
+
+            // Biểu đồ phân bố sản phẩm theo danh mục
+            new Chart(document.getElementById('categoryDistribution'), {
+                type: 'polarArea',
+                data: {
+                    labels: ['Áo Dài Tết', 'Áo Dài Truyền Thống', 'Áo Dài Mẹ', 'Bộ Sưu Tập Cưới'],
+                    datasets: [{
+                        data: [4000, 3500, 3000, 3200],
+                        backgroundColor: [
+                            'rgba(161, 41, 40, 0.85)',
+                            'rgba(161, 41, 40, 0.7)',
+                            'rgba(161, 41, 40, 0.55)',
+                            'rgba(161, 41, 40, 0.4)',
+                            'rgba(161, 41, 40, 0.25)'
+                        ],
+                        borderColor: '#fffaf5',   // soft-bg
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Phân Bố Sản Phẩm',
+                            font: { family: 'Quicksand', size: 20, weight: 'bold' },
+                            color: '#3a2d20'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
