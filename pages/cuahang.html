@@ -1,316 +1,302 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ thống cửa hàng – Áo Dài Yên Hoa</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hệ thống cửa hàng | Yên Hoa</title>
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- LIB -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo.png">
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <!-- CSS CHUNG -->
+  <link rel="stylesheet" href="assets/css/style.css">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+  <!-- CSS RIÊNG CỬA HÀNG -->
+  <style>
+    body.store-page {
+     font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    background: #fffacd; 
+    color: #a12928;  
+
+    /* ===== STORE CONTENT ===== */
+    .store-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+    text-align: center;
+    color: #a12928;
+}
+
+    .store-title,
+    .store-sub {
+    color: #a12928;
+}
+
+    .store-sub {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      margin-bottom: 45px;
+      font-style: italic;
+    }
+
+    .store-grid {
+      display: grid;
+      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+   .store-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 18px;
+    border: 2px solid #f3dca4;
+    box-shadow: 0 8px 18px rgba(161,41,40,0.2);
+    transition: .3s;
+    text-align: left;
+    color: #a12928;
+}
+
+    .store-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.28);
+    }
+
+    .store-name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #a12928;
+    }
+
+    .store-address {
+      border-left: 3px solid #a12928;
+      padding-left: 14px;
+      margin-bottom: 20px;
+    }
+
+    .store-address p {
+      margin: 4px 0;
+      font-size: 1rem;
+      color: #533;
+    }
+
+    .store-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-map,
+    .btn-direction {
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.25s;
+      font-size: 0.95rem;
+      flex: 1;
+      text-align: center;
+    }
+
+    .btn-map {
+    background: #a12928;
+    border: 1px solid #7a1e1d;
+    color: #fffacd;
+}
+
+.btn-map:hover {
+    background: #7e1e1d;
+}
 
 
+.btn-direction {
+    background: #a12928;
+    color: #fffacd;
+    border: 2px solid #a12928;
+}
+
+.btn-direction:hover {
+    background: #7e1e1d;
+}
 
 
-
-    <style>
-        
-        body {
-            font-family: 'Quicksand', sans-serif;
-            margin: 0;
-            background: #a12928; 
-            color: #2b2b2b;
-        }
-
-        /* WRAPPER */
-        .store-wrapper {
-            max-width: 1200px;
-            margin: auto;
-            padding: 60px 20px;
-            text-align: center;
-            color: #fffacd; 
-        }
-
-        /* TITLE */
-        .store-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
-            margin-bottom: 10px;
-            color: #fffacd;
-        }
-
-        .store-sub {
-            font-size: 1.15rem;
-            opacity: 0.9;
-            margin-bottom: 45px;
-            font-style: italic;
-            color: #fffacd;
-        }
-
-        /* GRID */
-        .store-grid {
-            display: grid;
-            gap: 25px;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-
-        /* CARD */
-        .store-card {
-            background: #fffacd; /* VÀNG NHẠT */
-            padding: 30px;
-            border-radius: 18px;
-            border: 2px solid #f3dca4;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-            transition: .3s;
-            text-align: left;
-            color: #502626; 
-        }
-
-        .store-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 14px 28px rgba(0,0,0,0.28);
-        }
-
-        /* STORE NAME */
-        .store-name {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #a12928; /* ĐỎ */
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* ADDRESS */
-        .store-address {
-            border-left: 3px solid #a12928; /* đỏ */
-            padding-left: 14px;
-            margin-bottom: 20px;
-        }
-
-        .store-address p {
-            margin: 4px 0;
-            font-size: 1rem;
-            color: #533;
-        }
-
-        /* BUTTONS */
-        .store-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn-map,
-        .btn-direction {
-            padding: 10px 18px;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.25s;
-            font-size: 0.95rem;
-            flex: 1;
-            text-align: center;
-        }
-
-        .btn-map {
-            background: #a12928;
-            border: 1px solid #7a1e1d;
-            color: #fffacd;
-        }
-
-        .btn-map:hover {
-            background: #7e1e1d;
-        }
-
-        .btn-direction {
-            background: #fffacd;
-            color: #a12928;
-            border: 2px solid #a12928;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        .btn-direction:hover {
-            background: #f7e6a3;
-        }
-
-        /* small responsiveness niceties */
-        @media (max-width: 600px) {
-            .store-wrapper { padding: 30px 12px; }
-            .store-title { font-size: 1.9rem; }
-        }
-    </style>
+.header-menu a:hover,
+.header-menu a.active {
+    color: #a12928;
+}
+  </style>
 </head>
 
-<body>
-    
-    <header>
-        <div class="header-top-bar" id="headerTopBar">
-            <div class="right-menu">
-                <div class="nav-left-icons">
-                    <div id="topLogo" class="top-logo-text">YÊN HOA</div>
-                </div>
+<body class="store-page">
 
-                <div class="nav-right-icons">
-                    <i class="fa-solid fa-magnifying-glass" id="searchIcon" style="cursor: pointer;"></i>
-                    <i class="fa-regular fa-user"></i>
-                    <button id="cart" style="background: none; border: none; padding: 0;">
-                        <i class="fa fa-shopping-basket"></i>
-                    </button>
-                </div>
-            </div>
+<!-- ================= HEADER (ĐỒNG BỘ POLICY) ================= -->
+<header>
+  <div class="header-top-bar" id="headerTopBar">
+    <div class="right-menu">
+      <div class="nav-left-icons">
+        <div id="topLogo" class="top-logo-text">YÊN HOA</div>
+      </div>
+      <div class="nav-right-icons">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-regular fa-user"></i>
+        <button id="cart" style="background:none;border:none">
+          <i class="fa fa-shopping-basket"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-logo-text" id="headerLogoText">YÊN HOA</div>
+
+  <nav class="header-nav-main" id="headerNavMain">
+    <ul class="header-menu">
+      <li><a href="/gioi_thieu.html">Giới thiệu</a></li>
+      <li><a href="/san_pham.html">Sản phẩm</a></li>
+      <li><a href="/bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a></li>
+      <li><a href="/khach_hang.html">Khách Hàng</a></li>
+      <li><a href="/cuahang.html" class="active">Cửa Hàng</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= NỘI DUNG ================= -->
+<section class="store-wrapper">
+  <h1 class="store-title">HỆ THỐNG CỬA HÀNG YÊN HOA</h1>
+  <p class="store-sub">Lan tỏa vẻ đẹp áo dài Việt tại các không gian Yên Hoa trên toàn quốc.</p>
+
+  <div class="store-grid">
+
+    <div class="store-card">
+      <h2 class="store-name">Hà Nội</h2>
+      <div class="store-address">
+        <p>📍 25 Nguyễn Khuyến, Văn Miếu, Đống Đa</p>
+        <p>📞 0987 123 456</p>
+      </div>
+      <div class="store-buttons">
+        <a class="btn-map" target="_blank" href="https://maps.google.com?q=25+Nguyen+Khuyen+Hanoi">Xem bản đồ</a>
+        <a class="btn-direction" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=25+Nguyen+Khuyen+Hanoi">Chỉ đường</a>
+      </div>
+    </div>
+
+    <div class="store-card">
+      <h2 class="store-name">Hải Phòng</h2>
+      <div class="store-address">
+        <p>📍 62 Trần Phú, Ngô Quyền</p>
+        <p>📞 0968 442 899</p>
+      </div>
+      <div class="store-buttons">
+        <a class="btn-map" target="_blank" href="https://maps.google.com?q=62+Tran+Phu+Hai+Phong">Xem bản đồ</a>
+        <a class="btn-direction" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=62+Tran+Phu+Hai+Phong">Chỉ đường</a>
+      </div>
+    </div>
+
+    <div class="store-card">
+      <h2 class="store-name">Huế</h2>
+      <div class="store-address">
+        <p>📍 18 Lê Huân, Thuận Hòa</p>
+        <p>📞 0979 456 321</p>
+      </div>
+      <div class="store-buttons">
+        <a class="btn-map" target="_blank" href="https://maps.google.com?q=18+Le+Huan+Hue">Xem bản đồ</a>
+        <a class="btn-direction" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=18+Le+Huan+Hue">Chỉ đường</a>
+      </div>
+    </div>
+
+    <div class="store-card">
+      <h2 class="store-name">Đà Nẵng</h2>
+      <div class="store-address">
+        <p>📍 210 Hoàng Diệu, Hải Châu</p>
+        <p>📞 0935 887 112</p>
+      </div>
+      <div class="store-buttons">
+        <a class="btn-map" target="_blank" href="https://maps.google.com?q=210+Hoang+Dieu+Da+Nang">Xem bản đồ</a>
+        <a class="btn-direction" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=210+Hoang+Dieu+Da+Nang">Chỉ đường</a>
+      </div>
+    </div>
+
+    <div class="store-card">
+      <h2 class="store-name">TP. Hồ Chí Minh</h2>
+      <div class="store-address">
+        <p>📍 92 Lê Lợi, Quận 1</p>
+        <p>📞 0934 222 778</p>
+      </div>
+      <div class="store-buttons">
+        <a class="btn-map" target="_blank" href="https://maps.google.com?q=92+Le+Loi+TPHCM">Xem bản đồ</a>
+        <a class="btn-direction" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=92+Le+Loi+TPHCM">Chỉ đường</a>
+      </div>
+    </div>
+
+  </div>
+
+
+<section class="footer" style="width: 100%;">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-logo-section">
+          <div class="footer-logo">
+            <img src="../assets/img/logo.png" alt="Logo" style="height: 60px; width: 60px" />
+            <h1>YÊN HOA</h1>
+          </div>
+          <p class="footer-description">
+            Yên Hoa tự hào đã bán ra hơn 16.000 sản phẩm, khẳng định chất lượng và uy tín trên thị trường.<br>
+            Khách hàng của Yên Hoa đã vượt mốc 10.000 người, minh chứng cho sự yêu mến và ủng hộ từ cộng đồng!
+          </p>
+          <div class="footer-members">
+            <img src="../assets/img/anhnguoi.jpg" alt="">
+            <img src="../assets/img/anhnguoi2.jpg" alt="">
+            <img src="../assets/img/anhnguoi3.jpg" alt="">
+            <span><strong>10.000</strong> Khách hàng đã tin tưởng </span>
+          </div>
         </div>
-
-        <!-- LOGO DÍNH KHI CUỘN (RA NGOÀI RIGHT-MENU) -->
-        <div class="header-logo-text" id="headerLogoText">YÊN HOA</div>
-
-        <nav class="header-nav-main" id="headerNavMain">
-            <ul class="header-menu">
-                <li class="menu-item"><a href="/gioi_thieu.html">Giới thiệu</a></li>
-
-                <li class="menu-item">
-                    <a href="san_pham.html">Sản phẩm</a>
-                    <ul class="sub-menu">
-                        <li class="menu-home">
-                            <a href="ao_dai_tet.html">Áo Dài Tết</a>
-                            <ul class="sub-menu2">
-                                <li><a href="/xuan_y_bich_hoa.html">Xuân Ý Bích Họa</a></li>
-                                <li><a href="/hoa_cam.html">Họa Cầm</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-home">
-                            <a href="ao_dai_me.html">Áo Dài Mẹ</a>
-                            <ul class="sub-menu2">
-                                <li><a href="/phuong_vu.html">Phượng Vũ</a></li>
-                                <li><a href="/tu_van.html">Từ Vân</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-home">
-                            <a href="ao_dai_truyen_thong.html">Áo Dài Truyền Thống</a>
-                            <ul class="sub-menu2">
-                                <li><a href="/duyen.html">Duyên</a></li>
-                                <li><a href="/diem.html">Diễm</a></li>
-                                <li><a href="/ha_thu.html">Hạ Thu</a></li>
-                                <li><a href="/truc_giao.html">Trúc Giao</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="menu-item">
-                    <a href="bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a>
-                    <ul class="sub-menu">
-                        <li><a href="pages/duyen_uoc.html">Duyên Ước</a></li>
-                        <li><a href="/giao_duyen.html">Giao Duyên</a></li>
-                        <li><a href="/nhan_duyen.html">Nhân Duyên</a></li>
-                        <li><a href="/tam_duyen.html">Tầm Duyên</a></li>
-                    </ul>
-                </li>
-
-                <li class="menu-item"><a href="khach_hang.html">Khách Hàng</a></li>
-                <li class="menu-item"><a href="cuahang.html" style="color:#a12928; font-weight:600;">Cửa Hàng</a></li>
-
-                <li class="menu-item">
-                    <a href="/">Đối Tác</a>
-                    <ul class="sub-menu">
-                        <li><a href="/phong_su_cuoi.html">Phóng sự cưới</a></li>
-                        <li><a href="/makeup.html">Makeup</a></li>
-                        <li><a href="/planner.html">Planner</a></li>
-                        <li><a href="/suit.html">Suit</a></li>
-                        <li><a href="/vay_cuoi.html">Váy Cưới</a></li>
-                    </ul>
-                </li>
-
+ 
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h6>VỀ CHÚNG TÔI</h6>
+            <ul>
+              <li><a href="../pages/policy.html">Điều Khoản</a></li>
+              <li><a href="pages/contact.html">Liên hệ</a></li>
+              <li><a href="pages/about.html">Giới thiệu</a></li>
+             
             </ul>
-        </nav>
-    </header>
-    <!-- ========== END HEADER ========== -->
-
-    <!-- ================= STORE CONTENT (kept exactly from your cuahang file) ================= -->
-    <section class="store-wrapper">
-
-        <h1 class="store-title">HỆ THỐNG CÁC CHI NHÁNH CỦA YÊN HOA</h1>
-        <p class="store-sub">"Tạo nên tà áo dành riêng cho bạn – tại bất kỳ chi nhánh nào trên cả nước."</p>
-
-        <div class="store-grid">
-
-            <!-- 1 — HÀ NỘI -->
-            <div class="store-card">
-                <h2 class="store-name">Hà Nội</h2>
-                <div class="store-address">
-                    <p>📍 25 Nguyễn Khuyến, Văn Miếu, Đống Đa</p>
-                    <p>📞 0987 123 456</p>
-                </div>
-                <div class="store-buttons">
-                    <a class="btn-map" target="_blank" href="https://maps.google.com?q=25+Nguyen+Khuyen+Hanoi">Xem bản đồ</a>
-                    <a class="btn-direction" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=25+Nguyen+Khuyen+Hanoi">Chỉ đường</a>
-                </div>
-            </div>
-
-            <!-- 2 — HẢI PHÒNG -->
-            <div class="store-card">
-                <h2 class="store-name">Hải Phòng</h2>
-                <div class="store-address">
-                    <p>📍 62 Trần Phú, Ngô Quyền, TP. Hải Phòng</p>
-                    <p>📞 0968 442 899</p>
-                </div>
-                <div class="store-buttons">
-                    <a class="btn-map" target="_blank" href="https://maps.google.com?q=62+Tran+Phu+Hai+Phong">Xem bản đồ</a>
-                    <a class="btn-direction" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=62+Tran+Phu+Hai+Phong">Chỉ đường</a>
-                </div>
-            </div>
-
-            <!-- 3 — HUẾ -->
-            <div class="store-card">
-                <h2 class="store-name">Huế</h2>
-                <div class="store-address">
-                    <p>📍 18 Lê Huân, Thuận Hòa, TP. Huế</p>
-                    <p>📞 0979 456 321</p>
-                </div>
-                <div class="store-buttons">
-                    <a class="btn-map" target="_blank" href="https://maps.google.com?q=18+Le+Huan+Hue">Xem bản đồ</a>
-                    <a class="btn-direction" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=18+Le+Huan+Hue">Chỉ đường</a>
-                </div>
-            </div>
-
-            <!-- 4 — ĐÀ NẴNG -->
-            <div class="store-card">
-                <h2 class="store-name">Đà Nẵng</h2>
-                <div class="store-address">
-                    <p>📍 210 Hoàng Diệu, Hải Châu 2, Hải Châu</p>
-                    <p>📞 0935 887 112</p>
-                </div>
-                <div class="store-buttons">
-                    <a class="btn-map" target="_blank" href="https://maps.google.com?q=210+Hoang+Dieu+Da+Nang">Xem bản đồ</a>
-                    <a class="btn-direction" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=210+Hoang+Dieu+Da+Nang">Chỉ đường</a>
-                </div>
-            </div>
-
-            <!-- 5 — TP. HỒ CHÍ MINH -->
-            <div class="store-card">
-                <h2 class="store-name">TP. Hồ Chí Minh</h2>
-                <div class="store-address">
-                    <p>📍 92 Lê Lợi, Quận 1, TP.HCM</p>
-                    <p>📞 0934 222 778</p>
-                </div>
-                <div class="store-buttons">
-                    <a class="btn-map" target="_blank" href="https://maps.google.com?q=92+Le+Loi+TPHCM">Xem bản đồ</a>
-                    <a class="btn-direction" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=92+Le+Loi+TPHCM">Chỉ đường</a>
-                </div>
-            </div>
-
+          </div>
+          <div class="footer-column">
+            <h6>LIÊN HỆ</h6>
+            <ul>
+              <li><i class="fas fa-map-marker-alt me-2"></i>12 Chùa Bộc, Đống Đa, Hà Nội</li>
+              <li><i class="fas fa-phone-alt  me-2"></i>0123 456 789</li>
+              <li><i class="fas fa-phone-alt  me-2"></i>0987 654 321</li>
+              <li><i class="fas fa-envelope  me-2"></i>aodaiyenhoa@gmail.com</li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h6>SẢN PHẨM</h6>
+            <ul>
+              <li><a href="pages/phong_canh.html"> Áo Dài Tết</a></li>
+              <li><a href="pages/tranh_son_dau.html">Áo Dài Mẹ</a></li>
+              <li><a href="pages/tranh_chu_de.html">Áo Dài Truyền Thống</a></li>
+              <li><a href="pages/tranh_den_led.html">Bộ Sưu Tập Cưới</a></li>
+            </ul>
+            
+          </div>
         </div>
-    </section>
+      </div>
+ 
+      <div class="footer-bottom">
+        <p>© <a href="./index.html">Yên Hoa</a> 2025, All rights reserved.</p>
+        <ul>
+          <li>Giao hàng nhanh chóng</li>
+          <li>Phản hồi kịp thời</li>
+          <li>Uy tín-chất lượng</li>
+        </ul>
+      </div>
+    </div>
+</section>
 
-    <!-- ========== SCRIPTS (same as index) ========== -->
-    <script src="menu.js"></script>
-<script src="scroll_reveal.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/menu_chung.js"></script>
 
 </body>
 </html>
