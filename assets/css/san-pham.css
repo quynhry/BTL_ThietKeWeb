@@ -1,4 +1,8 @@
 
+body {
+  font-family: 'Quicksand', sans-serif;
+  padding-top: 60px; /* bằng chiều cao header */
+}
 
 /* ===== FILTER SECTION ===== */
 /* FILTER SECTION */
@@ -25,6 +29,7 @@
 }
 
 .filter-title {
+  font-family: 'Quicksand', sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 1;       /* loại bỏ dư line-height */
@@ -44,6 +49,7 @@
 }
 
 .dropbtn {
+  font-family: 'Quicksand', sans-serif;
   background: transparent;
   border: none;
   font-weight: 600;
@@ -68,7 +74,7 @@
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
-  background: #fff;
+  background: #FFFAF5;
   border-radius: 10px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
   min-width: 230px;
@@ -123,6 +129,7 @@
 }
 
 .sort select {
+  font-family: 'Quicksand', sans-serif;
   border: 1px solid #222;
   border-radius: 6px;
   font-size: 14px;
@@ -143,9 +150,8 @@
 }
 
 .product-card {
-  background-color: #fff;
+  background-color: #FFFAF5;
   text-align: left;
-  font-family: 'Playfair Display', serif;
   transition: transform 0.3s ease;
 }
 
@@ -252,7 +258,6 @@
 
 /* Tên sản phẩm */
 .product-name {
-  font-family: 'Montserrat', serif;
   font-size: 20px;
   font-weight: 500;
   color: #222;
@@ -265,7 +270,6 @@
   display: flex;
   justify-content: space-between; /* đẩy 2 phần ra 2 bên */
   align-items: center;
-  font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: #3E3E3F;
@@ -274,7 +278,7 @@
 
 /* Nút giỏ hàng: nền đen, bo chéo 2 góc như hình bạn gửi */
 .bag-btn {
-  background-color: #111;
+  background-color: #D97D91;
   border: none;
   border-radius: 12px 0 12px 0;   /* bo lệch: trên-trái & dưới-phải */
   width: 40px;
@@ -289,21 +293,21 @@
 
 /* Màu icon bên trong */
 .bag-btn i {
-  color: #fff;
+  color: #FFFAF5;
   font-size: 18px;
   line-height: 1;                 /* tránh đẩy lệch */
 }
 
 /* Hover/active cho đẹp */
 .bag-btn:hover {
-  background-color: #fff;          /* nền trắng */
-  border: 1.5px solid #111;        /* viền đen */
+  background-color: #FFFAF5;          /* nền trắng */
+  border: 1.5px solid #D97D91;        /* viền đỏ đậm */
   /* transform: scale(1.05); */
 }
 
 
 .bag-btn:hover i {
-  color: #111;                     /* icon chuyển đen */
+  color: #D97D91;                     /* icon chuyển đen */
 }
 
 
@@ -351,4 +355,492 @@
 }
 
 
+/* responsive */
+@media (max-width: 1024px) {
+  body {
+    padding-top: 60px;
+  }
 
+  .filter-container {
+    padding: 0 24px;
+    gap: 16px;
+  }
+
+  .filters-left {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .product-list {
+    padding: 0 24px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px 20px;
+  }
+
+  .product-image {
+    height: 380px;
+  }
+
+  .product-name {
+    font-size: 18px;
+  }
+
+  .product-footer {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px;
+  }
+    .filters-left,
+  .sort {
+    display: none;
+  }
+
+  /* FILTER */
+  .filter-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  .filters-left {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .sort {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .sort select {
+    width: 100%;
+  }
+
+  /* PRODUCT LIST */
+  .product-list {
+    padding: 0 16px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .product-image {
+    height: 340px;
+  }
+
+  .product-name {
+    font-size: 17px;
+  }
+
+  .product-footer {
+    font-size: 17px;
+  }
+
+  .bag-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .product-image {
+    height: 300px;
+  }
+
+  .product-name {
+    font-size: 16px;
+  }
+
+  .product-footer {
+    font-size: 16px;
+  }
+}
+
+
+.mobile-filter-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-filter-btn {
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1.5px solid #222;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+  }
+}
+
+/* ===== MOBILE FILTER DRAWER ===== */
+.mobile-filter-drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -100%;
+  height: 80vh;
+  background: #fffaf5;
+  z-index: 2000;
+  transition: bottom 0.35s ease;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -10px 30px rgba(0,0,0,0.15);
+}
+
+.mobile-filter-drawer.active {
+  bottom: 0;
+}
+
+.mobile-filter-content {
+  padding: 16px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.mobile-filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.close-filter {
+  font-size: 28px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* CHỈ DÙNG TRÊN MOBILE */
+@media (min-width: 769px) {
+  .mobile-filter-drawer {
+    display: none;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .filters-left,
+  .sort {
+    display: none;
+  }
+
+  .mobile-filter-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #222;
+    border-radius: 10px;
+    background: #FFFAF5;
+    font-weight: 600;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-filter-btn,
+  .mobile-filter-drawer {
+    display: none;
+  }
+}
+
+
+/* ================= FIX FILTER TRONG MOBILE DRAWER ================= */
+@media (max-width: 768px) {
+  .mobile-filter-drawer .filters-left {
+    display: block !important;
+    width: 100%;
+  }
+
+  .mobile-filter-drawer .filters {
+    display: block;
+  }
+
+  .mobile-filter-drawer .dropdown {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .mobile-filter-drawer .dropbtn {
+    width: 100%;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  /* MỞ SẴN DROPDOWN TRÊN MOBILE */
+  .mobile-filter-drawer .dropdown-content {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    padding: 8px 0;
+    margin-top: 6px;
+  }
+}
+
+
+
+/* ===== FIX DROPDOWN TRONG MOBILE FILTER ===== */
+@media (max-width: 768px) {
+  /* Ẩn nội dung dropdown mặc định trong mobile */
+  .mobile-filter-drawer .dropdown-content {
+    position: static;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transform: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+  }
+
+  /* Hiện dropdown khi được active */
+  .mobile-filter-drawer .dropdown.active .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    max-height: 500px;
+    padding: 8px 0;
+    margin-top: 6px;
+  }
+
+  /* Style cho nút dropdown */
+  .mobile-filter-drawer .dropbtn {
+    width: 100%;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 16px;
+    background: #FFFAF5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Thêm mũi tên xoay khi mở */
+  .mobile-filter-drawer .dropbtn::after {
+    content: '▾';
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-filter-drawer .dropdown.active .dropbtn::after {
+    transform: rotate(180deg);
+  }
+
+  /* Style các checkbox bên trong */
+  .mobile-filter-drawer .dropdown-content label {
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mobile-filter-drawer .dropdown-content label:hover {
+    background: #FFFAF5;
+  }
+
+  /* Loại bỏ class active ban đầu trong mobile */
+  .mobile-filter-drawer .dropdown {
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+/* ===== MOBILE SORT SECTION ===== */
+.mobile-sort-section {
+  padding: 16px 0;
+}
+
+.mobile-sort-section .sort-label {
+  display: block;
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.mobile-sort-select {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 12px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  background: #FFFAF5;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23222' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
+.mobile-sort-select option {
+  font-size: 12px;   /* hoặc 14px / 16px */
+}
+
+
+/* Đường phân cách */
+.mobile-divider {
+  height: 1px;
+  background: #ddd;
+  margin: 16px 0;
+}
+
+/* Ẩn trên desktop */
+@media (min-width: 769px) {
+  .mobile-sort-section,
+  .mobile-divider {
+    display: none;
+  }
+}
+
+
+/* ===== MOBILE FILTER SPACING FIX ===== */
+.mobile-filter-drawer h3,
+.mobile-filter-drawer .filter-title {
+  margin-bottom: 12px;
+}
+.mobile-filter-drawer .dropdown-content label {
+  margin-bottom: 8px;
+}
+
+
+
+/* ===== MOBILE FILTER SPACING — FINAL FIX ===== */
+.mobile-filter-drawer .filters {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* 👈 CHUẨN KHOẢNG CÁCH */
+}
+
+/* bỏ mọi margin dư thừa cũ */
+.mobile-filter-drawer .dropdown {
+  margin: 0 !important;
+}
+/* ===== FIX spacing label trong mobile filter ===== */
+.mobile-filter-drawer .filter-title,
+.mobile-filter-drawer .sort-label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+
+/* ===== MOBILE FILTER FONT WEIGHT FIX ===== */
+
+/* Section titles: BỘ LỌC, SẮP XẾP */
+.mobile-filter-drawer .filter-title,
+.mobile-filter-drawer .sort-label {
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+/* Dropdown buttons: Kích thước, Màu sắc, Khoảng giá */
+.mobile-filter-drawer .dropbtn {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* Sort select text: Mới nhất */
+.mobile-filter-drawer .mobile-sort-select {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+
+/* ===== ARROW CHO DROPDOWN – CHỈ DESKTOP ===== */
+@media (min-width: 769px) {
+  .dropbtn {
+    position: relative;
+    padding-right: 22px; /* chừa chỗ cho mũi tên */
+  }
+
+  /* Mũi tên mặc định */
+  .dropbtn::after {
+    content: "▼";
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 8px;
+    color: #111;
+    transition: transform 0.25s ease;
+  }
+
+  /* Khi dropdown mở → mũi tên xoay lên */
+  .dropdown.active .dropbtn::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+
+@media (min-width: 1025px) {
+  .product-image {
+    height: 450px;
+  }
+
+  .product-image img {
+    object-fit: cover;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .product-image {
+    height: auto;          /* ❗ bỏ height cố định */
+  }
+
+  .product-image img {
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;   /* ✅ không cắt người */
+    background: #FFFAF5;   /* nền cùng màu card */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-image {
+    height: auto;
+  }
+
+  .product-image img {
+    max-height: 360px;
+    object-fit: contain;
+  }
+}
+
+
+/* iPad & Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .product-list {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}

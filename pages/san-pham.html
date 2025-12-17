@@ -6,8 +6,8 @@
   <title>Sản Phẩm | Hà Cúc</title>
   <link rel="stylesheet" href="../assets/css/san-pham.css" />
   <link rel="stylesheet" href="../assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <header id="header" class="visible simple-header">
@@ -81,19 +81,6 @@
 
 
 
-<div class="cart-page">
-    <h1 class="cart-title">Giỏ hàng của bạn</h1>
-
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <a href="../index.html">Trang chủ</a>
-        <span>›</span>
-        <span>Giỏ hàng</span>
-    </div>
-
-    <div class="cart-content">
-        <!-- LEFT -->
-        <div class="cart-left" id="cartLeft"></div>
 
     
 
@@ -102,11 +89,15 @@
 <section class="filter-section">
   <div class="filter-container">
     <!-- HTML BÊN TRÁI -->
+     <button class="mobile-filter-btn">
+        Bộ lọc & Sắp xếp
+    </button>
+
     <div class="filters-left">
       <span class="filter-title">BỘ LỌC</span>
       <div class="filters">
         <div class="dropdown">
-          <button class="dropbtn">Kích thước ▾</button>
+          <button class="dropbtn">Kích thước</button>
           <div class="dropdown-content">
             <label><input type="checkbox" class="filter-size" value="may do"> May đo</label>
             <label><input type="checkbox" class="filter-size" value="xs"> XS</label>
@@ -118,7 +109,7 @@
         </div>
 
         <div class="dropdown">
-          <button class="dropbtn">Màu sắc ▾</button>
+          <button class="dropbtn">Màu sắc</button>
           <div class="dropdown-content">
             <label><input type="checkbox" class="filter-color" value="trang"> Trắng</label>
             <label><input type="checkbox" class="filter-color" value="hong"> Hồng</label>
@@ -129,7 +120,7 @@
         </div>
 
         <div class="dropdown">
-          <button class="dropbtn">Khoảng giá ▾</button>
+          <button class="dropbtn">Khoảng giá</button>
           <div class="dropdown-content">
             <label><input type="checkbox" class="filter-price" value="0-1000000"> Dưới 1 triệu</label>
             <label><input type="checkbox" class="filter-price" value="1000000-2000000"> 1 triệu - 2 triệu</label>
@@ -141,6 +132,139 @@
         </div>
       </div>
     </div>
+
+    <!-- mobile -->
+<!-- MOBILE FILTER DRAWER -->
+<div class="mobile-filter-drawer" id="mobileFilter">
+  <div class="mobile-filter-content">
+
+    <div class="mobile-filter-header">
+      <button class="close-filter">&times;</button>
+    </div>
+
+    <!-- FILTER CŨ – GIỮ NGUYÊN -->
+<div class="filters-left mobile-filters">
+  <span class="filter-title">BỘ LỌC</span>
+
+  <div class="filters">
+
+    <!-- KÍCH THƯỚC -->
+    <div class="dropdown active">
+      <button class="dropbtn">Kích thước</button>
+      <div class="dropdown-content">
+        <label><input type="checkbox" class="filter-size" value="may do"> May đo</label>
+        <label><input type="checkbox" class="filter-size" value="xs"> XS</label>
+        <label><input type="checkbox" class="filter-size" value="s"> S</label>
+        <label><input type="checkbox" class="filter-size" value="m"> M</label>
+        <label><input type="checkbox" class="filter-size" value="l"> L</label>
+        <label><input type="checkbox" class="filter-size" value="xl"> XL</label>
+      </div>
+    </div>
+
+    <!-- MÀU SẮC -->
+    <div class="dropdown active">
+      <button class="dropbtn">Màu sắc</button>
+      <div class="dropdown-content">
+        <label><input type="checkbox" class="filter-color" value="trang"> Trắng</label>
+        <label><input type="checkbox" class="filter-color" value="hong"> Hồng</label>
+        <label><input type="checkbox" class="filter-color" value="do"> Đỏ</label>
+        <label><input type="checkbox" class="filter-color" value="xanh ngoc"> Xanh ngọc</label>
+        <label><input type="checkbox" class="filter-color" value="vang"> Vàng</label>
+      </div>
+    </div>
+
+    <!-- KHOẢNG GIÁ -->
+    <div class="dropdown active">
+      <button class="dropbtn">Khoảng giá</button>
+      <div class="dropdown-content">
+        <label><input type="checkbox" class="filter-price" value="0-1000000"> Dưới 1 triệu</label>
+        <label><input type="checkbox" class="filter-price" value="1000000-2000000"> 1 – 2 triệu</label>
+        <label><input type="checkbox" class="filter-price" value="2000000-5000000"> 2 – 5 triệu</label>
+        <label><input type="checkbox" class="filter-price" value="5000000-10000000"> 5 – 10 triệu</label>
+        <label><input type="checkbox" class="filter-price" value="10000000-15000000"> 10 – 15 triệu</label>
+        <label><input type="checkbox" class="filter-price" value="15000000-999999999"> Trên 15 triệu</label>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ===== MOBILE SORT ===== -->
+<div class="mobile-divider"></div>
+
+<div class="mobile-sort-section">
+  <span class="sort-label">SẮP XẾP</span>
+  <select class="mobile-sort-select" id="mobileSortSelect">
+    <option value="new">Mới nhất</option>
+    <option value="az">Tên A → Z</option>
+    <option value="za">Tên Z → A</option>
+    <option value="priceAsc">Giá tăng dần</option>
+    <option value="priceDesc">Giá giảm dần</option>
+  </select>
+</div>
+
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const openBtn = document.querySelector('.mobile-filter-btn');
+    const drawer = document.getElementById('mobileFilter');
+    const closeBtn = document.querySelector('.close-filter');
+
+    if (!openBtn || !drawer || !closeBtn) {
+      console.log('❌ Không tìm thấy phần tử filter');
+      return;
+    }
+
+    openBtn.addEventListener('click', () => {
+      drawer.classList.add('active');
+      console.log('✅ Open mobile filter');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      drawer.classList.remove('active');
+    });
+  });
+</script>
+
+<script>
+  // Toggle dropdown trong mobile filter
+  document.addEventListener('click', function(e) {
+    // Nếu click vào dropbtn trong mobile filter
+    if (e.target.closest('.mobile-filter-drawer .dropbtn')) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const dropdown = e.target.closest('.dropdown');
+      const allDropdowns = document.querySelectorAll('.mobile-filter-drawer .dropdown');
+      
+      // Đóng tất cả dropdown khác (tùy chọn)
+      // allDropdowns.forEach(d => {
+      //   if (d !== dropdown) d.classList.remove('active');
+      // });
+      
+      // Toggle dropdown hiện tại
+      dropdown.classList.toggle('active');
+    }
+  });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const desktopFilters = document.querySelector(".filter-section .filters-left");
+  const mobileFilters = document.querySelector(".mobile-filter-drawer .filters-left");
+
+  if (desktopFilters && mobileFilters) {
+    mobileFilters.innerHTML = desktopFilters.innerHTML;
+  }
+});
+</script>
+
+
+
 
     <!-- HTML SORT BÊN PHẢI -->
     <div class="sort">
@@ -316,12 +440,17 @@
 
 
 <!-- JS SORT BÊN TRÁI -->
- <script>
-document.querySelectorAll(".filter-size, .filter-color, .filter-price").forEach(cb => {
-  cb.addEventListener("change", applyFilters);
+<!-- JS FILTER - HỖ TRỢ CẢ DESKTOP & MOBILE -->
+<script>
+// Sử dụng event delegation để bắt sự kiện từ cả desktop và mobile
+document.body.addEventListener("change", function(e) {
+  if (e.target.matches(".filter-size, .filter-color, .filter-price")) {
+    applyFilters();
+  }
 });
 
 function applyFilters() {
+  // Lấy tất cả checkbox đã tick từ CẢ desktop và mobile
   const sizes = [...document.querySelectorAll(".filter-size:checked")].map(i => i.value);
   const colors = [...document.querySelectorAll(".filter-color:checked")].map(i => i.value);
   const prices = [...document.querySelectorAll(".filter-price:checked")].map(i => i.value);
@@ -333,7 +462,7 @@ function applyFilters() {
 
     // ---- Lọc size ----
     if (sizes.length > 0) {
-      const pSizes = p.dataset.size.toLowerCase(); // ví dụ: "s,m,l"
+      const pSizes = p.dataset.size.toLowerCase();
       ok = sizes.some(sz => pSizes.includes(sz));
     }
 
@@ -359,6 +488,19 @@ function applyFilters() {
 </script>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileSort = document.getElementById("mobileSortSelect");
+  const desktopSort = document.getElementById("sortSelect");
+
+  if (mobileSort && desktopSort) {
+    mobileSort.addEventListener("change", function () {
+      desktopSort.value = this.value;
+      desktopSort.dispatchEvent(new Event("change"));
+    });
+  }
+});
+</script>
 
 
 
@@ -492,71 +634,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const productsPerPage = 20;
-  const productList = document.querySelectorAll(".product-card");
-  const totalProducts = productList.length;
-  const totalPages = Math.ceil(totalProducts / productsPerPage);
-  const pagination = document.getElementById("pagination");
-  let currentPage = 1;
 
-  // ===== Hiển thị sản phẩm theo trang =====
-  function showPage(page) {
-    productList.forEach((item, index) => {
-      item.style.display = "none";
-      if (index >= (page - 1) * productsPerPage && index < page * productsPerPage) {
-        item.style.display = "block";
-      }
-    });
-
-    // Gắn active cho nút hiện tại
-    document.querySelectorAll(".pagination button").forEach(btn => btn.classList.remove("active"));
-    const currentBtn = pagination.querySelector(`button[data-page="${page}"]`);
-    if (currentBtn) currentBtn.classList.add("active");
-  }
-
-  // ===== Hàm tạo nút =====
-  function createButton(label, page, disabled = false) {
-    const btn = document.createElement("button");
-    btn.textContent = label;
-    btn.dataset.page = page;
-    btn.disabled = disabled;
-    btn.addEventListener("click", () => {
-      if (page !== currentPage && !disabled) {
-        currentPage = page;
-        showPage(currentPage);
-        renderPagination();
-      }
-    });
-    return btn;
-  }
-
-  // ===== Hàm render phân trang =====
-  function renderPagination() {
-    pagination.innerHTML = "";
-
-    // Nút "Trang đầu" và "Trước"
-    pagination.appendChild(createButton("<<", 1, currentPage === 1));
-    pagination.appendChild(createButton("<", Math.max(currentPage - 1, 1), currentPage === 1));
-
-    // Số trang
-    for (let i = 1; i <= totalPages; i++) {
-      const btn = createButton(i, i);
-      if (i === currentPage) btn.classList.add("active");
-      pagination.appendChild(btn);
-    }
-
-    // Nút "Tiếp" và "Cuối"
-    pagination.appendChild(createButton(">", Math.min(currentPage + 1, totalPages), currentPage === totalPages));
-    pagination.appendChild(createButton(">>", totalPages, currentPage === totalPages));
-  }
-
-  // ===== Khởi tạo ban đầu =====
-  renderPagination();
-  showPage(currentPage);
-});
-</script>
 
 
 </body>
