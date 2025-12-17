@@ -28,6 +28,72 @@
             font-weight: bold;
             
         }
+        .production-section {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+  background: #faf7f3;
+  overflow: hidden;
+}
+
+/* VIDEO */
+.media-wrapper {
+  width: 62%;
+  position: relative;
+  z-index: 1;
+}
+
+.media-wrapper video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 25px 60px rgba(58, 45, 32, 0.25);
+}
+
+/* CARD LỆCH */
+.content-card {
+  position: absolute;
+  right: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 440px;
+
+  background: #fffaf5; /* kem ấm */
+  padding: 56px 52px;
+
+  border-left: 5px solid #7a2e2e; /* đỏ rượu */
+  box-shadow: 0 30px 80px rgba(58, 45, 32, 0.25);
+
+  z-index: 2;
+}
+
+/* TIÊU ĐỀ */
+.content-card h2 {
+  font-family: var(--playfair);
+  font-size: 28px;
+  letter-spacing: 3px;
+  margin-bottom: 28px;
+  color: #3a2d20;
+}
+
+/* NỘI DUNG */
+.content-card p {
+  font-family: var(--quicksand);
+  font-size: 15.5px;
+  line-height: 1.9;
+  color: #5b4a3a;
+}
+
+/* NHẤN */
+.content-card strong {
+  color: #7a2e2e;
+  font-weight: 600;
+}
+
         .page-breadcrumbs {
             text-align: center;
             margin-bottom: 70px;
@@ -198,29 +264,47 @@
                 <p id="heroSub" class="hero-sub">Hồn Việt trong từng tà áo dài</p>
             </div>
     </div>
-    
+<div class="gallery-header" style="margin-bottom: 0px;">
+        <h2>YÊN HOA</h2>
+        <div class="quote"><em>"Thanh khiết - Tinh tế - Trọn vẹn bản sắc Việt"</em></div>
+</div>
+
 <div class="container">
             <div class="row mb-5">
                 <div class="col-md-6" data-aos="fade-right">
                     <div class="about-card">
-                        <h2 class="mb-4">Câu Chuyện Của Chúng Tôi</h2>
-                        <p>ARTNET được thành lập vào năm 2022 với khát vọng mang nghệ thuật đến gần hơn với cuộc sống của mọi người. Chúng tôi tin rằng mỗi bức tranh không chỉ là một tác phẩm nghệ thuật, mà còn là cầu nối giữa không gian sống và cảm xúc của con người.</p>
-                        <p>Với đội ngũ nghệ nhân tay nghề cao và công nghệ hiện đại, chúng tôi tự hào mang đến những sản phẩm chất lượng, độc đáo và phù hợp với nhiều phong cách nội thất khác nhau.</p>
+                        <h2 class="mb-4" style="color: var(--red);text-align: center;">Câu Chuyện Của Chúng Tôi</h2>
+                        <p>Tên gọi <b>“Yên Hoa”</b> được lấy cảm hứng từ hình ảnh <b><em>“yên bình” và “hoa nở”</em></b>, tượng trưng cho vẻ đẹp thanh dịu, mềm mại và thuần khiết của người phụ nữ Việt. </p>
+                        <p><b>Yên Hoa</b> được khai sinh từ một gia đình có <b>truyền thống</b> may mặc lâu đời, nơi từng <b>đường kim mũi chỉ</b> không chỉ là kỹ thuật, mà là gia tài tinh thần được truyền lại qua nhiều thế hệ. Mỗi người trong gia đình đều lớn lên bên <b><em>tiếng xoẹt kéo, mùi vải mới và ánh mắt</em></b> chăm chú của những bàn tay thạo nghề. Ở đó, may mặc không chỉ là kế sinh nhai — mà là một cách để <b>giữ gìn nếp nhà, gìn giữ cái đẹp Việt.</b></p>
                     </div>
                 </div>
                 <div class="col-md-6" data-aos="fade-left">
                     <div class="about-card">
-                        <h2 class="mb-4">Giá Trị Cốt Lõi</h2>
-                        <ul>
-                            <li class="mb-3"><strong>Chất Lượng:</strong> Cam kết sử dụng vật liệu cao cấp và quy trình sản xuất nghiêm ngặt</li>
-                            <li class="mb-3"><strong>Sáng Tạo:</strong> Không ngừng đổi mới và phát triển các mẫu mã độc đáo</li>
-                            <li class="mb-3"><strong>Tận Tâm:</strong> Luôn lắng nghe và đáp ứng nhu cầu của khách hàng</li>
-                            <li class="mb-3"><strong>Uy Tín:</strong> Xây dựng niềm tin với khách hàng qua từng sản phẩm</li>
-                        </ul>
+                        <h2 class="mb-4" style="color: var(--red);text-align: center;">Hành trình của Fleur</h2>
+                        <p>Khởi đầu từ một xưởng may nhỏ tại Hà Nội, <b>Yên Hoa</b> đã trải qua hơn một thập kỷ phát triển, từ những bộ áo dài truyền thống giản dị đến những thiết kế hiện đại, sáng tạo. Chúng tôi tự hào khi được đồng hành cùng hàng ngàn khách hàng trong những dịp quan trọng của cuộc đời họ.</p>
+                        <p>Hành trình của <b>Yên Hoa</b> không chỉ là câu chuyện về sự phát triển của một thương hiệu thời trang, mà còn là hành trình <b>giữ gìn và phát huy giá trị văn hóa Việt Nam</b> thông qua từng thiết kế áo dài. Chúng tôi tin rằng, mỗi chiếc áo dài không chỉ là trang phục — mà còn là biểu tượng của <b>vẻ đẹp, sự duyên dáng và bản sắc Việt.</b></p>
                     </div>
                 </div>
             </div>
+</div>
+<section class="production-section">
+  <div class="media-wrapper">
+    <video autoplay muted loop>
+      <img src="../assets/img/anhnen.jpg" type="video/mp4">
+    </video>
+  </div>
 
+  <div class="content-card">
+    <h2>SẢN XUẤT</h2>
+    <p>
+      Với phương châm <strong>“Tôn vinh vẻ đẹp vĩnh cửu của nàng dâu hiện đại”</strong>,
+      Fleur không chỉ tạo ra chiếc váy cưới hoàn hảo, mà còn mang đến một hành trình
+      chạm đến cảm xúc, sự tự tin và phong thái thanh lịch của mỗi cô gái.
+    </p>
+  </div>
+</section>
+
+    <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center mb-4">
                     <h2 data-aos="fade-up" style="font-family: var(--playfair);font-size: 34px;font-weight: 700;color: var(--red);">Thành Tựu Của Chúng Tôi</h2>
@@ -327,7 +411,7 @@
                 </script>
                 </div>
             </div>
-
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../assets/js/menu_chung.js"></script> 
@@ -403,6 +487,7 @@
             });
 
             // Biểu đồ doanh số bán hàng theo tháng
+            
             new Chart(document.getElementById('monthlySales'), {
                 type: 'bar',
                 data: {
