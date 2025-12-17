@@ -159,4 +159,58 @@
 }
 .cart-page {
     padding-top: 120px;
+    padding-bottom: 350px;
 }
+
+/* ===== GIỎ HÀNG TRỐNG (KHÔNG KHUNG) ===== */
+.empty-cart {
+    width: 100%;
+    min-height: 260px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    background: transparent;
+}
+
+.empty-cart i {
+    font-size: 38px;
+    color: #3a2d20;
+    margin-bottom: 14px;
+}
+
+.empty-cart p {
+    font-size: 16px;
+    color: #3a2d20;
+    margin-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.empty-cart a {
+    display: inline-block;
+    padding: 10px 28px;
+
+    border-radius: 10px;           /* bo tròn 4 góc */
+    border: 1.5px solid #3a2d20;
+
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+
+    color: #3a2d20;
+    text-decoration: none;
+    background: transparent;
+
+    transition: all 0.3s ease;
+}
+
+.empty-cart a:hover {
+    background: #8d0000;
+    color: #fff;
+    transform: translateY(-1px);
+}
+

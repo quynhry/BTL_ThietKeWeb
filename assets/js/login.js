@@ -186,9 +186,13 @@ loginBtn.addEventListener("click", e => {
 
   if (!isValid) return;
 
-  const found = users.find(
-    u => u.email.toLowerCase() === email.toLowerCase() && u.password === password
-  );
+  // 🔥 LUÔN đọc users mới nhất từ localStorage
+  const latestUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+const found = latestUsers.find(
+  u => u.email.toLowerCase() === email.toLowerCase() && u.password === password
+);
+
 
   if (found) {
     // Lưu user hiện tại

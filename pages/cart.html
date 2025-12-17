@@ -170,15 +170,32 @@
 <script src="../assets/js/auth.js"></script>
 <script>
 // ======================= GIỎ HÀNG MẪU =======================
-const cartItems = [
-    {id:1, title:'Áo dài Yên Hoa', price:1200000, quantity:1, image:'../assets/img/sample1.jpg'},
-    {id:2, title:'Áo dài Truyền Thống', price:900000, quantity:2, image:'../assets/img/sample2.jpg'}
+let cartItems = [
+    { id: 1, title: 'Áo dài Yên Hoa', price: 1200000, quantity: 1, image: '../assets/img/sample1.jpg' },
+    { id: 2, title: 'Áo dài Truyền Thống', price: 900000, quantity: 2, image: '../assets/img/sample2.jpg' }
 ];
 
+// ======================= RENDER GIỎ HÀNG =======================
 function renderCart() {
     const cartLeft = document.getElementById('cartLeft');
     cartLeft.innerHTML = '';
 
+    // Nếu giỏ trống
+    if (cartItems.length === 0) {
+        cartLeft.innerHTML = `
+            <div class="empty-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p>Giỏ hàng của bạn đang trống</p>
+                <a href="../san-pham.html" class="back-shop-btn">
+                    Tiếp tục mua sắm
+                </a>
+            </div>
+        `;
+        updateTotals();
+        return;
+    }
+
+    // Có sản phẩm
     cartItems.forEach((item, index) => {
         const div = document.createElement('div');
         div.className = 'cart-item';
@@ -203,7 +220,7 @@ function renderCart() {
         const qtySpan = div.querySelector('.quantity-controls span');
 
         minus.addEventListener('click', () => {
-            if(item.quantity > 1) item.quantity--;
+            if (item.quantity > 1) item.quantity--;
             qtySpan.textContent = item.quantity;
             updateTotals();
         });
@@ -215,7 +232,7 @@ function renderCart() {
         });
 
         deleteBtn.addEventListener('click', () => {
-            cartItems.splice(index,1);
+            cartItems.splice(index, 1);
             renderCart();
         });
     });
@@ -223,9 +240,12 @@ function renderCart() {
     updateTotals();
 }
 
+// ======================= TÍNH TỔNG TIỀN =======================
 function updateTotals() {
-    const subtotal = cartItems.reduce((sum,item)=>sum+item.price*item.quantity,0);
-    const shipping = cartItems.length>0 ? 30000 : 0;
+    const subtotal = cartItems.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+    );
+    const shipping = cartItems.length > 0 ? 30000 : 0;
     const total = subtotal + shipping;
 
     document.getElementById('subtotal').textContent = subtotal.toLocaleString() + 'đ';
@@ -234,10 +254,10 @@ function updateTotals() {
     document.getElementById('cartIconCount').textContent = cartItems.length;
 }
 
-// ================== KIỂM TRA ĐĂNG NHẬP ==================
+// ======================= KIỂM TRA ĐĂNG NHẬP =======================
 document.addEventListener("DOMContentLoaded", () => {
-    const currentUser = getCurrentUser(); // dùng auth.js
-    renderHeaderUser(); // render header
+    const currentUser = getCurrentUser(); // từ auth.js
+    renderHeaderUser();
 
     if (!currentUser) {
         alert("Bạn cần đăng nhập để xem giỏ hàng!");
@@ -246,9 +266,17 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    renderCart(); // render cart nếu đã login
+    renderCart();
+});
+
+// ======================= THANH TOÁN =======================
+document.querySelector('.checkout-btn').addEventListener('click', () => {
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    window.location.href = "checkout.html";
 });
 </script>
+
+
 <script>// Nút thanh toán
 const checkoutBtn = document.querySelector('.checkout-btn');
 checkoutBtn.addEventListener('click', () => {
@@ -259,5 +287,6 @@ checkoutBtn.addEventListener('click', () => {
     window.location.href = "checkout.html";
 });
 </script>
+
 </body>
 </html>
