@@ -17,9 +17,13 @@ let users = JSON.parse(localStorage.getItem("users")) || [
 ];
 
 // ========== LƯU TRANG MUỐN REDIRECT NẾU CHƯA LOGIN ==========
-if (!localStorage.getItem("currentUser")) {
+if (
+  !localStorage.getItem("currentUser") &&
+  !window.location.pathname.includes("login")
+) {
   localStorage.setItem("redirectAfterLogin", window.location.pathname);
 }
+
 
 // ========== HÀM HỖ TRỢ ==========
 function showError(input, message) {
