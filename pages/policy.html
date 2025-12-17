@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chính sách & Điều khoản | Yên Hoa</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
 
   <!-- LIB -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -11,33 +12,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- CSS CHUNG -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
 
   <!-- CSS POLICY  -->
   <style>
     body.policy-page {
       font-family: 'Quicksand', sans-serif;
       background: #fff8ef;
-      color: #6a1a1a;
+      color: #a12928;
     }
 
     h1,h2,h3,h4,h5 {
       font-weight: 700;
-      color: #b30000;
+      color: #a12928;
     }
 
     /* ===== CONTAINER CHÍNH ===== */
     .policy-container {
       max-width: 1200px;
-      margin: 170px auto 100px;
-      padding: 80px 60px;
-      background: #fffacd;
+      margin: 100px auto 100px;
+      padding: 40px 60px;
+      background: #fdf6e4;
       border-radius: 26px;
     }
 
-    /* ===== ACCORDION ===== */
+    /* ACCORDION */
     .accordion-item {
-      border: 1.5px solid #f0d28a;
+      border: 1.5px solid #d6b887;
       border-radius: 20px;
       margin-bottom: 32px;
       overflow: hidden;
@@ -56,18 +57,18 @@
       padding: 32px 36px;
       font-weight: 700;
       font-size: 18px;
-      color: #7a1c1c;
+      color: #a12928;
       display: flex;
       align-items: center;
     }
 
     .accordion-button:not(.collapsed) {
-      background: linear-gradient(45deg, #b30000, #8f0000);
-      color: #fffacd;
+      background: linear-gradient(45deg, #a12928, #8d0101);
+      color: #fff9f3;
     }
 
     .accordion-button:not(.collapsed) .policy-icon i {
-      color: #fffacd;
+      color: #fff9f3;
     }
 
     .policy-icon {
@@ -91,14 +92,14 @@
       padding: 36px 44px;
       font-size: 1.1rem;
       line-height: 1.9;
-      color: #6a1a1a;
+      color: #a12928;
     }
 
     .accordion-body li {
       margin-bottom: 12px;
     }
 
-    /* ===== TABLE ===== */
+    /* TABLE */
     .table {
       border-radius: 14px;
       overflow: hidden;
@@ -116,9 +117,9 @@
       padding: 16px 18px;
     }
 
-    /* ===== ALERT ===== */
+    /*  ALERT */
     .alert-info {
-      background: linear-gradient(to right, #fffacd, #fff3b0);
+      background: #fffef6;
       border-left: 6px solid #b30000;
       border-radius: 18px;
       padding: 30px 36px;
@@ -126,7 +127,7 @@
       font-size: 1.05rem;
     }
 
-    /* ===== MOBILE ===== */
+    /*  MOBILE  */
     @media (max-width: 768px) {
       .policy-container {
         padding: 50px 24px;
@@ -147,42 +148,83 @@
 
 <body class="policy-page">
 
-<!-- ================= HEADER (GIỮ NGUYÊN) ================= -->
-<header>
-  <div class="header-top-bar" id="headerTopBar">
-    <div class="right-menu">
-      <div class="nav-left-icons">
-        <div id="topLogo" class="top-logo-text">YÊN HOA</div>
-      </div>
-      <div class="nav-right-icons">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <i class="fa-regular fa-user"></i>
-        <button id="cart" style="background:none;border:none">
-          <i class="fa fa-shopping-basket"></i>
-        </button>
-      </div>
-    </div>
-  </div>
+<!--HEADER (GIỮ NGUYÊN) -->
+<header id="header">
+        <div class="header-container">
+          <button class="menu-toggle" id="menuToggle" aria-label="Mở menu"><i class="fa fa-bars"></i></button>
 
-  <div class="header-logo-text" id="headerLogoText">YÊN HOA</div>
+            <!-- Logo bên trái -->
+            <div class="header-logo"><a href="../index.html">YÊN HOA</a></div>
+            
+            <!-- Menu ở giữa -->
+            <ul class="header-menu">
+                <li class="menu-item"><a href="gioi_thieu.html">Giới thiệu</a></li>
 
-  <nav class="header-nav-main" id="headerNavMain">
-    <ul class="header-menu">
-      <li><a href="/gioi_thieu.html">Giới thiệu</a></li>
-      <li><a href="/san_pham.html">Sản phẩm</a></li>
-      <li><a href="/bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a></li>
-      <li><a href="/khach_hang.html">Khách Hàng</a></li>
-      <li><a href="/cuahang.html">Cửa Hàng</a></li>
-    </ul>
-  </nav>
-</header>
+                <li class="menu-item">
+                    <a href="san_pham.html">Sản phẩm</a>
+                    <ul class="sub-menu">
+                        <li class="menu-home">
+                            <a href="ao_dai_tet.html">Áo Dài Tết</a>
+                            <ul class="sub-menu sub-menu2">
+                                <li><a href="xuan_y_bich_hoa.html">Xuân Ý Bích Họa</a></li>
+                                <li><a href="hoa_cam.html">Họa Cầm</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-home">
+                            <a href="ao_dai_me.html">Áo Dài Mẹ</a>
+                            <ul class="sub-menu sub-menu2">
+                                <li><a href="phuong_vu.html">Phượng Vũ</a></li>
+                                <li><a href="tu_van.html">Từ Vân</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-home">
+                            <a href="ao_dai_truyen_thong.html">Áo Dài Truyền Thống</a>
+                            <ul class="sub-menu sub-menu2">
+                                <li><a href="duyen.html">Duyên</a></li>
+                                <li><a href="diem.html">Diễm</a></li>
+                                <li><a href="ha_thu.html">Hạ Thu</a></li>
+                                <li><a href="truc_giao.html">Trúc Giao</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
 
-<!-- ================= NỘI DUNG ================= -->
+                <li class="menu-item">
+                    <a href="bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a>
+                    <ul class="sub-menu">
+                        <li><a href="duyen_uoc.html">Duyên Ước</a></li>
+                        <li><a href="giao_duyen.html">Giao Duyên</a></li>
+                        <li><a href="nhan_duyen.html">Nhân Duyên</a></li>
+                        <li><a href="tam_duyen.html">Tầm Duyên</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item"><a href="cuahang.html">Cửa hàng</a></li>
+                <li class="menu-item"><a href="khach_hang.html">Khách hàng</a></li>
+
+            </ul>
+            
+            <!-- Icons bên phải -->
+            <div class="header-icons">
+                <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+                <a href="pages/login.html">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <div class="cart-icon" onclick="location.href='cart.html'">
+                     <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartIconCount">0</span>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+<!--  NỘI DUNG  -->
 <div class="policy-container">
 
 
   <div class="text-center mb-5">
-    <h1 class="fw-bold mb-3">Chính Sách & Điều Khoản của Yên Hoa</h1>
+    <h1 class="fw-bold mb-3" style="font-family: var(--playfair)">Chính Sách & Điều Khoản của Yên Hoa</h1>
     <p class="lead">Giữ trọn niềm tin trong từng nếp áo dài</p>
   </div>
 
@@ -331,12 +373,75 @@
   </div>
 
 </div>
-
+<section class="footer" style="width: 100%;">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-logo-section">
+          <div class="footer-logo">
+            <img src="../assets/img/logo.png" alt="Logo" style="height: 60px; width: 60px" />
+            <h1>YÊN HOA</h1>
+          </div>
+          <p class="footer-description">
+            Yên Hoa tự hào đã bán ra hơn 16.000 sản phẩm, khẳng định chất lượng và uy tín trên thị trường.<br>
+            Khách hàng của Yên Hoa đã vượt mốc 10.000 người, minh chứng cho sự yêu mến và ủng hộ từ cộng đồng!
+          </p>
+          <div class="footer-members">
+            <img src="../assets/img/anhnguoi.jpg" alt="">
+            <img src="../assets/img/anhnguoi2.jpg" alt="">
+            <img src="../assets/img/anhnguoi3.jpg" alt="">
+            <span><strong>10.000</strong> Khách hàng đã tin tưởng </span>
+          </div>
+        </div>
+ 
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h6>VỀ CHÚNG TÔI</h6>
+            <ul>
+              <li><a href="../pages/policy.html">Điều Khoản</a></li>
+              <li><a href="pages/contact.html">Liên hệ</a></li>
+              <li><a href="pages/about.html">Giới thiệu</a></li>
+             
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h6>LIÊN HỆ</h6>
+            <ul>
+              <li><i class="fas fa-map-marker-alt me-2"></i>12 Chùa Bộc, Đống Đa, Hà Nội</li>
+              <li><i class="fas fa-phone-alt  me-2"></i>0123 456 789</li>
+              <li><i class="fas fa-phone-alt  me-2"></i>0987 654 321</li>
+              <li><i class="fas fa-envelope  me-2"></i>artnetpic@gmail.com</li>
+              <li><i class="fas fa-envelope  me-2"></i>andecor@gmail.com.com</li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h6>SẢN PHẨM</h6>
+            <ul>
+              <li><a href="pages/phong_canh.html"> Áo Dài Tết</a></li>
+              <li><a href="pages/tranh_son_dau.html">Áo Dài Mẹ</a></li>
+              <li><a href="pages/tranh_chu_de.html">Áo Dài Truyền Thống</a></li>
+              <li><a href="pages/tranh_den_led.html">Bộ Sưu Tập Cưới</a></li>
+            </ul>
+            
+          </div>
+        </div>
+      </div>
+ 
+      <div class="footer-bottom">
+        <p>© <a href="./index.html">Yên Hoa</a> 2025, All rights reserved.</p>
+        <ul>
+          <li>Giao hàng nhanh chóng</li>
+          <li>Phản hồi kịp thời</li>
+          <li>Uy tín-chất lượng</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/menu_chung.js"></script>
+<script src="../assets/js/menu_chung.js"></script>
 
 </body>
 </html>
 
  
+

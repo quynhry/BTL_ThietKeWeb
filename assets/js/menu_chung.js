@@ -86,3 +86,40 @@ window.addEventListener('scroll', onScroll, { passive: true });
 
 // ================== CHẠY LẦN ĐẦU ==================
 onScroll();
+// Toggle Mobile Menu
+// =====================
+const headerEl = document.querySelector('header');
+const menuToggleBtn = document.getElementById('menuToggle');
+
+if (menuToggleBtn && headerEl) {
+    menuToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        headerEl.classList.toggle('menu-open');
+    });
+
+    // Đóng menu khi click ra ngoài panel
+    document.addEventListener('click', (e) => {
+        const menuPanel = document.querySelector('.header-menu');
+        const clickedInsideMenu = menuPanel && menuPanel.contains(e.target);
+        const clickedToggle = menuToggleBtn.contains(e.target);
+        if (!clickedInsideMenu && !clickedToggle) {
+            headerEl.classList.remove('menu-open');
+        }
+    });
+}
+
+// Mở/đóng submenu trên mobile (nếu có)
+const menuItems = Array.from(document.querySelectorAll('.header-menu .menu-item'));
+menuItems.forEach((item) => {
+    const link = item.querySelector(':scope > a');
+    const sub = item.querySelector(':scope > .sub-menu');
+    if (link && sub) {
+        link.addEventListener('click', (e) => {
+            // Trên mobile, toggle submenu thay vì đi tới trang
+            if (window.matchMedia('(max-width: 768px)').matches) {
+                e.preventDefault();
+                item.classList.toggle('open');
+            }
+        });
+    }
+});
