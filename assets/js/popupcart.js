@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!row) return;
 
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    const id = Number(row.dataset.id);
+    const id = row.dataset.id;
     const size = row.dataset.size;
     const item = cart.find(i => i.id === id && i.size === size);
     if (!item) return;
