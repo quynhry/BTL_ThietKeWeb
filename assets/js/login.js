@@ -17,9 +17,13 @@ let users = JSON.parse(localStorage.getItem("users")) || [
 ];
 
 // ========== LƯU TRANG MUỐN REDIRECT NẾU CHƯA LOGIN ==========
-if (!localStorage.getItem("currentUser")) {
+if (
+  !localStorage.getItem("currentUser") &&
+  !window.location.pathname.includes("login")
+) {
   localStorage.setItem("redirectAfterLogin", window.location.pathname);
 }
+
 
 // ========== HÀM HỖ TRỢ ==========
 function showError(input, message) {
@@ -166,10 +170,9 @@ if (header) {
   }
 }
 
-loginBtn.addEventListener("click", e => {
+loginForm.addEventListener("submit", e => {
   e.preventDefault();
 
-  // 🔧 Xóa lỗi cũ mỗi lần nhấn nút
   removeError(loginEmailInput);
   removeError(loginPassInput);
 
@@ -178,46 +181,53 @@ loginBtn.addEventListener("click", e => {
 
   let isValid = true;
 
-  if (!email) { showError(loginEmailInput, "Vui lòng nhập email!"); isValid = false; }
-  else showSuccess(loginEmailInput);
+  if (!email) {
+    showError(loginEmailInput, "Vui lòng nhập email!");
+    isValid = false;
+  } else showSuccess(loginEmailInput);
 
-  if (!password) { showError(loginPassInput, "Vui lòng nhập mật khẩu!"); isValid = false; }
-  else showSuccess(loginPassInput);
+  if (!password) {
+    showError(loginPassInput, "Vui lòng nhập mật khẩu!");
+    isValid = false;
+  } else showSuccess(loginPassInput);
 
   if (!isValid) return;
 
-  const found = users.find(
+  const latestUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+  const found = latestUsers.find(
     u => u.email.toLowerCase() === email.toLowerCase() && u.password === password
   );
 
-  if (found) {
-    // Lưu user hiện tại
-    localStorage.setItem("currentUser", JSON.stringify(found));
-
-    if (rememberMe.checked) {
-      localStorage.setItem("rememberedUser", JSON.stringify({ email, password }));
-    } else {
-      localStorage.removeItem("rememberedUser");
-    }
-
-    const success = document.createElement("div");
-    success.className = "success-modal";
-    success.style.cssText =
-      "position:absolute;top:0;left:0;right:0;bottom:0;background: #bc7d73;color:white;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:25px;font-size:18px;z-index:999;";
-    success.innerHTML = `<h2> Đăng nhập thành công!</h2><p>Chào mừng trở lại, ${found.name}!</p>`;
-    loginForm.appendChild(success);
-
-    setTimeout(() => {
-      success.remove();
-      // Redirect về trang lưu trước đó hoặc trang chủ
-      const redirectUrl = localStorage.getItem("redirectAfterLogin") || "../index.html";
-      localStorage.removeItem("redirectAfterLogin");
-      window.location.href = redirectUrl;
-    }, 1500);
-  } else {
+  if (!found) {
     showError(loginPassInput, "Email hoặc mật khẩu không chính xác!");
+    return;
   }
+
+  localStorage.setItem("currentUser", JSON.stringify(found));
+
+  if (rememberMe.checked) {
+    localStorage.setItem("rememberedUser", JSON.stringify({ email, password }));
+  } else {
+    localStorage.removeItem("rememberedUser");
+  }
+
+  const success = document.createElement("div");
+  success.className = "success-modal";
+  success.style.cssText =
+    "position:absolute;top:0;left:0;right:0;bottom:0;background:#bc7d73;color:white;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:25px;font-size:18px;z-index:999;";
+  success.innerHTML = `<h2>Đăng nhập thành công!</h2><p>Chào mừng trở lại, ${found.name}!</p>`;
+  loginForm.appendChild(success);
+
+  setTimeout(() => {
+    success.remove();
+    const redirectUrl =
+      localStorage.getItem("redirectAfterLogin") || "../index.html";
+    localStorage.removeItem("redirectAfterLogin");
+    window.location.href = redirectUrl;
+  }, 1500);
 });
+
 
 // ========== QUÊN MẬT KHẨU ==========
 const forgotPasswordLink = loginForm.querySelector(".pass-link a");
