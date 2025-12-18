@@ -63,7 +63,7 @@ document.getElementById('checkoutForm').addEventListener('submit', e => {
 
   alert(`Cảm ơn ${name}! Đơn hàng đã được ghi nhận.`);
   localStorage.removeItem('cart');
-  window.location.href = '../index.html';
+  window.location.href = '../pages/dat_hang.html';
 });
 
 // ================== INIT ==================
