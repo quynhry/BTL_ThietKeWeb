@@ -151,6 +151,7 @@ body {
 /* Size Options */
 .size-options {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -178,6 +179,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 4px;
   overflow: hidden;
+  width: fit-content;
 }
 
 .qty-btn {
@@ -619,5 +621,155 @@ body {
   .size-table th,
   .size-table td {
     padding: 10px 8px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* responsive */
+
+@media (max-width: 1199px) {
+  .product-detail-container {
+    padding: 24px;
+  }
+
+  .product-layout {
+    grid-template-columns: 90px 1fr 380px;
+    gap: 12px;
+  }
+
+  .main-image {
+    height: 520px;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .product-detail-container {
+    padding: 16px;
+  }
+
+  /* đổi layout thành dọc */
+  .product-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Ảnh chính */
+  .main-image {
+    height: 420px;
+    border-radius: 16px;
+  }
+
+  /* Thumbnail chuyển sang ngang */
+  .thumbnail-column {
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .thumbnail-item {
+    min-width: 72px;
+    height: 96px;
+  }
+
+  /* Thông tin sản phẩm */
+  .product-info-column {
+    padding: 0;
+  }
+
+  /* Nút mua */
+  .product-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .add-to-cart-btn,
+  .buy-now-btn {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .modal-content {
+    padding: 20px;
+    border-radius: 12px;
+  }
+}
+
+
+/* ================= RESPONSIVE THUMBNAILS ================= */
+
+/* Desktop */
+.desktop-only {
+  display: flex;
+}
+
+/* Mobile */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  /* Ẩn thumbnail bên trái */
+  .desktop-only {
+    display: none;
+  }
+
+  /* Thumbnail nằm dưới ảnh chính */
+  .mobile-only {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .mobile-only .thumbnail-item {
+    flex: 1;
+  }
+
+  .mobile-only img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+}
+
+
+/* ===============================
+   MOBILE – Suggested products
+   =============================== */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cột */
+    gap: 16px;
+  }
+
+  .product-card {
+    text-align: center;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
   }
 }
