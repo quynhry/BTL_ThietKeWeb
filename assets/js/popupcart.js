@@ -19,41 +19,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ================== ADD TO CART ================== */
   function addToCart(showPopup = true) {
-    const selectedSize = getSelectedSize();
-    if (!selectedSize) {
-      alert('Vui lòng chọn kích cỡ!');
-      return;
-    }
-
-    const quantity = parseInt(quantityInput.value) || 1;
-
-    const cartItem = {
-      id: 1,
-      name: "Tuyết Vũ Anh Đào",
-      price: 2990000,
-      image: "https://pos.nvncdn.com/22713a-176435/ps/20250905_kOB5RJ5r2E.jpeg",
-      size: selectedSize,
-      quantity
-    };
-
-    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    const exist = cart.find(i => i.id === cartItem.id && i.size === cartItem.size);
-
-    if (exist) {
-      exist.quantity += quantity;
-    } else {
-      cart.push(cartItem);
-    }
-
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    updateCartCount();
-    if (showPopup) {
-      renderCartPopup();
-      cartPopup.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
+  const selectedSize = getSelectedSize();
+  if (!selectedSize) {
+    alert('Vui lòng chọn kích cỡ!');
+    return;
   }
+
+  const quantity = parseInt(quantityInput.value) || 1;
+
+  const btn = addCartBtn; // nút đang click
+
+  const cartItem = {
+    id: btn.dataset.id,
+    name: btn.dataset.name,
+    price: Number(btn.dataset.price),
+    image: btn.dataset.image,
+    size: selectedSize,
+    quantity
+  };
+
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+  const exist = cart.find(
+    i => i.id === cartItem.id && i.size === cartItem.size
+  );
+
+  if (exist) {
+    exist.quantity += quantity;
+  } else {
+    cart.push(cartItem);
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  updateCartCount();
+
+  if (showPopup) {
+    renderCartPopup();
+    cartPopup.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
 
   /* ================== ICON COUNT ================== */
   function updateCartCount() {
