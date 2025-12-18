@@ -240,9 +240,9 @@ body {
 
 .btn-buy-now {
   padding: 12px 30px;
-  background: #D97D91;
-  color: #fff;
-  border: 1px solid var(--red-dark);
+  background: #fffaf5;
+  color: #b3002d;
+  border: 1px solid #3a2d20;
   border-radius: 4px;
   font-size: 14px;
   font-weight: 600;
@@ -252,8 +252,8 @@ body {
 }
 
 .btn-buy-now:hover {
-  background: #c96682;
-  color: #fff;
+  background: #f6efe8;
+  color: #900020;
 }
 
 /* ===== PRODUCT DESCRIPTION ===== */
