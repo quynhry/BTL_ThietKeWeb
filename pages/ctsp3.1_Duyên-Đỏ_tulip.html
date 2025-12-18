@@ -26,7 +26,7 @@
                 <li class="menu-item"><a href="gioi_thieu.html">Giới thiệu</a></li>
 
                 <li class="menu-item">
-                    <a href="san_pham.html">Sản phẩm</a>
+                    <a href="san-pham.html">Sản phẩm</a>
                     <ul class="sub-menu">
                         <li class="menu-home">
                             <a href="ao_dai_tet.html">Áo Dài Tết</a>
@@ -57,7 +57,7 @@
                 <li class="menu-item">
                     <a href="bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a>
                     <ul class="sub-menu">
-                        <li><a href="duyen_uoc.html">Duyên Ước</a></li>
+                        <li><a href="bstc_duyen-uoc.html">Duyên Ước</a></li>
                         <li><a href="giao_duyen.html">Giao Duyên</a></li>
                         <li><a href="nhan_duyen.html">Nhân Duyên</a></li>
                         <li><a href="tam_duyen.html">Tầm Duyên</a></li>
@@ -71,18 +71,18 @@
             
             <!-- Icons bên phải -->
             <div class="header-icons">
-                <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
-                <a href="pages/login.html">
-                    <i class="fa-regular fa-user"></i>
-                </a>
-                <div class="cart-icon" onclick="location.href='cart.html'">
-                     <i class="fa-solid fa-cart-shopping"></i>
-                <span id="cartIconCount">0</span>
-                </div>
+            <i class="fa-solid fa-magnifying-glass"></i>
 
+            <div class="user-menu" id="headerUser"></div>
+
+            <div class="cart-icon" onclick="location.href='cart.html'">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartIconCount">0</span>
             </div>
         </div>
-    </header>
+
+    </div>
+</header>
 
   <!-- Main Content -->
   <main class="product-detail-container">
@@ -290,8 +290,6 @@
 
  <!-- FOOTER -->
 <footer-component></footer-component>
-
-  <script src="../assets/js/auth.js"></script>
   <script src ="../assets/js/main.js"></script>
   <script>// ===== PRODUCT DATA =====
 const currentProduct = {
@@ -744,5 +742,6 @@ document.addEventListener("DOMContentLoaded", () => {
 <script src="../assets/js/popupcart.js"></script>
   <script src="../assets/js/product-detail.js"></script>
   <script src="../assets/js/menu_chung.js"></script>
+  <script src="../assets/js/auth.js"></script>
 </body>
 </html>
