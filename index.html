@@ -27,7 +27,7 @@
                 <li class="menu-item"><a href="pages/gioi_thieu.html">Giới thiệu</a></li>
 
                 <li class="menu-item">
-                    <a href="/san_pham.html">Sản phẩm</a>
+                    <a href="/pages/san-pham.html">Sản phẩm</a>
                     <ul class="sub-menu">
                         <li class="menu-home">
                             <a href="/ao_dai_tet.html">Áo Dài Tết</a>
@@ -58,7 +58,7 @@
                 <li class="menu-item">
                     <a href="/bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a>
                     <ul class="sub-menu">
-                        <li><a href="pages/duyen_uoc.html">Duyên Ước</a></li>
+                        <li><a href="pages/bstc_duyen-uoc.html">Duyên Ước</a></li>
                         <li><a href="/giao_duyen.html">Giao Duyên</a></li>
                         <li><a href="/nhan_duyen.html">Nhân Duyên</a></li>
                         <li><a href="/tam_duyen.html">Tầm Duyên</a></li>
@@ -339,6 +339,21 @@ những rung động hoài niệm cùng bản thể tự do bất quy tắc giao
     <script src="assets/js/scroll_reveal.js"></script> 
     <script src="assets/js/comming.js"></script>
     <script src="assets/js/auth.js"></script>
+    <script src="assets/js/cart-core.js"></script>
+    <script>
+  function updateCartIcon() {
+    const el = document.getElementById('cartIconCount');
+    if (!el || !window.Cart) return;
+    el.textContent = Cart.count();
+  }
+
+  // Khi load trang
+  document.addEventListener('DOMContentLoaded', updateCartIcon);
+
+  // Khi cart thay đổi (từ bất kỳ trang nào)
+  window.addEventListener('cart:change', updateCartIcon);
+</script>
+
 <style>
 .user-menu {
     display: inline-block;

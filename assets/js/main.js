@@ -310,7 +310,7 @@ footer .btn.rounded-circle i {
                     <h6>VỀ CHÚNG TÔI</h6>
                     <ul>
                     <li><a href="${base}/pages/policy.html">Điều Khoản</a></li>
-                    <li><a href="${base}/pages/contact.html">Liên hệ</a></li>
+                    <li><a href="${base}/pages/lienhe.html">Liên hệ</a></li>
                     <li><a href="${base}/pages/gioi_thieu.html">Giới thiệu</a></li>
                     
                     </ul>

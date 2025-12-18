@@ -111,11 +111,9 @@
     <script type="module" src="../assets/js/main.js"></script>
 <script src="../assets/js/auth.js"></script>
 <script>
-// ======================= GIỎ HÀNG MẪU =======================
-let cartItems = [
-    { id: 1, title: 'Áo dài Yên Hoa', price: 1200000, quantity: 1, image: '../assets/img/sample1.jpg' },
-    { id: 2, title: 'Áo dài Truyền Thống', price: 900000, quantity: 2, image: '../assets/img/sample2.jpg' }
-];
+
+let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
 
 // ======================= RENDER GIỎ HÀNG =======================
 function renderCart() {
@@ -258,16 +256,8 @@ menuItems.forEach((item) => {
 });
 </script>
 
-<script>// Nút thanh toán
-const checkoutBtn = document.querySelector('.checkout-btn');
-checkoutBtn.addEventListener('click', () => {
-    // Lưu giỏ hàng vào localStorage trước khi sang trang thanh toán
-    localStorage.setItem('cart', JSON.stringify(cartItems));
 
-    // Chuyển hướng sang trang thanh toán
-    window.location.href = "checkout.html";
-});
-</script>
+<script src="../assets/js/cart.js"></script>
 
 </body>
 </html>
