@@ -28,6 +28,10 @@
             font-weight: bold;
             
         }
+        .container{
+            padding: 45px 0 30px;
+        }
+        
         /* ===== LAYOUT LEFT ===== */
 .layout-left .media-wrapper {
     width: 65%;
@@ -60,7 +64,21 @@
     height: 100%;
     object-fit: cover;
 }
+/*video*/
+.video-column-wrapper {
+            width: 75%;
+            max-width: 75%;
+            float: left;
+            z-index: 1;
+            position: relative;
+        }
 
+        .responsive-video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: none;
+        }
 /* ===== CONTENT BOX  ===== */
 .content-card {
     position: absolute;
@@ -380,8 +398,8 @@
 </div>
 
 <div class="col-12 text-center mb-4">
-    <h2 data-aos="fade-up" style="font-family: var(--playfair);font-size: 34px;font-weight: 700;color: var(--red);">Khởi Nguồn</h2>
-    <div class="quote"><em>“Từ Bàn Tay Đến Sàn Diễn”</em></div>
+    <h2 data-aos="fade-up" style="font-family: var(--playfair);font-size: 34px;font-weight: 700;color: var(--red); margin-top: -40px;">Khởi Nguồn</h2>
+    <div class="quote"><em>“Giữ gìn vẻ đẹp Việt trong từng tà áo”</em></div>
 </div>
 <section class="production-section layout-left">
     <div class="media-wrapper">
@@ -389,8 +407,18 @@
     </div>
 
     <div class="content-card light-background">
-        <h2>“Sứ mệnh - Tầm nhìn”</h2>
-        <p><strong><em>Yên Hoa bắt đầu từ một tình yêu với áo dài</em></strong> — <strong><em>ký ức mẹ, mùi lụa và những đường chỉ tỉ mỉ.</em></strong> <strong><em>Mỗi chiếc áo là một lời hẹn giữ hồn Việt</em></strong>, <strong><em>may bằng tay, gửi gắm dịu dàng và niềm tự hào đến người mặc.</em></strong></p>
+        <h2>“Ký Ức”</h2>
+        <p>Yên Hoa bắt đầu từ một <strong><em>tình yêu với áo dài</em></strong> — ký ức mẹ, mùi lụa và những đường chỉ tỉ mỉ. Mỗi chiếc áo là một <strong><em>lời hẹn giữ hồn Việt</em></strong>, may bằng tay, gửi gắm dịu dàng và niềm tự hào đến người mặc.</p>
+    </div>
+</section>
+<section class="production-section layout-right">
+    <div class="media-wrapper">
+        <img src="../assets/img/may.jpg" alt="">
+    </div>
+
+    <div class="content-card light-background">
+        <h2>“Giá Trị”</h2>
+        <p><strong><em>Giữ gìn nghề truyền thống</em></strong> là sứ mệnh của Yên Hoa. Chúng tôi trân trọng từng mũi kim, từng đường nét, kết tinh từ bàn tay đi trước đến những đôi tay trẻ. Mỗi chiếc áo dài là một tác phẩm thủ công, mang đậm linh hồn và văn hóa Việt.</p>
     </div>
 </section>
 <div class="container">
@@ -481,7 +509,7 @@
     <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center mb-4">
-                    <h2 data-aos="fade-up" style="font-family: var(--playfair);font-size: 34px;font-weight: 700;color: var(--red);">Thành Tựu Của Chúng Tôi</h2>
+                    <h2 data-aos="fade-up" style="font-family: var(--playfair);font-size: 34px;font-weight: 700;color: var(--red);padding-bottom: 15px;">Thành Tựu Của Chúng Tôi</h2>
                 </div>
                 <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
                     <div class="stats-card">
@@ -515,7 +543,7 @@
                 <!-- Phần biểu đồ thống kê -->
                 <div class="row mt-5 mx-0">
                     <div class="col-12 text-center mb-4">
-                        <h3 style="font-family: var(--playfair);font-size: 34px;font-weight: 700;color: var(--red);">Thống Kê Chi Tiết</h3>
+                        <h3 style="font-family: var(--playfair);font-size: 34px;font-weight: 700;color: var(--red);padding-bottom: 15px;">Thống Kê Chi Tiết</h3>
                     </div>
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="chart-card">

@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
 </head>
 <body>
 <header id="header" class="visible simple-header">
@@ -84,43 +87,27 @@
   <div class="collection-intro-container">
 
     <!-- LEFT: IMAGE -->
-    <div class="collection-image">
-      <img
-        src="https://pos.nvncdn.com/22713a-176435/pc/20250604_5PxUTl8C.jpg?v=1749031424"
-        alt="Bộ sưu tập Duyên Ước"
-      />
+<div class="collection-image">
+  <div class="banner-wrapper">
+    <img src="../assets/img/tam_duyen/khiet_dan/khiet_dan5.jpeg" alt="Bộ sưu tập Duyên Ước" />
+    
+    <div class="banner-overlay">
+      <span class="text-duyen">Duyên</span>
+      <span class="text-uoc">Ước</span>
     </div>
-
+  </div>
+</div>
     <!-- RIGHT: TEXT -->
     <div class="collection-content">
       <h1 class="collection-title">Duyên Ước</h1>
+      <div class="quote">"Một lời hẹn cho tháng năm dài phía trước."</div>
 
       <div class="collection-desc">
-        <p>
-          Duyên Ước là bản tình ca bằng lụa, được dệt nên từ sự thấu hiểu và cảm
-          xúc chân thành của những người yêu nhau. BST là hiện thân cho tình
-          yêu khi đã đủ chín, đủ sâu – lặng lẽ, điềm nhiên mà bền vững như gốc
-          rễ lâu năm của một mối duyên lành.
-        </p>
-
-        <p>
-          Không chỉ đơn thuần là Áo Dài Cưới, Duyên Ước là lời nguyện ước thành
-          hình, là hồi ức của khoảnh khắc mà cả hai biết: đây chính là người sẽ
-          cùng nắm tay đi đến trọn đời.
-        </p>
-
-        <p>
-          BST được ấp ủ và hoàn thiện bởi chính nhà thiết kế Hà Cúc – người đã
-          dẫn dắt thương hiệu suốt hơn 12 năm qua với tình yêu dành cho Áo Dài
-          truyền thống. Mỗi mũi thêu, mỗi chi tiết đính kết đều là kết tinh của
-          tay nghề lâu năm và sự thấu hiểu cảm xúc trong ngày cưới.
-        </p>
-
-        <p>
-          Thiết kế nên 23 cặp Áo Dài Cưới trong BST Duyên Ước với niềm tin vào
-          tình yêu, sự gắn bó và vẻ đẹp vĩnh cửu của tà áo dài – Hà Cúc tin rằng
-          Duyên Ước sẽ là nơi chốn dịu dàng để mỗi cặp đôi tìm thấy chính mình.
-        </p>
+      
+        <p><b>Duyên Ước</b> là bản tình ca bằng lụa – được dệt từ sự thấu hiểu và những cảm xúc chân thành của hai người yêu nhau. Bộ sưu tập là hình ảnh của tình yêu đã chín, đủ sâu và đủ bền; lặng lẽ mà kiên vững như gốc rễ của một mối duyên lành. Đó là khoảnh khắc cả hai nhận ra: <b><em>đây chính là người sẽ cùng mình đi đến trọn đời</em></b>.</p>
+        
+        <p>Được ấp ủ bởi nhà thiết kế Yên Hoa cùng những nghệ nhân thêu đính giàu kinh nghiệm, mỗi chi tiết trong <b>Duyên Ước</b> đều chứa đựng tâm huyết, sự tinh tế và niềm hiểu thấu cảm xúc của ngày cưới. Không chỉ là trang phục, đó là thiết kế có thể nói hộ những nguyện ước thầm lặng của cô dâu – chú rể.
+          Yên Hoa tin rằng <b>Duyên Ước</b> sẽ là nơi mỗi cặp đôi nhìn thấy chính mình – trong tình yêu, trong ký ức và trong vẻ đẹp của một di sản vẫn đang được tiếp nối.</p>
       </div>
     </div>
 
@@ -143,12 +130,11 @@
         <div class="dropdown">
           <button class="dropbtn">Kích thước</button>
           <div class="dropdown-content">
-            <label><input type="checkbox" class="filter-size" value="may do"> May đo</label>
-            <label><input type="checkbox" class="filter-size" value="xs"> XS</label>
             <label><input type="checkbox" class="filter-size" value="s"> S</label>
             <label><input type="checkbox" class="filter-size" value="m"> M</label>
             <label><input type="checkbox" class="filter-size" value="l"> L</label>
             <label><input type="checkbox" class="filter-size" value="xl"> XL</label>
+            <label><input type="checkbox" class="filter-size" value="xxl"> XXL</label>
           </div>
         </div>
 
@@ -324,14 +310,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </section>
 
+  <script src="../assets/js/auth.js"></script>
 
 
   <!-- PRODUCT GRID -->
   <section class="product-list">
-    <div class="product-card" data-size="S,M,L" data-color="trang" data-price="2990000">
+    <div class="product-card" data-size="S,M,L" data-color="hong" data-price="2990000">
       <div class="product-image">
-        <img src="https://pos.nvncdn.com/22713a-176435/ps/20250905_kOB5RJ5r2E.jpeg?v=1757039795" alt="Ảnh chính" class="main-img">
-        <img src="https://pos.nvncdn.com/22713a-176435/ps/20250905_fVEyVxzaLJ.jpeg?v=1757039807" alt="Ảnh hover" class="hover-img">
+        <img src="https://pubcdn.ivymoda.com/files/product/thumab/400/2024/12/05/2f1ceedec6779418ec193fbaf8bed25a.webp" alt="Ảnh chính" class="main-img">
+        <img src="https://pubcdn.ivymoda.com/files/product/thumab/1400/2024/12/05/bf08dd66519751788b7f14eee52f4007.webp" alt="Ảnh hover" class="hover-img">
       </div>
       <div class="product-info">
         <div class="product-top">
@@ -341,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <h3 class="product-name">Áo Dài Xuân Yên</h3>
         <div class="product-footer">
           <span class="price">2.990.000đ</span>
-          <button class="bag-btn">
+          <button class="bag-btn" onclick="window.location.href='ctsp_1.html'">
             <i class="fa-solid fa-bag-shopping"></i>
           </button>
 
@@ -363,7 +350,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <h3 class="product-name">Dài Xuân Yên</h3>
         <div class="product-footer">
           <span class="price">1.400.000đ</span>
-          <button class="bag-btn">
+          <button class="bag-btn" onclick="window.location.href='ctsp_1.html'">
             <i class="fa-solid fa-bag-shopping"></i>
           </button>
 
@@ -384,7 +371,28 @@ document.addEventListener("DOMContentLoaded", function () {
         <h3 class="product-name">Dài Xuân Yên</h3>
         <div class="product-footer">
           <span class="price">1.400.000đ</span>
-          <button class="bag-btn">
+          <button class="bag-btn" onclick="window.location.href='ctsp_1.html'">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+        <div class="product-card" data-size="S,M,L,XL" data-color="vang" data-price="1400000">
+      <div class="product-image">
+        <img src="https://pos.nvncdn.com/22713a-176435/ps/20250905_Qql5KHzi0M.jpeg?v=1757039713" alt="Ảnh chính" class="main-img">
+        <img src="https://pos.nvncdn.com/22713a-176435/ps/20250905_LDki07osav.jpeg?v=1757039718" alt="Ảnh hover" class="hover-img">
+      </div>
+      <div class="product-info">
+        <div class="product-top">
+          <i class="fa-regular fa-heart wishlist"></i>
+          <i class="fa-regular fa-paper-plane"></i>
+        </div>
+        <h3 class="product-name">Dài Xuân Yên</h3>
+        <div class="product-footer">
+          <span class="price">1.400.000đ</span>
+          <button class="bag-btn" onclick="window.location.href='ctsp_1.html'">
             <i class="fa-solid fa-bag-shopping"></i>
           </button>
 
@@ -393,10 +401,12 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 
 
+    
+
+
   
    
 </section>
-
 <div class="pagination" id="pagination"></div>
 
   <!-- FOOTER -->
@@ -405,7 +415,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="footer-top">
         <div class="footer-logo-section">
           <div class="footer-logo">
-            <img src="./assets/img/logo.png" alt="Logo" style="height: 60px; width: 60px" />
+            <img src="../assets/img/logo.png" alt="Logo" style="height: 60px; width: 60px" />
             <h1>YÊN HOA</h1>
           </div>
           <p class="footer-description">
@@ -413,9 +423,9 @@ document.addEventListener("DOMContentLoaded", function () {
             Khách hàng của Yên Hoa đã vượt mốc 10.000 người, minh chứng cho sự yêu mến và ủng hộ từ cộng đồng!
           </p>
           <div class="footer-members">
-            <img src="./assets/img/anhnguoi.jpg" alt="">
-            <img src="./assets/img/anhnguoi2.webp" alt="">
-            <img src="./assets/img/anhnguoi3.jpg" alt="">
+            <img src="../assets/img/anhnguoi.jpg" alt="">
+            <img src="../assets/img/anhnguoi2.jpg" alt="">
+            <img src="../assets/img/anhnguoi3.jpg" alt="">
             <span><strong>10.000</strong> Khách hàng đã tin tưởng </span>
           </div>
         </div>
@@ -424,7 +434,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="footer-column">
             <h6>VỀ CHÚNG TÔI</h6>
             <ul>
-              <li><a href="pages/policy.html">Điều Khoản</a></li>
+              <li><a href="../pages/policy.html">Điều Khoản</a></li>
               <li><a href="pages/contact.html">Liên hệ</a></li>
               <li><a href="pages/about.html">Giới thiệu</a></li>
              
@@ -436,8 +446,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <li><i class="fas fa-map-marker-alt me-2"></i>12 Chùa Bộc, Đống Đa, Hà Nội</li>
               <li><i class="fas fa-phone-alt  me-2"></i>0123 456 789</li>
               <li><i class="fas fa-phone-alt  me-2"></i>0987 654 321</li>
-              <li><i class="fas fa-envelope  me-2"></i>artnetpic@gmail.com</li>
-              <li><i class="fas fa-envelope  me-2"></i>andecor@gmail.com.com</li>
+              <li><i class="fas fa-envelope  me-2"></i>aodaiyenhoa@gmail.com</li>
             </ul>
           </div>
           <div class="footer-column">
