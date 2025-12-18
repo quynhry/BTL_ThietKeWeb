@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Giỏ hàng | Yên Hoa</title>
+<title>Thanh toán | Yên Hoa</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
@@ -12,6 +12,229 @@
 <link rel="stylesheet" href="../assets/css/checkout.css">
 <link rel="stylesheet" href="../assets/css/cart.css">
  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
+ <style>
+    /* ================== BASE ================== */
+
+.cart-page,
+.checkout-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px 350px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.cart-title,
+.checkout-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.cart-content,
+.checkout-content {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* ================== LEFT ================== */
+
+.cart-left,
+.checkout-left {
+    flex: 2;
+}
+
+.cart-left h3,
+.checkout-left h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* ================== ITEM ================== */
+
+.cart-item,
+.checkout-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.cart-img,
+.checkout-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-info h4,
+.checkout-info h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cart-info p,
+.checkout-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* ================== SUMMARY / CARD ================== */
+
+.cart-right,
+.checkout-summary,
+.checkout-right form {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    height: fit-content;
+}
+
+.cart-summary p,
+.checkout-summary p {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.cart-total,
+.checkout-summary p:last-child {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* ================== RIGHT ================== */
+
+.cart-right,
+.checkout-right {
+    flex: 1;
+}
+
+.cart-right h3,
+.checkout-right h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* ================== FORM ================== */
+
+.checkout-right .form-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: #3a2d20;
+    margin-bottom: 6px;
+}
+
+.checkout-right .form-control {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    font-size: 15px;
+    background: #fff;
+}
+
+.checkout-right .form-control:focus {
+    border-color: #8d0000;
+    box-shadow: none;
+}
+
+.checkout-right .mb-3 {
+    margin-bottom: 18px;
+}
+
+/* ================== BUTTON ================== */
+
+.checkout-btn,
+.checkout-right button {
+    width: 100%;
+    padding: 12px;
+    background: #8d0000;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover,
+.checkout-right button:hover {
+    background: #a10000;
+}
+
+/* ================== EMPTY CART ================== */
+
+.empty-cart {
+    width: 100%;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: transparent;
+}
+
+.empty-cart i {
+    font-size: 38px;
+    color: #3a2d20;
+    margin-bottom: 14px;
+}
+
+.empty-cart p {
+    font-size: 16px;
+    color: #3a2d20;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.empty-cart a {
+    padding: 10px 28px;
+    border-radius: 10px;
+    border: 1.5px solid #3a2d20;
+    font-size: 14px;
+    font-weight: 500;
+    color: #3a2d20;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.empty-cart a:hover {
+    background: #8d0000;
+    color: #fff;
+}
+
+/* ================== RESPONSIVE ================== */
+
+@media (max-width: 767px) {
+    .cart-content,
+    .checkout-content {
+        flex-direction: column;
+    }
+
+    .cart-left,
+    .cart-right,
+    .checkout-left,
+    .checkout-right {
+        width: 100%;
+    }
+
+    .cart-img,
+    .checkout-item img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+ </style>
 </head>
 <body>
 
