@@ -71,18 +71,19 @@
             
             <!-- Icons bên phải -->
             <div class="header-icons">
-                <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
-                <a href="pages/login.html">
-                    <i class="fa-regular fa-user"></i>
-                </a>
-                <div class="cart-icon" onclick="location.href='cart.html'">
-                     <i class="fa-solid fa-cart-shopping"></i>
-                <span id="cartIconCount">0</span>
-                </div>
+            <i class="fa-solid fa-magnifying-glass"></i>
 
+            <div class="user-menu" id="headerUser"></div>
+
+            <div class="cart-icon" onclick="location.href='cart.html'">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartIconCount">0</span>
             </div>
         </div>
-    </header>
+
+    </div>
+</header>
+
 
   <!-- Main Content -->
   <main class="product-detail-container">
@@ -284,7 +285,6 @@
  <!-- FOOTER -->
 <footer-component></footer-component>
 
-  <script src="../assets/js/auth.js"></script>
   <script src ="../assets/js/main.js"></script>
   <script>// ===== PRODUCT DATA =====
 const currentProduct = {
@@ -739,5 +739,6 @@ document.addEventListener("DOMContentLoaded", () => {
 <script src="../assets/js/popupcart.js"></script>
   <script src="../assets/js/product-detail.js"></script>
   <script src="../assets/js/menu_chung.js"></script>
+   <script src="../assets/js/auth.js"></script>
 </body>
 </html>
