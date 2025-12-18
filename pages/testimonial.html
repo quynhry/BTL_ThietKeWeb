@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khách Hàng - Yên Hoa</title>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="../assets/css/testimonial.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <!-- ========================================= -->
+    <!-- HEADER SECTION - Tiêu đề trang -->
+    <!-- ========================================= -->
+<header id="header" class="visible simple-header">
+    <div class="header-container">
+
+        <!-- Logo -->
+        <div class="header-logo">
+            <a href="../index.html">YÊN HOA</a>
+        </div>
+
+       <ul class="header-menu">
+                <li class="menu-item"><a href="gioi_thieu.html">Giới thiệu</a></li>
+
+                <li class="menu-item">
+                    <a href="../pages/san-pham.html">Sản phẩm</a>
+                    <ul class="sub-menu">
+                        <li class="menu-home">
+                            <a href="ao_dai_tet.html">Áo Dài Tết</a>
+                            <ul class="sub-menu sub-menu2">
+                                <li><a href="xuan_y_bich_hoa.html">Xuân Ý Bích Họa</a></li>
+                                <li><a href="hoa_cam.html">Họa Cầm</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-home">
+                            <a href="ao_dai_me.html">Áo Dài Mẹ</a>
+                            <ul class="sub-menu sub-menu2">
+                                <li><a href="phuong_vu.html">Phượng Vũ</a></li>
+                                <li><a href="tu_van.html">Từ Vân</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-home">
+                            <a href="ao_dai_truyen_thong.html">Áo Dài Truyền Thống</a>
+                            <ul class="sub-menu sub-menu2">
+                                <li><a href="duyen.html">Duyên</a></li>
+                                <li><a href="diem.html">Diễm</a></li>
+                                <li><a href="ha_thu.html">Hạ Thu</a></li>
+                                <li><a href="truc_giao.html">Trúc Giao</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu-item">
+                    <a href="bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a>
+                    <ul class="sub-menu">
+                        <li><a href="duyen_uoc.html">Duyên Ước</a></li>
+                        <li><a href="giao_duyen.html">Giao Duyên</a></li>
+                        <li><a href="nhan_duyen.html">Nhân Duyên</a></li>
+                        <li><a href="tam_duyen.html">Tầm Duyên</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item"><a href="cuahang.html">Cửa hàng</a></li>
+                <li class="menu-item"><a href="khach_hang.html">Khách hàng</a></li>
+            </ul>
+
+        <!-- Icons -->
+        <div class="header-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <div class="user-menu" id="headerUser"></div>
+
+            <div class="cart-icon" onclick="location.href='cart.html'">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartIconCount">0</span>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+    <!-- ========================================= -->
+    <!-- REVIEWS CONTAINER - Phần chứa đánh giá -->
+    <!-- ========================================= -->
+    <div class="reviews-container">
+        <div class="reviews-grid">
+            
+            <!-- ================================ -->
+            <!-- REVIEW CARD 1 - Á hậu Trịnh Mỹ Ánh -->
+            <!-- ================================ -->
+            <div class="review-card reveal-item">
+                <!-- Ảnh khách hàng -->
+                <div class="review-image">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_Zp5tebTs.jpeg?v=1720232853" alt="Á hậu Trịnh Mỹ Ánh">
+                </div>
+                
+                <!-- Nội dung đánh giá -->
+                <div class="review-content">
+                    <!-- Sao đánh giá 5/5 -->
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    
+                    <!-- Thông tin người đánh giá -->
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_Zp5tebTs.jpeg?v=1720232853" alt="Avatar">
+                        </div>
+                        <div class="reviewer-details">
+                            <h3>Á hậu Trịnh Mỹ Ánh</h3>
+                            <p>Người mẫu</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Lời nhận xét -->
+                    <p class="review-text">
+                        "Yên Hoa là nơi tôi tin tưởng gửi gắm những thiết kế áo dài cho các sự kiện quan trọng. Mỗi bộ áo đều được chăm chút tỉ mỉ, thể hiện được phong cách riêng và tôn vinh vẻ đẹp của người Việt."
+                    </p>
+                    
+                    <!-- Label phân loại -->
+                    <span class="review-label">Khách hàng VIP</span>
+                </div>
+            </div>
+
+            <!-- ================================ -->
+            <!-- REVIEW CARD 2 - Diễn viên Thùy Dương -->
+            <!-- ================================ -->
+            <div class="review-card reveal-item">
+                <div class="review-image">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_93awHq6V.jpeg?v=1720232917" alt="Diễn viên Thùy Dương">
+                </div>
+                <div class="review-content">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_93awHq6V.jpeg?v=1720232917" alt="Avatar">
+                        </div>
+                        <div class="reviewer-details">
+                            <h3>Diễn viên Thùy Dương</h3>
+                            <p>Nghệ sĩ</p>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Thiết kế của Yên Hoa luôn mang lại cảm giác tự tin và thoải mái. Chất liệu vải cao cấp, đường may tỉ mỉ, từng chi tiết nhỏ đều được chăm chút kỹ lưỡng. Đây chính là thương hiệu áo dài tôi yêu thích!"
+                    </p>
+                    <span class="review-label">Khách hàng thân thiết</span>
+                </div>
+            </div>
+
+            <!-- ================================ -->
+            <!-- REVIEW CARD 3 - Ca sĩ Lamoon -->
+            <!-- ================================ -->
+            <div class="review-card reveal-item">
+                <div class="review-image">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_fonFzPVV.jpeg?v=1720232920" alt="Ca sĩ Lamoon">
+                </div>
+                <div class="review-content">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_fonFzPVV.jpeg?v=1720232920" alt="Avatar">
+                        </div>
+                        <div class="reviewer-details">
+                            <h3>Chị Hạnh Trang</h3>
+                            <p>Nghệ sĩ</p>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Yên Hoa không chỉ may áo dài mà còn tạo ra những tác phẩm nghệ thuật. Mỗi bộ áo đều kể một câu chuyện riêng, phản ánh cá tính và phong cách của người mặc. Tôi rất hài lòng với dịch vụ chuyên nghiệp!"
+                    </p>
+                    <span class="review-label">Nghệ sĩ hợp tác</span>
+                </div>
+            </div>
+
+            <!-- ================================ -->
+            <!-- REVIEW CARD 4 - Ca sĩ Đức Phúc -->
+            <!-- ================================ -->
+            <div class="review-card reveal-item">
+                <div class="review-image">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_cVIs5rNm.jpeg?v=1720232991" alt="Ca sĩ Đức Phúc">
+                </div>
+                <div class="review-content">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_cVIs5rNm.jpeg?v=1720232991" alt="Avatar">
+                        </div>
+                        <div class="reviewer-details">
+                            <h3>Ca sĩ Đức Phúc</h3>
+                            <p>Nghệ sĩ</p>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Áo dài Yên Hoa mang đến sự thanh lịch và sang trọng. Từ lần đầu tiên đến giờ tôi vẫn tin tưởng lựa chọn Yên Hoa cho những dịp đặc biệt. Đội ngũ tư vấn nhiệt tình và chuyên nghiệp!"
+                    </p>
+                    <span class="review-label">Khách hàng VIP</span>
+                </div>
+            </div>
+
+            <!-- ================================ -->
+            <!-- REVIEW CARD 5 - Phương Anh -->
+            <!-- ================================ -->
+            <div class="review-card reveal-item">
+                <div class="review-image">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_0xXlXCwz.jpeg?v=1720232967" alt="Phương Anh">
+                </div>
+                <div class="review-content">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_0xXlXCwz.jpeg?v=1720232967" alt="Avatar">
+                        </div>
+                        <div class="reviewer-details">
+                            <h3>Phương Anh</h3>
+                            <p>Doanh nhân</p>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Chất lượng áo dài vượt ngoài mong đợi. Từ khâu đo size đến hoàn thiện sản phẩm đều được chăm chút tỉ mỉ. Áo vừa vặn hoàn hảo, tôn dáng và rất thoải mái khi mặc."
+                    </p>
+                    <span class="review-label">Khách hàng thân thiết</span>
+                </div>
+            </div>
+
+            <!-- ================================ -->
+            <!-- REVIEW CARD 6 - Minh Thu -->
+            <!-- ================================ -->
+            <div class="review-card reveal-item">
+                <div class="review-image">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_hvKJbGI5.jpeg?v=1720232859" alt="Minh Thu">
+                </div>
+                <div class="review-content">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_hvKJbGI5.jpeg?v=1720232859" alt="Avatar">
+                        </div>
+                        <div class="reviewer-details">
+                            <h3>Minh Thu</h3>
+                            <p>Giáo viên</p>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Lần đầu tiên mặc áo dài mà tôi cảm thấy tự tin đến vậy. Thiết kế hiện đại nhưng vẫn giữ được nét truyền thống. Yên Hoa thực sự là địa chỉ đáng tin cậy cho các cô gái yêu áo dài."
+                    </p>
+                    <span class="review-label">Khách hàng mới</span>
+                </div>
+            </div>
+
+            <!-- ================================ -->
+            <!-- REVIEW CARD 7 - Hồng Nhung -->
+            <!-- ================================ -->
+            <div class="review-card reveal-item">
+                <div class="review-image">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_0FwqUFQx.jpeg?v=1720232862" alt="Hồng Nhung">
+                </div>
+                <div class="review-content">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_0FwqUFQx.jpeg?v=1720232862" alt="Avatar">
+                        </div>
+                        <div class="reviewer-details">
+                            <h3>Hồng Nhung</h3>
+                            <p>Kiến trúc sư</p>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Bộ sưu tập cưới của Yên Hoa khiến tôi phải trầm trồ. Mỗi chi tiết đều được chăm chút, từ họa tiết thêu đến cách phối màu. Đây sẽ là lựa chọn hoàn hảo cho ngày trọng đại của tôi."
+                    </p>
+                    <span class="review-label">Cô dâu 2025</span>
+                </div>
+            </div>
+
+            <!-- ================================ -->
+            <!-- REVIEW CARD 8 - Thảo Nguyên -->
+            <!-- ================================ -->
+            <div class="review-card reveal-item">
+                <div class="review-image">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_x1nRtkK9.jpeg?v=1720232857" alt="Thảo Nguyên">
+                </div>
+                <div class="review-content">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_x1nRtkK9.jpeg?v=1720232857" alt="Avatar">
+                        </div>
+                        <div class="reviewer-details">
+                            <h3>Thảo Nguyên</h3>
+                            <p>Blogger</p>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Yên Hoa đã giúp tôi tìm lại niềm đam mê với áo dài truyền thống. Những bộ áo không chỉ đẹp mà còn rất tiện dụng. Tôi có thể tự tin diện áo dài trong mọi hoàn cảnh."
+                    </p>
+                    <span class="review-label">Khách hàng trung thành</span>
+                </div>
+            </div>
+
+    <!-- ================================ -->
+    <!-- REVIEW CARD 9 -->
+    <!-- ================================ -->
+    <div class="review-card reveal-item">
+        <div class="review-image">
+            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_GNUWocAa.jpeg?v=1720232852" alt="Mai Anh">
+        </div>
+        <div class="review-content">
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_GNUWocAa.jpeg?v=1720232852" alt="Avatar">
+                </div>
+                <div class="reviewer-details">
+                    <h3>Mai Anh</h3>
+                    <p>Nhân viên văn phòng</p>
+                </div>
+            </div>
+            <p class="review-text">
+                “Tôi thích phong cách thiết kế của Yên Hoa vì sự tinh giản nhưng rất tinh tế.
+                Áo dài mặc lên không hề nặng nề, tạo cảm giác dễ chịu suốt buổi lễ.
+                Mọi chi tiết đều vừa đủ và rất trang nhã.”
+            </p>
+            <span class="review-label">Cô dâu 2025</span>
+        </div>
+    </div>
+
+    <!-- ================================ -->
+    <!-- REVIEW CARD 10 -->
+    <!-- ================================ -->
+    <div class="review-card reveal-item">
+        <div class="review-image">
+            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_dgX0Ngkc.jpeg?v=1720232816" alt="Thanh Huyền">
+        </div>
+        <div class="review-content">
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_dgX0Ngkc.jpeg?v=1720232816" alt="Avatar">
+                </div>
+                <div class="reviewer-details">
+                    <h3>Thanh Huyền</h3>
+                    <p>Kinh doanh tự do</p>
+                </div>
+            </div>
+            <p class="review-text">
+                “Tôi rất hài lòng với quá trình tư vấn và chỉnh sửa áo dài tại Yên Hoa.
+                Áo được may rất vừa vặn, tôn dáng và mang lại cảm giác tự tin.
+                Ngày cưới diễn ra suôn sẻ và trọn vẹn hơn rất nhiều.”
+            </p>
+            <span class="review-label">Khách hàng thân thiết</span>
+        </div>
+    </div>
+
+    <!-- ================================ -->
+    <!-- REVIEW CARD 11 -->
+    <!-- ================================ -->
+    <div class="review-card reveal-item">
+        <div class="review-image">
+            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_dix3Spis.jpeg?v=1720232785" alt="Bích Ngọc">
+        </div>
+        <div class="review-content">
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_dix3Spis.jpeg?v=1720232785" alt="Avatar">
+                </div>
+                <div class="reviewer-details">
+                    <h3>Bích Ngọc</h3>
+                    <p>Nội trợ</p>
+                </div>
+            </div>
+            <p class="review-text">
+                “Cả gia đình tôi đều mặc áo dài của Yên Hoa trong ngày cưới.
+                Màu sắc hài hòa, thiết kế đồng bộ khiến không khí buổi lễ rất ấm cúng.
+                Ai cũng khen nhìn trang nhã và lịch sự.”
+            </p>
+            <span class="review-label">Khách hàng gia đình</span>
+        </div>
+    </div>
+
+    <!-- ================================ -->
+    <!-- REVIEW CARD 12 -->
+    <!-- ================================ -->
+    <div class="review-card reveal-item">
+        <div class="review-image">
+            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_4FoaKn5m.jpeg?v=1720232784" alt="Tuyết Mai">
+        </div>
+        <div class="review-content">
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_4FoaKn5m.jpeg?v=1720232784" alt="Avatar">
+                </div>
+                <div class="reviewer-details">
+                    <h3>Tuyết Mai</h3>
+                    <p>Freelancer</p>
+                </div>
+            </div>
+            <p class="review-text">
+                “Tôi ưu tiên sự thoải mái nên rất hài lòng khi chọn Yên Hoa.
+                Áo dài nhẹ, dễ di chuyển và lên hình rất đẹp.
+                Phù hợp cả chụp ảnh ngoài trời lẫn nghi lễ truyền thống.”
+            </p>
+            <span class="review-label">Cô dâu 2025</span>
+        </div>
+    </div>
+
+    <!-- ================================ -->
+    <!-- REVIEW CARD 13 -->
+    <!-- ================================ -->
+    <div class="review-card reveal-item">
+        <div class="review-image">
+            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_OMVkMuet.jpeg?v=1720232779" alt="Khánh Linh">
+        </div>
+        <div class="review-content">
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_OMVkMuet.jpeg?v=1720232779" alt="Avatar">
+                </div>
+                <div class="reviewer-details">
+                    <h3>Khánh Linh</h3>
+                    <p>Nhân viên marketing</p>
+                </div>
+            </div>
+            <p class="review-text">
+                “Yên Hoa giúp tôi giữ được nét truyền thống nhưng không hề bị già.
+                Áo dài có phom dáng rất đẹp, tôn dáng và dễ mặc.
+                Gia đình hai bên đều đánh giá cao sự chỉn chu.”
+            </p>
+            <span class="review-label">Cô dâu truyền thống</span>
+        </div>
+    </div>
+
+    <!-- ================================ -->
+    <!-- REVIEW CARD 14 -->
+    <!-- ================================ -->
+    <div class="review-card reveal-item">
+        <div class="review-image">
+            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_uyCPzKjp.jpeg?v=1720232649" alt="Diễm Quỳnh">
+        </div>
+        <div class="review-content">
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_uyCPzKjp.jpeg?v=1720232649" alt="Avatar">
+                </div>
+                <div class="reviewer-details">
+                    <h3>Diễm Quỳnh</h3>
+                    <p>Chuyên viên nhân sự</p>
+                </div>
+            </div>
+            <p class="review-text">
+                “Tôi không quen mặc áo dài nhưng Yên Hoa làm tôi rất bất ngờ.
+                Áo mặc lên nhẹ, dễ chịu và không hề gò bó.
+                Tổng thể nhìn rất thanh lịch và tinh tế.”
+            </p>
+            <span class="review-label">Khách hàng mới</span>
+        </div>
+    </div>
+
+    <!-- ================================ -->
+    <!-- REVIEW CARD 15 -->
+    <!-- ================================ -->
+    <div class="review-card reveal-item">
+        <div class="review-image">
+            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_WdkA8uf8.jpeg?v=1720232300" alt="Lệ Chi">
+        </div>
+        <div class="review-content">
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_WdkA8uf8.jpeg?v=1720232300" alt="Avatar">
+                </div>
+                <div class="reviewer-details">
+                    <h3>Lệ Chi</h3>
+                    <p>Quản lý cửa hàng</p>
+                </div>
+            </div>
+            <p class="review-text">
+                “Áo dài của Yên Hoa giúp buổi lễ trở nên trang trọng hơn rất nhiều.
+                Tôi cảm nhận được sự chăm chút trong từng đường kim mũi chỉ.
+                Mọi thứ đều được chuẩn bị rất kỹ lưỡng.”
+            </p>
+            <span class="review-label">Cô dâu 2024</span>
+        </div>
+    </div>
+
+    <!-- ================================ -->
+    <!-- REVIEW CARD 16 -->
+    <!-- ================================ -->
+    <div class="review-card reveal-item">
+        <div class="review-image">
+            <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_lZ2KFoiP.jpeg?v=1720232306" alt="Hoài An">
+        </div>
+        <div class="review-content">
+            <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                    <img src="https://pos.nvncdn.com/22713a-176435/album/albumItem/20240706_lZ2KFoiP.jpeg?v=1720232306" alt="Avatar">
+                </div>
+                <div class="reviewer-details">
+                    <h3>Hoài An</h3>
+                    <p>Thiết kế đồ họa</p>
+                </div>
+            </div>
+            <p class="review-text">
+                “Tôi yêu cảm giác rất ‘Việt’ trong các thiết kế của Yên Hoa.
+                Áo dài không chỉ đẹp mà còn mang lại cảm xúc rất đặc biệt.
+                Đây là lựa chọn khiến tôi hoàn toàn yên tâm.”
+            </p>
+            <span class="review-label">Khách hàng trung thành</span>
+        </div>
+    </div>
+
+
+        </div>
+    </div>
+
+<div class="testimonial-brand">
+    <h2 class="brand-title">YÊN HOA</h2>
+    <p class="brand-slogan">
+        “Thanh khiết – Tinh tế – Trọn vẹn bản sắc Việt”
+    </p>
+</div>
+
+<!-- ================================= -->
+<!-- FORM ĐÁNH GIÁ KHÁCH HÀNG -->
+<!-- ================================= -->
+<section class="review-form-section">
+  <div class="review-form-container">
+
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Gửi đánh giá của bạn</h2>
+      <p class="lead">
+        Ý kiến của bạn giúp Yên Hoa hoàn thiện hơn mỗi ngày
+      </p>
+    </div>
+
+    <div class="review-form-card">
+      <h4 class="mb-4 fw-bold review-form-title">Bảng đánh giá</h4>
+
+ <form class="review-form">
+
+    <div class="review-form-grid">
+        <div class="form-group">
+            <label>Họ và tên</label>
+            <input type="text" placeholder="Nhập họ và tên">
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="example@email.com">
+        </div>
+
+        <div class="form-group">
+            <label>Loại phản hồi</label>
+            <select>
+                <option selected disabled>-- Chọn loại phản hồi --</option>
+                <option>Đánh giá sản phẩm</option>
+                <option>Trải nghiệm dịch vụ</option>
+                <option>Góp ý cải thiện</option>
+                <option>Khiếu nại</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Mức độ hài lòng</label>
+            <select>
+                <option selected disabled>-- Chọn số sao --</option>
+                <option>★★★★★ Rất hài lòng</option>
+                <option>★★★★☆ Hài lòng</option>
+                <option>★★★☆☆ Bình thường</option>
+                <option>★★☆☆☆ Chưa hài lòng</option>
+                <option>★☆☆☆☆ Không hài lòng</option>
+            </select>
+        </div>
+
+        <div class="form-group full-width">
+            <label>Nội dung đánh giá</label>
+            <textarea rows="5"
+                placeholder="Hãy chia sẻ trải nghiệm của bạn về sản phẩm hoặc dịch vụ của Yên Hoa..."></textarea>
+        </div>
+    </div>
+
+    <button type="submit" class="btn-review-send">
+        Gửi đánh giá <i class="fas fa-paper-plane"></i>
+    </button>
+
+</form>
+
+    </div>
+  </div>
+</section>
+
+
+ <!-- FOOTER -->
+<footer-component></footer-component>
+
+  <script src="../assets/js/auth.js"></script>
+  <script src ="../assets/js/main.js"></script>
+
+
+    <!-- JavaScript File -->
+    <script src="../assets/js/testimonial.js"></script>
+    <script src="../assets/js/menu_chung.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,533 @@
+/* ========================================= */
+/* CSS VARIABLES - Biến màu sắc và font chữ */
+/* ========================================= */
+
+
+/* ========================================= */
+/* RESET CSS - Xóa margin/padding mặc định */
+/* ========================================= */
+
+
+/* ========================================= */
+/* BODY - Style chung cho toàn trang */
+/* ========================================= */
+
+
+/* ========================================= */
+/* PAGE HEADER - Phần tiêu đề trang */
+/* ========================================= */
+
+
+/* Tiêu đề chính */
+.page-header h1 {
+    font-family: var(--playfair);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* Mô tả phụ */
+.page-header p {
+    font-size: 18px;
+    color: var(--text);
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========================================= */
+/* REVIEWS CONTAINER - Container chứa grid */
+/* ========================================= */
+.reviews-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 40px 60px; /* top | left-right | bottom */
+}
+
+/* ========================================= */
+/* REVIEWS GRID - Lưới hiển thị 4 cột */
+/* ========================================= */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cột bằng nhau */
+    gap: 25px;                             /* Khoảng cách giữa các card */
+}
+
+/* ========================================= */
+/* REVIEW CARD - Card đánh giá của từng khách */
+/* ========================================= */
+.review-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(217, 160, 160, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(214, 184, 135, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hiệu ứng hover - card nổi lên */
+.review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(161, 41, 40, 0.35);
+}
+
+/* ========================================= */
+/* REVIEW IMAGE - Phần ảnh khách hàng */
+/* ========================================= */
+.review-image {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+
+.review-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+
+/* Hiệu ứng zoom ảnh khi hover card */
+.review-card:hover .review-image img {
+    /* transform: scale(1.05); */
+}
+
+/* ========================================= */
+/* REVIEW CONTENT - Phần nội dung đánh giá */
+/* ========================================= */
+.review-content {
+    padding: 20px;
+    background: linear-gradient(to bottom, #fff, rgba(255, 250, 245, 0.5));
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================= */
+/* REVIEW STARS - Hiển thị 5 sao vàng */
+/* ========================================= */
+.review-stars {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.review-stars i {
+    color: #ffc107; /* Màu vàng cho sao */
+    font-size: 18px;
+}
+
+/* ========================================= */
+/* REVIEWER INFO - Thông tin người đánh giá */
+/* ========================================= */
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Avatar tròn */
+.reviewer-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--accent);
+    background: #f8f2eb;
+}
+
+.reviewer-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+
+
+/* Tên và chức danh */
+.reviewer-details h3 {
+    font-family: var(--playfair);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--red);
+    margin-bottom: 5px;
+}
+
+.reviewer-details p {
+    font-size: 14px;
+    color: var(--text);
+    opacity: 0.8;
+}
+
+/* ========================================= */
+/* REVIEW TEXT - Nội dung lời nhận xét */
+/* ========================================= */
+.review-text {
+    font-size: 10px;
+    line-height: 1.8;
+    color: var(--text);
+    font-style: italic;
+    margin-bottom: 15px;
+    text-align: justify;
+    flex: 1; /* Chiếm hết không gian còn lại */
+}
+
+/* ========================================= */
+/* REVIEW LABEL - Nhãn phân loại khách hàng */
+/* ========================================= */
+.review-label {
+    display: inline-block;
+    padding: 6px 16px;
+    background: linear-gradient(135deg, rgba(161, 41, 40, 0.1), rgba(214, 184, 135, 0.15));
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--red);
+    font-weight: 600;
+    border: 1px solid rgba(161, 41, 40, 0.2);
+}
+
+/* ========================================= */
+/* DESKTOP lớn (≥1200px) */
+/* ========================================= */
+.reviews-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.review-image {
+    height: 380px;
+}
+
+/* ========================================= */
+/* TABLET (≤1200px) */
+/* ========================================= */
+@media (max-width: 1200px) {
+    .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .review-image {
+        height: 340px;
+    }
+}
+
+/* ========================================= */
+/* MOBILE LỚN / TABLET DỌC (≤900px) */
+/* ========================================= */
+@media (max-width: 900px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .review-image {
+        height: 320px;
+    }
+
+    .review-content {
+        padding: 18px;
+    }
+}
+
+/* ========================================= */
+/* MOBILE NHỎ (≤600px) */
+/* ========================================= */
+@media (max-width: 600px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .review-image {
+        height: 420px; /* mobile ảnh cao để không cắt mặt */
+    }
+
+    .review-content {
+        padding: 16px;
+    }
+}
+
+/* ========================================= */
+/* ANIMATION - Hiệu ứng fade in khi scroll */
+/* ========================================= */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Khi card xuất hiện trong viewport */
+.reveal-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================= */
+/* STAGGER ANIMATION - Delay từng card */
+/* ========================================= */
+.review-card:nth-child(1) { transition-delay: 0.1s; }
+.review-card:nth-child(2) { transition-delay: 0.2s; }
+.review-card:nth-child(3) { transition-delay: 0.3s; }
+.review-card:nth-child(4) { transition-delay: 0.4s; }
+.review-card:nth-child(5) { transition-delay: 0.5s; }
+.review-card:nth-child(6) { transition-delay: 0.6s; }
+.review-card:nth-child(7) { transition-delay: 0.7s; }
+.review-card:nth-child(8) { transition-delay: 0.8s; }
+
+
+/* ========================================= */
+/* REVIEW FORM - Giống style Contact */
+/* ========================================= */
+
+.review-form-section {
+    margin: 40px auto 80px; /* GIẢM MẠNH */
+    padding: 0 20px;
+}
+
+.review-form-container {
+    max-width: 1200px;
+    margin: 20px auto 70px;
+    background: #fdf6e4;
+    padding: 24px 60px 48px;
+    border-radius: 26px;
+}
+
+.review-form-container h2 {
+    color: #a12928;
+    font-weight: 700;
+}
+
+.review-form-container .lead {
+    color: #a12928;
+    opacity: 0.85;
+}
+
+.review-form-card {
+    background: #fffef6;
+    border-radius: 22px;
+    padding: 40px;
+    border: 1.5px solid #d6b887;
+    transition: .3s;
+}
+
+.review-form-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(179, 0, 0, 0.18);
+}
+
+.review-form .form-label {
+    color: #a12928;
+    font-weight: 600;
+}
+
+.review-form .form-control,
+.review-form .form-select {
+    border-radius: 12px;
+    border: 1.5px solid #e3d3b2;
+    padding: 12px 14px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.review-form .form-control:focus,
+.review-form .form-select:focus {
+    border-color: #a12928;
+    box-shadow: none;
+}
+
+.btn-review-send {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(45deg, #a12928, #8d0101);
+    color: #fff9f3;
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: .3s;
+    margin-top: 24px;   /* dịch xuống */
+
+}
+
+.btn-review-send:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .review-form-container {
+        padding: 40px 24px;
+    }
+
+    .review-form-card {
+        padding: 28px;
+    }
+}
+
+
+/* Grid giống form Liên hệ */
+.review-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.review-form-grid .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-form-grid .form-group label {
+    font-weight: 600;
+    color: #a12928;
+    margin-bottom: 6px;
+}
+
+.review-form-grid input,
+.review-form-grid select,
+.review-form-grid textarea {
+    border-radius: 12px;
+    border: 1.5px solid #e3d3b2;
+    padding: 12px 14px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+}
+
+.review-form-grid textarea {
+    resize: vertical;
+}
+
+.review-form-grid .full-width {
+    grid-column: 1 / -1;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .review-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.review-form-container .lead {
+    margin-bottom: 20px;
+}
+
+.review-form-card {
+    margin-top: 20px;
+}
+
+.review-form-title {
+    font-size: 28px;          /* TO như “Gửi tin nhắn” */
+    font-weight: 700;
+    color: #a12928;           /* đỏ Yên Hoa */
+    
+    margin-top: -12px;        /* DỊCH LÊN */
+    margin-bottom: 8px;      /* Cách form bên dưới */
+}
+
+.testimonial-brand {
+    text-align: center;
+    margin: 20px 0 30px;
+}
+
+.testimonial-brand .brand-title {
+    font-family: 'Playfair Display', serif; /* giống logo */
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #b3002d; /* đỏ sẫm Yên Hoa */
+    margin-bottom: 12px;
+}
+
+.testimonial-brand .brand-slogan {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #6f6f6f;
+}
+
+
+/* ========================================= */
+/* RESPONSIVE - REVIEW FORM (Mobile) */
+/* ========================================= */
+@media (max-width: 600px) {
+
+    /* Section tổng */
+    .review-form-section {
+        margin: 20px auto 60px;
+        padding: 0 12px;
+    }
+
+    /* Khung vàng bên ngoài */
+    .review-form-container {
+        padding: 20px 16px 32px;
+        border-radius: 22px;
+    }
+
+    /* Tiêu đề "Gửi đánh giá của bạn" */
+    .review-form-container h2 {
+        font-size: 26px;
+        line-height: 1.3;
+    }
+
+    .review-form-container .lead {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    /* Card trắng - Bảng đánh giá */
+    .review-form-card {
+        padding: 24px 18px;
+        border-radius: 18px;
+        margin-top: 10px;
+    }
+
+    /* Tiêu đề "Bảng đánh giá" */
+    .review-form-title {
+        font-size: 22px;
+        margin-top: -6px;
+        margin-bottom: 12px;
+    }
+
+    /* Grid form: 1 cột */
+    .review-form-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    /* Label */
+    .review-form-grid label {
+        font-size: 14px;
+    }
+
+    /* Input / Select / Textarea */
+    .review-form-grid input,
+    .review-form-grid select,
+    .review-form-grid textarea {
+        font-size: 14px;
+        padding: 11px 14px;
+    }
+
+    /* Textarea */
+    .review-form-grid textarea {
+        min-height: 120px;
+    }
+
+    /* Button */
+    .btn-review-send {
+        width: 100%;
+        padding: 14px 0;
+        font-size: 15px;
+        border-radius: 14px;
+        margin-top: 20px;
+    }
+}
