@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới thiệu</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> 
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/style.css"> 
-    <style>
+class MyFooter extends HTMLElement {
+    connectedCallback() {
+        const base = window.location.pathname.includes('/pages/') ? '..' : '.';
+        this.innerHTML = `
+        <style>
 /* FOOTER */
 /* ==================================== */
 /* 1. FOOTER BASE STYLES */
@@ -253,74 +245,73 @@ footer .btn.rounded-circle {
 footer .btn.rounded-circle i {
   color: #8b5e3c !important;
 }
-    </style>
-</head>
-<body>       
-<section class="footer" style="width: 100%;">
-    <div class="footer-container">
-      <div class="footer-top">
-        <div class="footer-logo-section">
-          <div class="footer-logo">
-            <img src="./assets/img/logo.png" alt="Logo" style="height: 60px; width: 60px" />
-            <h1>YÊN HOA</h1>
-          </div>
-          <p class="footer-description">
-            Yên Hoa tự hào đã bán ra hơn 16.000 sản phẩm, khẳng định chất lượng và uy tín trên thị trường.<br>
-            Khách hàng của Yên Hoa đã vượt mốc 10.000 người, minh chứng cho sự yêu mến và ủng hộ từ cộng đồng!
-          </p>
-          <div class="footer-members">
-            <img src="./assets/img/anhnguoi.jpg" alt="">
-            <img src="./assets/img/anhnguoi2.jpg" alt="">
-            <img src="./assets/img/anhnguoi3.jpg" alt="">
-            <span><strong>10.000</strong> Khách hàng đã tin tưởng </span>
-          </div>
-        </div>
- 
-        <div class="footer-columns">
-          <div class="footer-column">
-            <h6>VỀ CHÚNG TÔI</h6>
-            <ul>
-              <li><a href="pages/policy.html">Điều Khoản</a></li>
-              <li><a href="pages/contact.html">Liên hệ</a></li>
-              <li><a href="pages/about.html">Giới thiệu</a></li>
-             
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h6>LIÊN HỆ</h6>
-            <ul>
-              <li><i class="fas fa-map-marker-alt me-2"></i>12 Chùa Bộc, Đống Đa, Hà Nội</li>
-              <li><i class="fas fa-phone-alt  me-2"></i>0123 456 789</li>
-              <li><i class="fas fa-phone-alt  me-2"></i>0987 654 321</li>
-              <li><i class="fas fa-envelope  me-2"></i>aodaiyenhoa@gmail.com</li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h6>SẢN PHẨM</h6>
-            <ul>
-              <li><a href="pages/phong_canh.html"> Áo Dài Tết</a></li>
-              <li><a href="pages/tranh_son_dau.html">Áo Dài Mẹ</a></li>
-              <li><a href="pages/tranh_chu_de.html">Áo Dài Truyền Thống</a></li>
-              <li><a href="pages/tranh_den_led.html">Bộ Sưu Tập Cưới</a></li>
-            </ul>
-            
-          </div>
-        </div>
-      </div>
- 
-      <div class="footer-bottom">
-        <p>© <a href="./index.html">Yên Hoa</a> 2025, All rights reserved.</p>
-        <ul>
-          <li>Giao hàng nhanh chóng</li>
-          <li>Phản hồi kịp thời</li>
-          <li>Uy tín-chất lượng</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-    <script src="assets/js/menu.js"></script> 
-    <script src="assets/js/scroll_reveal.js"></script> 
-    <script src="assets/js/comming.js"></script>
-    <script src="assets/js/auth.js"></script>
-</body>
-</html>
+    </style>  
+    <footer>     
+        <section class="footer" style="width: 100%;">
+            <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-logo-section">
+                <div class="footer-logo">
+                    <img src="${base}/assets/img/logo.png" alt="Logo" style="height: 60px; width: 60px" />
+                    <h1>YÊN HOA</h1>
+                </div>
+                <p class="footer-description">
+                    Yên Hoa tự hào đã bán ra hơn 16.000 sản phẩm, khẳng định chất lượng và uy tín trên thị trường.<br>
+                    Khách hàng của Yên Hoa đã vượt mốc 10.000 người, minh chứng cho sự yêu mến và ủng hộ từ cộng đồng!
+                </p>
+                <div class="footer-members">
+                    <img src="${base}/assets/img/anhnguoi.jpg" alt="">
+                    <img src="${base}/assets/img/anhnguoi2.jpg" alt="">
+                    <img src="${base}/assets/img/anhnguoi3.jpg" alt="">
+                    <span><strong>10.000</strong> Khách hàng đã tin tưởng </span>
+                </div>
+                </div>
+        
+                <div class="footer-columns">
+                <div class="footer-column">
+                    <h6>VỀ CHÚNG TÔI</h6>
+                    <ul>
+                    <li><a href="${base}/pages/policy.html">Điều Khoản</a></li>
+                    <li><a href="${base}/pages/contact.html">Liên hệ</a></li>
+                    <li><a href="${base}/pages/about.html">Giới thiệu</a></li>
+                    
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h6>LIÊN HỆ</h6>
+                    <ul>
+                    <li><i class="fas fa-map-marker-alt me-2"></i>12 Chùa Bộc, Đống Đa, Hà Nội</li>
+                    <li><i class="fas fa-phone-alt  me-2"></i>0123 456 789</li>
+                    <li><i class="fas fa-phone-alt  me-2"></i>0987 654 321</li>
+                    <li><i class="fas fa-envelope  me-2"></i>aodaiyenhoa@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h6>SẢN PHẨM</h6>
+                    <ul>
+                    <li><a href="${base}/pages/phong_canh.html"> Áo Dài Tết</a></li>
+                    <li><a href="${base}/pages/tranh_son_dau.html">Áo Dài Mẹ</a></li>
+                    <li><a href="${base}/pages/tranh_chu_de.html">Áo Dài Truyền Thống</a></li>
+                    <li><a href="${base}/pages/tranh_den_led.html">Bộ Sưu Tập Cưới</a></li>
+                    </ul>
+                    
+                </div>
+                </div>
+            </div>
+        
+            <div class="footer-bottom">
+                <p>© <a href="${base}/index.html">Yên Hoa</a> 2025, All rights reserved.</p>
+                <ul>
+                <li>Giao hàng nhanh chóng</li>
+                <li>Phản hồi kịp thời</li>
+                <li>Uy tín-chất lượng</li>
+                </ul>
+            </div>
+            </div>
+        </section>
+    </footer>
+        `;
+    }
+}
+
+customElements.define('footer-component', MyFooter);
