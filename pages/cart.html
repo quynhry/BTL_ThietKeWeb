@@ -112,6 +112,7 @@
 <script src="../assets/js/auth.js"></script>
 <script>
 
+let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
 
 // ======================= RENDER GIỎ HÀNG =======================
@@ -255,16 +256,7 @@ menuItems.forEach((item) => {
 });
 </script>
 
-<script>// Nút thanh toán
-const checkoutBtn = document.querySelector('.checkout-btn');
-checkoutBtn.addEventListener('click', () => {
-    // Lưu giỏ hàng vào localStorage trước khi sang trang thanh toán
-    localStorage.setItem('cart', JSON.stringify(cartItems));
 
-    // Chuyển hướng sang trang thanh toán
-    window.location.href = "checkout.html";
-});
-</script>
 <script src="../assets/js/cart.js"></script>
 
 </body>
