@@ -278,7 +278,7 @@ body {
 
 /* Nút giỏ hàng: nền đen, bo chéo 2 góc như hình bạn gửi */
 .bag-btn {
-  background-color: #D97D91;
+  background-color: #B3002D;
   border: none;
   border-radius: 12px 0 12px 0;   /* bo lệch: trên-trái & dưới-phải */
   width: 40px;
