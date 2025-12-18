@@ -1004,51 +1004,23 @@ header.visible {
     font-weight: 600;
     letter-spacing: 1px;
 }
-/* TABLET (≤ 1024px) */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
     .video-section {
-        padding: 80px 20px 30px;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding: 60px 20px;
     }
 
     .video-box {
-        max-width: 320px;
-    }
-
-    .video-box h3 {
-        font-size: 17px;
-    }
-}
-
-/* MOBILE (≤ 768px) */
-@media (max-width: 768px) {
-    .video-section {
-        padding: 60px 15px 30px;
-    }
-
-    .video-box {
-        max-width: 100%;
+        width: 80%;
     }
 
     .video-box video {
-        border-radius: 6px;
-    }
-
-    .video-box h3 {
-        font-size: 16px;
+        width: 100%;
     }
 }
 
-/* MOBILE NHỎ (≤ 480px) */
-@media (max-width: 480px) {
-    .video-section {
-        padding: 50px 10px 20px;
-    }
-
-    .video-box h3 {
-        font-size: 15px;
-        letter-spacing: 0.5px;
-    }
-}
 /*banner cuối*/
 /* Card overlay tổng thể */
 .overlay-card {

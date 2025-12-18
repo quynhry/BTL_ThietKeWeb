@@ -301,7 +301,7 @@ footer .btn.rounded-circle i {
                     <img src="${base}/assets/img/anhnguoi.jpg" alt="">
                     <img src="${base}/assets/img/anhnguoi2.jpg" alt="">
                     <img src="${base}/assets/img/anhnguoi3.jpg" alt="">
-                    <span><strong>10.000</strong> Khách hàng đã tin tưởng </span>
+                    <span><strong>10.000</strong> Khách hàng tin tưởng </span>
                 </div>
                 </div>
         
@@ -311,7 +311,7 @@ footer .btn.rounded-circle i {
                     <ul>
                     <li><a href="${base}/pages/policy.html">Điều Khoản</a></li>
                     <li><a href="${base}/pages/contact.html">Liên hệ</a></li>
-                    <li><a href="${base}/pages/about.html">Giới thiệu</a></li>
+                    <li><a href="${base}/pages/gioi_thieu.html">Giới thiệu</a></li>
                     
                     </ul>
                 </div>
