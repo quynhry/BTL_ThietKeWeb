@@ -94,7 +94,7 @@
 </head>
 <body>
   <div class="forgot-container">
-    <h2>Đặt lại mật khẩu</h2>
+    <h2>Quên mật khẩu</h2>
     <p>Nhập email đã đăng ký, chúng tôi sẽ gửi liên kết đặt lại mật khẩu cho bạn.</p>
     <form id="forgotForm">
       <input type="email" id="email" placeholder="example@email.com" required />
@@ -110,57 +110,84 @@
 
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    emailjs.init("YOUR_PUBLIC_KEY"); // Thay bằng Public Key của bạn
+<script>
+emailjs.init("hJj_zx_ycvg6sX-UK"); //  thay key thật
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+const users = JSON.parse(localStorage.getItem("users")) || [];
+let resetTokens = JSON.parse(localStorage.getItem("resetTokens")) || [];
 
-    function generateCaptcha() {
-      const code = Math.floor(1000 + Math.random() * 9000);
-      document.getElementById("captchaText").textContent = code;
-      return code;
+// ========== CAPTCHA ==========
+function generateCaptcha() {
+  const code = Math.floor(1000 + Math.random() * 9000);
+  document.getElementById("captchaText").textContent = code;
+  return code;
+}
+let currentCaptcha = generateCaptcha();
+
+document.getElementById("refreshCaptcha").onclick = e => {
+  e.preventDefault();
+  currentCaptcha = generateCaptcha();
+};
+
+// ========== SUBMIT ==========
+document.getElementById("forgotForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value.trim().toLowerCase();
+  const captchaInput = document.getElementById("captchaInput").value.trim();
+
+  if (captchaInput !== currentCaptcha.toString()) {
+    alert("❌ Mã xác thực không đúng!");
+    currentCaptcha = generateCaptcha();
+    return;
+  }
+
+  const user = users.find(u => u.email.toLowerCase() === email);
+  if (!user) {
+    alert("❌ Không tìm thấy tài khoản với email này!");
+    return;
+  }
+
+// ========== TẠO TOKEN ==========
+const token = Math.random().toString(36).substring(2) + Date.now();
+const expires = Date.now() + 10 * 60 * 1000; // 10 phút
+
+let resetTokens = JSON.parse(localStorage.getItem("resetTokens")) || [];
+
+// xoá token cũ của email này
+resetTokens = resetTokens.filter(t => t.email !== email);
+
+// lưu token mới
+resetTokens.push({ email, token, expires });
+
+localStorage.setItem("resetTokens", JSON.stringify(resetTokens));
+
+// 🔗 LINK ĐÚNG
+const resetLink =
+  "http://127.0.0.1:5501/pages/reset.html?token=" + token;
+
+
+
+  // ========== GỬI EMAIL ==========
+  emailjs.send(
+    "service_kt211aj",
+    "template_zgto7gl",
+    {
+      user_email: email,
+      reset_link: resetLink
     }
+  )
+  .then(() => {
+    alert("✅ Email đặt lại mật khẩu đã được gửi!");
+    document.getElementById("forgotForm").reset();
+    currentCaptcha = generateCaptcha();
+  })
+  .catch(err => {
+    console.error(err);
+    alert("❌ Gửi email thất bại!");
+  });
+});
+</script>
 
-    let currentCaptcha = generateCaptcha();
-
-    document.getElementById("refreshCaptcha").addEventListener("click", e => {
-      e.preventDefault();
-      currentCaptcha = generateCaptcha();
-    });
-
-    document.getElementById("forgotForm").addEventListener("submit", e => {
-      e.preventDefault();
-      const email = document.getElementById("email").value.trim();
-      const captchaInput = document.getElementById("captchaInput").value.trim();
-
-      if (captchaInput !== currentCaptcha.toString()) {
-        alert("❌ Mã xác thực không đúng!");
-        currentCaptcha = generateCaptcha();
-        return;
-      }
-
-      const foundUser = users.find(u => u.email.toLowerCase() === email.toLowerCase());
-      if (!foundUser) {
-        alert("❌ Không tìm thấy tài khoản với email này!");
-        return;
-      }
-
-      const resetLink = `${window.location.origin}/pages/reset.html?email=${encodeURIComponent(email)}`;
-
-      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-        user_email: email,
-        reset_link: resetLink
-      })
-      .then(() => {
-        alert("✅ Email đặt lại mật khẩu đã được gửi!");
-        document.getElementById("forgotForm").reset();
-        currentCaptcha = generateCaptcha();
-      })
-      .catch(err => {
-        console.error("Lỗi gửi mail:", err);
-        alert("❌ Gửi email thất bại, vui lòng thử lại!");
-      });
-    });
-  </script>
 </body>
 </html>

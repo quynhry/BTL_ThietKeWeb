@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Đặt lại mật khẩu - Yên Hoa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Playfair Display", serif;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("../assets/img/nendo.jpg") center/cover fixed no-repeat;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .reset-container {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px 40px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    p {
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus {
+      border-color: #bc7d73;
+      box-shadow: 0 0 5px rgba(188,125,115,0.4);
+    }
+
+    button {
+      border-radius: 20px;
+      border: 1px solid #a12928;
+      background-color: #a12928;
+      color: #fff;
+      font-weight: 700;
+      padding: 12px 60px;
+      letter-spacing: 1px;
+      transition: 0.3s ease-in-out;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover { letter-spacing: 2px; }
+    button:active { transform: scale(0.95); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width:480px){
+      .reset-container { padding: 25px 20px; }
+      h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="reset-container">
+  <h2>Đặt lại mật khẩu</h2>
+  <p>Vui lòng nhập mật khẩu mới cho tài khoản của bạn.</p>
+
+  <form id="resetForm">
+    <input type="password" id="password" placeholder="Mật khẩu mới" required>
+    <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" required>
+    <button type="submit">Cập nhật mật khẩu</button>
+  </form>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get("token");
+
+  if (!token) {
+    alert("❌ Link không hợp lệ!");
+    location.href = "forgotpw.html";
+  }
+
+  const users = JSON.parse(localStorage.getItem("users"));
+  const resetTokens = JSON.parse(localStorage.getItem("resetTokens"));
+
+  if (!users || !resetTokens) {
+    alert("❌ Dữ liệu không tồn tại!");
+    location.href = "forgotpw.html";
+  }
+
+  const record = resetTokens.find(t => t.token === token);
+
+  if (!record || Date.now() > record.expires) {
+    alert("❌ Link không hợp lệ hoặc đã hết hạn!");
+    location.href = "forgotpw.html";
+  }
+
+  const userIndex = users.findIndex(
+    u => u.email.toLowerCase() === record.email.toLowerCase()
+  );
+
+  if (userIndex === -1) {
+    alert("❌ Tài khoản không tồn tại!");
+    location.href = "forgotpw.html";
+  }
+
+  document.getElementById("resetForm").addEventListener("submit", e => {
+    e.preventDefault();
+
+    const pw = document.getElementById("password").value.trim();
+    const cf = document.getElementById("confirmPassword").value.trim();
+
+    if (pw !== cf) {
+      alert("❌ Mật khẩu không khớp!");
+      return;
+    }
+
+    users[userIndex].password = pw;
+    localStorage.setItem("users", JSON.stringify(users));
+
+    localStorage.setItem(
+      "resetTokens",
+      JSON.stringify(resetTokens.filter(t => t.token !== token))
+    );
+
+    localStorage.removeItem("rememberedUser");
+
+    alert("✅ Đặt lại mật khẩu thành công!");
+    location.href = "login.html";
+  });
+</script>
+
+</body>
+</html>

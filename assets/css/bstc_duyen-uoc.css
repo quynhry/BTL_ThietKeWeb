@@ -845,3 +845,86 @@ body {
     gap: 28px;
   }
 }
+
+
+/* ================= COLLECTION INTRO ================= */
+.collection-intro {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.collection-intro-container {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr; /* ảnh > chữ một chút */
+  gap: 40px;
+  padding: 0 40px;
+  align-items: start;
+}
+
+/* IMAGE */
+.collection-image img {
+  margin-top: 20px;   /* 👈 HẠ ẢNH XUỐNG */
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+/* TEXT */
+.collection-content {
+  padding-top: 10px;
+}
+
+.collection-title {
+  font-size: 42px;
+  font-weight: 500;
+  color: #b3002d;
+  margin-bottom: 24px;
+}
+
+.collection-desc p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #222;
+  margin-bottom: 18px;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 1024px) {
+  .collection-intro-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .collection-image img {
+
+    height: 420px;
+  }
+
+  .collection-title {
+    font-size: 36px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .collection-intro-container {
+    padding: 0 16px;
+  }
+
+  .collection-image img {
+    height: 300px;
+  }
+
+  .collection-title {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .collection-desc p {
+    font-size: 14.5px;
+  }
+}
