@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -13,249 +14,325 @@
 
   <!-- CSS CHUNG -->
   <link rel="stylesheet" href="../assets/css/style.css">
-
-  <!-- CSS CONTACT -->
-  <style>
-    body.contact-page {
-      font-family: 'Quicksand', sans-serif;
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
       background: #fff8ef;
       color: #a12928;
-    }
+        }
+        .container {
 
-    h1,h2,h3,h4,h5 {
-      font-weight: 700;
+  margin: 80px auto;
+  padding: 32px 44px;
+  background: #fdf6e4;
+  border-radius: 26px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
       color: #a12928;
-    }
-
-    .contact-container {
-      max-width: 1200px;
-      margin: 100px auto;
-      padding: 40px 60px;
-      background: #fdf6e4;
-      border-radius: 26px;
-    }
-
-    .contact-card {
-      background: #fffef6;
+        }
+        .card {
+            background: #fffef6;
       border-radius: 22px;
       padding: 30px;
       border: 1.5px solid #d6b887;
       height: 100%;
       transition: .3s;
-    }
-
-    .contact-card:hover {
-      transform: translateY(-6px);
+        }
+        .card:hover {
+            transform: translateY(-6px);
       box-shadow: 0 18px 40px rgba(179,0,0,0.18);
-    }
-
-    .btn-send {
-      background: linear-gradient(45deg, #a12928, #8d0101);
+        }
+        .text-gradient {
+            font-family: var(--playfair);
+            background: linear-gradient(45deg, #a12928, #8d0101);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .form-control, .form-select {
+            transition: all 0.3s ease;
+            border: 1px solid #dec9a7;
+        }
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 0 0.2rem rgba(139, 94, 60, 0.25);
+            border-color: #3a2d20;
+        }
+        .contact-icon {
+            transition: transform 0.3s ease;
+        }
+        .contact-icon:hover {
+            transform: scale(1.1);
+            color: #b77f54;
+        }
+        .btn-submit {
+            background: linear-gradient(45deg, #a12928, #8d0101);
       color: #fff9f3;
       border: none;
       padding: 12px 28px;
       font-weight: 600;
       border-radius: 12px;
-    }
-
-    .btn-send:hover {
-      opacity: .9;
-    }
-
-    @media (max-width: 768px) {
+        }
+        .btn-submit:hover {
+            opacity: .9;
+        }
+        @media (max-width: 768px) {
       .contact-container {
         padding: 50px 24px;
         margin-top: 140px;
       }
     }
-  </style>
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - ARTNET</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png">
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" sizes="180x180">
 </head>
-
-<body class="contact-page">
-
-<!-- HEADER (GIỐNG POLICY) -->
+<body>
+<!-- HEADER  -->
 <header id="header">
-  <div class="header-container">
-    <button class="menu-toggle" id="menuToggle"><i class="fa fa-bars"></i></button>
+        <div class="header-container">
+          <button class="menu-toggle" id="menuToggle" aria-label="Mở menu"><i class="fa fa-bars"></i></button>
 
-    <div class="header-logo"><a href="../index.html">YÊN HOA</a></div>
+            <!-- Logo bên trái -->
+            <div class="header-logo"><a href="../index.html">YÊN HOA</a></div>
+            
+            <!-- Menu ở giữa -->
+            <ul class="header-menu">
+                <li class="menu-item"><a href="gioi_thieu.html">Giới thiệu</a></li>
 
-    <ul class="header-menu">
-      <li><a href="gioi_thieu.html">Giới thiệu</a></li>
-      <li><a href="san_pham.html">Sản phẩm</a></li>
-      <li><a href="bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a></li>
-      <li><a href="cuahang.html">Cửa hàng</a></li>
-      <li><a href="khach_hang.html">Khách hàng</a></li>
-      <li><a href="contact.html" class="active">Liên hệ</a></li>
-    </ul>
+                <li class="menu-item">
+                    <a href="san_pham.html">Sản phẩm</a>
+                    <ul class="sub-menu">
+                        <li class="menu-home">
+                            <a href="ao_dai_tet.html">Áo Dài Tết</a>
+                            <ul class="sub-menu sub-menu2">
+                                <li><a href="xuan_y_bich_hoa.html">Xuân Ý Bích Họa</a></li>
+                                <li><a href="hoa_cam.html">Họa Cầm</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-home">
+                            <a href="ao_dai_me.html">Áo Dài Mẹ</a>
+                            <ul class="sub-menu sub-menu2">
+                                <li><a href="phuong_vu.html">Phượng Vũ</a></li>
+                                <li><a href="tu_van.html">Từ Vân</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-home">
+                            <a href="ao_dai_truyen_thong.html">Áo Dài Truyền Thống</a>
+                            <ul class="sub-menu sub-menu2">
+                                <li><a href="duyen.html">Duyên</a></li>
+                                <li><a href="diem.html">Diễm</a></li>
+                                <li><a href="ha_thu.html">Hạ Thu</a></li>
+                                <li><a href="truc_giao.html">Trúc Giao</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
 
-    <div class="header-icons">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <i class="fa-regular fa-user"></i>
-      <div class="cart-icon">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span>0</span>
-      </div>
-    </div>
-  </div>
-</header>
+                <li class="menu-item">
+                    <a href="bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a>
+                    <ul class="sub-menu">
+                        <li><a href="duyen_uoc.html">Duyên Ước</a></li>
+                        <li><a href="giao_duyen.html">Giao Duyên</a></li>
+                        <li><a href="nhan_duyen.html">Nhân Duyên</a></li>
+                        <li><a href="tam_duyen.html">Tầm Duyên</a></li>
+                    </ul>
+                </li>
 
-<!-- NỘI DUNG -->
-<div class="contact-container">
+                <li class="menu-item"><a href="cuahang.html">Cửa hàng</a></li>
+                <li class="menu-item"><a href="khach_hang.html">Khách hàng</a></li>
 
-  <div class="text-center mb-5">
-    <h1 class="fw-bold mb-3">Liên hệ Yên Hoa</h1>
-    <p class="lead">Yên Hoa luôn lắng nghe và đồng hành cùng vẻ đẹp của bạn</p>
-  </div>
-
-  <div class="row g-4">
-    <!-- Thông tin -->
-    <div class="col-md-4">
-      <div class="contact-card">
-        <h4 class="mb-4">Thông tin liên hệ</h4>
-        <p><i class="fas fa-map-marker-alt me-2"></i>25 Nguyễn Khuyến, Văn Miếu, Đống Đa, Hà Nội</p>
-        <p><i class="fas fa-map-marker-alt me-2"></i>62 Trần Phú, Ngô Quyền, Hải Phòng</p>
-        <p><i class="fas fa-map-marker-alt me-2"></i>18 Lê Huân, Thuận Hòa, Huế</p>
-        <p><i class="fas fa-map-marker-alt me-2"></i>210 Hoàng Diệu, Hải Châu, Đã Nẵng</p>
-        <p><i class="fas fa-map-marker-alt me-2"></i>92 Lê Lợi, Quận 1, Hồ Chí Minh</p>
-        <p><i class="fas fa-phone-alt me-2"></i>0393 568 763</p>
-        <p><i class="fas fa-envelope me-2"></i>aodaiyenhoa@gmail.com</p>
-      </div>
-    </div>
-
-
-<div class="col-md-8">
-  <div class="contact-card">
-    <h4 class="mb-4 fw-bold">Gửi tin nhắn</h4>
-
-    <form>
-      <div class="row">
-     
-        <div class="col-md-6 mb-3">
-          <label class="form-label">Họ và tên</label>
-          <input type="text" class="form-control" placeholder="Nhập họ và tên">
-        </div>
-
-   
-        <div class="col-md-6 mb-3">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-control" placeholder="example@email.com">
-        </div>
-      </div>
-
-      <div class="row">
-     
-        <div class="col-md-6 mb-3">
-          <label class="form-label">Số điện thoại</label>
-          <input type="tel" class="form-control" placeholder="0xxx xxx xxx">
-        </div>
-
-   
-        <div class="col-md-6 mb-3">
-          <label class="form-label">Chủ đề liên hệ</label>
-          <select class="form-select">
-            <option selected disabled>-- Chọn chủ đề --</option>
-            <option>Đặt hàng áo dài</option>
-            <option>Tư vấn đổi size</option>
-            <option>Hỗ trợ kỹ thuật website</option>
-            <option>Tư vấn sản phẩm</option>
-            <option>Góp ý & phản hồi</option>
-            <option>Khác</option>
-          </select>
-        </div>
-      </div>
-
- 
-      <div class="mb-4">
-        <label class="form-label">Nội dung</label>
-        <textarea class="form-control" rows="5" placeholder="Nhập nội dung bạn muốn gửi đến Yên Hoa..."></textarea>
-      </div>
-
-    
-      <button type="submit" class="btn-send">
-        Gửi liên hệ <i class="fas fa-paper-plane ms-2"></i>
-      </button>
-    </form>
-  </div>
-</div>
-
-  </div>
-</div>
-
-<!-- FOOTER (GIỐNG POLICY) -->
-<section class="footer" style="width: 100%;">
-    <div class="footer-container">
-      <div class="footer-top">
-        <div class="footer-logo-section">
-          <div class="footer-logo">
-            <img src="../assets/img/logo.png" alt="Logo" style="height: 60px; width: 60px" />
-            <h1>YÊN HOA</h1>
-          </div>
-          <p class="footer-description">
-            Yên Hoa tự hào đã bán ra hơn 16.000 sản phẩm, khẳng định chất lượng và uy tín trên thị trường.<br>
-            Khách hàng của Yên Hoa đã vượt mốc 10.000 người, minh chứng cho sự yêu mến và ủng hộ từ cộng đồng!
-          </p>
-          <div class="footer-members">
-            <img src="../assets/img/anhnguoi.jpg" alt="">
-            <img src="../assets/img/anhnguoi2.jpg" alt="">
-            <img src="../assets/img/anhnguoi3.jpg" alt="">
-            <span><strong>10.000</strong> Khách hàng đã tin tưởng </span>
-          </div>
-        </div>
- 
-        <div class="footer-columns">
-          <div class="footer-column">
-            <h6>VỀ CHÚNG TÔI</h6>
-            <ul>
-              <li><a href="../pages/policy.html">Điều Khoản</a></li>
-              <li><a href="pages/contact.html">Liên hệ</a></li>
-              <li><a href="pages/about.html">Giới thiệu</a></li>
-             
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h6>LIÊN HỆ</h6>
-            <ul>
-              <li><i class="fas fa-map-marker-alt me-2"></i>12 Chùa Bộc, Đống Đa, Hà Nội</li>
-              <li><i class="fas fa-phone-alt  me-2"></i>0123 456 789</li>
-              <li><i class="fas fa-phone-alt  me-2"></i>0987 654 321</li>
-              <li><i class="fas fa-envelope  me-2"></i>aodaiyenhoa@gmail.com</li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h6>SẢN PHẨM</h6>
-            <ul>
-              <li><a href="pages/phong_canh.html"> Áo Dài Tết</a></li>
-              <li><a href="pages/tranh_son_dau.html">Áo Dài Mẹ</a></li>
-              <li><a href="pages/tranh_chu_de.html">Áo Dài Truyền Thống</a></li>
-              <li><a href="pages/tranh_den_led.html">Bộ Sưu Tập Cưới</a></li>
             </ul>
             
-          </div>
+            <!-- Icons bên phải -->
+            <div class="header-icons">
+                <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+                <a href="pages/login.html">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <div class="cart-icon" onclick="location.href='cart.html'">
+                     <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartIconCount">0</span>
+                </div>
+
+            </div>
         </div>
-      </div>
- 
-      <div class="footer-bottom">
-        <p>© <a href="./index.html">Yên Hoa</a> 2025, All rights reserved.</p>
-        <ul>
-          <li>Giao hàng nhanh chóng</li>
-          <li>Phản hồi kịp thời</li>
-          <li>Uy tín-chất lượng</li>
-        </ul>
-      </div>
+    </header>
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h1 class="fw-bold text-gradient custom-font mb-4" data-aos="fade-down">Liên Hệ Với Yên Hoa</h1>
+                    <p class="lead" data-aos="fade-up" style="margin-top:-10px;">Yên Hoa luôn lắng nghe và đồng hành cùng vẻ đẹp của bạn</p>
+                </div>
+            </div>
+
+            <div class="row" style="margin: -20px;">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body" style="padding: 0;">
+                            <h3 class=" custom-font mb-4">Thông Tin</h3>
+                            <div class="mb-4">
+                                <h5><i class="fas fa-map-marker-alt me-2 contact-icon"></i>Địa Chỉ</h5>
+                                <p>25 Nguyễn Khuyến, Văn Miếu, Đống Đa, Hà Nội</p>
+                            </div>
+                            <div class="mb-4">
+                                <h5><i class="fas fa-phone me-2 contact-icon"></i>Điện Thoại</h5>
+                                <p>0393 568 763</p>
+                            </div>
+                            <div class="mb-4">
+                                <h5><i class="fas fa-envelope me-2 contact-icon"></i>Email</h5>
+                                <p>aodaiyenhoa@gmail.com</p>
+                            </div>
+                            <div>
+                                <h5><i class="fas fa-clock me-2 contact-icon"></i>Giờ Làm Việc</h5>
+                                <p>Thứ 2 - Thứ 6: 8:00 - 21:00<br>
+                                   Thứ 7 - Chủ Nhật: 9:00 - 20:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 mb-4">
+                    <div class="card">
+                        <div class="card-body" style="padding: 0;">
+                            <h3 class=" custom-font mb-4">Gửi Tin Nhắn</h3>
+                            <form id="contactForm" class="needs-validation" novalidate>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label">Họ và Tên</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                        <div class="invalid-feedback">
+                                            Vui lòng nhập họ tên
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                        <div class="invalid-feedback">
+                                            Vui lòng nhập email hợp lệ
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Số Điện Thoại</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                    <div class="invalid-feedback">
+                                        Vui lòng nhập số điện thoại
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Chủ Đề</label>
+                                    <select class="form-select" id="subject" required>
+                                        <option value="">Chọn chủ đề</option>
+                                        <option value="order">Đặt hàng</option>
+                                        <option value="support">Hỗ trợ kỹ thuật</option>
+                                        <option value="warranty">Bảo hành</option>
+                                        <option value="other">Khác</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Vui lòng chọn chủ đề
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Nội Dung</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                    <div class="invalid-feedback">
+                                        Vui lòng nhập nội dung tin nhắn
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-submit px-4">
+                                    Gửi Tin Nhắn
+                                    <i class="fas fa-paper-plane ms-2"></i>
+                                </button>
+                            </form>
+                            <!-- Success Message -->
+                            <div class="alert alert-success d-none" id="successMessage" role="alert">
+                                <i class="fas fa-check-circle me-2"></i>
+                                Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<footer-component></footer-component>
+        
     </div>
-  </section>
 
-<section class="footer">
-  <div class="footer-container">
-    <div class="footer-bottom">
-      <p>© Yên Hoa 2025. All rights reserved.</p>
-    </div>
-  </div>
-</section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/menu_chung.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/js/menu_chung.js"></script>
+    
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
 
+        // Điền form
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (contactForm.checkValidity()) {
+                // Hiển thị nếu thành công
+                successMessage.classList.remove('d-none');
+                contactForm.reset();
+                contactForm.classList.remove('was-validated');
+                
+                // Tự tắt thông báo thành công sau 5 giây
+                setTimeout(() => {
+                    successMessage.classList.add('d-none');
+                }, 5000);
+            } else {
+                contactForm.classList.add('was-validated');
+            }
+        });
+
+        // Đặt điều kiện cho số điện thoại điền vào form
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', (event) => {
+            const phoneNumber = event.target.value.replace(/\D/g, '');
+            event.target.value = phoneNumber;
+            
+            if (phoneNumber.length < 10 || phoneNumber.length > 11) {
+                phoneInput.setCustomValidity('Số điện thoại phải từ 10-11 số');
+            } else {
+                phoneInput.setCustomValidity('');
+            }
+        });
+
+        // Thêm icon vào form
+        document.querySelectorAll('.form-label').forEach(label => {
+            const field = label.getAttribute('for');
+            switch(field) {
+                case 'name':
+                    label.innerHTML = '<i class="fas fa-user me-2"></i>' + label.innerHTML;
+                    break;
+                case 'email':
+                    label.innerHTML = '<i class="fas fa-envelope me-2"></i>' + label.innerHTML;
+                    break;
+                case 'phone':
+                    label.innerHTML = '<i class="fas fa-phone me-2"></i>' + label.innerHTML;
+                    break;
+                case 'subject':
+                    label.innerHTML = '<i class="fas fa-tag me-2"></i>' + label.innerHTML;
+                    break;
+                case 'message':
+                    label.innerHTML = '<i class="fas fa-comment me-2"></i>' + label.innerHTML;
+                    break;
+            }
+        });
+    </script>
 </body>
 </html>
