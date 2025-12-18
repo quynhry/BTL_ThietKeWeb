@@ -237,6 +237,48 @@
       </div>
     </section>
   </main>
+  <!-- POPUP GIỎ HÀNG -->
+<div id="cartPopup" class="cart-popup">
+  <div class="cart-box">
+      
+      <!-- HEADER THÔNG BÁO -->
+      <div class="cart-header">
+          <div class="left">
+              <i class="fa-solid fa-circle-check"></i>
+              <span id="cartPopupMessage">Bạn đã thêm sản phẩm vào giỏ hàng</span>
+          </div>
+          <span class="cart-close">&times;</span>
+      </div>
+
+      <div class="cart-title">
+          Giỏ hàng của bạn hiện có <span id="cartCount">0</span> sản phẩm
+      </div>
+
+      <!-- LIST SẢN PHẨM – BỌC TABLE TRONG WRAPPER -->
+      <div class="cart-table-wrapper">
+          <table class="cart-table">
+              <thead>
+                  <tr>
+                      <th>Thông tin sản phẩm</th>
+                      <th>Đơn giá</th>
+                      <th>Số lượng</th>
+                      <th>Thành tiền</th>
+                  </tr>
+              </thead>
+              <tbody id="cartList"></tbody>
+          </table>
+      </div>
+
+      <!-- TỔNG TIỀN -->
+      <div class="cart-footer">
+          <div class="total-text">
+              Tổng tiền: <span id="cartTotalPrice">0₫</span>
+          </div>
+          <button class="checkout-btn">Thanh toán</button>
+      </div>
+
+  </div>
+</div>
 
  <!-- FOOTER -->
 <footer-component></footer-component>
@@ -670,7 +712,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     <!-- Thêm các tab khác tương tự nếu cần -->
   </div>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const checkoutBtn = document.querySelector(".checkout-btn");
 
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener("click", () => {
+            const currentUser = getCurrentUser(); // từ auth.js
+
+            if (currentUser && currentUser.email) {
+                // Đã đăng nhập → chuyển sang trang thanh toán
+                window.location.href = "checkout.html";
+            } else {
+                // Chưa đăng nhập → thông báo và chuyển sang login
+                alert("Bạn cần đăng nhập để thanh toán!");
+                // Lưu lại trang muốn quay lại sau khi login
+                localStorage.setItem("redirectAfterLogin", "cart.html");
+                window.location.href = "login.html";
+            }
+        });
+    }
+});
+
+</script>
+<script src="../assets/js/popupcart.js"></script>
   <script src="../assets/js/product-detail.js"></script>
   <script src="../assets/js/menu_chung.js"></script>
 </body>

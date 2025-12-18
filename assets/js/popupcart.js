@@ -1,158 +1,161 @@
-// =========================
-// GIỎ HÀNG LOCALSTORAGE
-// =========================
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+document.addEventListener('DOMContentLoaded', () => {
 
-// Các phần tử
-const cartPopup = document.getElementById("cartPopup");
-const cartList = document.getElementById("cartList");
-const cartClose = document.querySelector(".cart-close");
-const cartTotalPrice = document.getElementById("cartTotalPrice");
-const cartCount = document.getElementById("cartCount");
+  const addCartBtn = document.querySelector('.btn-add-cart');
+  const buyNowBtn = document.querySelector('.btn-buy-now');
+  const cartPopup = document.getElementById('cartPopup');
+  const cartClose = cartPopup.querySelector('.cart-close');
+  const cartList = document.getElementById('cartList');
+  const cartCountSpan = document.getElementById('cartCount');
+  const cartTotalPrice = document.getElementById('cartTotalPrice');
+  const cartIconCount = document.getElementById('cartIconCount');
 
-// =========================
-// MỞ POPUP KHI NHẤN ICON BAG
-// =========================
-document.querySelectorAll(".bag-btn").forEach(btn => {
-    btn.addEventListener("click", function () {
-        const card = this.closest(".product-card");
+  const quantityInput = document.getElementById('quantity');
 
-        const name = card.querySelector(".product-name").innerText;
-        const priceText = card.querySelector(".price").innerText;
-        const price = parseInt(priceText.replace(/[^0-9]/g, ""));
-        const image = card.querySelector(".main-img").src;
+  /* ================== SIZE ================== */
+  function getSelectedSize() {
+    const selected = document.querySelector('.size-btn.active');
+    return selected ? selected.textContent : null;
+  }
 
-        // Thêm vào giỏ
-        addToCart({
-            name,
-            price,
-            image,
-            qty: 1
-        });
-
-        openPopup();
-    });
-});
-
-// =========================
-// THÊM VÀO GIỎ
-// =========================
-function addToCart(product) {
-
-    const found = cart.find(p => p.name === product.name);
-
-    if (found) {
-        found.qty += 1;
-    } else {
-        cart.push(product);
+  /* ================== ADD TO CART ================== */
+  function addToCart(showPopup = true) {
+    const selectedSize = getSelectedSize();
+    if (!selectedSize) {
+      alert('Vui lòng chọn kích cỡ!');
+      return;
     }
 
-    saveCart();
-    renderCart();
-    updateCartIcon();
-}
+    const quantity = parseInt(quantityInput.value) || 1;
 
-// =========================
-// LƯU CART
-// =========================
-function saveCart() {
-    localStorage.setItem("cart", JSON.stringify(cart));
-}
+    const cartItem = {
+      id: 1,
+      name: "Tuyết Vũ Anh Đào",
+      price: 2990000,
+      image: "https://pos.nvncdn.com/22713a-176435/ps/20250905_kOB5RJ5r2E.jpeg",
+      size: selectedSize,
+      quantity
+    };
 
-// =========================
-// RENDER GIỎ HÀNG
-// =========================
-function renderCart() {
-    cartList.innerHTML = "";
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const exist = cart.find(i => i.id === cartItem.id && i.size === cartItem.size);
+
+    if (exist) {
+      exist.quantity += quantity;
+    } else {
+      cart.push(cartItem);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    updateCartCount();
+    if (showPopup) {
+      renderCartPopup();
+      cartPopup.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  /* ================== ICON COUNT ================== */
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const total = cart.reduce((sum, i) => sum + i.quantity, 0);
+    if (cartIconCount) cartIconCount.textContent = total;
+  }
+
+  /* ================== RENDER POPUP ================== */
+  function renderCartPopup() {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    cartList.innerHTML = '';
 
     let total = 0;
 
-    cart.forEach((item, index) => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
+    cart.forEach(item => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
 
-        cartList.innerHTML += `
-            <tr>
-                <td>
-                    <div class="cart-item-box">
-                        <img src="${item.image}">
-                        <div class="cart-item-info">
-                            <div class="cart-item-name">${item.name}</div>
-                            <div class="cart-item-remove" onclick="removeItem(${index})">Xóa</div>
-                        </div>
-                    </div>
-                </td>
+      cartList.innerHTML += `
+        <tr data-id="${item.id}" data-size="${item.size}">
+          <td>
+            <div style="display:flex;gap:10px;align-items:center">
+              <img src="${item.image}" width="60">
+              <div>
+                <div><strong>${item.name}</strong></div>
+                <div>Size: ${item.size}</div>
+                <div class="remove-item" style="color:red;cursor:pointer">Xóa</div>
+              </div>
+            </div>
+          </td>
 
-                <td class="cart-price">${item.price.toLocaleString("vi-VN")}₫</td>
+          <td>${item.price.toLocaleString()}₫</td>
 
-                <td>
-                    <div class="quantity-box">
-                        <button onclick="changeQty(${index}, -1)">-</button>
-                        <input type="text" value="${item.qty}" readonly>
-                        <button onclick="changeQty(${index}, 1)">+</button>
-                    </div>
-                </td>
+          <td>
+            <button class="qty-minus">−</button>
+            <span style="margin:0 8px">${item.quantity}</span>
+            <button class="qty-plus">+</button>
+          </td>
 
-                <td class="cart-total-price">${itemTotal.toLocaleString("vi-VN")}₫</td>
-            </tr>
-        `;
+          <td>${itemTotal.toLocaleString()}₫</td>
+        </tr>
+      `;
     });
 
-    cartTotalPrice.innerHTML = total.toLocaleString("vi-VN") + "₫";
-    cartCount.innerText = cart.length;
+    cartCountSpan.textContent = cart.length;
+    cartTotalPrice.textContent = total.toLocaleString() + '₫';
+  }
 
-    updateCartIcon();
-}
+  /* ================== + / − / XÓA ================== */
+  document.addEventListener('click', e => {
+    const row = e.target.closest('tr');
+    if (!row) return;
 
-// =========================
-// THAY ĐỔI SỐ LƯỢNG
-// =========================
-function changeQty(index, amount) {
-    cart[index].qty += amount;
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const id = Number(row.dataset.id);
+    const size = row.dataset.size;
+    const item = cart.find(i => i.id === id && i.size === size);
+    if (!item) return;
 
-    if (cart[index].qty < 1) cart[index].qty = 1;
-
-    saveCart();
-    renderCart();
-    updateCartIcon();
-}
-
-// =========================
-// XÓA SẢN PHẨM
-// =========================
-function removeItem(index) {
-    cart.splice(index, 1);
-    saveCart();
-    renderCart();
-    updateCartIcon();
-}
-
-// =========================
-// MỞ POPUP
-// =========================
-function openPopup() {
-    cartPopup.classList.add("show");
-}
-
-// =========================
-// ĐÓNG POPUP (nhấn X)
-// =========================
-cartClose.addEventListener("click", () => {
-    cartPopup.classList.remove("show");
-});
-
-// =========================
-// CẬP NHẬT ICON GIỎ HÀNG GÓC TRÊN
-// =========================
-function updateCartIcon() {
-    let count = cart.reduce((t, i) => t + i.qty, 0);
-    let icon = document.getElementById("cartIconCount");
-
-    if (icon) {
-        icon.textContent = count;
+    if (e.target.classList.contains('qty-plus')) item.quantity++;
+    if (e.target.classList.contains('qty-minus') && item.quantity > 1) item.quantity--;
+    if (e.target.classList.contains('remove-item')) {
+      cart = cart.filter(i => !(i.id === id && i.size === size));
     }
-}
 
-// KHỞI ĐỘNG
-renderCart();
-updateCartIcon();
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCartPopup();
+    updateCartCount();
+  });
+
+  /* ================== EVENTS ================== */
+  addCartBtn?.addEventListener('click', () => addToCart());
+  buyNowBtn?.addEventListener('click', () => {
+    addToCart(false);
+    window.location.href = 'cart.html';
+  });
+
+  cartClose.addEventListener('click', () => {
+    cartPopup.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  updateCartCount();
+});
+document.querySelector('.checkout-btn').addEventListener('click', () => {
+
+  const currentUser = getCurrentUser(); // từ auth.js
+
+  if (!currentUser) {
+    alert('Bạn cần đăng nhập để thanh toán');
+
+    // lưu trang hiện tại (để quay lại)
+    localStorage.setItem(
+      'redirectAfterLogin',
+      window.location.pathname
+    );
+
+    window.location.href = 'login.html';
+    return;
+  }
+
+  // Đã đăng nhập → vào trang giỏ hàng / thanh toán
+  window.location.href = 'cart.html';
+});
