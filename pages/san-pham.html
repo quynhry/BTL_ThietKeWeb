@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/popupcart.css">
 </head>
 <body>
 <header id="header" class="visible simple-header">
@@ -349,10 +350,49 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 
 
-  
-   
 </section>
+<!-- POPUP GIỎ HÀNG -->
+<div id="cartPopup" class="cart-popup">
+  <div class="cart-box">
+      
+      <!-- HEADER THÔNG BÁO -->
+      <div class="cart-header">
+          <div class="left">
+              <i class="fa-solid fa-circle-check"></i>
+              <span id="cartPopupMessage">Bạn đã thêm sản phẩm vào giỏ hàng</span>
+          </div>
+          <span class="cart-close">&times;</span>
+      </div>
 
+      <div class="cart-title">
+          Giỏ hàng của bạn hiện có <span id="cartCount">0</span> sản phẩm
+      </div>
+
+      <!-- LIST SẢN PHẨM – BỌC TABLE TRONG WRAPPER -->
+      <div class="cart-table-wrapper">
+          <table class="cart-table">
+              <thead>
+                  <tr>
+                      <th>Thông tin sản phẩm</th>
+                      <th>Đơn giá</th>
+                      <th>Số lượng</th>
+                      <th>Thành tiền</th>
+                  </tr>
+              </thead>
+              <tbody id="cartList"></tbody>
+          </table>
+      </div>
+
+      <!-- TỔNG TIỀN -->
+      <div class="cart-footer">
+          <div class="total-text">
+              Tổng tiền: <span id="cartTotalPrice">0₫</span>
+          </div>
+          <button class="checkout-btn">Thanh toán</button>
+      </div>
+
+  </div>
+</div>
 <div class="pagination" id="pagination"></div>
 
   <!-- FOOTER -->
@@ -630,6 +670,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 </script>
+<script src="../assets/js/popupcart.js"></script>
 <script src="../assets/js/auth.js"></script>
 
 
