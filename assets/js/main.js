@@ -200,6 +200,44 @@ class MyFooter extends HTMLElement {
         justify-content: center;
     }
 }
+/* Cho màn hình cực nhỏ ≤ 300px */
+@media (max-width: 300px) {
+    .footer {
+        text-align: center !important; /* Căn giữa toàn bộ chữ */
+    }
+
+    .footer h1,
+    .footer h6,
+    .footer p,
+    .footer span,
+    .footer li,
+    .footer a {
+        text-align: center !important; /* Căn giữa tất cả text */
+    }
+
+    .footer-columns {
+        flex-direction: column !important; /* Các cột xếp chồng */
+        align-items: center; /* Căn giữa các cột */
+        gap: 15px; /* Khoảng cách giữa các cột */
+    }
+
+    .footer-column ul {
+        padding-left: 0; /* Loại bỏ padding mặc định của ul */
+        list-style: none; /* Loại bỏ dấu chấm đầu dòng */
+    }
+
+    .footer-members {
+        justify-content: center !important; /* Căn giữa ảnh khách hàng */
+        flex-wrap: wrap; /* Nếu ảnh quá nhiều thì xuống hàng */
+    }
+
+    .footer-bottom {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px;
+    }
+}
+
 @media (min-width: 300px) {
   .footer .row {
     display: flex;            
