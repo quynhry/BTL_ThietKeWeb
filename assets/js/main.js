@@ -318,7 +318,7 @@ footer .btn.rounded-circle i {
                 <div class="footer-column">
                     <h6>LIÊN HỆ</h6>
                     <ul>
-                    <li><i class="fas fa-map-marker-alt me-2"></i>12 Chùa Bộc, Đống Đa, Hà Nội</li>
+                    <li><i class="fas fa-map-marker-alt me-2"></i>25 Nguyễn Khuyến, Đống Đa</li>
                     <li><i class="fas fa-phone-alt  me-2"></i>0123 456 789</li>
                     <li><i class="fas fa-phone-alt  me-2"></i>0987 654 321</li>
                     <li><i class="fas fa-envelope  me-2"></i>aodaiyenhoa@gmail.com</li>
