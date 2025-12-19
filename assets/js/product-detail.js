@@ -3,7 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const zoomImg = document.querySelector('#mainImg');
 
 
+
+
   if (!zoomBox || !zoomImg) return;
+
+
 
 
   zoomBox.addEventListener('mousemove', (e) => {
@@ -12,9 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const y = ((e.clientY - rect.top) / rect.height) * 100;
 
 
+
+
     zoomImg.style.transformOrigin = `${x}% ${y}%`;
     zoomImg.style.transform = 'scale(1.5)';
   });
+
+
 
 
     zoomBox.addEventListener('mouseleave', () => {
@@ -23,7 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
+
+
 });
+
+
+
+
 
 
 
@@ -34,9 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const quantityInput = document.getElementById("quantity");
 
 
+
+
   let quantity = parseInt(quantityInput.value) || 1;
   const MIN_QTY = 1;
   const MAX_QTY = 99; // bạn có thể đổi nếu muốn
+
+
 
 
   increaseBtn.addEventListener("click", () => {
@@ -45,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
       quantityInput.value = quantity;
     }
   });
+
+
 
 
   decreaseBtn.addEventListener("click", () => {
@@ -56,8 +76,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const sizeButtons = document.querySelectorAll(".size-btn");
+
+
 
 
   sizeButtons.forEach(btn => {
@@ -66,11 +90,19 @@ document.addEventListener("DOMContentLoaded", () => {
       sizeButtons.forEach(b => b.classList.remove("active"));
 
 
+
+
       // set active cho size vừa click
       btn.classList.add("active");
     });
   });
 });
+
+
+
+
+
+
 
 
 
@@ -85,7 +117,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabButtons = document.querySelectorAll('.tab-btn');
 
 
+
+
   if (!sizeGuideLink || !sizeGuideModal) return;
+
+
 
 
   // Open modal
@@ -96,6 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+
+
   // Close modal
   function closeSizeGuide() {
     sizeGuideModal.classList.remove('active');
@@ -103,8 +141,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
+
+
   closeModal.addEventListener('click', closeSizeGuide);
   modalOverlay.addEventListener('click', closeSizeGuide);
+
+
 
 
   // ESC key
@@ -115,14 +157,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+
+
   // Tabs
   tabButtons.forEach(button => {
     button.addEventListener('click', () => {
       const targetTab = button.dataset.tab;
 
 
+
+
       tabButtons.forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+
 
 
       button.classList.add('active');
@@ -134,6 +182,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentUser = getCurrentUser();
   renderHeaderUser();
 });
+
+
+
+
+
+
+
+
 
 
 
