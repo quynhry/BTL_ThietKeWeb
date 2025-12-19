@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diễm (Hồng Mận)</title>
+  <title>Diễm (Be)</title>
   <link rel="stylesheet" href="../assets/css/product-detail.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/popupcart.css">
@@ -91,6 +91,9 @@
       <!-- Left Thumbnails -->
       <div class="thumbnail-column desktop-only">
         <div class="thumbnail-item active" data-index="0">
+          <img src="https://pos.nvncdn.com/22713a-176435/ps/20240625_WASWpyQpYE.jpeg?v=1719393103" alt="Thumbnail 1">
+        </div>
+        <div class="thumbnail-item active" data-index="0">
           <img src="https://pos.nvncdn.com/22713a-176435/ps/20240625_hQXwX0TsiP.jpeg?v=1719303813" alt="Thumbnail 1">
         </div>
         <div class="thumbnail-item" data-index="1">
@@ -110,6 +113,9 @@
 
     <!-- Mobile thumbnails (dưới ảnh chính) -->
     <div class="thumbnail-column mobile-only">
+      <div class="thumbnail-item active" data-index="0">
+        <img src="https://pos.nvncdn.com/22713a-176435/ps/20240625_WASWpyQpYE.jpeg?v=1719393103">
+    </div>
     <div class="thumbnail-item active" data-index="0">
         <img src="https://pos.nvncdn.com/22713a-176435/ps/20240625_hQXwX0TsiP.jpeg?v=1719303813">
     </div>
@@ -134,7 +140,7 @@
           <span>Mã SP: Diembe</span>
         </div>
 
-        <h2 class="product-price">3.499.000</h2>
+        <h2 class="product-price">3.999.000</h2>
 
         <!-- Size Selection -->
         <div class="product-section">
@@ -163,8 +169,22 @@
 
         <!-- Action Buttons -->
         <div class="action-buttons">
-          <button class="btn-add-cart">Thêm vào giỏ hàng</button>
-          <button class="btn-buy-now">Mua ngay</button>
+          <button class="btn-add-cart"
+  data-id="diembe"
+  data-name="Diễm (Be)"
+  data-price="3990000"
+  data-image="https://pos.nvncdn.com/22713a-176435/ps/20240625_WASWpyQpYE.jpeg"
+>
+  Thêm vào giỏ hàng
+</button>
+<button
+  class="btn-buy-now"
+  data-id="diembe"
+  data-name="Diễm (Be)"
+  data-price="3990000"
+  data-image="https://pos.nvncdn.com/22713a-176435/ps/20251204_MEuVtgCrwI.jpeg"
+>
+          Mua ngay</button>
         </div>
 
         <!-- Product Description -->
@@ -172,8 +192,8 @@
           <h3>MÔ TẢ SẢN PHẨM:</h3>
           <div class="description-content">
             <p>Chất liệu: Lụa gấm tằm</p>
-            <p>Màu: Be</p>
-            <p>Set bao gồm: 1 Áo Dài và 1 Quần lụa</p>
+            <p>Màu: Vàng</p>
+            <p>Set bao gồm: 1 áo dài và 1 quần lụa ngọc trai</p>
             <p>Hướng dẫn bảo quản trang phục:</p>
             <p>+ Giặt hấp hoặc giặt tay thật nhẹ nhàng</p>
             <p>+ Nghiêm cấm sấy khô và tẩy trắng</p>
@@ -276,15 +296,13 @@
 
  <!-- FOOTER -->
 <footer-component></footer-component>
-
-  <script src="../assets/js/auth.js"></script>
   <script src ="../assets/js/main.js"></script>
   <script>// ===== PRODUCT DATA =====
 const currentProduct = {
   id: 1,
   name: "Diễm (Be)",
-  code: "Diembe",
-  price: 3490000,
+  code: "diembe",
+  price: 3990000,
   images: [
     "https://pos.nvncdn.com/22713a-176435/ps/20240625_WASWpyQpYE.jpeg?v=1719393103",
     "https://pos.nvncdn.com/22713a-176435/ps/20240625_hQXwX0TsiP.jpeg?v=1719303813",
@@ -445,7 +463,7 @@ document.querySelector('.btn-add-cart').addEventListener('click', addToCart);
 document.querySelector('.btn-buy-now').addEventListener('click', () => {
   addToCart();
   // Redirect to cart or checkout page
-  // window.location.href = 'checkout.html';
+  // window.location.href = 'cart.html';
   alert('Chuyển đến trang thanh toán...');
 });
 
@@ -730,5 +748,6 @@ document.addEventListener("DOMContentLoaded", () => {
 <script src="../assets/js/popupcart.js"></script>
   <script src="../assets/js/product-detail.js"></script>
   <script src="../assets/js/menu_chung.js"></script>
+  <script src="../assets/js/auth.js"></script>
 </body>
 </html>
