@@ -327,10 +327,10 @@ footer .btn.rounded-circle i {
                 <div class="footer-column">
                     <h6>SẢN PHẨM</h6>
                     <ul>
-                    <li><a href="${base}/pages/phong_canh.html"> Áo Dài Tết</a></li>
-                    <li><a href="${base}/pages/tranh_son_dau.html">Áo Dài Mẹ</a></li>
-                    <li><a href="${base}/pages/tranh_chu_de.html">Áo Dài Truyền Thống</a></li>
-                    <li><a href="${base}/pages/tranh_den_led.html">Bộ Sưu Tập Cưới</a></li>
+                    <li><a href="${base}/pages/san-pham.html"> Áo Dài Tết</a></li>
+                    <li><a href="${base}/pages/san-pham.html">Áo Dài Mẹ</a></li>
+                    <li><a href="${base}/pages/san-pham.html">Áo Dài Truyền Thống</a></li>
+                    <li><a href="${base}/pages/san-pham-bstc.html">Bộ Sưu Tập Cưới</a></li>
                     </ul>
                     
                 </div>
