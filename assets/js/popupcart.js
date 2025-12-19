@@ -146,23 +146,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateCartCount();
 });
-document.querySelector('.checkout-btn').addEventListener('click', () => {
-
-  const currentUser = getCurrentUser(); // từ auth.js
-
-  if (!currentUser) {
-    alert('Bạn cần đăng nhập để thanh toán');
-
-    // lưu trang hiện tại (để quay lại)
-    localStorage.setItem(
-      'redirectAfterLogin',
-      window.location.pathname
-    );
-
-    window.location.href = 'login.html';
-    return;
-  }
-
-  // Đã đăng nhập → vào trang giỏ hàng / thanh toán
-  window.location.href = 'cart.html';
-});

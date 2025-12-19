@@ -20,8 +20,9 @@
    HỘP POPUP
 ============================ */
 .cart-box {
-    width: 90%;
-    max-width: 1200px;
+    width: 80%;
+    max-width: 900px;
+    max-height: calc(100vh - 80px); /* ⭐ FIX NÚT THANH TOÁN */
     background: #fff;
     border-radius: 4px;
     overflow: hidden;
@@ -29,6 +30,7 @@
     animation: popupShow 0.25s ease;
     position: relative;
 }
+
 
 @keyframes popupShow {
     from { opacity: 0; transform: translateY(-20px); }
@@ -224,7 +226,12 @@
     justify-content: space-between;
     align-items: center;
     background: #fafafa;
+
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
 }
+
 
 .total-text {
     font-size: 18px;
