@@ -76,13 +76,7 @@
 
 /* ============================
    WRAPPER TABLE
-============================ */
-.cart-table-wrapper {
-    max-height: 420px;
-    overflow-y: auto;
-    display: block;
-    margin-bottom: 15px;
-}
+
 
 /* ============================
    TABLE GIỎ HÀNG – FIX LỆCH CHUẨN
