@@ -328,4 +328,109 @@ input{
     color: #a7a7a7; 
     z-index: 10; 
 }
- 
+/* ================== RESPONSIVE ================== */
+
+/* Tablet (≤ 900px) */
+@media (max-width: 900px) {
+    .container {
+        width: 95%;
+        min-height: 480px;
+    }
+
+    h1.title {
+        font-size: 36px;
+        line-height: 44px;
+    }
+
+    form {
+        padding: 0 30px;
+    }
+
+    button {
+        padding: 12px 60px;
+    }
+}
+
+/* Mobile (≤ 600px) */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 10px;
+        background-attachment: scroll;
+    }
+
+    .container {
+        width: 100%;
+        min-height: auto;
+        border-radius: 20px;
+    }
+
+    /* CHUYỂN LOGIN / REGISTER SANG DẠNG DỌC */
+    .login-container,
+    .register-container {
+        width: 100%;
+        position: relative;
+        transform: none !important;
+        opacity: 1 !important;
+        z-index: 1 !important;
+    }
+
+    .form-container {
+        position: relative;
+        height: auto;
+    }
+
+    /* ẨN OVERLAY (mobile không cần animation này) */
+    .overlay-container {
+        display: none;
+    }
+
+    h1.title {
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 13px;
+        margin: 15px 0 20px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+    }
+
+    button.ghost {
+        display: none;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    .social-container a {
+        height: 40px;
+        width: 40px;
+        font-size: 16px;
+        margin: 0 6px;
+    }
+}
+
+/* Mobile nhỏ (≤ 400px) */
+@media (max-width: 400px) {
+    h1.title {
+        font-size: 24px;
+    }
+
+    .container {
+        border-radius: 16px;
+    }
+
+    form {
+        padding: 0 20px;
+    }
+}

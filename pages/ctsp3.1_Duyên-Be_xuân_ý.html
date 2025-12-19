@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diễm (Hồng Mận)</title>
+  <title>Duyên - Be xuân ý</title>
   <link rel="stylesheet" href="../assets/css/product-detail.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/popupcart.css">
@@ -91,6 +91,9 @@
       <!-- Left Thumbnails -->
       <div class="thumbnail-column desktop-only">
         <div class="thumbnail-item active" data-index="0">
+          <img src="https://pos.nvncdn.com/22713a-176435/ps/20251204_EbBKFMhELx.jpeg?v=1764815763" alt="Thumbnail 1">
+        </div>
+        <div class="thumbnail-item active" data-index="0">
           <img src="https://pos.nvncdn.com/22713a-176435/ps/20251204_ssrmMbaW7D.jpeg?v=1764815766" alt="Thumbnail 1">
         </div>
         <div class="thumbnail-item" data-index="1">
@@ -110,6 +113,9 @@
 
     <!-- Mobile thumbnails (dưới ảnh chính) -->
     <div class="thumbnail-column mobile-only">
+      <div class="thumbnail-item active" data-index="0">
+        <img src="https://pos.nvncdn.com/22713a-176435/ps/20251204_EbBKFMhELx.jpeg?v=1764815763">
+    </div>
     <div class="thumbnail-item active" data-index="0">
         <img src="https://pos.nvncdn.com/22713a-176435/ps/20251204_ssrmMbaW7D.jpeg?v=1764815766">
     </div>
@@ -148,8 +154,6 @@
             <button class="size-btn">S</button>
             <button class="size-btn">M</button>
             <button class="size-btn">L</button>
-            <button class="size-btn">XL</button>
-            <button class="size-btn">XXL</button>
           </div>
         </div>
 
@@ -164,16 +168,15 @@
         </div>
 
         <!-- Action Buttons -->
-        <button
-          class="btn-add-cart"
-          data-id="duyen-be-xuan-y"
+        <div class="action-buttons">
+          <button class="btn-add-cart"
+  data-id="duyen-be-xuan-y"
   data-name="Duyên - Be xuân ý"
   data-price="2990000"
   data-image="https://pos.nvncdn.com/22713a-176435/ps/20251204_EbBKFMhELx.jpeg"
 >
   Thêm vào giỏ hàng
 </button>
-
 <button
   class="btn-buy-now"
   data-id="duyen-be-xuan-y"
@@ -181,16 +184,15 @@
   data-price="2990000"
   data-image="https://pos.nvncdn.com/22713a-176435/ps/20251204_EbBKFMhELx.jpeg"
 >
-  Mua ngay
-</button>
-
+          Mua ngay</button>
+        </div>
 
         <!-- Product Description -->
         <div class="product-description">
           <h3>MÔ TẢ SẢN PHẨM:</h3>
           <div class="description-content">
             <p>Chất liệu: Lụa gấm tằm</p>
-            <p>Màu: Trắng</p>
+            <p>Màu: Vàng</p>
             <p>Set bao gồm: 1 áo dài và 1 quần lụa ngọc trai</p>
             <p>Hướng dẫn bảo quản trang phục:</p>
             <p>+ Giặt hấp hoặc giặt tay thật nhẹ nhàng</p>
@@ -294,15 +296,12 @@
 
  <!-- FOOTER -->
 <footer-component></footer-component>
-
-  <script src="../assets/js/auth.js"></script>
   <script src ="../assets/js/main.js"></script>
   <script>// ===== PRODUCT DATA =====
 const currentProduct = {
   id: 1,
   name: "Duyên - Be xuân ý",
-  code: "Duyenbexuany",
-  price: 2990000,
+  code: "duyenbexuany"
   images: [
     "https://pos.nvncdn.com/22713a-176435/ps/20251204_EbBKFMhELx.jpeg?v=1764815763",
     "https://pos.nvncdn.com/22713a-176435/ps/20251204_ssrmMbaW7D.jpeg?v=1764815766",
@@ -748,5 +747,6 @@ document.addEventListener("DOMContentLoaded", () => {
 <script src="../assets/js/popupcart.js"></script>
   <script src="../assets/js/product-detail.js"></script>
   <script src="../assets/js/menu_chung.js"></script>
+  <script src="../assets/js/auth.js"></script>
 </body>
 </html>

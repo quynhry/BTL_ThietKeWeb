@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diễm (Hồng Mận)</title>
+  <title>Diễm (Hồng mận)</title>
   <link rel="stylesheet" href="../assets/css/product-detail.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/popupcart.css">
@@ -91,6 +91,9 @@
       <!-- Left Thumbnails -->
       <div class="thumbnail-column desktop-only">
         <div class="thumbnail-item active" data-index="0">
+          <img src="https://pos.nvncdn.com/22713a-176435/ps/20240625_PVsz3DiQXc.jpeg?v=1719303901" alt="Thumbnail 1">
+        </div>
+        <div class="thumbnail-item active" data-index="0">
           <img src="https://pos.nvncdn.com/22713a-176435/ps/20240625_gQW7c3kcEc.jpeg?v=1719303898" alt="Thumbnail 1">
         </div>
         <div class="thumbnail-item" data-index="1">
@@ -110,6 +113,9 @@
 
     <!-- Mobile thumbnails (dưới ảnh chính) -->
     <div class="thumbnail-column mobile-only">
+      <div class="thumbnail-item active" data-index="0">
+        <img src="https://pos.nvncdn.com/22713a-176435/ps/20240625_PVsz3DiQXc.jpeg?v=1719303901">
+    </div>
     <div class="thumbnail-item active" data-index="0">
         <img src="https://pos.nvncdn.com/22713a-176435/ps/20240625_gQW7c3kcEc.jpeg?v=1719303898">
     </div>
@@ -124,17 +130,17 @@
 
       <!-- Right - Product Info -->
       <div class="product-info-column">
-        <h1 class="product-title">Diễm (Hồng mận)</h1>
+        <h1 class="product-title">Diễm (Hồng baby)</h1>
         
         <div class="product-meta">
           <span>Thương hiệu</span>
           <span>|</span>
           <span>Còn hàng</span>
           <span>|</span>
-          <span>Mã SP: Diemhongman</span>
+          <span>Mã SP: Diemhongbaby</span>
         </div>
 
-        <h2 class="product-price">2.999.000</h2>
+        <h2 class="product-price">3.999.000</h2>
 
         <!-- Size Selection -->
         <div class="product-section">
@@ -164,8 +170,22 @@
 
         <!-- Action Buttons -->
         <div class="action-buttons">
-          <button class="btn-add-cart">Thêm vào giỏ hàng</button>
-          <button class="btn-buy-now">Mua ngay</button>
+          <button class="btn-add-cart"
+  data-id="diemhongman"
+  data-name="Diễm (Hồng mận)"
+  data-price="3990000"
+  data-image="https://pos.nvncdn.com/22713a-176435/ps/20240625_PVsz3DiQXc.jpeg"
+>
+  Thêm vào giỏ hàng
+</button>
+<button
+  class="btn-buy-now"
+  data-id="diemhongman"
+  data-name="Diễm (Hồng mận)"
+  data-price="3990000"
+  data-image="https://pos.nvncdn.com/22713a-176435/ps/20240625_PVsz3DiQXc.jpeg"
+>
+          Mua ngay</button>
         </div>
 
         <!-- Product Description -->
@@ -173,8 +193,8 @@
           <h3>MÔ TẢ SẢN PHẨM:</h3>
           <div class="description-content">
             <p>Chất liệu: Lụa gấm tằm</p>
-            <p>Màu: Hồng mận</p>
-            <p>Set bao gồm: 1 Áo Dài và 1 Quần lụa</p>
+            <p>Màu: Hồng</p>
+            <p>Set bao gồm: 1 áo dài và 1 quần lụa ngọc trai</p>
             <p>Hướng dẫn bảo quản trang phục:</p>
             <p>+ Giặt hấp hoặc giặt tay thật nhẹ nhàng</p>
             <p>+ Nghiêm cấm sấy khô và tẩy trắng</p>
@@ -277,15 +297,13 @@
 
  <!-- FOOTER -->
 <footer-component></footer-component>
-
-  <script src="../assets/js/auth.js"></script>
   <script src ="../assets/js/main.js"></script>
   <script>// ===== PRODUCT DATA =====
 const currentProduct = {
   id: 1,
   name: "Diễm (Hồng mận)",
-  code: "Diemhongman",
-  price: 2990000,
+  code: "diemhongman",
+  price: 3990000,
   images: [
     "https://pos.nvncdn.com/22713a-176435/ps/20240625_PVsz3DiQXc.jpeg?v=1719303901",
     "https://pos.nvncdn.com/22713a-176435/ps/20240625_gQW7c3kcEc.jpeg?v=1719303898",
@@ -731,5 +749,6 @@ document.addEventListener("DOMContentLoaded", () => {
 <script src="../assets/js/popupcart.js"></script>
   <script src="../assets/js/product-detail.js"></script>
   <script src="../assets/js/menu_chung.js"></script>
+  <script src="../assets/js/auth.js"></script>
 </body>
 </html>
