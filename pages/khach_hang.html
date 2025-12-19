@@ -678,5 +678,20 @@
     <script src="../assets/js/testimonial.js"></script>
     <script src="../assets/js/menu_chung.js"></script>
     <script src="../assets/js/cart-core.js"></script>
+  
+ <script>
+  function updateCartIcon() {
+    const el = document.getElementById('cartIconCount');
+    if (!el || !window.Cart) return;
+    el.textContent = Cart.count();
+  }
+
+  // Khi load trang
+  document.addEventListener('DOMContentLoaded', updateCartIcon);
+
+  // Khi cart thay đổi (từ bất kỳ trang nào)
+  window.addEventListener('cart:change', updateCartIcon);
+</script>
+
 </body>
 </html>

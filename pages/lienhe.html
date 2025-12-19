@@ -20,7 +20,6 @@
         body {
             font-family: 'Quicksand', sans-serif;
       background: #fff8ef;
-      color: #a12928;
         }
         .container {
 
@@ -145,19 +144,16 @@
                 <li class="menu-item"><a href="khach_hang.html">Khách hàng</a></li>
             </ul>
 
-        <!-- Icons -->
+           <!-- Icons -->
         <div class="header-icons">
             <i class="fa-solid fa-magnifying-glass"></i>
 
             <div class="user-menu" id="headerUser"></div>
 
-            <div class="cart-icon" onclick="location.href='cart.html'">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span id="cartIconCount">0</span>
-            </div>
-        </div>
-
-    </div>
+            <div class="cart-icon" onclick="location.href='/pages/cart.html'">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cartIconCount">0</span>
+</div>
 </header>
         <div class="container py-5">
             <div class="row mb-5">
@@ -330,5 +326,21 @@
             }
         });
     </script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/cart-core.js"></script>
+ <script>
+  function updateCartIcon() {
+    const el = document.getElementById('cartIconCount');
+    if (!el || !window.Cart) return;
+    el.textContent = Cart.count();
+  }
+
+  // Khi load trang
+  document.addEventListener('DOMContentLoaded', updateCartIcon);
+
+  // Khi cart thay đổi (từ bất kỳ trang nào)
+  window.addEventListener('cart:change', updateCartIcon);
+</script>
+
 </body>
 </html>
