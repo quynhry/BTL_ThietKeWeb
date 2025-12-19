@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diễm (Hồng Mận)</title>
+  <title>Duyên - Vàng hoa cúc</title>
   <link rel="stylesheet" href="../assets/css/product-detail.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/popupcart.css">
@@ -91,6 +91,9 @@
       <!-- Left Thumbnails -->
       <div class="thumbnail-column desktop-only">
         <div class="thumbnail-item active" data-index="0">
+          <img src="https://pos.nvncdn.com/22713a-176435/ps/20251204_5GeFtEftK3.jpeg?v=1764815989" alt="Thumbnail 1">
+        </div>
+        <div class="thumbnail-item active" data-index="0">
           <img src="https://pos.nvncdn.com/22713a-176435/ps/20251204_qBirY5yybK.jpeg?v=1764815992" alt="Thumbnail 1">
         </div>
         <div class="thumbnail-item" data-index="1">
@@ -110,6 +113,9 @@
 
     <!-- Mobile thumbnails (dưới ảnh chính) -->
     <div class="thumbnail-column mobile-only">
+      <div class="thumbnail-item active" data-index="0">
+        <img src="https://pos.nvncdn.com/22713a-176435/ps/20251204_5GeFtEftK3.jpeg?v=1764815989">
+    </div>
     <div class="thumbnail-item active" data-index="0">
         <img src="https://pos.nvncdn.com/22713a-176435/ps/20251204_qBirY5yybK.jpeg?v=1764815992">
     </div>
@@ -134,7 +140,7 @@
           <span>Mã SP: DuyenVanghoacuc</span>
         </div>
 
-        <h2 class="product-price">3.499.000</h2>
+        <h2 class="product-price">2.499.000</h2>
 
         <!-- Size Selection -->
         <div class="product-section">
@@ -148,7 +154,6 @@
             <button class="size-btn">S</button>
             <button class="size-btn">M</button>
             <button class="size-btn">L</button>
-            <button class="size-btn">XL</button>
           </div>
         </div>
 
@@ -164,8 +169,22 @@
 
         <!-- Action Buttons -->
         <div class="action-buttons">
-          <button class="btn-add-cart">Thêm vào giỏ hàng</button>
-          <button class="btn-buy-now">Mua ngay</button>
+          <button class="btn-add-cart"
+  data-id="duyen-vang-hoa-cuc"
+  data-name="Duyên - Vàng hoa cúc"
+  data-price="2490000"
+  data-image="https://pos.nvncdn.com/22713a-176435/ps/20251204_5GeFtEftK3.jpeg"
+>
+  Thêm vào giỏ hàng
+</button>
+<button
+  class="btn-buy-now"
+  data-id="duyen-vang-hoa-cuc"
+  data-name="Duyên - Vàng hoa cúc"
+  data-price="2990000"
+  data-image="https://pos.nvncdn.com/22713a-176435/ps/20251204_5GeFtEftK3.jpeg"
+>
+          Mua ngay</button>
         </div>
 
         <!-- Product Description -->
@@ -277,15 +296,12 @@
 
  <!-- FOOTER -->
 <footer-component></footer-component>
-
-  <script src="../assets/js/auth.js"></script>
   <script src ="../assets/js/main.js"></script>
   <script>// ===== PRODUCT DATA =====
 const currentProduct = {
   id: 1,
   name: "Duyên - Vàng hoa cúc",
-  code: "DuyenVanghoacuc",
-  price: 3490000,
+  code: "duyenvanghoacuc"
   images: [
     "https://pos.nvncdn.com/22713a-176435/ps/20251204_5GeFtEftK3.jpeg?v=1764815989",
     "https://pos.nvncdn.com/22713a-176435/ps/20251204_qBirY5yybK.jpeg?v=1764815992",
@@ -731,5 +747,6 @@ document.addEventListener("DOMContentLoaded", () => {
 <script src="../assets/js/popupcart.js"></script>
   <script src="../assets/js/product-detail.js"></script>
   <script src="../assets/js/menu_chung.js"></script>
+  <script src="../assets/js/auth.js"></script>
 </body>
 </html>
