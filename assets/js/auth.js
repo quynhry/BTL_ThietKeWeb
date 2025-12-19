@@ -7,6 +7,17 @@ function getCurrentUser() {
 
 
 // ===============================
+//  XÁC ĐỊNH PATH ĐÚNG
+// ===============================
+function getBasePath() {
+    // nếu URL có /pages/ → đang ở trong pages
+    return window.location.pathname.includes("/pages/")
+        ? "../"
+        : "";
+}
+
+
+// ===============================
 //  RENDER HEADER (login → logout)
 // ===============================
 function renderHeaderUser() {
@@ -14,6 +25,7 @@ function renderHeaderUser() {
     if (!headerUser) return;
 
     const user = getCurrentUser();
+    const basePath = getBasePath();
 
     if (user) {
         headerUser.innerHTML = `
@@ -25,12 +37,12 @@ function renderHeaderUser() {
 
         document.getElementById("logoutBtn").onclick = () => {
             localStorage.removeItem("currentUser");
-            location.reload();
+            window.location.href = basePath + "index.html";
         };
 
     } else {
         headerUser.innerHTML = `
-            <a href="pages/login.html">
+            <a href="${basePath}pages/login.html">
                 <i class="fa-regular fa-user"></i>
             </a>
         `;
@@ -41,6 +53,4 @@ function renderHeaderUser() {
 // ===============================
 //  CHẠY KHI LOAD TRANG
 // ===============================
-document.addEventListener("DOMContentLoaded", () => {
-    renderHeaderUser();
-});
+document.addEventListener("DOMContentLoaded", renderHeaderUser);
