@@ -1,38 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
   const zoomBox = document.querySelector('.main-image-zoom');
   const zoomImg = document.querySelector('#mainImg');
-
-
-
-
   if (!zoomBox || !zoomImg) return;
-
-
-
-
   zoomBox.addEventListener('mousemove', (e) => {
     const rect = zoomBox.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-
-
-
     zoomImg.style.transformOrigin = `${x}% ${y}%`;
     zoomImg.style.transform = 'scale(1.5)';
   });
-
-
-
-
     zoomBox.addEventListener('mouseleave', () => {
     zoomImg.style.transformOrigin = '50% 50%';
     zoomImg.style.transform = 'scale(1)';
     });
-
-
-
-
 });
 
 
