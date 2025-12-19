@@ -6,10 +6,10 @@
     <title>Giới thiệu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/style.css"> 
+    <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         /*banner đầu*/
         .about-hero {
@@ -32,17 +32,19 @@
         .container{
             padding: 45px 0 30px;
         }
-        
+       
         /* ===== LAYOUT LEFT ===== */
 .layout-left .media-wrapper {
     width: 65%;
     float: left;
 }
 
+
 .layout-left .content-card {
     left: auto;
     right: 20px;
 }
+
 
 /* ===== LAYOUT RIGHT ===== */
 .layout-right .media-wrapper {
@@ -51,10 +53,12 @@
     z-index: 1;
 }
 
+
 .layout-right .content-card {
     left: 20px;
     right: auto;
 }
+
 
 /* ===== IMAGE ===== */
 .media-wrapper {
@@ -74,6 +78,7 @@
             position: relative;
         }
 
+
         .responsive-video {
             width: 100%;
             height: auto;
@@ -87,23 +92,28 @@
     right: 0;
     transform: translateY(-50%);
 
+
     width: 50%;
     max-width: 500px;
     z-index: 10;
 
+
     padding: 60px 30px;
     box-sizing: border-box;
+
 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #ddd;
     background-color: #f7f7f7;
 }
 
+
 /* ===== TEXT ===== */
 .content-card p {
     text-align: justify;
     padding: 0 10px;
 }
+
 
 .content-card h2 {
     font-size: 1.2em;
@@ -115,6 +125,7 @@
     padding: 0 10px;
 }
 
+
 /* ===== LIGHT THEME (GIỐNG light-background) ===== */
 .light-background {
     background-color: var(--soft-bg);
@@ -122,16 +133,18 @@
     color: var(--text);
 }
 
+
 .light-background h2{
     color: var(--red);
     font-family: var(--playfair);
-    
+   
 }
 .light-background p {
     color: var(--text);
     font-family: var(--quicksand);
-    
+   
 }
+
 
 /* ===== SECTION CHA  ===== */
 .production-section {
@@ -142,6 +155,9 @@
     overflow: hidden;
     height: auto;
 }
+
+
+
 
 
 
@@ -165,14 +181,14 @@
         .chart-card:hover {
             transform: translateY(-5px);
         }
-        
+       
         .chart-container {
             position: relative;
             margin: auto;
             height: 300px;
             width: 100%;
         }
-        
+       
         @media (max-width: 768px) {
             .chart-card {
                 margin-bottom: 20px;
@@ -181,6 +197,7 @@
                 height: 250px;
             }
         }
+
 
         @media (max-width: 576px) {
             .chart-container {
@@ -233,6 +250,7 @@
   padding: 60px 0;
 }
 
+
 /* TRỤC GIỮA */
 .timeline::before {
   content: '';
@@ -245,11 +263,13 @@
   margin-left: -1px;
 }
 
+
 /* ITEM */
 .timeline-item {
   margin-bottom: 50px;
   position: relative;
 }
+
 
 /* CARD */
 .timeline-content {
@@ -264,21 +284,24 @@
 }
 .timeline-content h4{
     color: var(--red);
-    
+   
 }
 .timeline-content:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 42px rgba(122, 28, 28, 0.22);
 }
 
+
 /* CANH TRÁI – PHẢI */
 .timeline-item:nth-child(odd) .timeline-content {
   float: left;
 }
 
+
 .timeline-item:nth-child(even) .timeline-content {
   float: right;
 }
+
 
 /* CHẤM MỐC */
 .timeline-dot {
@@ -356,17 +379,21 @@
 </head>
 <body>
 
+
 <header id="header" class="visible simple-header">
         <div class="header-container">
             <button class="menu-toggle" id="menuToggle" aria-label="Mở menu"><i class="fa fa-bars"></i></button>
+
 
         <!-- Logo -->
         <div class="header-logo">
             <a href="../index.html">YÊN HOA</a>
         </div>
 
+
        <ul class="header-menu">
                 <li class="menu-item"><a href="gioi_thieu.html">Giới thiệu</a></li>
+
 
                 <li class="menu-item">
                     <a href="san-pham.html">Sản phẩm</a>
@@ -397,6 +424,7 @@
                     </ul>
                 </li>
 
+
                 <li class="menu-item">
                     <a href="san-pham-bstc.html">Bộ Sưu Tập Cưới</a>
                     <ul class="sub-menu">
@@ -407,25 +435,32 @@
                     </ul>
                 </li>
 
+
                 <li class="menu-item"><a href="cuahang.html">Cửa hàng</a></li>
                 <li class="menu-item"><a href="khach_hang.html">Khách hàng</a></li>
             </ul>
+
 
         <!-- Icons -->
         <div class="header-icons">
             <i class="fa-solid fa-magnifying-glass"></i>
 
+
             <div class="user-menu" id="headerUser"></div>
+
 
             <div class="cart-icon" onclick="location.href='/pages/cart.html'">
     <i class="fa-solid fa-cart-shopping"></i>
     <span id="cartIconCount">0</span>
 </div>
 
+
         </div>
+
 
     </div>
 </header>
+
 
     <div class="about-hero">
             <div class="container1">
@@ -437,6 +472,7 @@
         <h2>YÊN HOA</h2>
         <div class="quote"><em>"Thanh khiết - Tinh tế - Trọn vẹn bản sắc Việt"</em></div>
 </div>
+
 
 <div class="container">
             <div class="row mb-5">
@@ -460,6 +496,7 @@
         <h2 data-aos="fade-up" style="color: #a12928; margin-top: -20px;">Đội Ngũ Lãnh Đạo</h2>
     </div>
 
+
     <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
         <div class="team-member">
             <img src="../assets/img/anhnguoi2.jpg" alt="CEO">
@@ -472,6 +509,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
         <div class="team-member">
@@ -486,6 +524,7 @@
         </div>
     </div>
 
+
     <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
         <div class="team-member">
             <img src="../assets/img/linh.jpg" alt="Sales Director">
@@ -498,6 +537,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
         <div class="team-member">
@@ -513,7 +553,9 @@
     </div>
 </div>
 
+
 </div>
+
 
 <div class="col-12 text-center mb-4">
     <h2 data-aos="fade-up" style="font-family: var(--playfair);font-size: 34px;font-weight: 700;color: var(--red); margin-top: -80px;">Khởi Nguồn</h2>
@@ -524,6 +566,7 @@
         <img src="../assets/img/hanhtrinh.jpg" alt="">
     </div>
 
+
     <div class="content-card light-background">
         <h2>“Ký Ức”</h2>
         <p>Yên Hoa bắt đầu từ một <strong><em>tình yêu với áo dài</em></strong> — ký ức mẹ, mùi lụa và những đường chỉ tỉ mỉ. Mỗi chiếc áo là một <strong><em>lời hẹn giữ hồn Việt</em></strong>, may bằng tay, gửi gắm dịu dàng và niềm tự hào đến người mặc.</p>
@@ -533,6 +576,7 @@
     <div class="media-wrapper">
         <img src="../assets/img/may.jpg" alt="">
     </div>
+
 
     <div class="content-card light-background">
         <h2>“Giá Trị”</h2>
@@ -586,6 +630,7 @@
             </div>
 </div>
 
+
 <div class="col-12 text-center mb-4">
     <h2 data-aos="fade-up" style="font-family: var(--playfair);font-size: 34px;font-weight: 700;color: var(--red);">Giá Trị Cốt Lõi</h2>
     <div class="quote"><em>"Vẻ đẹp Việt - tinh tế trong từng đường kim"</em></div>
@@ -595,16 +640,19 @@
         <img src="../assets/img/sumenh.jpg" alt="">
     </div>
 
+
     <div class="content-card light-background">
         <h2>“Sứ mệnh - Tầm nhìn”</h2>
         <p><strong>Yên Hoa ra đời với sứ mệnh gìn giữ và truyền cảm hứng về vẻ đẹp Á Đông.</strong> Chúng tôi tin rằng mỗi chiếc áo dài đều kể một câu chuyện — câu chuyện về cá tính, kỷ niệm và những giá trị văn hoá được truyền nối. <em>Tầm nhìn của Yên Hoa là trở thành điểm đến tin cậy cho những ai tìm kiếm trang phục vừa có tính thẩm mỹ cao, vừa mang đậm bản sắc dân tộc.</em></p>
     </div>
 </section>
 
+
 <section class="production-section layout-right">
     <div class="media-wrapper">
         <img src="../assets/img/lantoa.jpg" alt="">
     </div>
+
 
     <div class="content-card light-background">
         <h2>“Chuyển giao - Lan tỏa”</h2>
@@ -612,16 +660,20 @@
     </div>
 </section>
 
+
 <section class="production-section layout-left">
     <div class="media-wrapper">
         <img src="../assets/img/vuontam.jpg" alt="">
     </div>
+
 
     <div class="content-card light-background">
         <h2>“Vươn tầm di sản”</h2>
         <p><strong><em>Từ nghề truyền thống đến sàn diễn hiện đại</em></strong>, Yên Hoa không ngừng phát triển kỹ thuật và tư duy thiết kế để áo dài vừa giữ gốc rễ văn hóa, vừa phù hợp xu hướng toàn cầu. Chúng tôi đưa <strong><em>tinh hoa thủ công Việt</em></strong> vào chất liệu, hoa văn và phom dáng, giúp mỗi thiết kế đồng thời là một <strong><em>tuyên ngôn thẩm mỹ</em></strong>. <strong><em>Kết quả</em></strong> là những bộ sưu tập vừa <strong><em>giữ được linh hồn Á Đông</em></strong>, vừa <strong><em>chạm đến thị hiếu hiện đại</em></strong>, góp phần đưa <strong><em>vẻ đẹp Việt</em></strong> ra mắt công chúng toàn cầu.</p>
     </div>
 </section>
+
+
 
 
     <div class="container">
@@ -657,6 +709,7 @@
                         <p>Đánh giá từ khách hàng</p>
                     </div>
                 </div>
+
 
                 <!-- Phần biểu đồ thống kê -->
                 <div class="row mt-5 mx-0">
@@ -719,6 +772,7 @@
         </section>
     <footer-component></footer-component>
 
+
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -768,13 +822,14 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../assets/js/menu_chung.js"></script> 
-    
+    <script src="../assets/js/menu_chung.js"></script>
+   
     <script src="assets/js/scroll_reveal.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Khởi tạo GSAP ScrollTrigger
             gsap.registerPlugin(ScrollTrigger);
+
 
             // Xóa hiệu ứng AOS để tránh xung đột
             const elementsWithAOS = document.querySelectorAll('[data-aos]');
@@ -783,6 +838,7 @@
                 element.removeAttribute('data-aos-delay');
             });
 
+
             // Hiệu ứng đếm số liệu thống kê
             const numbers = {
                 products: 0,
@@ -790,6 +846,7 @@
                 dealers: 0,
                 rating: 0
             };
+
 
             gsap.to(numbers, {
                 scrollTrigger: {
@@ -810,6 +867,7 @@
                 },
                 ease: "power1.out"
             });
+
 
             // Biểu đồ phân bố khách hàng theo vùng miền
             new Chart(document.getElementById('customerDistribution'), {
@@ -838,11 +896,12 @@
                         }
                     }
                 }
-                
+               
             });
 
+
             // Biểu đồ doanh số bán hàng theo tháng
-            
+           
             new Chart(document.getElementById('monthlySales'), {
                 type: 'bar',
                 data: {
@@ -878,6 +937,7 @@
                     }
                 }
             });
+
 
             // Biểu đồ phân bố sản phẩm theo danh mục
             new Chart(document.getElementById('categoryDistribution'), {
@@ -919,8 +979,10 @@
     el.textContent = Cart.count();
   }
 
+
   // Khi load trang
   document.addEventListener('DOMContentLoaded', updateCartIcon);
+
 
   // Khi cart thay đổi (từ bất kỳ trang nào)
   window.addEventListener('cart:change', updateCartIcon);
@@ -928,4 +990,10 @@
 <script src="../assets/js/auth.js"></script>
 </body>
 </html>
+
+
+
+
+
+
 
