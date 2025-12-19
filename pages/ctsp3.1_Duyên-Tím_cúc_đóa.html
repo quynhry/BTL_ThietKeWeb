@@ -14,63 +14,63 @@
 <body>
 
   <!-- Header -->
-<header id="header">
+<header id="header" class="visible simple-header">
         <div class="header-container">
             <button class="menu-toggle" id="menuToggle" aria-label="Mở menu"><i class="fa fa-bars"></i></button>
 
-            <!-- Logo bên trái -->
-            <div class="header-logo"><a href="../index.html">YÊN HOA</a></div>
-            
-            <!-- Menu ở giữa -->
-            <ul class="header-menu">
+        <!-- Logo -->
+        <div class="header-logo">
+            <a href="../index.html">YÊN HOA</a>
+        </div>
+
+       <ul class="header-menu">
                 <li class="menu-item"><a href="gioi_thieu.html">Giới thiệu</a></li>
 
                 <li class="menu-item">
-                    <a href="san_pham.html">Sản phẩm</a>
+                    <a href="san-pham.html">Sản phẩm</a>
                     <ul class="sub-menu">
                         <li class="menu-home">
-                            <a href="ao_dai_tet.html">Áo Dài Tết</a>
+                            <a href="san-pham.html">Áo Dài Tết</a>
                             <ul class="sub-menu sub-menu2">
-                                <li><a href="xuan_y_bich_hoa.html">Xuân Ý Bích Họa</a></li>
-                                <li><a href="hoa_cam.html">Họa Cầm</a></li>
+                                <li><a href="sp1.1_Xuân Ý Bích Họa.html">Xuân Ý Bích Họa</a></li>
+                                <li><a href="sp1.2_Họa Cầm.html">Họa Cầm</a></li>
                             </ul>
                         </li>
                         <li class="menu-home">
-                            <a href="ao_dai_me.html">Áo Dài Mẹ</a>
+                            <a href="san-pham.html">Áo Dài Mẹ</a>
                             <ul class="sub-menu sub-menu2">
-                                <li><a href="phuong_vu.html">Phượng Vũ</a></li>
-                                <li><a href="tu_van.html">Từ Vân</a></li>
+                                <li><a href="sp2.1_Phượng Vũ.html">Phượng Vũ</a></li>
+                                <li><a href="sp2.2_Từ Vân.html">Từ Vân</a></li>
                             </ul>
                         </li>
                         <li class="menu-home">
-                            <a href="ao_dai_truyen_thong.html">Áo Dài Truyền Thống</a>
+                            <a href="san-pham.html">Áo Dài Truyền Thống</a>
                             <ul class="sub-menu sub-menu2">
-                                <li><a href="duyen.html">Duyên</a></li>
-                                <li><a href="diem.html">Diễm</a></li>
-                                <li><a href="ha_thu.html">Hạ Thu</a></li>
-                                <li><a href="truc_giao.html">Trúc Giao</a></li>
+                                <li><a href="sp3.1_Duyên.html">Duyên</a></li>
+                                <li><a href="sp3.2_Diễm.html">Diễm</a></li>
+                                <li><a href="sp3.3_Hạ Thu.html">Hạ Thu</a></li>
+                                <li><a href="sp3.4_Trúc Giao.html">Trúc Giao</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
 
                 <li class="menu-item">
-                    <a href="bo_suu_tap_cuoi.html">Bộ Sưu Tập Cưới</a>
+                    <a href="san-pham-bstc.html">Bộ Sưu Tập Cưới</a>
                     <ul class="sub-menu">
-                        <li><a href="duyen_uoc.html">Duyên Ước</a></li>
-                        <li><a href="giao_duyen.html">Giao Duyên</a></li>
-                        <li><a href="nhan_duyen.html">Nhân Duyên</a></li>
-                        <li><a href="tam_duyen.html">Tầm Duyên</a></li>
+                        <li><a href="bstc_duyen-uoc.html">Duyên Ước</a></li>
+                        <li><a href="bstc_giao-duyen.html">Giao Duyên</a></li>
+                        <li><a href="bstc_nhan-duyen.html">Nhân Duyên</a></li>
+                        <li><a href="bstc_tam-duyen.html">Tầm Duyên</a></li>
                     </ul>
                 </li>
 
                 <li class="menu-item"><a href="cuahang.html">Cửa hàng</a></li>
                 <li class="menu-item"><a href="khach_hang.html">Khách hàng</a></li>
-
             </ul>
-            
-            <!-- Icons bên phải -->
-            <div class="header-icons">
+
+        <!-- Icons -->
+        <div class="header-icons">
             <i class="fa-solid fa-magnifying-glass"></i>
 
             <div class="user-menu" id="headerUser"></div>
@@ -82,7 +82,7 @@
         </div>
 
     </div>
-    </header>
+</header>
 
   <!-- Main Content -->
   <main class="product-detail-container">
@@ -164,9 +164,24 @@
 
         <!-- Action Buttons -->
         <div class="action-buttons">
-          <button class="btn-add-cart">Thêm vào giỏ hàng</button>
-          <button class="btn-buy-now">Mua ngay</button>
+          <button class="btn-add-cart"
+  data-id="duyen-tim-cuc-doa"
+  data-name="Duyên - Tím cúc đóa"
+  data-price="1990000"
+  data-image="https://pos.nvncdn.com/22713a-176435/ps/20251206_6luV1W6G9v.jpeg?v=1764989494"
+>
+  Thêm vào giỏ hàng
+</button>
+<button
+  class="btn-buy-now"
+  data-id="duyen-tim-cuc-doa"
+  data-name="Duyên - Tím cúc đóa"
+  data-price="1990000"
+  data-image="https://pos.nvncdn.com/22713a-176435/ps/20251206_6luV1W6G9v.jpeg?v=1764989494"
+>
+          Mua ngay</button>
         </div>
+
 
         <!-- Product Description -->
         <div class="product-description">
@@ -276,10 +291,7 @@
 </div>
 
  <!-- FOOTER -->
-<footer-component></footer-component>
 
-  <script src="../assets/js/auth.js"></script>
-  <script src ="../assets/js/main.js"></script>
   <script>// ===== PRODUCT DATA =====
 const currentProduct = {
   id: 1,
@@ -731,5 +743,8 @@ document.addEventListener("DOMContentLoaded", () => {
 <script src="../assets/js/popupcart.js"></script>
   <script src="../assets/js/product-detail.js"></script>
   <script src="../assets/js/menu_chung.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <footer-component></footer-component>
+  <script src ="../assets/js/main.js"></script>
 </body>
 </html>
