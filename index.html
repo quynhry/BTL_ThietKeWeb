@@ -10,89 +10,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo.png">
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-#my-snow-overlay-container {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    pointer-events: none;
-    transition: opacity 10s linear;
-    overflow: hidden;
-}
-
-/* ===== HOA TUYẾT ❄ ===== */
-.my-snowflake {
-    position: absolute;
-    top: -10vh;
-    font-size: 14px;
-    color: white;
-    opacity: 0.9;
-
-    text-shadow:
-        10vw 20vh #ffffff,
-        25vw 45vh #FFB7C5,
-        40vw 10vh #F4A6A6,
-        55vw 60vh #E75480,
-        70vw 30vh #C21E56,
-        85vw 80vh #FFB7C5,
-        15vw 85vh #F4A6A6,
-        35vw 25vh #FDEEF4,
-        65vw 55vh #E75480,
-        95vw 15vh #C21E56;
-
-    animation: my-snow-fall 12s linear infinite;
-}
-.my-snowflake::after {
-    top: -120vh;
-    opacity: 0.6;
-    font-size: 12px;
-    animation-duration: 16s;
-
-    text-shadow:
-        8vw 15vh #ffffff,
-        18vw 45vh #FFB7C5,
-        28vw 65vh #F4A6A6,
-        38vw 30vh #FDEEF4,
-        48vw 75vh #E75480,
-        58vw 50vh #C21E56,
-        68vw 85vh #FFB7C5,
-        78vw 35vh #F4A6A6,
-        88vw 70vh #FDEEF4,
-        98vw 20vh #E75480;
-}
-
-.my-snowflake::before {
-    content: "🌸";
-}
-
-/* ===== TUYẾT TRÒN ● ===== */
-.my-snow-dot {
-    position: absolute;
-    top: -10vh;
-    width: 4px;
-    height: 4px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.8;
-
-    box-shadow: 10vw 20vh 2px #FDEEF4, 25vw 45vh 1px #FFB7C5, 40vw 10vh 3px #F4A6A6, 55vw 60vh 2px #E75480, 70vw 30vh 1px #C21E56, 85vw 80vh 4px #FFB7C5, 15vw 85vh 2px #F4A6A6, 35vw 25vh 1px #FDEEF4, 65vw 55vh 3px #E75480, 95vw 15vh 2px #C21E56, 50vw 90vh 2px #FFB7C5, 5vw 40vh 1px #F4A6A6;
-
-    animation: my-snow-fall 9s linear infinite;
-}
-
-/* ===== ANIMATION ===== */
-@keyframes my-snow-fall {
-    from { transform: translateY(0); }
-    to   { transform: translateY(110vh); }
-}
-
-/* ===== FADE OUT ===== */
-.snow-fade-out-active {
-    opacity: 0 !important;
-}
-</style>
-
-   
+    <link rel="stylesheet" href="assets/css/tuyet_roi.css">
 </head>
 <body>
 
@@ -205,31 +123,6 @@
     <div class="my-snow-dot"></div>
 </div>
 
-<script>
-    // Sử dụng hàm tự chạy để tránh xung đột tên biến với code có sẵn của web
-    (function() {
-        // Chờ trang web tải xong hoàn toàn mới chạy hiệu ứng
-        window.addEventListener('load', function() {
-            const snowContainer = document.getElementById('my-snow-overlay-container');
-            if (!snowContainer) return;
-
-            // Mốc 1: Sau 20 giây (20000ms) thì bắt đầu mờ dần
-            setTimeout(() => {
-                snowContainer.classList.add('snow-fade-out-active');
-                // console.log("Bắt đầu mờ dần...");
-            }, 20000); 
-
-            // Mốc 2: Đúng 30 giây (30000ms) thì xóa hoàn toàn khỏi trang web
-            // (20s hiện rõ + 10s mờ dần = 30s)
-            setTimeout(() => {
-                if (snowContainer) {
-                    snowContainer.remove();
-                    // console.log("Đã dọn sạch hiệu ứng!");
-                }
-            }, 30000); 
-        });
-    })();
-</script>
 
             <div id="heroCta" class="cta">
                 <a href="pages/san-pham.html" class="btn">Khám phá</a>
@@ -491,6 +384,7 @@ những rung động hoài niệm cùng bản thể tự do bất quy tắc giao
     <script src="assets/js/comming.js"></script>
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/cart-core.js"></script>
+    <script src="assets/js/tuyet_roi.js"></script>
     <script>
   function updateCartIcon() {
     const el = document.getElementById('cartIconCount');
