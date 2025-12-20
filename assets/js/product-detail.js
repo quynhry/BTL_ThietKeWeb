@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
   decreaseBtn.addEventListener("click", () => {
     if (quantity > MIN_QTY) {
       quantity--;
@@ -54,39 +53,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const sizeButtons = document.querySelectorAll(".size-btn");
-
-
-
-
   sizeButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       // bỏ active của tất cả size
       sizeButtons.forEach(b => b.classList.remove("active"));
-
-
-
-
       // set active cho size vừa click
       btn.classList.add("active");
     });
   });
 });
-
-
-
-
-
-
-
-
-
-
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -95,34 +72,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalOverlay = document.getElementById('modalOverlay');
   const closeModal = document.getElementById('closeModal');
   const tabButtons = document.querySelectorAll('.tab-btn');
-
-
-
-
   if (!sizeGuideLink || !sizeGuideModal) return;
-
-
-
-
   // Open modal
   sizeGuideLink.addEventListener('click', (e) => {
     e.preventDefault();
     sizeGuideModal.classList.add('active');
     document.body.style.overflow = 'hidden';
   });
-
-
-
-
   // Close modal
   function closeSizeGuide() {
     sizeGuideModal.classList.remove('active');
     document.body.style.overflow = '';
   }
-
-
-
-
   closeModal.addEventListener('click', closeSizeGuide);
   modalOverlay.addEventListener('click', closeSizeGuide);
 
