@@ -1331,3 +1331,32 @@ footer .btn.rounded-circle {
 footer .btn.rounded-circle i {
   color: #8b5e3c !important;
 }
+/* ===== USER HEADER ===== */
+#headerUser {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#headerUser .user-name {
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+/* ===== TABLET (iPad) ===== */
+@media (max-width: 1024px) {
+    #headerUser .user-name {
+        font-size: 13px;
+        max-width: 110px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    #headerUser .user-name {
+        font-size: 12px;
+        max-width: 80px;
+    }
+}
