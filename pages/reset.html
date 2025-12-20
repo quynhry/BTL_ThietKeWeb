@@ -5,8 +5,7 @@
   <title>Đặt lại mật khẩu - Yên Hoa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
-
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
 
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
@@ -47,9 +46,14 @@
       line-height: 1.5;
     }
 
+    /* ===== INPUT ===== */
+    .password-wrap {
+      position: relative;
+    }
+
     input {
       width: 100%;
-      padding: 12px;
+      padding: 12px 42px 12px 12px; /* chừa chỗ cho icon */
       margin: 10px 0 20px;
       border-radius: 10px;
       border: 1px solid #ccc;
@@ -61,6 +65,21 @@
     input:focus {
       border-color: #bc7d73;
       box-shadow: 0 0 5px rgba(188,125,115,0.4);
+    }
+
+    .toggle-eye {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #999;
+      font-size: 18px;
+      user-select: none;
+    }
+
+    .toggle-eye:hover {
+      color: #a12928;
     }
 
     button {
@@ -78,6 +97,10 @@
 
     button:hover { letter-spacing: 2px; }
     button:active { transform: scale(0.95); }
+    *, *::before, *::after {
+    box-sizing: border-box;
+    }
+
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -95,16 +118,33 @@
 
 <div class="reset-container">
   <h2>Đặt lại mật khẩu</h2>
-  <p>Vui lòng nhập mật khẩu mới cho tài khoản của bạn.</p>
+  <p>Hãy nhập mật khẩu mới cho tài khoản của bạn.</p>
 
   <form id="resetForm">
-    <input type="password" id="password" placeholder="Mật khẩu mới" required>
-    <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" required>
+
+    <div class="password-wrap">
+      <input type="password" id="password" placeholder="Mật khẩu mới" required>
+      <i class="lni lni-eye toggle-eye" data-target="password"></i>
+    </div>
+
+    <div class="password-wrap">
+      <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" required>
+      <i class="lni lni-eye toggle-eye" data-target="confirmPassword"></i>
+    </div>
+
     <button type="submit">Cập nhật mật khẩu</button>
   </form>
 </div>
 
 <script>
+  /* ===== TOGGLE PASSWORD (KHÔNG ĐỔI ICON) ===== */
+  document.querySelectorAll(".toggle-eye").forEach(icon => {
+    icon.addEventListener("click", () => {
+      const input = document.getElementById(icon.dataset.target);
+      input.type = input.type === "password" ? "text" : "password";
+    });
+  });
+
   /* ====== VALIDATE PASSWORD ====== */
   function validatePassword(password) {
     if (!password) 
