@@ -79,28 +79,15 @@
                         <li><a href="bstc_tam-duyen.html">Tầm Duyên</a></li>
                     </ul>
                 </li>
-
-
-
-
                 <li class="menu-item"><a href="cuahang.html">Cửa hàng</a></li>
                 <li class="menu-item"><a href="khach_hang.html">Khách hàng</a></li>
             </ul>
-
-
-
 
         <!-- Icons -->
         <div class="header-icons">
             <i class="fa-solid fa-magnifying-glass"></i>
 
-
-
-
             <div class="user-menu" id="headerUser"></div>
-
-
-
 
             <div class="cart-icon" onclick="location.href='cart.html'">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -108,15 +95,25 @@
             </div>
         </div>
 
-
-
-
     </div>
 </header>
+<!-- SEARCH POPUP -->
+<div id="searchOverlay" class="search-overlay">
+  <div class="search-box">
+    <button class="close-btn" id="closeSearch">×</button>
 
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Tìm kiếm sản phẩm..."
+      autocomplete="off"
+    />
 
-
-
+    <ul id="searchResult" class="search-result"></ul>
+  </div>
+</div>
+<script src="../assets/js/data_sp.js"></script>
+<script src="../assets/js/tim_kiem.js"></script>
   <!-- Main Content -->
   <main class="product-detail-container">
     <div class="product-layout">

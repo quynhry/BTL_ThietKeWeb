@@ -82,7 +82,23 @@
 
     </div>
 </header>
+<!-- SEARCH POPUP -->
+<div id="searchOverlay" class="search-overlay">
+  <div class="search-box">
+    <button class="close-btn" id="closeSearch">×</button>
 
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Tìm kiếm sản phẩm..."
+      autocomplete="off"
+    />
+
+    <ul id="searchResult" class="search-result"></ul>
+  </div>
+</div>
+<script src="../assets/js/data_sp.js"></script>
+<script src="../assets/js/tim_kiem.js"></script>
 <!-- ===== COLLECTION INTRO (IMAGE + TEXT) ===== -->
 <section class="collection-intro">
   <div class="collection-intro-container">

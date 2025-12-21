@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/tuyet_roi.css">
+    <link rel="stylesheet" href="assets/css/tim_kiem.css">
 </head>
 <body>
 
@@ -97,9 +98,6 @@
 </div>
         </div>
     </header>
-
-
-
 
     <section class="hero" id="hero" style="background-image: url('assets/img/anhnen.jpg');">
         <div class="overlay"></div>
@@ -375,6 +373,24 @@ Mỗi bộ hoạ tiết trong BST là một câu chuyện được phóng tác t
 những rung động hoài niệm cùng bản thể tự do bất quy tắc giao thoa"
             </p>
         </div>
+
+<!-- SEARCH POPUP -->
+<div id="searchOverlay" class="search-overlay">
+  <div class="search-box">
+    <button class="close-btn" id="closeSearch">×</button>
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Tìm kiếm sản phẩm..."
+      autocomplete="off"
+    />
+
+    <ul id="searchResult" class="search-result"></ul>
+  </div>
+</div>
+
+
     <footer-component></footer-component>
 
 
@@ -385,6 +401,8 @@ những rung động hoài niệm cùng bản thể tự do bất quy tắc giao
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/cart-core.js"></script>
     <script src="assets/js/tuyet_roi.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/tim_kiem.js"></script>
     <script>
   function updateCartIcon() {
     const el = document.getElementById('cartIconCount');
